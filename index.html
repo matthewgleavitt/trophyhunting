@@ -1060,7 +1060,7 @@ function applyCheckedToDOM() {
 // ========================
 // INIT
 // ========================
-async function init() {
+async async function init() {
   try {
     await loadData();
   } catch (err) {
@@ -1397,8 +1397,6 @@ function closeGuide(e) {
     document.getElementById('guideOverlay').classList.remove('open');
   }
 }
-
-render();
 
 </script>
 </body>
