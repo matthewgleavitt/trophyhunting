@@ -1003,36 +1003,48 @@ function pctTheme(p) {
 }
 
 // ========================
-// GENRE FILTERS
+// GENRE FILTERS (built after data load)
 // ========================
-const allGenres = [...new Set(incompleteEntries.flatMap(([,g]) => g.genres||[]))].sort();
-const gf = document.getElementById('genreFilters');
+let activeGenre = 'all';
 
-function makeGenrePill(label, onclick, active) {
-  const b = document.createElement('button');
-  b.className = 'pill' + (active ? ' active' : '');
-  b.textContent = label;
-  b.onclick = onclick;
-  return b;
+function buildGenreFilters() {
+  const gf = document.getElementById('genreFilters');
+  if (!gf) return;
+  gf.innerHTML = '';
+
+  const allGenres = [...new Set(incompleteEntries.flatMap(([,g]) => g.genres||[]))].sort();
+
+  function makeGenrePill(label, onclick, active) {
+    const b = document.createElement('button');
+    b.className = 'pill' + (active ? ' active' : '');
+    b.textContent = label;
+    b.onclick = onclick;
+    return b;
+  }
+
+  const allPill = makeGenrePill('All', () => {
+    activeGenre = 'all';
+    document.querySelectorAll('#genreFilters .pill').forEach(b => b.classList.remove('active'));
+    allPill.classList.add('active');
+    render();
+    applyCheckedToDOM();
+  }, true);
+  gf.appendChild(allPill);
+
+  allGenres.forEach(genre => {
+    const pill = makeGenrePill(genre, () => {
+      activeGenre = genre;
+      document.querySelectorAll('#genreFilters .pill').forEach(b => b.classList.remove('active'));
+      pill.classList.add('active');
+      render();
+      applyCheckedToDOM();
+    }, false);
+    gf.appendChild(pill);
+  });
 }
 
-const allPill = makeGenrePill('All', () => {
-  activeGenre = 'all';
-  document.querySelectorAll('#genreFilters .pill').forEach(b => b.classList.remove('active'));
-  allPill.classList.add('active');
-  async function init() {
-  try {
-    await loadData();
-  } catch (err) {
-    console.error(err);
-    const banner = document.createElement('div');
-    banner.style.cssText = 'background:#2b1d1d;color:#ffd3d3;padding:10px 12px;margin:12px;border-radius:10px;border:1px solid #6b2b2b;font-family:system-ui;';
-    banner.textContent = 'Failed to load data files. If you opened this HTML directly from disk, run a local server or use GitHub Pages so fetch() can read ./data/progress.json.';
-    document.body.prepend(banner);
-  }
-  // Apply saved checks to DOM after first render
-  render();
-  // After render, mark checked items
+// Apply saved checks to DOM after each render
+function applyCheckedToDOM() {
   document.querySelectorAll('.trophy-item').forEach(row => {
     const gameSafe = row.dataset.gameSafe;
     const trophyName = row.dataset.trophyName;
@@ -1045,72 +1057,27 @@ const allPill = makeGenrePill('All', () => {
   updateCheckedStats();
 }
 
-init();
-}, true);
-gf.appendChild(allPill);
+// ========================
+// INIT
+// ========================
+async function init() {
+  try {
+    await loadData();
+  } catch (err) {
+    console.error(err);
+    const banner = document.createElement('div');
+    banner.style.cssText = 'background:#2b1d1d;color:#ffd3d3;padding:10px 12px;margin:12px;border-radius:10px;border:1px solid #6b2b2b;font-family:system-ui;';
+    banner.textContent = 'Failed to load data files. If you opened this HTML directly from disk, run a local server or use GitHub Pages so fetch() can read ./data/progress.json.';
+    document.body.prepend(banner);
+  }
 
-allGenres.forEach(genre => {
-  const pill = makeGenrePill(genre, () => {
-    activeGenre = genre;
-    document.querySelectorAll('#genreFilters .pill').forEach(b => b.classList.remove('active'));
-    pill.classList.add('active');
-    render();
-  });
-  gf.appendChild(pill);
-});
-
-function setRange(btn) {
-  activeRange = btn.dataset.range;
-  document.querySelectorAll('[data-range]').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  buildGenreFilters();
   render();
+  applyCheckedToDOM();
 }
 
-// ========================
-// TROPHY NOTES AUTO-TAGGING
-// ========================
-function getTrophyNote(name, desc) {
-  const text = (name + ' ' + (desc||'')).toLowerCase();
-  if (/⚠|missable|miss|point of no return|before (you|the)|only chance|single playthrough/i.test(text))
-    return { cls: 'note-warn', label: '⚠ Potentially Missable' };
-  if (/online|multiplayer|co-op|coop|ranked|versus|pvp|network|server/i.test(text))
-    return { cls: 'note-online', label: '🌐 Online Required' };
-  if (/honour mode|nightmare|no damage|no death|hardest|all difficulties|deathless|permadeath|ironman/i.test(text))
-    return { cls: 'note-skill', label: '💀 Skill Wall' };
-  if (/professional|hardest difficulty|highest difficulty|without dying|flawless/i.test(text))
-    return { cls: 'note-skill', label: '💀 Hard Difficulty' };
-  if (/collect all|find all|every|all.*trophy|obtain all|gather all|complete all|100%/i.test(text))
-    return { cls: 'note-grind', label: '⏱ Collectible Grind' };
-  return null;
-}
+init();
 
-// ========================
-// FILTERING & SORTING
-// ========================
-function getFiltered() {
-  const q = document.getElementById('search').value.toLowerCase();
-  const sort = document.getElementById('sort').value;
-  const plat = document.getElementById('platform').value;
-
-  let games = incompleteEntries.filter(([name, g]) => {
-    const p = getPct(g);
-    if (q && !name.toLowerCase().includes(q)) return false;
-    if (activeGenre !== 'all' && !(g.genres||[]).includes(activeGenre)) return false;
-    if (plat !== 'all' && !(g.platforms||[]).includes(plat)) return false;
-    if (activeRange === 'near' && p < 80) return false;
-    if (activeRange === 'mid' && (p < 40 || p >= 80)) return false;
-    if (activeRange === 'low' && p >= 40) return false;
-    if (activeRange === 'quick' && g.unearned > 5) return false;
-    return true;
-  });
-
-  if (sort === 'pct-desc') games.sort(([,a],[,b]) => getPct(b)-getPct(a));
-  else if (sort === 'pct-asc') games.sort(([,a],[,b]) => getPct(a)-getPct(b));
-  else if (sort === 'trophies-asc') games.sort(([,a],[,b]) => a.unearned-b.unearned);
-  else if (sort === 'alpha') games.sort(([a],[b]) => a.localeCompare(b));
-  else if (sort === 'time-asc') games.sort(([,a],[,b]) => (parseFloat(a.timePlat)||9999)-(parseFloat(b.timePlat)||9999));
-  return games;
-}
 
 // ========================
 // RENDER INCOMPLETE
