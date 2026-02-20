@@ -898,7 +898,7 @@ input[type=text]::placeholder { color: var(--text3); }
         <option value="Vita">Vita</option>
         <option value="VR">VR</option>
       </select>
-      <button class="suggest-btn" onclick="recommend()">✦ Suggest</button>
+      <button class="suggest-btn" onclick="recommend(true)">✦ Suggest</button>
     </div>
 
     <div class="filter-row">
@@ -975,7 +975,7 @@ input[type=text]::placeholder { color: var(--text3); }
     <div class="modal-reason" id="rec-reason">—</div>
     <div class="modal-actions">
       <button class="btn-close" onclick="closeModal()">Dismiss</button>
-      <button class="btn-next" onclick="recommend()">Next Suggestion →</button>
+      <button class="btn-next" onclick="recommend(true)">Next Suggestion →</button>
     </div>
   </div>
 </div>
@@ -1348,6 +1348,8 @@ function render() {
 }
 
 function handleCheck(evt, el) {
+  // Never open the suggestion modal as a side-effect of checking trophies
+  closeModal && closeModal();
   if (evt) { evt.preventDefault(); evt.stopPropagation(); if (evt.stopImmediatePropagation) evt.stopImmediatePropagation(); }
 
   el.classList.toggle('checked');
@@ -1527,7 +1529,7 @@ function buildRecReason(name, g, s) {
   return `A reasonable candidate based on progress and remaining effort. ${timeText} ${riskText}`;
 }
 
-function recommend() {
+function recommend(showModal=true) {
   const games = getFiltered().filter(([,g]) => !g.platDead);
   if (!games.length) return;
 
@@ -1563,7 +1565,7 @@ function recommend() {
     <div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(rem||0)}h</span></div>
   `;
 
-  document.getElementById('modal').classList.add('open');
+  if (showModal) document.getElementById('modal').classList.add('open');
 }
 
 function closeModal() { document.getElementById('modal').classList.remove('open'); }
