@@ -1113,7 +1113,7 @@ function heuristicTrophyBadges(trophyName, trophyDesc) {
   if (/online|multiplayer|co-?op|ranked|versus|pvp|network|server|lobby|matchmaking/i.test(text)) {
     push('ONLINE', 'note-online', '🌐 Online Required');
   }
-  if (/ultra hard|very hard|nightmare|hardcore|honou?r mode|permadeath|ironman|no damage|no death|deathless|flawless|s[- ]?rank|perfect|speedrun/i.test(text)) {
+  if (/ultra hard|very hard|nightmare|hardcore|honou?r mode|permadeath|ironman|ironbro|no damage|no death|deathless|flawless|s[- ]?rank|perfect|speedrun/i.test(text)) {
     push('SKILL_WALL', 'note-skill', '💀 Skill Wall');
   }
   if (/collect all|find all|obtain all|complete all|gather all|every (collectible|artifact|relic|card|coin)|100%|grind|farm|level (50|60|70|80|90|99)|1,?000|10,?000/i.test(text)) {
@@ -1374,37 +1374,150 @@ function renderCompleted() {
 // ========================
 // SUGGEST
 // ========================
+function parseHours(str) {
+  if (!str) return null;
+  const s = String(str).toLowerCase();
+  // Extract numbers like "25-40h", "127 hours", "15h", "10–20"
+  const nums = (s.match(/\d+(?:\.\d+)?/g) || []).map(n => parseFloat(n)).filter(n => !isNaN(n));
+  if (!nums.length) return null;
+  let minH = nums[0], maxH = nums[0];
+  if (nums.length >= 2) {
+    minH = Math.min(nums[0], nums[1]);
+    maxH = Math.max(nums[0], nums[1]);
+  }
+  const avgH = (minH + maxH) / 2;
+  return { min: minH, max: maxH, avg: avgH };
+}
+
+function getRemainingHoursEstimate(g) {
+  const p = getPct(g) / 100;
+  const t = parseHours(g.timePlat || g.timeNormal || g.timeHastily);
+  if (t) {
+    // Assume time fields are "to complete" (plat/100%). Remaining is proportional to completion.
+    const rem = Math.max(0.25, t.avg * (1 - p));
+    return { known: true, hours: rem, totalAvg: t.avg };
+  }
+  // Fallback when no time data exists: estimate using trophy count + risk weight.
+  const trophyCount = (g.unearnedTrophies || []).length || (g.unearned || 0);
+  const risk = getRiskSummary(g)._riskPoints;
+  const base = trophyCount * 0.75;     // ~45 min per remaining trophy baseline
+  const riskAdd = risk * 0.6;          // harder trophies add time uncertainty
+  const rem = Math.max(0.5, base + riskAdd);
+  return { known: false, hours: rem, totalAvg: null };
+}
+
+function getRiskSummary(g) {
+  // Aggregate risk based on remaining trophies.
+  const trophies = (g.unearnedTrophies || []);
+  let skill = 0, miss = 0, online = 0, grind = 0, buggy = 0, rng = 0;
+  let points = 0;
+
+  trophies.forEach(t => {
+    const bs = (getTrophyBadges(g._name || '', t.name, t.desc) || []);
+    const keys = new Set(bs.map(b => b.key));
+    if (keys.has('SKILL_WALL')) { skill++; points += 6; }
+    if (keys.has('ONLINE')) { online++; points += 5; }
+    if (keys.has('MISSABLE')) { miss++; points += 3; }
+    if (keys.has('GRIND')) { grind++; points += 2; }
+    if (keys.has('BUGGY')) { buggy++; points += 5; }
+    if (keys.has('RNG')) { rng++; points += 3; }
+  });
+
+  return {
+    skill, miss, online, grind, buggy, rng,
+    _riskPoints: points
+  };
+}
+
+function scoreGameForRecommendation(name, g) {
+  // Higher score = better "finish candidate"
+  const pct = getPct(g);
+  const left = g.unearned || 0;
+
+  // Risk & remaining-time estimation
+  g._name = name; // for badge lookup (enrichment may be keyed by name)
+  const risk = getRiskSummary(g);
+  const timeEst = getRemainingHoursEstimate(g);
+
+  // Normalize: reward high completion, penalize risk, penalize time, small penalty for trophies left
+  const timePenalty = timeEst.hours * 8; // each hour costs points
+  const riskPenalty = risk._riskPoints * 7; // each risk point costs points
+  const leftPenalty = left * 1.2;
+
+  // Bonus for being close to done (finisher bias), but not so much that a single nightmare trophy dominates.
+  const finishBonus = pct >= 90 ? 120 : pct >= 80 ? 80 : pct >= 60 ? 40 : 0;
+
+  // If game is marked dead platinum, exclude it elsewhere.
+  const score = (pct * 3.0) + finishBonus - timePenalty - riskPenalty - leftPenalty;
+
+  return { score, pct, left, risk, timeEst };
+}
+
+function buildRecReason(name, g, s) {
+  const { pct, left, risk, timeEst } = s;
+
+  const riskBits = [];
+  if (risk.skill) riskBits.push(`${risk.skill} skill-wall`);
+  if (risk.online) riskBits.push(`${risk.online} online`);
+  if (risk.miss) riskBits.push(`${risk.miss} missable`);
+  if (risk.grind) riskBits.push(`${risk.grind} grind`);
+  const riskText = riskBits.length ? `Risk profile: ${riskBits.join(', ')}.` : `No major risk flags detected.`;
+
+  const timeText = timeEst.known
+    ? `Estimated remaining time: ~${Math.round(timeEst.hours)}h (based on ${g.timePlat || g.timeNormal || g.timeHastily}).`
+    : `Estimated remaining time: ~${Math.round(timeEst.hours)}h (heuristic — no time data yet).`;
+
+  // Primary reason focuses on: close-to-finish + low remaining time
+  if (pct >= 80 && timeEst.hours <= 12 && risk.skill === 0) {
+    return `High completion (${pct}%) with a small remaining estimate. ${timeText} ${riskText}`;
+  }
+  if (pct >= 80 && timeEst.hours <= 20) {
+    return `You're ${pct}% in — this is a strong finisher candidate. ${timeText} ${riskText}`;
+  }
+  if (timeEst.hours <= 10) {
+    return `Low estimated remaining time makes this a quick win. ${timeText} ${riskText}`;
+  }
+  if (risk.skill || risk.online || risk.miss) {
+    return `This is doable, but the remaining trophies include higher-risk items. ${timeText} ${riskText}`;
+  }
+  return `A reasonable candidate based on progress and remaining effort. ${timeText} ${riskText}`;
+}
+
 function recommend() {
   const games = getFiltered().filter(([,g]) => !g.platDead);
   if (!games.length) return;
 
+  // Build pool with scores once per filter state.
   if (!recPool.length) {
-    recPool = [...games].sort(([,a],[,b]) => {
-      const pa = getPct(a), pb = getPct(b);
-      const sa = pa >= 80 ? 3 : pa >= 50 ? 2 : 1;
-      const sb = pb >= 80 ? 3 : pb >= 50 ? 2 : 1;
-      return sb - sa + (Math.random() - 0.5);
-    });
+    recPool = games
+      .map(([name, g]) => {
+        const s = scoreGameForRecommendation(name, g);
+        return { name, g, s };
+      })
+      // Sort best-first, but keep mild randomness to avoid picking the same game forever.
+      .sort((a, b) => (b.s.score - a.s.score) + (Math.random() - 0.5) * 8);
   }
 
-  const [name, g] = recPool.shift() || games[0];
-  const p = getPct(g);
+  const next = recPool.shift() || { name: games[0][0], g: games[0][1], s: scoreGameForRecommendation(games[0][0], games[0][1]) };
+  const { name, g, s } = next;
 
+  const p = getPct(g);
   document.getElementById('rec-title').textContent = dispName(name);
   document.getElementById('rec-pct').innerHTML = `${p}%<span> · ${g.unearned} trophies left</span>`;
   document.getElementById('rec-genre').textContent = (g.genres||[]).join(' · ') || 'Uncategorized';
-  document.getElementById('rec-reason').textContent = p >= 80
-    ? `You're ${p}% through — just ${g.unearned} trophies stand between you and platinum. This is the one to finish.`
-    : p >= 50
-    ? `Solid momentum at ${p}% with ${g.unearned} trophies remaining. You've already done the hard part of starting.`
-    : `Only ${p}% in with ${g.unearned} trophies left. Sometimes a game just needs a second chance.`;
+  document.getElementById('rec-reason').textContent = buildRecReason(name, g, s);
 
   const te = document.getElementById('rec-times');
-  te.innerHTML = (g.timeNormal || g.timePlat) ? `
+  const timeStr = (g.timeNormal || g.timePlat || g.timeHastily);
+  const rem = s.timeEst?.hours;
+  te.innerHTML = timeStr ? `
     ${g.timeNormal ? `<div class="time-pill"><span class="time-label">Normal</span><span class="time-val">${g.timeNormal}</span></div>` : ''}
     ${g.timeHastily ? `<div class="time-pill"><span class="time-label">Hastily</span><span class="time-val">${g.timeHastily}</span></div>` : ''}
     ${g.timePlat ? `<div class="time-pill"><span class="time-label">Platinum</span><span class="time-val">${g.timePlat}</span></div>` : ''}
-  ` : `<span style="font-size:12px;color:var(--text3);font-family:'Rajdhani',sans-serif">No time data available yet</span>`;
+    ${rem ? `<div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(rem)}h</span></div>` : ''}
+  ` : `
+    <div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(rem||0)}h</span></div>
+  `;
 
   document.getElementById('modal').classList.add('open');
 }
