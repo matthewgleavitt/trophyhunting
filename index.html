@@ -1011,6 +1011,30 @@ function setChecked(gameName, trophyName, val) {
   try { localStorage.setItem(CHECK_KEY, JSON.stringify(checkedState)); } catch(e) {}
 }
 
+function syncGameCountsFromChecks() {
+  for (const [name, g] of Object.entries(GAME_DATA || {})) {
+    syncSingleGameCounts(name, g);
+  }
+}
+
+function syncSingleGameCounts(gameName, g) {
+  if (!g) return;
+  const baseU = (typeof g._baseUnearned === 'number') ? g._baseUnearned : (typeof g.unearned === 'number' ? g.unearned : 0);
+  const baseE = (typeof g._baseEarned === 'number') ? g._baseEarned : (typeof g.earned === 'number' ? g.earned : 0);
+
+  const trophies = Array.isArray(g.unearnedTrophies) ? g.unearnedTrophies : [];
+  let checked = 0;
+  for (const t of trophies) {
+    if (t && t.name && isChecked(gameName, t.name)) checked++;
+  }
+
+  g.earned = baseE + checked;
+  g.unearned = Math.max(0, baseU - checked);
+  g.completed = (g.unearned === 0);
+}
+
+
+
 let allEntries = [];
 let incompleteEntries = [];
 let completedEntries = [];
@@ -1282,7 +1306,7 @@ function render() {
       const guideBtn = `<button class="guide-btn" onclick="event.stopPropagation();openGuide('${name.replace(/'/g,"\\'")}','${t.name.replace(/'/g,"\\'")}','${(t.desc||'').replace(/'/g,"\\'")}')">📖 Guide</button>`;
       return `
         <div class="trophy-item" id="ti-${safeName}-${idx}">
-          <div class="t-check" onclick="handleCheck(this,'${safeName}','${safeName}-${idx}')"></div>
+          <div class="t-check ${isChecked(name, t.name) ? 'checked' : ''}" data-game="${name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" data-trophy="${t.name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}" title="Mark as done/planned"></div>
           <div class="t-info">
             <div class="t-name" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">${t.name} ${hasGuide ? guideBtn : `<button class="guide-btn" style="opacity:0.4" onclick="event.stopPropagation();openGuide('${name.replace(/'/g,"\\'")}','${t.name.replace(/'/g,"\\'")}','${(t.desc||'').replace(/'/g,"\\'")}')">📖 Guide</button>` }</div>
             ${t.desc ? `<div class="t-desc">${t.desc}</div>` : ''}
@@ -1292,7 +1316,7 @@ function render() {
     }).join('') : '';
 
     const drawer = hasDrawer ? `
-      <div class="trophy-drawer" id="dr-${safeName}">
+      <div class="trophy-drawer" id="dr-${safeName}" data-game="${name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">
         <div class="drawer-header">
           <span class="drawer-title">Remaining Trophies</span>
           <span class="drawer-progress"><span class="checked-count">0</span> / ${g.unearnedTrophies.length} checked</span>
@@ -1325,6 +1349,7 @@ function render() {
 
 function handleCheck(evt, el) {
   if (evt) evt.stopPropagation();
+
   el.classList.toggle('checked');
   const row = el.closest('.trophy-item');
   if (row) row.classList.toggle('is-checked', el.classList.contains('checked'));
@@ -1333,9 +1358,27 @@ function handleCheck(evt, el) {
   const trophyName = el.getAttribute('data-trophy') || '';
   if (gameName && trophyName) {
     setChecked(gameName, trophyName, el.classList.contains('checked'));
+    // Update the game counts so % / remaining / completed state react immediately
+    syncSingleGameCounts(gameName, GAME_DATA[gameName]);
   }
+
+  // Recompute lists + rerender current tab so games can move between In Progress / Completed
+  const openDrawer = document.querySelector('.trophy-drawer.open')?.getAttribute('data-game') || null;
+  const activeTab = document.querySelector('.tab.active')?.getAttribute('data-tab') || 'incomplete';
+
+  recomputeCollectionsAndHeader();
+  if (activeTab === 'completed') renderCompleted();
+  else render();
+
+  recommend();
   updateCheckedStats();
 
+  // Re-open drawer if it was open
+  if (openDrawer) {
+    const safe = openDrawer.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/(^-|-$)/g,'');
+    const dr = document.getElementById('dr-' + safe);
+    if (dr) dr.classList.add('open');
+  }
 }
 
 // ========================
@@ -1772,6 +1815,8 @@ async function normalizeAndLoad() {
     const unearnedCount = typeof g.unearned === 'number' ? g.unearned : unearnedArr.length;
 
     GAME_DATA[name] = {
+      _baseEarned: earnedCount,
+      _baseUnearned: unearnedCount,
       earned: earnedCount,
       unearned: unearnedCount,
       timePlat: g.timePlat ?? null,
@@ -1831,8 +1876,15 @@ async function normalizeAndLoad() {
 async function initApp() {
   try {
     await normalizeAndLoad();
+    syncGameCountsFromChecks();
     recomputeCollectionsAndHeader();
     buildGenrePills();
+// checkbox delegation (trophy checklist)
+    document.addEventListener('click', (e) => {
+      const box = e.target.closest('.t-check');
+      if (box) handleCheck(e, box);
+    });
+
     render();
     renderCompleted();
     // apply checked stats based on persisted state
