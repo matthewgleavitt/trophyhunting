@@ -380,6 +380,23 @@ input[type=text]::placeholder { color: var(--text3); }
   letter-spacing: 0.5px;
 }
 
+
+.game-badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.g-badge {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+.g-badge.gt-skill { color: var(--red); border-color: rgba(224,64,80,0.35); background: rgba(224,64,80,0.10); }
+.g-badge.gt-grind { color: var(--silver); border-color: rgba(160,176,192,0.35); background: rgba(160,176,192,0.10); }
+.g-badge.gt-online { color: var(--ps-blue-light); border-color: rgba(26,143,255,0.35); background: rgba(26,143,255,0.10); }
+.g-badge.gt-missable { color: var(--amber); border-color: rgba(240,160,32,0.35); background: rgba(240,160,32,0.10); }
+
 .time-row { display: flex; gap: 14px; margin-top: 6px; }
 .time-pill {
   display: flex;
@@ -472,7 +489,8 @@ input[type=text]::placeholder { color: var(--text3); }
 .t-info { flex: 1; }
 .t-name { font-family: 'Rajdhani', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 2px; letter-spacing: 0.3px; }
 .t-desc { font-size: 12px; color: var(--text2); line-height: 1.4; }
-.t-note { font-size: 11px; margin-top: 3px; font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 0.5px; }
+.t-badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+.t-note { display:inline-flex; align-items:center; gap:6px; font-size: 11px; margin-top: 0; padding: 3px 10px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); font-family: 'Rajdhani', sans-serif; font-weight: 700; letter-spacing: 0.5px; }
 .note-warn { color: #f0a020; }
 .note-skill { color: var(--red); }
 .note-online { color: var(--ps-blue-light); }
@@ -968,6 +986,7 @@ input[type=text]::placeholder { color: var(--text3); }
 // ========================
 let GAME_DATA = {}; // normalized for UI
 let RAW_PROGRESS = {}; // raw PocketPSN shape (earned/unearned arrays)
+let ENRICHED_DATA = {}; // optional overrides from ./data/enriched.json
 // ========================
 // STATE
 // ========================
@@ -1079,20 +1098,96 @@ function setRange(btn) {
 // ========================
 // TROPHY NOTES AUTO-TAGGING
 // ========================
-function getTrophyNote(name, desc) {
-  const text = (name + ' ' + (desc||'')).toLowerCase();
-  if (/⚠|missable|miss|point of no return|before (you|the)|only chance|single playthrough/i.test(text))
-    return { cls: 'note-warn', label: '⚠ Potentially Missable' };
-  if (/online|multiplayer|co-op|coop|ranked|versus|pvp|network|server/i.test(text))
-    return { cls: 'note-online', label: '🌐 Online Required' };
-  if (/honour mode|nightmare|no damage|no death|hardest|all difficulties|deathless|permadeath|ironman/i.test(text))
-    return { cls: 'note-skill', label: '💀 Skill Wall' };
-  if (/professional|hardest difficulty|highest difficulty|without dying|flawless/i.test(text))
-    return { cls: 'note-skill', label: '💀 Hard Difficulty' };
-  if (/collect all|find all|every|all.*trophy|obtain all|gather all|complete all|100%/i.test(text))
-    return { cls: 'note-grind', label: '⏱ Collectible Grind' };
-  return null;
+function heuristicTrophyBadges(trophyName, trophyDesc) {
+  const text = (trophyName + ' ' + (trophyDesc||'')).toLowerCase();
+  const badges = [];
+
+  const push = (key, cls, label) => {
+    if (!badges.some(b => b.key === key)) badges.push({ key, cls, label });
+  };
+
+  // NOTE: heuristics are conservative. Enrichment overrides can replace these later.
+  if (/missable|point of no return|before (you|the)|only chance|single playthrough|no chapter select|cannot return|one[- ]time/i.test(text)) {
+    push('MISSABLE', 'note-warn', '⚠ Potentially Missable');
+  }
+  if (/online|multiplayer|co-?op|ranked|versus|pvp|network|server|lobby|matchmaking/i.test(text)) {
+    push('ONLINE', 'note-online', '🌐 Online Required');
+  }
+  if (/ultra hard|very hard|nightmare|hardcore|honou?r mode|permadeath|ironman|no damage|no death|deathless|flawless|s[- ]?rank|perfect|speedrun/i.test(text)) {
+    push('SKILL_WALL', 'note-skill', '💀 Skill Wall');
+  }
+  if (/collect all|find all|obtain all|complete all|gather all|every (collectible|artifact|relic|card|coin)|100%|grind|farm|level (50|60|70|80|90|99)|1,?000|10,?000/i.test(text)) {
+    push('GRIND', 'note-grind', '⏱ Grind / Collectibles');
+  }
+
+  return badges;
 }
+
+const TAG_DISPLAY = {
+  'MISSABLE': { cls: 'note-warn', label: '⚠ Potentially Missable' },
+  'ONLINE': { cls: 'note-online', label: '🌐 Online Required' },
+  'SKILL_WALL': { cls: 'note-skill', label: '💀 Skill Wall' },
+  'GRIND': { cls: 'note-grind', label: '⏱ Grind / Collectibles' },
+  'BUGGY': { cls: 'note-warn', label: '🧨 Buggy / Tracking Risk' },
+  'RNG': { cls: 'note-grind', label: '🎲 RNG' },
+};
+
+function getTrophyBadges(gameName, trophyName, trophyDesc) {
+  const meta = ENRICHED_DATA?.[gameName]?.trophies?.[trophyName];
+
+  // If enrichment provides explicit badges, trust them.
+  if (meta && Array.isArray(meta.badges) && meta.badges.length) {
+    return meta.badges
+      .filter(b => b && (b.label || b.key))
+      .map(b => ({
+        key: (b.key || b.label || '').toString(),
+        cls: b.cls || TAG_DISPLAY[b.key]?.cls || 'note-warn',
+        label: b.label || TAG_DISPLAY[b.key]?.label || b.key
+      }));
+  }
+
+  // If enrichment provides tags, map them.
+  if (meta && Array.isArray(meta.tags) && meta.tags.length) {
+    return meta.tags
+      .map(t => (typeof t === 'string' ? t : ''))
+      .filter(Boolean)
+      .map(t => ({
+        key: t,
+        cls: TAG_DISPLAY[t]?.cls || 'note-warn',
+        label: TAG_DISPLAY[t]?.label || t
+      }));
+  }
+
+  // Heuristic fallback
+  return heuristicTrophyBadges(trophyName, trophyDesc);
+}
+
+function renderBadgeRow(badges) {
+  if (!badges || !badges.length) return '';
+  return `<div class="t-badges">${badges.map(b => `<div class="t-note ${b.cls}">${b.label}</div>`).join('')}</div>`;
+}
+
+function getGameBadges(gameName, g) {
+  // Explicit game tags from enrichment (already in UI shape)
+  if (Array.isArray(g.gameTags) && g.gameTags.length) return g.gameTags;
+
+  // Otherwise derive from unearned trophies (heuristics + any trophy-level tags)
+  const keys = new Set();
+  (g.unearnedTrophies || []).forEach(t => {
+    const bs = getTrophyBadges(gameName, t.name, t.desc) || [];
+    bs.forEach(b => keys.add(b.key));
+  });
+
+  const out = [];
+  const push = (key, cls, label) => { if (keys.has(key)) out.push({ cls, label }); };
+  push('SKILL_WALL', 'gt-skill', '💀 SKILL WALL');
+  push('MISSABLE', 'gt-missable', '⚠ MISSABLE');
+  push('ONLINE', 'gt-online', '🌐 ONLINE');
+  push('GRIND', 'gt-grind', '⏱ GRIND');
+
+  return out;
+}
+
 
 // ========================
 // FILTERING & SORTING
@@ -1165,8 +1260,11 @@ function render() {
     const platforms = (g.platforms||[]).map(p =>
       `<span class="plat-tag">${p}</span>`).join('');
 
+    const gameBadges = getGameBadges(name, g);
+    const gameBadgesHtml = gameBadges && gameBadges.length ? `<div class="game-badges">${gameBadges.map(b=>`<span class="g-badge ${b.cls}">${b.label}</span>`).join('')}</div>` : '';
+
     const dead = g.platDead
-      ? `<span class="dead-badge">🚫 PLAT DEAD</span>` : '';
+      ? `<span class="dead-badge">🚫 PLAT DEAD${g.deadReason ? ' · ' + g.deadReason : ''}</span>` : '';
 
     const times = (g.timeNormal || g.timeHastily || g.timePlat) ? `
       <div class="time-row">
@@ -1178,8 +1276,8 @@ function render() {
     const hasDrawer = g.unearnedTrophies && g.unearnedTrophies.length > 0;
 
     const trophyItems = hasDrawer ? g.unearnedTrophies.map((t, idx) => {
-      const note = getTrophyNote(t.name, t.desc);
-      const noteHtml = note ? `<div class="t-note ${note.cls}">${note.label}</div>` : '';
+      const badges = getTrophyBadges(name, t.name, t.desc);
+      const badgesHtml = renderBadgeRow(badges);
       const hasGuide = TROPHY_GUIDES[name]?.[t.name];
       const guideBtn = `<button class="guide-btn" onclick="event.stopPropagation();openGuide('${name.replace(/'/g,"\\'")}','${t.name.replace(/'/g,"\\'")}','${(t.desc||'').replace(/'/g,"\\'")}')">📖 Guide</button>`;
       return `
@@ -1188,7 +1286,7 @@ function render() {
           <div class="t-info">
             <div class="t-name" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">${t.name} ${hasGuide ? guideBtn : `<button class="guide-btn" style="opacity:0.4" onclick="event.stopPropagation();openGuide('${name.replace(/'/g,"\\'")}','${t.name.replace(/'/g,"\\'")}','${(t.desc||'').replace(/'/g,"\\'")}')">📖 Guide</button>` }</div>
             ${t.desc ? `<div class="t-desc">${t.desc}</div>` : ''}
-            ${noteHtml}
+            ${badgesHtml}
           </div>
         </div>`;
     }).join('') : '';
@@ -1217,6 +1315,7 @@ function render() {
             <span class="trophy-remaining" style="margin-left:auto"><span>${g.unearned}</span> left</span>
           </div>
           ${times}
+          ${gameBadgesHtml}
           ${hasDrawer ? `<div class="expand-hint"><span class="expand-arrow">▾</span> ${g.unearned} trophies · tap to expand</div>` : ''}
         </div>
         ${drawer}
@@ -1589,6 +1688,30 @@ async function normalizeAndLoad() {
         }
       }
     }
+
+  // Optional: merge in enrichment overrides (badges, dead plats, time estimates, missables, etc.)
+  try {
+    const er = await fetch('./data/enriched.json');
+    if (er.ok) {
+      ENRICHED_DATA = await er.json();
+      for (const [game, meta] of Object.entries(ENRICHED_DATA || {})) {
+        if (!GAME_DATA[game] || !meta) continue;
+        // Game-level overrides
+        if (typeof meta.platDead === 'boolean') GAME_DATA[game].platDead = meta.platDead;
+        if (typeof meta.deadReason === 'string') GAME_DATA[game].deadReason = meta.deadReason;
+        if (meta.timePlat != null) GAME_DATA[game].timePlat = meta.timePlat;
+        if (meta.timeNormal != null) GAME_DATA[game].timeNormal = meta.timeNormal;
+        if (meta.timeHastily != null) GAME_DATA[game].timeHastily = meta.timeHastily;
+        if (meta.estimatedHours && (meta.estimatedHours.min || meta.estimatedHours.max)) {
+          GAME_DATA[game].estimatedHours = meta.estimatedHours;
+        }
+        if (Array.isArray(meta.gameTags)) {
+          GAME_DATA[game].gameTags = meta.gameTags;
+        }
+      }
+    }
+  } catch (e) {}
+
   } catch (e) {}
 }
 
