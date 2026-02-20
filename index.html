@@ -1348,7 +1348,7 @@ function render() {
 }
 
 function handleCheck(evt, el) {
-  if (evt) evt.stopPropagation();
+  if (evt) { evt.preventDefault(); evt.stopPropagation(); if (evt.stopImmediatePropagation) evt.stopImmediatePropagation(); }
 
   el.classList.toggle('checked');
   const row = el.closest('.trophy-item');
@@ -1367,10 +1367,11 @@ function handleCheck(evt, el) {
   const activeTab = document.querySelector('.tab.active')?.getAttribute('data-tab') || 'incomplete';
 
   recomputeCollectionsAndHeader();
+  recPool = [];
   if (activeTab === 'completed') renderCompleted();
   else render();
 
-  recommend();
+  // Do not auto-change the suggestion panel on every check.
   updateCheckedStats();
 
   // Re-open drawer if it was open
@@ -1878,12 +1879,18 @@ async function initApp() {
     await normalizeAndLoad();
     syncGameCountsFromChecks();
     recomputeCollectionsAndHeader();
+  recPool = [];
     buildGenrePills();
 // checkbox delegation (trophy checklist)
     document.addEventListener('click', (e) => {
       const box = e.target.closest('.t-check');
-      if (box) handleCheck(e, box);
-    });
+      if (!box) return;
+      // Run in capture phase so we intercept before card clicks
+      e.preventDefault();
+      e.stopPropagation();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+      handleCheck(e, box);
+    }, true);
 
     render();
     renderCompleted();
