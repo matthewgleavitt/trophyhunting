@@ -1345,10 +1345,10 @@ function render() {
 
     const times = (g.timeNormal || g.timeHastily || g.timePlat || remH !== null) ? `
       <div class="time-row">
-        ${g.timeNormal ? `<div class="time-pill"><span class="time-label">Normal</span><span class="time-val">${g.timeNormal}</span></div>` : ''}
-        ${g.timeHastily ? `<div class="time-pill"><span class="time-label">Hastily</span><span class="time-val">${g.timeHastily}</span></div>` : ''}
-        ${g.timePlat ? `<div class="time-pill"><span class="time-label">Completion</span><span class="time-val">${g.timePlat}</span></div>` : ''}
-        ${remH !== null ? `<div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(remH)}h</span></div>` : ''}
+        ${isValidTimeLabel(g.timeNormal) ? `<div class="time-pill"><span class="time-label">Normal</span><span class="time-val">${g.timeNormal}</span></div>` : ''}
+        ${isValidTimeLabel(g.timeHastily) ? `<div class="time-pill"><span class="time-label">Hastily</span><span class="time-val">${g.timeHastily}</span></div>` : ''}
+        ${isValidTimeLabel(g.timePlat) ? `<div class="time-pill"><span class="time-label">Completion</span><span class="time-val">${g.timePlat}</span></div>` : ''}
+        ${remH !== null ? `<div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${fmtHours(remH)}</span></div>` : ''}
       </div>` : '';
 
     const hasDrawer = g.unearnedTrophies && g.unearnedTrophies.length > 0;
@@ -1531,8 +1531,8 @@ function renderCompleted() {
           <div class="plat-diamond"></div>
           <span class="comp-trophies">${g.earned}</span>
         </div>
-        ${g.timePlat ? `<span class="comp-time">· ${g.timePlat} completion</span>` : ''}
-        <button class="reopen-btn" type="button" data-reopen-game="${name.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">Reopen</button>
+        ${isValidTimeLabel(g.timePlat) ? `<span class="comp-time">· ${g.timePlat} completion</span>` : ''}
+        <button class="reopen-btn" type="button" data-reopen-game="${encodeURIComponent(name)}">Reopen</button>
         ${(g.platforms||[]).map(p => `<span class="plat-tag">${p}</span>`).join('')}
       </div>
     </div>`).join('');
@@ -1544,7 +1544,7 @@ function wireReopenButtons() {
   document.querySelectorAll('[data-reopen-game]').forEach(btn => {
     btn.onclick = (e) => {
       e.preventDefault(); e.stopPropagation();
-      const gameName = btn.getAttribute('data-reopen-game') || '';
+      const gameName = decodeURIComponent(btn.getAttribute('data-reopen-game') || '');
       // Reopen = clear checklist for this game and ensure it is treated as incomplete by counts
       clearChecksForGame(gameName);
       syncSingleGameCounts(gameName, GAME_DATA[gameName]);
@@ -1571,6 +1571,26 @@ function parseHours(str) {
   }
   const avgH = (minH + maxH) / 2;
   return { min: minH, max: maxH, avg: avgH };
+}
+
+
+function isValidTimeLabel(v){
+  if(!v) return false;
+  const s = String(v).trim().toLowerCase();
+  // treat negative sentinel like "-1h" or "-1" as unknown
+  if (/^-\s*\d/.test(s)) return false;
+  if (s === 'na' || s === 'n/a' || s === 'unknown' || s === 'null') return false;
+  return true;
+}
+
+
+function fmtHours(h){
+  if(h === null || h === undefined) return '';
+  const n = Number(h);
+  if(!isFinite(n)) return '';
+  const clamped = Math.max(0, n);
+  if (clamped < 1) return '<1h';
+  return `${Math.round(clamped)}h`;
 }
 
 function getRemainingHoursEstimate(g) {
@@ -1692,15 +1712,15 @@ function recommend(showModal=true) {
   document.getElementById('rec-reason').textContent = buildRecReason(name, g, s);
 
   const te = document.getElementById('rec-times');
-  const timeStr = (g.timeNormal || g.timePlat || g.timeHastily);
+  const timeStr = (isValidTimeLabel(g.timeNormal) ? g.timeNormal : '') || (isValidTimeLabel(g.timePlat) ? g.timePlat : '') || (isValidTimeLabel(g.timeHastily) ? g.timeHastily : '');
   const rem = (s.timeEst && isFinite(s.timeEst.hours)) ? Math.max(0, s.timeEst.hours) : null;
   te.innerHTML = timeStr ? `
-    ${g.timeNormal ? `<div class="time-pill"><span class="time-label">Normal</span><span class="time-val">${g.timeNormal}</span></div>` : ''}
-    ${g.timeHastily ? `<div class="time-pill"><span class="time-label">Hastily</span><span class="time-val">${g.timeHastily}</span></div>` : ''}
-    ${g.timePlat ? `<div class="time-pill"><span class="time-label">Completion</span><span class="time-val">${g.timePlat}</span></div>` : ''}
-    ${rem ? `<div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(rem)}h</span></div>` : ''}
+    ${isValidTimeLabel(g.timeNormal) ? `<div class="time-pill"><span class="time-label">Normal</span><span class="time-val">${g.timeNormal}</span></div>` : ''}
+    ${isValidTimeLabel(g.timeHastily) ? `<div class="time-pill"><span class="time-label">Hastily</span><span class="time-val">${g.timeHastily}</span></div>` : ''}
+    ${isValidTimeLabel(g.timePlat) ? `<div class="time-pill"><span class="time-label">Completion</span><span class="time-val">${g.timePlat}</span></div>` : ''}
+    ${rem ? `<div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${fmtHours(rem)}</span></div>` : ''}
   ` : `
-    <div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${Math.round(rem||0)}h</span></div>
+    <div class="time-pill"><span class="time-label">Est. Remaining</span><span class="time-val">~${fmtHours(rem||0)}</span></div>
   `;
 
   if (showModal) document.getElementById('modal').classList.add('open');
