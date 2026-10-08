@@ -401,5 +401,8 @@ input::placeholder { color: var(--text3); }
   .t-check { width: 26px; height: 26px; }
   .pill { min-height: 34px; }
   .trophy-list { max-height: 60vh; }
+  /* 24 genre pills wrap to ~300px on a phone: keep them on one swipeable row instead */
+  #genreFilters { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+  #genreFilters .pill { flex: 0 0 auto; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }

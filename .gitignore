@@ -19,3 +19,4 @@ tools/.guide-cache/
 tools/.guide-enrich.log
 tools/last-sync-report.json
 *.bak
+tools/.refresh.log

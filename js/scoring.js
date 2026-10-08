@@ -68,11 +68,11 @@
   // ---------- per-trophy classification ----------
   // Conservative text heuristics. Manual tags from enriched.json override these.
   const RX = {
-    PLAYTHROUGH: /\b(new game\s*\+|ng\+|new game plus|complete (the )?(game|story|campaign)|beat (the )?(game|story|campaign)|finish (the )?(game|story|campaign)|clear (the )?(game|story|all stages)|(on|in) (ultra hard|very hard|hard|hardest|nightmare|legendary|grounded|give me god of war|hardcore|expert|master|veteran|inferno|lunatic|insane) (difficulty|mode)?|(ultra hard|very hard|nightmare|legendary|grounded|hardcore|permadeath|ironman|iron ?man|one life|no deaths?|without dying|deathless|without (taking )?damage|no damage|speed ?run|under \d+ ?(hours?|minutes?)|in (one|a single) (sitting|run|session)|all (chapters|stages|levels|missions) on)\b)/i,
+    PLAYTHROUGH: /\b(new game\s*\+|ng\+|new game plus|complete (the )?(game|story|campaign)|beat (the )?(game|story|campaign)|finish (the )?(game|story|campaign)|clear (the )?(game|story|all stages)|(on|in) (ultra hard|very hard|hard|hardest|nightmare|legendary|grounded|give me god of war|hardcore|expert|master|veteran|inferno|lunatic|insane) (difficulty|mode)?|(ultra hard|very hard|nightmare|legendary|grounded|hardcore|permadeath|ironman|iron ?man|one life|no deaths?|without dying|deathless|without (taking )?damage|no damage|under \d+ ?hours?|in (one|a single) (sitting|run|session)|all (chapters|stages|levels|missions) on)\b)/i,
     DIFFICULTY: /\b(ultra hard|very hard|hardest|nightmare|legendary|grounded|give me god of war|hardcore|permadeath|ironman|iron ?man|no damage|without (taking )?damage|no deaths?|without dying|deathless|flawless|s[- ]?rank|ss[- ]?rank|perfect (run|score|game)|speed ?run|under \d+ ?(hours?|minutes?|seconds?))\b/i,
     ONLINE: /\b(online|multiplayer|co-?op(erative)?|ranked|versus|pvp|matchmaking|lobby|public match(es)?|other players?|another player|leaderboard|server|clan|guild|raid)\b/i,
     MISSABLE: /\b(missable|point of no return|before (you|the) (leave|finish|complete|enter)|only (chance|opportunity)|single playthrough|cannot (return|be replayed)|one[- ]time|first (visit|time) only)\b/i,
-    GRIND: /\b(collect all|find all|obtain all|acquire all|unlock all|complete all|gather all|discover all|every (collectible|artifact|relic|card|coin|flag|feather|audio ?log|document|trophy|item|weapon|skill|upgrade|recipe|blueprint|achievement)|100 ?%|all (collectibles|trophies|achievements|side ?quests|skills|upgrades|weapons|outfits|costumes)|reach (level|rank) (\d{2,3})|level (50|60|70|80|90|99|100)|\b(1,?000|5,?000|10,?000|100,?000)\b|\d+ (kills|enemies|matches|wins|hours))\b/i,
+    GRIND: /\b(collect all|find all|obtain all|acquire all|unlock all|complete all|gather all|discover all|every (collectible|artifact|relic|card|coin|flag|feather|audio ?log|document|trophy|item|weapon|skill|upgrade|recipe|blueprint|achievement)|100 ?%|all (collectibles|trophies|achievements|side ?quests|skills|upgrades|weapons|outfits|costumes)|reach (level|rank) (\d{2,3})|level (50|60|70|80|90|99|100)|\b(1,?000|5,?000|10,?000|100,?000)\b|\d+ (kills|enemies|matches|wins)|\d{2,} hours)\b/i,
     RNG: /\b(random|rng|luck(y)?|chance|lottery|drop(s)? from|rare drop|gacha|roll)\b/i,
     DLC: /\b(dlc|expansion|season pass|add-?on)\b/i,
   };
@@ -208,7 +208,9 @@
     let dead = g.platDead === true;
     let deadReason = dead ? (g.deadReason || 'marked unattainable') : null;
     if (!dead && flagCount.UNOBTAINABLE) { dead = true; deadReason = `${flagCount.UNOBTAINABLE} unobtainable trophy(ies)`; }
-    if (!dead && guide.serverShutdownMentioned && (flagCount.ONLINE || num(guide.online) > 0)) { dead = true; deadReason = 'guide reports servers shut down and online trophies remain'; }
+    const shutdownNote = guide.serverShutdownMentioned ? 'guide reports servers shut down' : (g.serverNote ? `PSNProfiles: ${g.serverNote}` : null);
+    if (!dead && shutdownNote && (flagCount.ONLINE || num(guide.online) > 0)) { dead = true; deadReason = `${shutdownNote} and online trophies remain`; }
+    if (!dead && shutdownNote) reasons.push(`${shutdownNote} (no remaining trophy looks online, so still counted as attainable)`);
     const onlineRisk = !dead && flagCount.ONLINE > 0 && (g.platforms || []).some((p) => /PS3|Vita/i.test(p));
     if (onlineRisk) reasons.push(`${flagCount.ONLINE} online trophy(ies) on an older platform: check servers before investing time`);
 

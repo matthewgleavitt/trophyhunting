@@ -61,6 +61,7 @@
       progress: raw.progress ?? null,
       guide: (enr && enr.guide && enr.guide.source) ? enr.guide : null,
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
+      serverNote: raw.serverNote || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
       legacyOnly: !!raw.legacyOnly,
     };
@@ -131,7 +132,8 @@
     const links = [];
     if (g.guide && g.guide.url) links.push(['PowerPyx guide', g.guide.url]);
     else links.push(['PowerPyx', 'https://www.powerpyx.com/?s=' + encodeURIComponent(t)]);
-    links.push(['PSNProfiles', 'https://psnprofiles.com/search/guides?q=' + encodeURIComponent(t)]);
+    if (g.psnpGuide) links.push(['PSNProfiles guide', 'https://psnprofiles.com' + g.psnpGuide]);
+    links.push([g.psnpHref ? 'My PSNProfiles page' : 'PSNProfiles', g.psnpHref ? 'https://psnprofiles.com' + g.psnpHref : 'https://psnprofiles.com/search/guides?q=' + encodeURIComponent(t)]);
     if (g.url) links.push(['PocketPSN', g.url]);
     links.push(['Web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
     return `<div class="guide-links" data-stop="1"><span class="guide-links-label">Guides</span>${links.map(([l, u]) => `<a class="guide-link-btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join('')}</div>`;
