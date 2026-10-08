@@ -880,157 +880,6 @@ input[type=text]::placeholder { color: var(--text3); }
   border-color: rgba(0,112,209,0.45);
 }
 
-/* ===== DECISION-FATIGUE LANES ===== */
-.lanes { display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
-.lane-head {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-.lane-count {
-  background: var(--surface3);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1px 8px;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 10px;
-  color: var(--text2);
-}
-.lane-sub { font-weight: 500; letter-spacing: 0.5px; text-transform: none; color: var(--text3); font-size: 11px; margin-left: 2px; }
-.lane-row {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  scroll-snap-type: x proximity;
-}
-.lane-row::-webkit-scrollbar { height: 6px; }
-
-.mini-card {
-  flex: 0 0 200px;
-  scroll-snap-align: start;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 11px 12px 10px;
-  cursor: pointer;
-  transition: border-color .2s, box-shadow .2s, transform .15s;
-  position: relative;
-}
-.mini-card:hover { border-color: var(--ps-blue); box-shadow: 0 4px 16px rgba(0,112,209,0.15); transform: translateY(-1px); }
-.mini-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; margin-bottom: 8px; }
-.mini-title {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.25;
-  text-transform: capitalize;
-  color: var(--text);
-}
-.mini-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
-.mini-left { font-family: 'Orbitron', sans-serif; font-size: 10px; color: var(--text2); }
-.mini-left b { color: var(--red); }
-.lane-onaway .mini-left b { color: var(--green); }
-
-/* lane accent colors */
-.lane-onaway .mini-card { border-color: rgba(0,200,150,0.3); }
-.lane-onaway .mini-card:hover { border-color: var(--green); box-shadow: 0 4px 16px var(--green-glow); }
-
-/* ===== STAR BUTTON ===== */
-.star-btn {
-  background: transparent;
-  border: none;
-  color: var(--text3);
-  font-size: 17px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 2px;
-  transition: color .15s, transform .15s;
-  flex-shrink: 0;
-}
-.star-btn:hover { color: var(--gold); transform: scale(1.15); }
-.star-btn.on { color: var(--gold); text-shadow: 0 0 10px rgba(240,192,64,0.5); }
-
-/* ===== GUIDE DEEP-LINKS ===== */
-.guide-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  padding-top: 10px;
-  border-top: 1px dashed var(--border);
-}
-.guide-links-label {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text3);
-}
-.guide-link-btn {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  color: var(--ps-blue-light);
-  padding: 3px 9px;
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  text-decoration: none;
-  transition: all .15s;
-}
-.guide-link-btn:hover { background: var(--ps-blue); border-color: var(--ps-blue); color: #fff; }
-
-/* ===== BROWSE-ALL HEADING ===== */
-.browse-head {
-  font-family: 'Rajdhani', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--text2);
-  margin: 4px 0 12px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-/* ===== MOBILE ===== */
-@media (max-width: 640px) {
-  header { height: auto; padding: 10px 14px 0; flex-wrap: wrap; gap: 8px; }
-  .logo { font-size: 13px; letter-spacing: 1px; }
-  .logo-wrap { width: 100%; border-right: none; padding-right: 0; }
-  .header-stats {
-    width: 100%;
-    padding-left: 0;
-    flex-wrap: wrap;
-    row-gap: 10px;
-    border-top: 1px solid var(--border);
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .hstat { padding: 0 18px 0 0; border-right: none; flex: 0 0 auto; min-width: 30%; }
-  .hstat:first-child { padding-left: 0; }
-  .tabs { padding: 0 14px; }
-  .container { padding: 14px; }
-  .grid { grid-template-columns: 1fr; }
-  .completed-grid { grid-template-columns: 1fr; }
-  .controls-bar { flex-wrap: wrap; }
-  .search-wrap { flex: 1 1 100%; }
-  .guide-panel { width: 100%; max-width: 100%; }
-  .modal { padding: 20px; }
-  .mini-card { flex-basis: 170px; }
-}
-
 </style>
 </head>
 <body>
@@ -1079,12 +928,6 @@ input[type=text]::placeholder { color: var(--text3); }
 
   <!-- INCOMPLETE -->
   <div id="tab-incomplete">
-
-    <!-- DECISION-FATIGUE LANES -->
-    <div class="lanes" id="lanes"></div>
-
-    <div class="browse-head">Browse all games</div>
-
     <div class="controls-bar">
       <div class="search-wrap">
         <span class="search-icon">⌕</span>
@@ -1123,6 +966,7 @@ input[type=text]::placeholder { color: var(--text3); }
 
     <div class="results-bar">
       <div class="results-info" id="resultsInfo">—</div>
+      <div class="pages-badge" id="pagesBadge">PAGES 1–4 · 7 MORE PENDING</div>
     </div>
 
     <div class="grid" id="grid"></div>
@@ -1205,60 +1049,6 @@ let totalChecked = 0;
 const CHECK_KEY = 'trophyTracker.checked.v1';
 let checkedState = {};
 try { checkedState = JSON.parse(localStorage.getItem(CHECK_KEY) || '{}') || {}; } catch(e) { checkedState = {}; }
-
-// Persisted starred games (localStorage) — the user's "committed" queue.
-// This is also the trigger the guide-generation backend will use later.
-const STAR_KEY = 'trophyTracker.starred.v1';
-let starredState = {};
-try { starredState = JSON.parse(localStorage.getItem(STAR_KEY) || '{}') || {}; } catch(e) { starredState = {}; }
-function isStarred(name) { return !!starredState[(name||'').toLowerCase()]; }
-function toggleStar(name) {
-  const k = (name||'').toLowerCase();
-  if (starredState[k]) delete starredState[k];
-  else starredState[k] = true;
-  try { localStorage.setItem(STAR_KEY, JSON.stringify(starredState)); } catch(e) {}
-}
-
-// ---- small escaping helpers for inline markup ----
-function jsEsc(s) { return String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/'/g, "\\'"); }
-function attrEsc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;'); }
-
-// ---- guide deep-links (reliable search URLs per game) ----
-function guideLinks(name) {
-  const game = String(name || '');
-  return {
-    psnprofiles: 'https://www.google.com/search?q=' + encodeURIComponent(game + ' trophy guide site:psnprofiles.com'),
-    powerpyx:    'https://www.powerpyx.com/?s=' + encodeURIComponent(game),
-    web:         'https://www.google.com/search?q=' + encodeURIComponent(game + ' trophy guide')
-  };
-}
-function guideLinksHtml(name) {
-  const l = guideLinks(name);
-  return `<div class="guide-links" onclick="event.stopPropagation()">
-    <span class="guide-links-label">Guides</span>
-    <a class="guide-link-btn" href="${l.psnprofiles}" target="_blank" rel="noopener">PSNProfiles</a>
-    <a class="guide-link-btn" href="${l.powerpyx}" target="_blank" rel="noopener">PowerPyx</a>
-    <a class="guide-link-btn" href="${l.web}" target="_blank" rel="noopener">Web</a>
-  </div>`;
-}
-
-// Update every star button on screen for a given game, then refresh lanes.
-function handleStar(name) {
-  toggleStar(name);
-  const on = isStarred(name);
-  document.querySelectorAll('[data-star-game]').forEach(b => {
-    if (b.getAttribute('data-star-game') === name) {
-      b.classList.toggle('on', on);
-      b.textContent = on ? '★' : '☆';
-    }
-  });
-  renderLanes();
-}
-
-function starBtnHtml(name) {
-  const on = isStarred(name);
-  return `<button class="star-btn ${on ? 'on' : ''}" data-star-game="${attrEsc(name)}" title="Star this game (your work-on queue)" onclick="event.stopPropagation();handleStar('${jsEsc(name)}')">${on ? '★' : '☆'}</button>`;
-}
 
 function makeCheckId(gameName, trophyName) {
   return (gameName + '||' + trophyName).toLowerCase();
@@ -1524,88 +1314,11 @@ function updateCheckedStats() {
   });
 }
 
-// ========================
-// DECISION-FATIGUE LANES
-// ========================
-function miniCard(name, g) {
-  const p = getPct(g);
-  const theme = pctTheme(p);
-  return `<div class="mini-card" onclick="focusGame('${jsEsc(name)}')">
-    <div class="mini-top">
-      <span class="mini-title">${dispName(name)}</span>
-      ${starBtnHtml(name)}
-    </div>
-    <div class="mini-meta">
-      <span class="pct-badge ${theme.pct}">${p}%</span>
-      <span class="mini-left"><b>${g.unearned}</b> left</span>
-    </div>
-    <div class="prog-bg"><div class="prog-fill ${theme.prog}" style="width:${p}%"></div></div>
-  </div>`;
-}
-
-function laneHtml(title, sub, cards, extraClass) {
-  if (!cards.length) return '';
-  return `<div class="lane ${extraClass || ''}">
-    <div class="lane-head">${title}<span class="lane-count">${cards.length}</span>${sub ? `<span class="lane-sub">${sub}</span>` : ''}</div>
-    <div class="lane-row">${cards.join('')}</div>
-  </div>`;
-}
-
-function renderLanes() {
-  const host = document.getElementById('lanes');
-  if (!host) return;
-
-  const inc = incompleteEntries.filter(([,g]) => !g.platDead);
-
-  const starred = inc.filter(([n]) => isStarred(n));
-  const oneAway = inc.filter(([,g]) => g.unearned === 1)
-                     .sort(([,a],[,b]) => getPct(b) - getPct(a));
-  const almost  = inc.filter(([,g]) => g.unearned >= 2 && g.unearned <= 3)
-                     .sort(([,a],[,b]) => getPct(b) - getPct(a));
-
-  // Work On Next: top scored finisher candidates that AREN'T already shown in the
-  // One-Trophy-Away / Almost-Done lanes (those are <=3 left), so the lanes don't overlap.
-  const next = inc
-    .filter(([,g]) => g.unearned > 3)
-    .map(([n, g]) => ({ n, g, s: scoreGameForRecommendation(n, g) }))
-    .sort((a, b) => b.s.score - a.s.score)
-    .slice(0, 10);
-
-  let html = '';
-  html += laneHtml('⭐ Starred', 'your work-on queue', starred.map(([n, g]) => miniCard(n, g)));
-  html += laneHtml('🏆 One Trophy Away', 'a single trophy from platinum', oneAway.map(([n, g]) => miniCard(n, g)), 'lane-onaway');
-  html += laneHtml('⚡ Almost Done', '2–3 trophies left', almost.map(([n, g]) => miniCard(n, g)));
-  html += laneHtml('🎯 Work On Next', 'best finisher candidates', next.map(o => miniCard(o.n, o.g)));
-
-  host.innerHTML = html || `<div class="empty" style="padding:30px">No active games — nice, you're all caught up!</div>`;
-}
-
-// Jump from a lane mini-card to the full card in the grid (clears filters so it's visible).
-function focusGame(name) {
-  const searchEl = document.getElementById('search');
-  if (searchEl) searchEl.value = '';
-  activeRange = 'all';
-  activeGenre = 'all';
-  document.querySelectorAll('[data-range]').forEach(b => b.classList.toggle('active', b.dataset.range === 'all'));
-  const gf = document.getElementById('genreFilters');
-  if (gf) gf.querySelectorAll('button.pill').forEach((b, i) => b.classList.toggle('active', i === 0));
-  render();
-  const safeName = name.replace(/[^a-z0-9]/g, '');
-  const card = document.getElementById('card-' + safeName);
-  if (card) {
-    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    const dr = document.getElementById('dr-' + safeName);
-    if (dr && !dr.classList.contains('open')) { dr.classList.add('open'); card.classList.add('open'); }
-  }
-}
-
 function render() {
   const games = getFiltered();
   const totalLeft = games.reduce((s,[,g]) => s + g.unearned, 0);
   document.getElementById('resultsInfo').innerHTML =
     `Showing <strong>${games.length}</strong> games · <strong>${totalLeft.toLocaleString()}</strong> trophies remaining`;
-
-  renderLanes();
 
   const grid = document.getElementById('grid');
   if (!games.length) {
@@ -1672,10 +1385,7 @@ function render() {
         <div class="card-inner" onclick="toggleDrawer(document.getElementById('card-${safeName}'),'${name}')">
           <div class="card-top">
             <div class="game-title">${dispName(name)}</div>
-            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0">
-              <div class="pct-badge ${theme.pct}">${p}%</div>
-              ${starBtnHtml(name)}
-            </div>
+            <div class="pct-badge ${theme.pct}">${p}%</div>
           </div>
           <div class="prog-bg"><div class="prog-fill ${theme.prog}" style="width:${p}%"></div></div>
           <div class="card-meta">
@@ -1686,7 +1396,6 @@ function render() {
           ${times}
           ${gameBadgesHtml}
           ${hasDrawer ? `<div class="expand-hint"><span class="expand-arrow">▾</span> ${g.unearned} trophies · tap to expand</div>` : ''}
-          ${guideLinksHtml(name)}
         </div>
         ${drawer}
       </div>`;
