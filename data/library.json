@@ -1,0 +1,7543 @@
+{
+ "capturedAt": "2026-10-08",
+ "source": "PSN library export (user-provided)",
+ "count": 942,
+ "titles": [
+  {
+   "name": "God of War Laufey",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA19249_00",
+   "preorder": true,
+   "nonGame": false
+  },
+  {
+   "name": "Phantom Blade Zero",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA34579_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Castlevania: Belmont's Curse",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA35399_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Castlevania: Belmont's Curse Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA37039_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Ni no Kuni Wrath of the White Witch Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14156_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Well Dweller",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA38720_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "CONTROL Resonant",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA34547_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Is This Seat Taken?",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA37001_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vampire Crawlers",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA30703_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "CONSTANCE",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA29415_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Wild Blue Skies",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA38420_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mewgenics",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA37318_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Duskfade",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA29264_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rise of the Ronin",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA04539_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mighty Morphin Power Rangers: Rita's Rewind",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA45165_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Monster Train",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA21237_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Legacy of Kain: Defiance",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA51413_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Legacy of Kain: Defiance",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA26226_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Shell II",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA34008_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Shell II",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA38671_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ravenswatch",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA46987_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ravenswatch",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA09253_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fall Guys",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA04476_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest Remake",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA36909_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mina the Hollower",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA22864_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Adventures of Elliot: The Millennium Tales Prologue Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA34260_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Five Nights at Freddy's: Help Wanted 2",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA18886_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "WUCHANG: Fallen Feathers",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA09518_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Marvel's Spider-Man Remastered",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01467_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SAROS",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07632_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hades II",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA36082_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SWORD ART ONLINE Fractured Daydream",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA06569_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tomb Raider I-III Remastered Starring Lara Croft",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA43773_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tomb Raider I-III Remastered Starring Lara Croft",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA16901_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lords of the Fallen",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA07064_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Beyond Words",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA33197_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GRIME",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03276_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Elder Scrolls Online: Tamriel Unlimited",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00132_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Elder Scrolls Online",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02017_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PGA TOUR 2K25",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA17952_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slime Rancher 2",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA20152_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ball X Pit",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA31872_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL requiem",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA30803_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rayman 30th Anniversary Edition",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA33016_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SUPER BOMBERMAN COLLECTION",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA30553_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ENDER MAGNOLIA: Bloom in the Mist",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA22266_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DOOM: The Dark Ages",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA20560_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sea of Stars: Sunset Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA31579_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sea of Stars: Sunset Edition",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07586_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "REANIMAL",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA23372_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "God of War Sons of Sparta",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA28997_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Subnautica Below Zero",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA18065_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Subnautica Below Zero",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02456_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ENDER LILIES : Quietus of the Knights",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA26115_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Capcom Arcade Stadium",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA26271_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MIO: Memories In Orbit",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA20662_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Core Keeper",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA19417_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Disney Epic Mickey: Rebrushed",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA42643_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Disney Epic Mickey: Rebrushed",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA15656_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Still Wakes The Deep",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA07906_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Killing Floor 3",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08427_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Morsels",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA25664_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Twisted Metal",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA43359_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Twisted Metal",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA16427_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cocoon",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA34963_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cocoon",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08765_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Alan Wake 2",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02571_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Goat Simulator 3",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA46679_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Goat Simulator 3",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA04159_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Absolum",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA53342_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Absolum",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA28311_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hollow Knight: Silksong",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA39420_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hollow Knight: Silksong",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA12544_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Rogue Prince of Persia",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA28155_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SHINOBI: Art of Vengeance",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA45905_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SHINOBI: Art of Vengeance",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA19461_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sword Of The Sea",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA25344_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MY HERO ONE'S JUSTICE 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA15929_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DayZ",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA15510_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NINJA GAIDEN: Ragebound",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA53132_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NINJA GAIDEN: Ragebound",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA28002_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cyberpunk 2077",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA16596_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cyberpunk 2077",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03974_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Myst",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA43968_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Myst",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA17121_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Teenage Mutant Ninja Turtles: Splintered Fate",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA50828_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Teenage Mutant Ninja Turtles: Splintered Fate",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA25582_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Clair Obscur: Expedition 33",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA17599_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Texas Chain Saw Massacre",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA35220_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Texas Chain Saw Massacre",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05317_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Robocop: Rogue City",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05060_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Digimon Story: Cyber Sleuth - Hacker's Memory",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09977_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Elder Scrolls IV: Oblivion Remastered",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA21203_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LUNAR Remastered Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA48262_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blue Prince",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA25009_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Split Fiction",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08560_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil: Director's Cut",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA33877_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil: Director's Cut",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA07811_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Temtem",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01800_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Aliens: Dark Descent",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA34369_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Aliens: Dark Descent",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08313_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nine Sols",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA50688_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nine Sols",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA25414_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ghostwire: Tokyo",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01337_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DEATH NOTE Killer Within",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA45307_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DEATH NOTE Killer Within",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA18708_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HOT WHEELS UNLEASHED 2 - Turbocharged",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA35583_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HOT WHEELS UNLEASHED 2 - Turbocharged",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA15191_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Jackbox Naughty Pack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA47879_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jackbox Naughty Pack",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA21821_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Visions of Mana",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA43004_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Visions of Mana",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA16096_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Children of Morta",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA10862_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Brotato",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA40582_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Brotato",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA18472_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Secret Agent Clank",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA41276_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Secret Agent Clank",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA14319_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Iron Meat",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA48053_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Iron Meat",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA22017_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Palworld",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA23126_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Harry Potter: Quidditch Champions",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA31383_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Harry Potter: Quidditch Champions",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05834_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rugrats: Adventure in Gameland",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA49117_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rugrats: Adventure in Gameland",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA23396_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ASTRO BOT",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA21564_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vampire Survivors",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA47783_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DREDGE",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA35762_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DREDGE",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA09077_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vampire Survivors",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA21703_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Black Myth: Wukong",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA23226_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Visions of Mana DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA19984_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "NHL 24",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA11193_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Among Us",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27792_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Among Us",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03595_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA19312_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA22260_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA22262_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Braid, Anniversary Edition",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA20091_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA19313_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SpongeBob SquarePants: The Cosmic Shake",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA30579_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SpongeBob SquarePants: The Cosmic Shake",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA16526_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "AEW: Fight Forever",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA35640_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "AEW: Fight Forever",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA09351_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rocket Knight Adventures: Re-Sparked!",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA42348_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rocket Knight Adventures: Re-Sparked!",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA15338_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dead Space",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03845_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Last of Us Part II Remastered",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10662_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Marvel's Spider-Man 2",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03016_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Skul",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27428_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Minecraft: Legends",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA20295_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Minecraft Legends",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05509_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Immortals of Aveum",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08236_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fallout 4",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02557_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII REBIRTH",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08666_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Moving Out 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA34285_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Moving Out 2",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08207_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ultros",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA43248_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ultros",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA16280_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HELLDIVERS 2",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01413_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII REBIRTH DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA18937_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Immortals Fenyx Rising",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16403_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Evil West",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA25570_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Evil West",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02372_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "A Plague Tale: Requiem",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05366_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Prince of Persia: The Lost Crown DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA20229_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Zombies Ate My Neighbors and Ghoul Patrol",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18841_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sable",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01569_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO 2K Drive",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA28525_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO 2K Drive",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA04048_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PowerWash Simulator",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA29983_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PowerWash Simulator",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA04987_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mafia II: Definitive Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA16990_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DRAGON BALL: THE BREAKERS",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA29213_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Aliens: Fireteam Elite (PS4)",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27462_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Aliens: Fireteam Elite (PS5)",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03393_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Baldur's Gate 3",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA14001_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Kombat 1",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07570_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Gunhead Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA18983_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "STAR OCEAN THE SECOND STORY R",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA40651_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR OCEAN THE SECOND STORY R",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA13715_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The 7th Guest VR",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA17020_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR OCEAN THE SECOND STORY R - DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA16352_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Lies of P",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA36847_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lies of P",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10261_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Broken Edge",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA16771_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Assassin's Creed IV Black Flag",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00010_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Call of Duty: Black Ops Cold War",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA15010_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Call of Duty: Black Ops Cold War",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01628_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sea of Stars Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA42429_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Sea of Stars Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA15426_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Scribblenauts Mega Pack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12563_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cat Quest II",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16539_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Garden of the Sea",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA14342_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HUMANITY",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14150_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HUMANITY",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03771_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "A Hat In Time",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09267_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Endling",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA24601_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Endling",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08511_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Alan Wake Remastered",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA24652_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Alan Wake Remastered",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01924_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY XVI",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10664_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NBA 2K23",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA33074_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NBA 2K23",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA07169_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jurassic World Evolution 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27321_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jurassic World Evolution 2",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03287_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trek to Yomi",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA26156_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trek To Yomi",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02628_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY XVI DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA13802_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Travel The Words Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA16055_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Monster Menu The Scavenger's Cookbook Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA09836_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "STORY OF SEASONS: Friends of Mineral Town",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA26005_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Diablo IV",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11388_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Diablo IV",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02442_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LIVE A LIVE: Demo Version",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA13908_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "The Last Guardian",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03627_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hogwarts Legacy",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12824_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tails of Iron",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA28465_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tails of Iron",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03999_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Meet Your Maker",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA31151_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Meet Your Maker",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05722_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil 4",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA33387_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil 4",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07411_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Diablo IV",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30374_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Diablo IV",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05263_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Wo Long: Fallen Dynasty Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA41046_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Wo Long: Fallen Dynasty Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA14038_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Resident Evil 4 Chainsaw Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA40600_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Resident Evil 4 Chainsaw Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA13656_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Before Your Eyes",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA13412_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "OlliOlli World",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA25465_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "OlliOlli World",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02304_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mafia: Definitive Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA18097_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Evil Dead: The Game",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27709_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Evil Dead: The Game",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03523_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "WHAT THE BAT?",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10863_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Pistol Whip",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19245_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Pistol Whip",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07641_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vacation Simulator",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12586_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vacation Simulator",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10144_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Actraiser Renaissance",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA25035_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Puzzling Places",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA31093_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Puzzling Places",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA14219_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Demeo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10634_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Horizon Call of the Mountain",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA09555_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "OCTOPATH TRAVELER II Prologue Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA10805_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Hogwarts Legacy",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01593_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fallout 76",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA12057_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FruitNinjaVR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07324_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Castle Crashers Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14409_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Divine Knockout",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA28764_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Divine Knockout",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA04188_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Biomutant",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA10041_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Biomutant",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA06255_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mass Effect Legendary Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA19500_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Forspoken Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05700_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "STAR OCEAN THE DIVINE FORCE DEMO",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08139_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "God of War Ragnar\u00f6k",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA34384_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "God of War Ragnar\u00f6k",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08329_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SUPERHOT",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09030_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Injustice 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05462_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HOT WHEELS UNLEASHED",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA25502_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HOT WHEELS UNLEASHED",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02324_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Axiom Verge 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA29346_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Axiom Verge 2",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05172_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tunic",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA26967_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tunic",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03054_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tinykin",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30528_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tinykin",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05406_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Inscryption",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA32883_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Inscryption",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07022_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MultiVersus",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA24363_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MultiVersus",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03189_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cursed to Golf",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA33320_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cursed to Golf",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA08411_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cult of the Lamb",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA32183_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cult Of The Lamb",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA06464_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ROLLERDROME",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA08185_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Unity Save Data Example",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA32213_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Escape Academy",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA06493_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Teenage Mutant Ninja Turtles: Shredder's Revenge",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30991_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY XV",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01633_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nickelodeon All-Star Brawl",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA25399_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nickelodeon All-Star Brawl",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02279_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NARUTO TO BORUTO: SHINOBI STRIKER",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA08789_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tribes of Midgard",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA24748_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tribes of Midgard",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01410_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FIFA 22",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03180_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR WARS Jedi: Fallen Order",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12539_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lost In Random",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19609_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lost In Random",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01693_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR WARS Jedi: Fallen Order",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02198_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Dark Pictures Anthology: Man of Medan",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13933_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Dark Pictures Anthology: Little Hope",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18028_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Dark Pictures Anthology: House Of Ashes",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA25846_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Dark Pictures Anthology: House of Ashes",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02595_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO Star Wars: The Skywalker Saga",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13794_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO Star Wars: The Skywalker Saga",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01864_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Torchlight III",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10227_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "A Plague Tale: Innocence",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02388_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STRANGER OF PARADISE FINAL FANTASY ORIGIN",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA29578_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STRANGER OF PARADISE FINAL FANTASY ORIGIN",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03232_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Knightin'+",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA07290_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Spelunky 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA20601_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tomb Raider: Definitive Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00107_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slay the Spire",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA15289_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SpongeBob SquarePants: Battle For Bikini Bottom - Rehydrated",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14898_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hood: Outlaws & Legends",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA18991_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hood: Outlaws & Legends",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02170_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nobody Saves the World",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA27069_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nobody Saves the World",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03332_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Unravel TWO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10483_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Until Dawn",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00359_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tiny Tina's Wonderlands",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA23766_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tiny Tina's Wonderlands",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01492_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fall Guys: Ultimate Knockout",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA29236_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ELDEN RING",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA28863_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ELDEN RING",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA04610_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "EA SPORTS UFC 4",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14204_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Planet Coaster",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01736_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SIFU",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30202_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sifu",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05132_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KINGDOM HEARTS:VR Experience",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15095_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Death's Door",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30423_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Death's Door",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05303_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DIRT 5",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA16195_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DIRT5",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01552_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Persona 5 Strikers",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA19640_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Deep Rock Galactic",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA26860_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Deep Rock Galactic",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02967_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Jackbox Party Pack 8",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA28632_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Jackbox Party Pack 8",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA04139_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Shell",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA16364_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO DC Super-Villains",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA11542_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Godfall: Challenger Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA31058_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Godfall: Challenger Edition",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA05660_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Matrix Awakens: An Unreal Engine 5 Experience",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA05753_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Binding of Isaac: Repentance",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03311_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tiny Tina's Assault on Dragon Keep: A Wonderlands One-shot Adventure",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA30035_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Skyrim",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05333_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Skyrim",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03746_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Until You Fall",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA23190_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Persistence",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA07643_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Walking Dead: Saints & Sinners",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA17412_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Kingdoms of Amalur: Re-Reckoning",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA17271_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "First Class Trouble",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA26040_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "First Class Trouble",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02560_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Knockout City",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA19579_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Knockout City",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03330_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Kena: Bridge of Spirits",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA24853_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Kena: Bridge of Spirits",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01746_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hades",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA27387_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hades",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03355_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trigger Witch",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA27037_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dodgeball Academia",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA27737_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Splitgate: Arena Warfare",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA26225_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Plants vs. Zombies: Battle for Neighborville",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA10863_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hunter's Arena: Legends",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27096_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hunter's Arena: Legends",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02691_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII REMAKE",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01903_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rising Hell",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA23625_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Eagle Island",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17464_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Operation Tango",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA03243_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Virtua Fighter 5 Ultimate Showdown",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA27065_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR WARS: Squadrons",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA15080_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil Village",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18017_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil Re:Verse",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19088_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil Village Mini Soundtrack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA23454_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Resident Evil Village",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01556_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil Village Gameplay Demo",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA03152_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Cyber Shadow",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA24216_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cyber Shadow",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01882_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil Re:Verse Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA25715_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Zombie Army 4: Dead War",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA12583_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Oddworld: Soulstorm Enhanced Edition",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01590_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SUPER BOMBERMAN R",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10667_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dungeons & Bombs",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02944_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "It Takes Two",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16742_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "It Takes Two",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02342_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Curse of the Dead Gods",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19412_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL 7 biohazard",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03962_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Concrete Genie",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA11834_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Control",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA11461_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Control Ultimate Edition",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01949_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Destruction AllStars",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA02712_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Messenger",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15271_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Shadow of the Tomb Raider",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA10938_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MAIDEN",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01858_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Maneater",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01861_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GreedFall",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14211_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Worms Rumble",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA23467_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Worms Rumble",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01527_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RocketArena",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA18630_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Just Cause 4",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09254_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Immortals Fenyx Rising",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01507_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Warframe",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01737_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Monster Hunter World: Iceborne",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA07713_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DAYS GONE",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA08966_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Borderlands 3",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01462_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "No Man's Sky",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA02110_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Middle-earth: Shadow of War",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04408_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Exit the Gungeon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA23188_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sackboy: A Big Adventure",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18886_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sackboy: A Big Adventure - The Gathering Storm",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA20421_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sackboy: A Big Adventure",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01289_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sackboy: A Big Adventure - The Gathering Storm",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01808_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Demon's Souls",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01342_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Demon's Souls Original Soundtrack",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01691_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "The Pathless",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14330_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Pathless",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01825_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Overcooked! All You Can Eat",
+   "platform": "PS5",
+   "plus": false,
+   "titleId": "PPSA01529_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bugsnax",
+   "platform": "PS5",
+   "plus": true,
+   "titleId": "PPSA01502_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Crash Bandicoot 4: It's About Time",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19035_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "WORLD OF FINAL FANTASY",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04647_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Diablo III: Reaper of Souls \u2013 Ultimate Evil Edition (English)",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00242_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vampyr",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03293_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Need for Speed Payback",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05999_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PUBG: BATTLEGROUNDS",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14081_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PUBG - Public Test Server",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA14380_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "STREET FIGHTER V",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01200_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GoNNER",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11628_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fall Guys: Ultimate Knockout",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA17711_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NBA 2K20",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA16310_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Erica",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA11655_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rise of the Tomb Raider",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05794_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Call of Duty: Modern Warfare 2 Campaign Remastered",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09249_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cuphead",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA20499_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Star Ocean: Till The End Of Time",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04778_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KINGDOM HEARTS HD 2.8 FINAL CHAPTER PROLOGUE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05795_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KINGDOM HEARTS - HD 1.5+2.5 ReMIX -",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05933_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY IX",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08877_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR OCEAN - THE LAST HOPE - 4K & Full HD Remaster",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09485_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KINGDOM HEARTS III",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12031_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR OCEAN First Departure R",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16913_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "A Plague Tale: Innocence",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11032_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Castlevania Anniversary Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15109_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Contra Anniversary Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15481_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blaster Master Zero",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19643_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blaster Master Zero 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA19644_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bloodstained: Curse of the Moon 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA23490_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Telling Lies",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16938_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blasphemous",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16275_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Last of Us Part II",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07820_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SOULCALIBUR VI",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09903_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RAGE2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10339_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Journey To The Savage Planet",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14470_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Thy Sword",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16359_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The LEGO NINJAGO Movie Video Game",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07739_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Streets of Rage 4",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16237_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trials of Mana",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17050_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII REMAKE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07211_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hidden Through Time",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18631_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Disney+",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15607_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "RESIDENT EVIL 3",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14168_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL RESISTANCE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14169_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Room VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17139_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DOOM Eternal",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13338_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trials of Mana Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA18251_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "SONIC FORCES",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05637_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SHADOW OF THE COLOSSUS",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA08034_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII REMAKE DEMO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07237_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Agony",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10216_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Moonlighter",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10164_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Firewall Zero Hour",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09831_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Sims 4",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09209_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "BioShock: The Collection",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03979_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bioshock Infinite: The Complete Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03980_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Daggerhood",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14147_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nioh",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA07113_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Monkey Ball: Banana Blitz HD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16178_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Outer Worlds",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA16285_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MediEvil",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11227_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Borderlands 3",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07823_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VIII Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08749_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Legend of the Skyfish",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17055_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "TORCHLIGHT 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15315_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Phoenix Wright: Ace Attorney Trilogy",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11513_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Arcade Archives VS. GRADIUS",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17028_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RAD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13879_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Devious Dungeon 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15318_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "BATMAN: ARKHAM KNIGHT",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00133_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Kombat 11",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11395_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Harvey's New Eyes",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA17236_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "My Brother Rabbit",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12298_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Raiden V: Director's Cut",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07673_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "R-Type Dimensions EX",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14355_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mega Man 11",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10784_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mega Man X Legacy Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10785_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mega Man X Legacy Collection 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10788_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DARK SOULS III",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03388_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Persona 5",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05877_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Wizard of Legend",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10927_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hidden Agenda",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08019_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Assassin's Creed Chronicles: China",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01347_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Assassin's Creed Chronicles: India",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01348_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Assassin's Creed Chronicles: Russia",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01349_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jeopardy!",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08927_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Deus Ex: Mankind Divided",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01799_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Deponia",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05922_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Steel Rats",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09236_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Steel Rats original soundtrack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14272_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Psychonauts in the Rhombus of Ruin",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05808_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Has-Been Heroes",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06643_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nine Parchments",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05984_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bloodstained: Ritual of the Night",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07953_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Uncharted 4: A Thief's End",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00341_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Marvel's Spider-Man",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02299_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Detroit: Become Human",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08344_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Detroit: Become Human Digital Deluxe Soundtrack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12183_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "The Art of Detroit: Become Human",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12299_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Dauntless",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA15429_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Surge",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04733_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Conan Exiles",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA10608_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Borderlands: Game of the Year Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10455_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Call of Duty: Modern Warfare Remastered",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03522_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Witness",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00498_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Path of Exile",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11924_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dead Cells",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11253_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ACA NEOGEO PUZZLE BOBBLE 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13978_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "JackQuest",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14246_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HITMAN",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02976_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Gunhouse",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09627_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Apex Legends",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12540_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09193_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL 2 \"1-Shot Demo\"",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14394_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Castlevania Requiem: Symphony Of The Night & Rondo Of Blood",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13434_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Floor Plan",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09975_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Waddle Home",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06386_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "18Floors",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11956_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Death's Gambit",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05853_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Machinarium",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02608_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Crawl",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07876_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fe",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09058_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Life is Strange: Before the Storm",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08479_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hello Neighbor",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10963_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SwapQuest",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08002_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Full Throttle Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06644_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slayaway Camp",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09675_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slayaway Camp: Original Soundtrack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10492_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Overcooked 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10940_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Owlboy",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09914_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Beat Saber",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12878_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KNACK 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08014_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hollow Knight",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13632_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Transference: The Walter Test Case",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10925_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tetris Effect",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13594_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Freaky Awesome",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12558_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Megalith (Open Beta)",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA14274_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Roundabout",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02470_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "YAKUZA KIWAMI",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA06997_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bulletstorm: Full Clip Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA07143_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Burly Men At Sea",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA09109_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rocketbirds 2: Evolution",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02965_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "2064: Read Only Memories",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA06169_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Friday the 13th: The Game",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA07878_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Laser League",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05983_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY XV POCKET EDITION HD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12651_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DARK SOULS II: Scholar of the First Sin",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01760_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Little Nightmares",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05929_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sigi - A Fart for Melusina",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12919_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Guacamelee! 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07098_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Persian Nights: Sands of Wonders",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA13148_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "36 Fragments of Midnight",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10921_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Devious Dungeon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12094_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Chasm",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01273_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "20XX",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11056_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Space Overlords",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05147_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ABSOLVER",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA06282_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bloodstained: Curse of the Moon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA12562_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Firewatch",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04107_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nex Machina",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05588_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Darkest Dungeon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05254_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Swords of Ditto",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA10443_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "God of War",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07408_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Q*bert: Rebooted",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01280_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "In Space We Brawl",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01386_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "99Vidas",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05187_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trackmania Turbo",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03008_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Adventure Pals",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06645_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Xenon Valkyrie+",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11018_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RiME",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05796_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Secret of Mana",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09565_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Alien: Isolation",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00363_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Oxenfree",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04950_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Iconoclasts",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09583_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "No Man's Sky",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04841_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Celeste",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA11302_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Momodora: Reverie Under the Moonlight",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05694_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Batman: Return to Arkham - Arkham City",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04516_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Batman: Return to Arkham - Arkham Asylum",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04601_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cast Of The Seven Godsends - Redux",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04315_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slain",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06283_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dear Esther: Landmark Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05092_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Little Acre",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06501_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cat Quest",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09626_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Skyrim VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA09124_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hand of the Gods",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06677_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dungeon Defenders II",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01340_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Happy Dungeons",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA08772_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Brawlhalla",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04195_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hue",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05091_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Amnesia Collection",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA05882_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil 0",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02337_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL 6",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03856_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL5",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04437_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL CODE: Veronica X",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07104_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Salt and Sanctuary",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02353_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Layers of Fear",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04485_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Slender - The Arrival",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02003_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Doodle Devil",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04649_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fortnite",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07022_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mortal Kombat XL",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03589_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Armello",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03300_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Escapists",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01880_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Motherload",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00045_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Assassin's Creed Freedom Cry",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00416_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "resident evil 4",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04885_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ziggurat",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02325_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Minecraft Story Mode",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03495_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Brick Breaker",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03889_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Anomaly 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00082_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Darksiders II Deathinitive Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02420_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Just Cause 3",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01493_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "That's You!",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA06348_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Paranormal Activity: The Lost Soul",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06583_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Outlast 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06623_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Pyre",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05441_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Night Trap - 25th Anniversary Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07957_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sundered: Eldritch Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07282_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Vertical Drop Heroes HD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01696_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Sun and Moon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01756_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Three Fourths Home",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03222_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Paranautical Activity",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03867_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Uncanny Valley",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03868_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lovely Planet",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04068_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hunter's Legacy",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05753_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Vanishing of Ethan Carter",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03130_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Submerged",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02931_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "AceBanana",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06055_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Letter Quest Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03869_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Bridge",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01138_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "I am Bread",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03083_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tumble VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05406_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Claire",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03781_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Zombie Vikings",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02844_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DYING: Reborn VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06410_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "I, Zombie",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07078_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Flame in the Flood",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07205_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sparkle Unleashed",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02292_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Coffin Dodgers",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04084_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KNACK",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00068_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Until Dawn: Rush of Blood",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03683_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Killing Floor 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02134_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Overwatch",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01842_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Disney Afternoon Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06809_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rise & Shine",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07074_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Wonder Boy: The Dragon's Trap",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07029_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Flinthook",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07390_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cosmic Star Heroine",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03167_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Curses 'N Chaos",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02638_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "10 Second Ninja X",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04748_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Drawn to Death",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA06186_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lumo",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04274_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Disc Jam",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04613_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NOT A HERO",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02996_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "TROVE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04598_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "AdventurePop",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05985_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super GunWorld 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06841_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ACA NEOGEO SAMURAI SHODOWN",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06804_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lara Croft GO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06460_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lovers in a Dangerous Spacetime",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04075_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Risk of Rain",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04192_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mutant Mudds Super Challenge",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05130_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mutant Mudds Deluxe",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06432_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO Batman 3: Beyond Gotham",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00580_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bard's Gold",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05012_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Guns, Gore and Cannoli",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03818_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Jackbox Party Pack 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03183_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Psychonauts",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03881_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GRAVITY RUSH 2 DEMO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06596_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Randal's Monday",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04046_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Adventures of Pip",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02609_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "This War of Mine: The Little Ones",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02696_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Swindle",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02329_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Azkend 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04407_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "YouTube",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01015_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "The Jackbox Party Pack 3",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06239_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Teenage Mutant Ninja Turtles: Mutants in Manhattan",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01843_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hyper Light Drifter",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04570_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mighty No. 9",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02495_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Song of the Deep",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05049_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tethered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06587_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tethered (Original Soundtrack)",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA07012_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "VUDU HD Movies",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00096_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Goosebumps: The Game",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02599_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Crypt of the NecroDancer",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03610_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Divinity : Original Sin Enhanced Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02737_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "INSIDE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05297_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Deadly Tower of Monsters",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01937_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Everybody's Gone To The Rapture",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02405_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LET IT DIE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03769_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Neon Chrome",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03505_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "STAR WARS Battlefront",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00640_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mega Man Legacy Collection",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02516_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "My Name is Mayo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06397_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Carnival Games VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05697_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Middle-earth: Shadow of Mordor - Game of the Year Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01939_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Virginia",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03127_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bound",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04193_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nebulous",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02087_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Dungeon Bros",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06227_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Ittle Dew 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04643_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Wand Wars",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05658_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Exile's End",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05803_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Brookhaven Experiment",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06482_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "WORLD OF FINAL FANTASY Dungeon Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06016_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Here They Lie",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05018_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hatsune Miku: VR Future Live",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04771_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Catlateral Damage",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04521_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GOD EATER RESURRECTION",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03525_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Chronicles of Teddy : Harmony of Exidus",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03351_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Shadow Complex Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04265_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lichdom: Battlemage",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02798_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Joe Dever's Lone Wolf Console Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03768_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Allumette",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05884_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Littlstar Cinema",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06120_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Invasion!",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06149_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hatsune Miku: VR Future Live Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04793_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Outlast 2 Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06646_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Media Player",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02012_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "THE PLAYROOM VR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04318_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "EVE: Valkyrie \u2013 Warzone",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05789_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "TRANSFORMERS: Devastation",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01410_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mystery Chronicle: One Way Heroics",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03970_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DRAGON QUEST BUILDERS DEMO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05700_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Oceanhorn",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05010_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Cel Damage HD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00487_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Overlord: Fellowship of Evil",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02701_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ALIENATION",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04181_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blue Rider",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA06498_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Journey",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00694_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jotun",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04881_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Overcooked",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05724_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FUNimation",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01881_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "The Fall",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02031_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Kill Strain",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02835_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Neverwinter",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04314_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Life Is Strange",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01442_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "I am Setsuna.",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04770_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Furi",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04917_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESIDENT EVIL REVELATIONS 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00924_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Stories:The Path of Destinies",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04101_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "A Boy and His Blob",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02700_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Shantae: Risky's Revenge - Director's Cut",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01587_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Jamestown+",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01008_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Lords of the Fallen",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00369_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mad Max",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00103_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Walking Dead: Michonne",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04173_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil 7 Teaser: Beginning Hour",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04772_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Downwell",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04550_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Gone Home: Console Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01228_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "NBA 2K16",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02741_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HBO GO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01567_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Odin Sphere Leifthrasir DEMO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA05094_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "DOOM",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02085_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tetris Ultimate",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00405_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trivial Pursuit Live!",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01024_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hitman GO: Definitive Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04126_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Banner Saga",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02538_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "KILLZONE SHADOW FALL",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00190_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Brothers : a Tale of Two Sons",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02297_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hulu",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00131_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Overwatch: Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03313_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Switch Galaxy Ultra",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00789_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Table Top Racing: World Tour",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA04838_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tropico 5",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01216_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nioh Alpha Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04083_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "ARSLAN: THE WARRIORS OF LEGEND DEMO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04177_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "DOOM Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00699_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Ratchet & Clank",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01047_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Battleborn Open Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04235_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Enter the Gungeon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01608_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "ZOMBI",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01886_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dead Star",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA03138_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sh\u00fctshimi",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02535_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Unravel",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02685_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "-KLAUS-",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04877_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PLATINUM DEMO \u2013 FINAL FANTASY XV",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04568_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Paragon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03608_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Day of the Tentacle Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01991_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Peggle 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00718_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Giana Sisters: Twisted Dreams \u2013 Director's Cut",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01448_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "flOw",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00144_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Galak-Z",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02049_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HEAVY RAIN",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02533_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HITMAN - Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03017_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Uncharted 4 Multiplayer",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA04030_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Broforce",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00911_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Witch and the Hundred Knight: Revival Edition Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02929_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "SMITE",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02328_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Adventure Time: Finn and Jake Investigations",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01746_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rainbow Moon",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03443_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Kitten Squad",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03195_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "GemsofWar",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02829_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tom Clancy's The Division Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02999_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Nom Nom Galaxy",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01365_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "HELLDIVERS",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00142_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sparkle 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00590_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LIMBO",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01664_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hand of Fate",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01503_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fibbage",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00946_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Escape Plan",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00034_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Fat Princess Adventures",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01388_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Twisted Metal: Black",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02036_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Grim Fandango Remastered",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01319_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hardware: Rivals",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01965_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY X/X-2 HD Remaster",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01227_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY VII",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01875_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Live Events Viewer",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00658_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Dreamals",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03821_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dishonored Definitive Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02218_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Extreme Exorcism",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01874_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hotline Miami 2: Wrong Number",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00368_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Titan Souls",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01598_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Poncho",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03175_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nova-111",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02354_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Beyond: Two Souls",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00495_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Order: 1886",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00785_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SPELUNKER WORLD",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03286_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dragon Fin Soup",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00599_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MAGICKA 2",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02421_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Twitch",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03285_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Uncharted: The Nathan Drake Collection Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03262_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Disgaea 5: Alliance of Vengeance Demo Version",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03160_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "STAR WARS Battlefront Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02941_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Unmechanical: Extended",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01204_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Broken Age",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01990_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Meat Boy!",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02845_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SOMA",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03333_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bombing Busters",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03168_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Xeodrifter",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02439_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Teslagrad",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01670_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Time Force Ultra",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01938_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Grow Home",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02904_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tearaway Unfolded",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01607_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tearaway Unfolded Soundtrack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA03007_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "METAL GEAR SOLID V: THE PHANTOM PAIN",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01140_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Color Guardians Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02998_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Trans-Galactic Tournament",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02051_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Gauntlet",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00701_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "PlayStation Vue",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00960_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "King's Quest",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01447_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Stealth Inc 2: A Game of Clones",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01424_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sound Shapes",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00090_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Last of Us Remastered",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00552_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "TEMBO THE BADASS ELEPHANT",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02438_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Bastion",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02052_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "MouseCraft",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00656_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Entwined",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00571_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Styx: Master of Shadows",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01052_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rocket League",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01163_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Futuridium EP Deluxe",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00832_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DRIVECLUB",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00093_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Exploding Zoo",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02738_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Skulls of the Shogun",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02050_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Wolf Among Us",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01018_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Escape Goat 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01124_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nidhogg",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00920_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Shovel Knight: Treasure Trove",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01867_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tiny Brains",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00055_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Nano Assault NEO-X",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01391_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Unfinished Swan",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00695_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hohokum",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00091_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Plex",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01850_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Ether One",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA02503_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Guacamelee! Super Turbo Championship Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00151_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Aaru's Awakening",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01162_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Never Alone",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01305_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tower of Guns",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01548_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Toukiden: Kiwami - Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA02018_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Spotify",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01780_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Bloodborne",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00900_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Terraria",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00740_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Citizens of Earth Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01403_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Nano Assault NEO-X Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01726_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Pillar Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01922_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "CounterSpy",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00458_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Oddworld: New 'n' Tasty",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00329_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Valiant Hearts: The Great War",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00478_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Child of Light",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00339_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Resident Evil",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01068_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Home",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01218_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Super Stardust Ultra",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01560_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rogue Legacy PS4",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00629_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Rayman Legends",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00069_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Mercenary Kings",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00324_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Jackbox Party Pack",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01229_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LittleBigPlanet 3",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00473_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Apotheon",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01237_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Swapper",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00315_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "inFAMOUS First Light",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00575_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Walking Dead: Season 2",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01017_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Walking Dead: Season 1",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01019_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "FINAL FANTASY XIV",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00288_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Loadout",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01415_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Game of Thrones",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01402_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Secret Ponchos",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00313_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Geometry Wars 3: Dimensions",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00755_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "LEGO The Hobbit",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00348_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Tales from the Borderlands",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00870_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "SteamWorld Dig",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00521_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "The Binding of Isaac: Rebirth",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00792_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Pix the Cat",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01352_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Spelunky",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00493_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dust: An Elysian Tail",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01326_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Sportsfriends",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00700_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Velocity 2X",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00384_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Destiny",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00219_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Arcade Archives RYGAR",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00993_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Hotline Miami",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00486_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Plants vs Zombies Garden Warfare",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00453_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "P.T.",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA01127_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Amazon Prime Video",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00130_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Netflix",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00129_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "FEZ",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00383_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Road Not Taken",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA01046_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Injustice: Gods Among Us Ultimate Edition",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00079_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Destiny Beta",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00756_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "Thief Demo",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00664_00",
+   "preorder": false,
+   "nonGame": true
+  },
+  {
+   "name": "TowerFall Ascension",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00466_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Transistor",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00502_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Stick it to The Man",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00537_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Strider",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00057_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Doki-Doki Universe",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00036_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Dead Nation: Apocalypse Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00236_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Outlast",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00325_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Don't Starve: Console Edition",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00158_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Contrast",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00011_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "RESOGUN",
+   "platform": "PS4",
+   "plus": true,
+   "titleId": "CUSA00038_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Trine 2: Complete Story",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00234_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "DC Universe Online",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00012_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Blacklight: Retribution",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00042_00",
+   "preorder": false,
+   "nonGame": false
+  },
+  {
+   "name": "Warframe",
+   "platform": "PS4",
+   "plus": false,
+   "titleId": "CUSA00080_00",
+   "preorder": false,
+   "nonGame": false
+  }
+ ]
+}

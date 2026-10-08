@@ -1,0 +1,532 @@
+/* LabyrinthWorm // Trophy Tracker — v2 app
+   Data: data/progress.json (v1 or v2), data/enriched.json (machine guide facts),
+         data/overrides.json (hand-maintained), data/guides.json + js/guides-inline.js (walkthrough notes),
+         data/library.json (owned titles), data/sync-meta.json.
+   Scoring: js/scoring.js (window.TrophyScoring). */
+(function () {
+  'use strict';
+  const S = window.TrophyScoring;
+  const $ = (id) => document.getElementById(id);
+
+  // ---------- persistence ----------
+  const LS = { checked: 'trophyTracker.checked.v1', starred: 'trophyTracker.starred.v1', ui: 'trophyTracker.ui.v2' };
+  const load = (k, d) => { try { return JSON.parse(localStorage.getItem(k) || 'null') ?? d; } catch (e) { return d; } };
+  const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } };
+  let checked = load(LS.checked, {});
+  let starred = load(LS.starred, {});
+  let ui = Object.assign({ sort: 'score', platform: 'all', range: 'all', genre: 'all', q: '', tab: 'incomplete', collapsed: { walls: true, dead: true } }, load(LS.ui, {}));
+  const checkId = (key, trophy) => (key + '||' + trophy).toLowerCase();
+  const isChecked = (key, trophy) => !!checked[checkId(key, trophy)];
+  const isStarred = (key) => !!starred[key.toLowerCase()];
+
+  // ---------- data ----------
+  let GAMES = {};            // key -> model
+  let LIBRARY = null, META = null, GUIDES = {};
+  let dataAsOf = null;
+  const assessCache = new Map();
+
+  const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const attr = (s) => encodeURIComponent(String(s == null ? '' : s));
+  const unattr = (s) => decodeURIComponent(s || '');
+  const titleCase = (name) => name.replace(/\b\w/g, (c) => c.toUpperCase());
+  const safeId = (key) => 'g-' + key.replace(/[^a-z0-9]+/gi, '-');
+
+  async function fetchJson(path, fallback) {
+    try { const r = await fetch(path, { cache: 'no-cache' }); if (!r.ok) throw new Error(r.status); return await r.json(); }
+    catch (e) { return fallback; }
+  }
+
+  function normalizeTrophy(t) {
+    return { id: t.id ?? null, name: t.name ?? '', desc: t.desc ?? '', type: t.type ?? null, rarity: t.rarity == null ? null : Number(t.rarity), tier: t.tier ?? null, hidden: !!t.hidden, date: t.date ?? null, unobtainable: !!t.unobtainable };
+  }
+
+  function buildModel(key, raw, enr, ovr) {
+    const earnedArr = Array.isArray(raw.earned) ? raw.earned.map(normalizeTrophy) : [];
+    const unearnedArr = Array.isArray(raw.unearned) ? raw.unearned.map(normalizeTrophy) : [];
+    const hasPlatInfo = earnedArr.concat(unearnedArr).some((t) => t.type);
+    const trophyMeta = Object.assign({}, (enr && enr.trophies) || {}, (ovr && ovr.trophies) || {});
+    const platDead = ovr && typeof ovr.platDead === 'boolean' ? ovr.platDead : (enr && typeof enr.platDead === 'boolean' ? enr.platDead : false);
+    return {
+      key, title: raw.title || titleCase(key),
+      platforms: Array.isArray(raw.platforms) ? raw.platforms : [],
+      genres: Array.isArray(raw.genres) ? raw.genres : [],
+      url: raw.url || null, iconUrl: raw.iconUrl || null,
+      timeNormal: (enr && enr.timeNormal) ?? raw.timeNormal ?? null,
+      timeHastily: (enr && enr.timeHastily) ?? raw.timeHastily ?? null,
+      timePlat: (enr && enr.timePlat) ?? raw.timePlat ?? null,
+      earnedBase: earnedArr, unearnedBase: unearnedArr,
+      hasPlatinum: typeof raw.hasPlatinum === 'boolean' ? raw.hasPlatinum : (hasPlatInfo ? earnedArr.concat(unearnedArr).some((t) => t.type === 'platinum') : true),
+      platinumEarned: typeof raw.platinumEarned === 'boolean' ? raw.platinumEarned : (hasPlatInfo ? earnedArr.some((t) => t.type === 'platinum') : null),
+      lastPlayed: raw.lastPlayed || (S.lastPlayedOf({ earned: earnedArr }) || {}).toISOString?.() || null,
+      progress: raw.progress ?? null,
+      guide: (enr && enr.guide && enr.guide.source) ? enr.guide : null,
+      platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
+      trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
+      legacyOnly: !!raw.legacyOnly,
+    };
+  }
+
+  /** The game as the scorer/UI should see it: checked-off trophies count as earned. */
+  function view(g) {
+    const unearned = g.unearnedBase.filter((t) => !isChecked(g.key, t.name));
+    const checkedOnes = g.unearnedBase.filter((t) => isChecked(g.key, t.name));
+    const earned = g.earnedBase.concat(checkedOnes);
+    const platinumEarned = g.platinumEarned === null ? (unearned.length === 0) : (g.platinumEarned || checkedOnes.some((t) => t.type === 'platinum'));
+    return Object.assign({}, g, { earned, unearned, left: unearned.length, total: earned.length + unearned.length, platinumEarned, starred: isStarred(g.key), completed: unearned.length === 0 });
+  }
+  function pctOf(v) { return v.total === 0 ? 100 : Math.round((v.earned.length / v.total) * 100); }
+  function assessOf(key) {
+    if (assessCache.has(key)) return assessCache.get(key);
+    const v = view(GAMES[key]);
+    const a = S.assess(v, { dataAsOf });
+    assessCache.set(key, a);
+    return a;
+  }
+  function invalidate(key) { if (key) assessCache.delete(key); else assessCache.clear(); }
+
+  function pctTheme(p) { return p >= 80 ? { bar: 'bar-green', pct: 'pct-high', prog: 'prog-green' } : p >= 40 ? { bar: 'bar-amber', pct: 'pct-med', prog: 'prog-amber' } : { bar: 'bar-red', pct: 'pct-low', prog: 'prog-red' }; }
+  const diffClass = (d) => d >= 7 ? 'diff-hi' : d >= 4.5 ? 'diff-mid' : 'diff-lo';
+  const fmtH = (h) => (h < 1 ? '<1h' : h < 10 ? `${Math.round(h * 2) / 2}h` : `${Math.round(h)}h`);
+  const tierClass = (t) => (t || '').replace(/\s+/g, '-');
+  function fmtDate(iso) { const d = S.parseDate(iso); if (!d) return ''; return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function ago(iso) {
+    const d = S.parseDate(iso); if (!d) return '';
+    const days = Math.round((dataAsOf - d) / 86400000);
+    if (days <= 0) return 'today'; if (days === 1) return 'yesterday'; if (days < 30) return `${days}d ago`;
+    if (days < 365) return `${Math.round(days / 30)}mo ago`; return `${Math.round(days / 365 * 10) / 10}y ago`;
+  }
+
+  // ---------- chips / badges ----------
+  function assessChips(a, opts) {
+    opts = opts || {};
+    const chips = [];
+    if (a.dead) chips.push(`<span class="chip dead" title="${esc(a.deadReason)}">🚫 unattainable</span>`);
+    chips.push(`<span class="chip hours" title="Estimated remaining effort (range ${a.hoursLow}–${a.hoursHigh}h)">≈ <b>${fmtH(a.hours)}</b></span>`);
+    chips.push(`<span class="chip ${diffClass(a.difficulty)}" title="Difficulty 0–10 from rarity of what is left${a.guideDifficulty != null ? ' blended with guide rating ' + a.guideDifficulty + '/10' : ''}">diff <b>${a.difficulty}</b></span>`);
+    if (a.rarestRemaining != null) chips.push(`<span class="chip rar" title="Rarest remaining trophy: ${esc(a.rarestName)}">rarest <b>${a.rarestRemaining}%</b></span>`);
+    if (a.needsPlaythrough) chips.push(`<span class="chip play" title="At least one trophy needs a fresh playthrough (~${a.playthroughHours}h)">🔁 playthrough</span>`);
+    if (!opts.compact && a.hasPlat) chips.push(`<span class="chip plat">◆ platinum</span>`);
+    return `<div class="chips">${chips.join('')}</div>`;
+  }
+  function gameFlagBadges(g, a) {
+    if (g.gameTags && g.gameTags.length) return `<div class="flag-row">${g.gameTags.map((b) => `<span class="g-badge ${esc(b.cls)}">${esc(b.label)}</span>`).join('')}</div>`;
+    const f = a.flags, out = [];
+    if (f.SKILL_WALL) out.push(`<span class="g-badge gt-skill">💀 SKILL WALL ×${f.SKILL_WALL}</span>`);
+    if (f.PLAYTHROUGH) out.push(`<span class="g-badge gt-play">🔁 NEW RUN</span>`);
+    if (f.MISSABLE) out.push(`<span class="g-badge gt-missable">⚠ MISSABLE ×${f.MISSABLE}</span>`);
+    if (f.ONLINE) out.push(`<span class="g-badge gt-online">🌐 ONLINE ×${f.ONLINE}</span>`);
+    if (f.GRIND) out.push(`<span class="g-badge gt-grind">⏱ GRIND ×${f.GRIND}</span>`);
+    return out.length ? `<div class="flag-row">${out.join('')}</div>` : '';
+  }
+  function trophyBadges(g, t) {
+    const { flags, source } = S.trophyFlags(g, t);
+    const map = { MISSABLE: ['note-warn', '⚠ Missable'], ONLINE: ['note-online', '🌐 Online'], SKILL_WALL: ['note-skill', '💀 Skill wall'], GRIND: ['note-grind', '⏱ Grind'], RNG: ['note-grind', '🎲 RNG'], BUGGY: ['note-warn', '🧨 Buggy'], PLAYTHROUGH: ['note-play', '🔁 New playthrough'], UNOBTAINABLE: ['note-dead', '🚫 Unobtainable'], DLC: ['note-grind', 'DLC'] };
+    const out = [];
+    for (const f of flags) if (map[f]) out.push(`<span class="t-note ${map[f][0]}" title="${source === 'manual' ? 'from your notes' : 'detected from the description'}">${map[f][1]}</span>`);
+    return out.length ? `<div class="t-badges">${out.join('')}</div>` : '';
+  }
+  function starBtn(key) { const on = isStarred(key); return `<button class="star-btn ${on ? 'on' : ''}" data-action="star" data-key="${attr(key)}" title="${on ? 'Unstar' : 'Star: add to your work-on queue'}" aria-pressed="${on}">${on ? '★' : '☆'}</button>`; }
+  function guideLinks(g) {
+    const t = g.title;
+    const links = [];
+    if (g.guide && g.guide.url) links.push(['PowerPyx guide', g.guide.url]);
+    else links.push(['PowerPyx', 'https://www.powerpyx.com/?s=' + encodeURIComponent(t)]);
+    links.push(['PSNProfiles', 'https://psnprofiles.com/search/guides?q=' + encodeURIComponent(t)]);
+    if (g.url) links.push(['PocketPSN', g.url]);
+    links.push(['Web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
+    return `<div class="guide-links" data-stop="1"><span class="guide-links-label">Guides</span>${links.map(([l, u]) => `<a class="guide-link-btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join('')}</div>`;
+  }
+
+  // ---------- collections ----------
+  let incomplete = [], completed = [];
+  function recompute() {
+    incomplete = []; completed = [];
+    let left = 0, plats = 0, checkedCount = 0;
+    for (const key of Object.keys(GAMES)) {
+      const v = view(GAMES[key]);
+      if (v.completed) { completed.push([key, v]); if (v.hasPlatinum && v.platinumEarned) plats++; }
+      else { incomplete.push([key, v]); left += v.left; }
+      checkedCount += v.earned.length - GAMES[key].earnedBase.length;
+      if (v.completed && v.platinumEarned === true && !v.hasPlatinum) { /* 100% without platinum */ }
+    }
+    $('st-total').textContent = Object.keys(GAMES).length;
+    $('st-plat').textContent = plats;
+    $('st-incomplete').textContent = incomplete.length;
+    $('st-unearned').textContent = left.toLocaleString();
+    $('st-checked').textContent = checkedCount;
+    $('tab-inc-count').textContent = incomplete.length;
+    $('tab-comp-count').textContent = completed.length;
+  }
+
+  // ---------- lanes ----------
+  let lanesCache = null;
+  function renderLanes() {
+    const host = $('lanes');
+    const entries = incomplete.map(([k, v]) => [k, Object.assign({}, v, { _a: assessOf(k) })]);
+    // reuse cached assessments inside buildLanes by handing it a scorer that reads our cache
+    const { lanes } = S.buildLanes(entries.map(([k, v]) => [k, v]), { dataAsOf, now: dataAsOf });
+    lanesCache = lanes;
+    let html = '';
+    for (const lane of lanes) {
+      if (!lane.items.length && lane.id !== 'starred') continue;
+      const collapsed = !!ui.collapsed[lane.id];
+      html += `<section class="lane lane-${lane.id} ${collapsed ? 'collapsed' : ''}" aria-label="${esc(lane.title)}">
+        <div class="lane-head">${esc(lane.title)}<span class="lane-count">${lane.items.length}</span>${lane.sub ? `<span class="lane-sub">${esc(lane.sub)}</span>` : ''}
+          ${lane.collapsed || collapsed || lane.items.length > 8 ? `<button class="lane-toggle" data-action="toggle-lane" data-lane="${lane.id}">${collapsed ? 'show' : 'hide'}</button>` : ''}</div>
+        <div class="lane-row">${lane.items.length ? lane.items.map((x) => miniCard(x.name, x.g, x.a)).join('') : `<div class="empty" style="padding:16px;grid-column:auto">Star a game to pin it here.</div>`}</div>
+      </section>`;
+    }
+    host.innerHTML = html;
+  }
+  function miniCard(key, v, a) {
+    const p = pctOf(v), th = pctTheme(p);
+    return `<div class="mini-card" role="button" tabindex="0" data-action="focus" data-key="${attr(key)}" title="${esc(a.reasons.slice(0, 3).join(' · '))}">
+      <div class="mini-top"><span class="mini-title">${esc(v.title)}</span>${starBtn(key)}</div>
+      <div class="mini-meta"><span class="pct-badge ${th.pct}">${p}%</span><span class="mini-left"><b>${v.left}</b> left</span>${v.lastPlayed ? `<span class="last-played">${esc(ago(v.lastPlayed))}</span>` : ''}</div>
+      ${assessChips(a, { compact: true })}
+      <div class="prog-bg" style="margin:8px 0 0"><div class="prog-fill ${th.prog}" style="width:${p}%"></div></div>
+    </div>`;
+  }
+
+  // ---------- grid ----------
+  function filtered() {
+    const q = ui.q.trim().toLowerCase();
+    let list = incomplete.filter(([key, v]) => {
+      if (q && !v.title.toLowerCase().includes(q) && !key.includes(q)) return false;
+      if (ui.genre !== 'all' && !v.genres.includes(ui.genre)) return false;
+      if (ui.platform !== 'all' && !v.platforms.includes(ui.platform)) return false;
+      const p = pctOf(v);
+      if (ui.range === 'near' && p < 80) return false;
+      if (ui.range === 'mid' && (p < 40 || p >= 80)) return false;
+      if (ui.range === 'low' && p >= 40) return false;
+      if (ui.range === 'quick' && v.left > 5) return false;
+      if (ui.range === 'easy' && !assessOf(key).easyGain) return false;
+      if (ui.range === 'starred' && !v.starred) return false;
+      if (ui.range === 'dead' && !assessOf(key).dead) return false;
+      if (ui.range !== 'dead' && assessOf(key).dead && !q) return false;   // hide dead unless searched or asked
+      return true;
+    });
+    const s = ui.sort;
+    const A = (k) => assessOf(k);
+    if (s === 'score') list.sort(([a], [b]) => A(b).score - A(a).score);
+    else if (s === 'hours-asc') list.sort(([a], [b]) => A(a).hours - A(b).hours);
+    else if (s === 'diff-asc') list.sort(([a], [b]) => A(a).difficulty - A(b).difficulty || A(a).hours - A(b).hours);
+    else if (s === 'recent') list.sort(([a], [b]) => (A(a).daysSince ?? 1e9) - (A(b).daysSince ?? 1e9));
+    else if (s === 'pct-desc') list.sort(([, a], [, b]) => pctOf(b) - pctOf(a));
+    else if (s === 'pct-asc') list.sort(([, a], [, b]) => pctOf(a) - pctOf(b));
+    else if (s === 'left-asc') list.sort(([, a], [, b]) => a.left - b.left);
+    else if (s === 'alpha') list.sort(([, a], [, b]) => a.title.localeCompare(b.title));
+    return list;
+  }
+
+  function cardHtml(key, v) {
+    const a = assessOf(key);
+    const p = pctOf(v), th = pctTheme(p);
+    const plats = v.platforms.map((x) => `<span class="plat-tag">${esc(x)}</span>`).join('');
+    const times = [['Normal', v.timeNormal], ['Hasty', v.timeHastily], ['Completion', v.timePlat]].filter(([, x]) => S.parseHours(x));
+    const timeRow = times.length ? `<div class="time-row">${times.map(([l, x]) => `<div class="time-pill"><span class="time-label">${l}</span><span class="time-val">${esc(x)}</span></div>`).join('')}</div>` : '';
+    const open = openDrawers.has(key);
+    return `<article class="game-card ${a.dead ? 'is-dead' : ''} ${open ? 'open' : ''}" id="${safeId(key)}" data-key="${attr(key)}">
+      <div class="card-bar ${th.bar}"></div>
+      <div class="card-inner" role="button" tabindex="0" aria-expanded="${open}" data-action="toggle" data-key="${attr(key)}">
+        <div class="card-top"><h3 class="game-title">${esc(v.title)}</h3><div class="card-right"><span class="pct-badge ${th.pct}">${p}%</span>${starBtn(key)}</div></div>
+        <div class="prog-bg"><div class="prog-fill ${th.prog}" style="width:${p}%"></div></div>
+        <div class="card-meta">${plats}${a.dead ? `<span class="dead-badge" title="${esc(a.deadReason)}">🚫 UNATTAINABLE</span>` : ''}${v.lastPlayed ? `<span class="last-played">last trophy ${esc(ago(v.lastPlayed))}</span>` : ''}<span class="trophy-remaining"><span>${v.left}</span> left</span></div>
+        <div class="assess-row">${assessChips(a)}</div>
+        ${gameFlagBadges(v, a)}
+        ${timeRow}
+        <div class="expand-hint"><span class="expand-arrow">▾</span> ${v.left} trophies · tap to expand</div>
+        ${guideLinks(v)}
+      </div>
+      <div class="trophy-drawer ${open ? 'open' : ''}" id="dr-${safeId(key)}">${open ? drawerHtml(key, v) : ''}</div>
+    </article>`;
+  }
+  function drawerHtml(key, v) {
+    const g = GAMES[key];
+    const rows = g.unearnedBase.map((t) => {
+      const on = isChecked(key, t.name);
+      const hasGuide = !!(GUIDES[key] && GUIDES[key][t.name]);
+      const rar = t.rarity != null ? `<span class="rarity ${tierClass(S.easeTierOf(t.rarity))}" title="${esc(S.easeTierOf(t.rarity))}: ${t.rarity}% of players have this">${t.rarity}%</span>` : '';
+      return `<div class="trophy-item ${on ? 'is-checked' : ''}">
+        <button class="t-check" role="checkbox" aria-checked="${on}" aria-label="Mark ${esc(t.name)} as done" data-action="check" data-key="${attr(key)}" data-trophy="${attr(t.name)}"></button>
+        <div class="t-info">
+          <div class="t-name">${t.type ? `<span class="ttype ${esc(t.type)}" title="${esc(t.type)}"></span>` : ''}<span>${esc(t.name)}</span>${rar}<button class="guide-btn ${hasGuide ? 'has' : ''}" data-action="guide" data-key="${attr(key)}" data-trophy="${attr(t.name)}">📖 ${hasGuide ? 'Guide' : 'Info'}</button></div>
+          ${t.desc ? `<div class="t-desc">${esc(t.desc)}</div>` : ''}
+          ${trophyBadges(g, t)}
+        </div></div>`;
+    }).join('');
+    const done = g.unearnedBase.filter((t) => isChecked(key, t.name)).length;
+    return `<div class="drawer-header"><span class="drawer-title">Remaining trophies</span><span class="drawer-progress"><span class="checked-count">${done}</span> / ${g.unearnedBase.length} checked</span><button class="drawer-reset" data-action="reset" data-key="${attr(key)}">Reset checklist</button></div><div class="trophy-list">${rows}</div>`;
+  }
+  const openDrawers = new Set();
+
+  function renderGrid() {
+    const list = filtered();
+    const left = list.reduce((s, [, v]) => s + v.left, 0);
+    $('resultsInfo').innerHTML = `Showing <strong>${list.length}</strong> games · <strong>${left.toLocaleString()}</strong> trophies remaining`;
+    const grid = $('grid');
+    grid.innerHTML = list.length ? list.map(([k, v]) => cardHtml(k, v)).join('') : '<div class="empty">No games match your filters</div>';
+  }
+  function rerenderCard(key) {
+    const el = $(safeId(key)); if (!el) return;
+    const v = view(GAMES[key]);
+    if (v.completed) { renderAll(); return; }
+    const tmp = document.createElement('div'); tmp.innerHTML = cardHtml(key, v);
+    el.replaceWith(tmp.firstElementChild);
+  }
+  function renderAll() { recompute(); renderLanes(); renderGrid(); if (ui.tab === 'completed') renderCompleted(); }
+
+  // ---------- completed & backlog ----------
+  function renderCompleted() {
+    const q = ($('search-comp').value || '').toLowerCase();
+    const sort = $('sort-comp').value;
+    let list = completed.filter(([k, v]) => !q || v.title.toLowerCase().includes(q) || k.includes(q));
+    if (sort === 'alpha') list.sort(([, a], [, b]) => a.title.localeCompare(b.title));
+    else if (sort === 'recent') list.sort(([, a], [, b]) => (S.parseDate(b.lastPlayed) || 0) - (S.parseDate(a.lastPlayed) || 0));
+    else if (sort === 'trophies-desc') list.sort(([, a], [, b]) => b.earned.length - a.earned.length);
+    else if (sort === 'time-desc') list.sort(([, a], [, b]) => ((S.parseHours(b.timePlat) || {}).avg || 0) - ((S.parseHours(a.timePlat) || {}).avg || 0));
+    $('comp-info').innerHTML = `<strong>${list.length}</strong> completed games`;
+    $('completed-grid').innerHTML = list.length ? list.map(([key, v]) => `
+      <div class="comp-card ${v.hasPlatinum ? '' : 'no-plat'}">
+        <div class="comp-title">${esc(v.title)}</div>
+        <div class="comp-meta">
+          <div class="plat-icon-wrap"><div class="plat-diamond" title="${v.hasPlatinum ? 'Platinum' : '100% (no platinum)'}"></div><span class="comp-trophies">${v.earned.length}</span></div>
+          ${v.lastPlayed ? `<span class="comp-time">· ${esc(fmtDate(v.lastPlayed))}</span>` : (S.parseHours(v.timePlat) ? `<span class="comp-time">· ${esc(v.timePlat)}</span>` : '')}
+          ${v.platforms.map((p) => `<span class="plat-tag">${esc(p)}</span>`).join('')}
+          ${GAMES[key].unearnedBase.length ? `<button class="reopen-btn" data-action="reopen" data-key="${attr(key)}">Reopen</button>` : ''}
+        </div></div>`).join('') : '<div class="empty">No games found</div>';
+  }
+  function renderBacklog() {
+    const host = $('backlog-grid');
+    if (!LIBRARY) { host.innerHTML = '<div class="empty">No library data yet. Run <code>npm run sync</code> to pull your owned games.</div>'; return; }
+    const q = ($('search-backlog').value || '').toLowerCase();
+    const looseKeys = new Set(Object.values(GAMES).map((g) => loose(g.title)).concat(Object.keys(GAMES).map(loose)));
+    const seen = new Set();
+    const items = LIBRARY.titles.filter((t) => !t.nonGame && !t.preorder).filter((t) => { const k = loose(t.name); if (looseKeys.has(k) || seen.has(k)) return false; seen.add(k); return true; })
+      .filter((t) => !q || t.name.toLowerCase().includes(q)).sort((a, b) => a.name.localeCompare(b.name));
+    $('backlog-info').innerHTML = `<strong>${items.length}</strong> owned games you have never started`;
+    host.innerHTML = items.length ? items.map((t) => `<div class="bl-card"><div class="bl-title">${esc(t.name)}</div><div class="bl-meta"><span class="plat-tag">${esc(t.platform)}</span>${t.plus ? '<span class="bl-plus">PS PLUS</span>' : ''}<a class="guide-link-btn" style="margin-left:auto" href="https://www.google.com/search?q=${encodeURIComponent(t.name + ' trophy guide')}" target="_blank" rel="noopener">Guide</a></div></div>`).join('') : '<div class="empty">Nothing here</div>';
+  }
+  const EDITION = /\b(remastered|remaster|remake|hd|definitive edition|ultimate edition|complete edition|game of the year edition|goty|anniversary edition|directors cut|final mix|the game|console edition|enhanced edition|deluxe|ps4|ps5|vita|vr|edition|demo)\b/g;
+  const loose = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[™®©]/g, '').replace(/['’]/g, '').replace(EDITION, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
+
+  // ---------- filters UI ----------
+  function buildFilters() {
+    const plats = [...new Set(Object.values(GAMES).flatMap((g) => g.platforms))].sort();
+    const sel = $('platform');
+    sel.innerHTML = '<option value="all">All platforms</option>' + plats.map((p) => `<option value="${esc(p)}" ${ui.platform === p ? 'selected' : ''}>${esc(p)}</option>`).join('');
+    const genres = [...new Set(Object.values(GAMES).flatMap((g) => g.genres))].sort();
+    const gf = $('genreFilters');
+    gf.querySelectorAll('button').forEach((b) => b.remove());
+    for (const g of ['all'].concat(genres)) {
+      const b = document.createElement('button'); b.className = 'pill' + (ui.genre === g ? ' active' : ''); b.textContent = g === 'all' ? 'All' : g; b.dataset.action = 'genre'; b.dataset.genre = g; gf.appendChild(b);
+    }
+    $('sort').value = ui.sort; $('search').value = ui.q;
+    document.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('active', b.dataset.range === ui.range));
+  }
+  function persistUi() { save(LS.ui, ui); }
+
+  // ---------- actions ----------
+  let lastToggle = null;
+  function toggleCheck(key, trophy) {
+    const id = checkId(key, trophy);
+    const was = !!checked[id];
+    const v0 = view(GAMES[key]);
+    if (was) delete checked[id]; else checked[id] = true;
+    save(LS.checked, checked);
+    lastToggle = { key, trophy, was };
+    invalidate(key);
+    const v1 = view(GAMES[key]);
+    if (!v0.completed && v1.completed) { toast(`${v1.title} moved to Completed (based on your checklist).`, () => { if (lastToggle) { if (lastToggle.was) checked[checkId(lastToggle.key, lastToggle.trophy)] = true; else delete checked[checkId(lastToggle.key, lastToggle.trophy)]; save(LS.checked, checked); invalidate(lastToggle.key); openDrawers.add(lastToggle.key); renderAll(); } }); renderAll(); return; }
+    // in-place update: keep scroll + drawer
+    const card = $(safeId(key));
+    if (card) {
+      const btn = card.querySelector(`[data-action="check"][data-trophy="${CSS.escape(attr(trophy))}"]`);
+      if (btn) { btn.setAttribute('aria-checked', String(!was)); btn.closest('.trophy-item').classList.toggle('is-checked', !was); }
+      const cnt = card.querySelector('.checked-count'); if (cnt) cnt.textContent = GAMES[key].unearnedBase.filter((t) => isChecked(key, t.name)).length;
+      const p = pctOf(v1), th = pctTheme(p);
+      const badge = card.querySelector('.pct-badge'); if (badge) { badge.textContent = p + '%'; badge.className = 'pct-badge ' + th.pct; }
+      const fill = card.querySelector('.card-inner .prog-fill'); if (fill) { fill.style.width = p + '%'; fill.className = 'prog-fill ' + th.prog; }
+      const rem = card.querySelector('.trophy-remaining span'); if (rem) rem.textContent = v1.left;
+      const ar = card.querySelector('.assess-row'); if (ar) ar.innerHTML = assessChips(assessOf(key));
+    }
+    recompute(); renderLanes();
+  }
+  function resetChecks(key) {
+    for (const t of GAMES[key].unearnedBase) delete checked[checkId(key, t.name)];
+    save(LS.checked, checked); invalidate(key); renderAll();
+  }
+  function toggleStar(key) {
+    const k = key.toLowerCase();
+    if (starred[k]) delete starred[k]; else starred[k] = true;
+    save(LS.starred, starred); invalidate(key);
+    document.querySelectorAll(`[data-action="star"][data-key="${CSS.escape(attr(key))}"]`).forEach((b) => { const on = isStarred(key); b.classList.toggle('on', on); b.textContent = on ? '★' : '☆'; b.setAttribute('aria-pressed', String(on)); });
+    recompute();          // refresh the cached views so the Starred lane sees the new state
+    renderLanes();
+  }
+  function toggleDrawer(key) {
+    const card = $(safeId(key)); if (!card) return;
+    const dr = card.querySelector('.trophy-drawer');
+    const open = !openDrawers.has(key);
+    if (open) { openDrawers.add(key); if (!dr.innerHTML.trim()) dr.innerHTML = drawerHtml(key, view(GAMES[key])); dr.classList.add('open'); card.classList.add('open'); }
+    else { openDrawers.delete(key); dr.classList.remove('open'); card.classList.remove('open'); }
+  }
+  function focusGame(key) {
+    ui.q = ''; ui.range = 'all'; ui.genre = 'all'; ui.platform = 'all'; persistUi(); buildFilters();
+    switchTab('incomplete'); renderGrid();
+    const card = $(safeId(key)); if (!card) return;
+    if (!openDrawers.has(key)) toggleDrawer(key);
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('flash'); setTimeout(() => card.classList.remove('flash'), 1600);
+  }
+  function switchTab(tab) {
+    ui.tab = tab; persistUi();
+    document.querySelectorAll('.tab').forEach((t) => t.classList.toggle('active', t.dataset.tab === tab));
+    document.querySelectorAll('.panel').forEach((p) => p.classList.toggle('active', p.id === 'tab-' + tab));
+    if (tab === 'completed') renderCompleted();
+    if (tab === 'backlog') renderBacklog();
+  }
+
+  // ---------- suggest ----------
+  let suggestPool = [];
+  function suggest(next) {
+    const pool = filtered().filter(([k]) => !assessOf(k).dead);
+    if (!pool.length) return;
+    if (!next || !suggestPool.length) suggestPool = pool.slice().sort(([a], [b]) => assessOf(b).score - assessOf(a).score).slice(0, 12);
+    // pick from the top 5 with light randomness, then rotate
+    const idx = Math.floor(Math.random() * Math.min(5, suggestPool.length));
+    const [key, v] = suggestPool.splice(idx, 1)[0];
+    const a = assessOf(key), p = pctOf(v);
+    $('rec-genre').textContent = v.genres.join(' · ') || v.platforms.join(' · ') || 'Suggestion';
+    $('rec-title').textContent = v.title;
+    $('rec-pct').innerHTML = `${p}%<span>· ${v.left} trophies left</span>`;
+    $('rec-chips').innerHTML = assessChips(a);
+    $('rec-reasons').innerHTML = a.reasons.map((r) => `<li>${esc(r)}</li>`).join('');
+    $('rec-star').dataset.key = attr(key); $('rec-star').textContent = isStarred(key) ? '★ Starred' : '☆ Star it';
+    $('rec-open').dataset.key = attr(key);
+    $('modal').classList.add('open');
+  }
+  function closeModal() { $('modal').classList.remove('open'); }
+
+  // ---------- guide panel ----------
+  function openGuide(key, trophyName) {
+    const g = GAMES[key]; const t = g.unearnedBase.concat(g.earnedBase).find((x) => x.name === trophyName) || { name: trophyName, desc: '' };
+    const guide = GUIDES[key] && GUIDES[key][trophyName];
+    $('guide-game').textContent = g.title; $('guide-trophy-name').textContent = t.name; $('guide-trophy-desc').textContent = t.desc || '';
+    const tags = [];
+    if (guide && guide.tags) tags.push(...guide.tags.map((x) => `<span class="guide-tag ${esc(x.cls)}">${esc(x.label)}</span>`));
+    if (t.rarity != null) tags.push(`<span class="guide-tag gt-time">${t.rarity}% of players · ${esc(S.easeTierOf(t.rarity))}</span>`);
+    $('guide-tags').innerHTML = tags.join('');
+    let html = '';
+    const facts = [];
+    if (t.type) facts.push(['Type', t.type]);
+    if (t.rarity != null) facts.push(['Rarity', `${t.rarity}%`]);
+    const { flags } = S.trophyFlags(g, t);
+    if (flags.size) facts.push(['Flags', [...flags].map((f) => f.toLowerCase().replace('_', ' ')).join(', ')]);
+    if (g.guide) { if (g.guide.difficulty != null) facts.push(['Game difficulty', `${g.guide.difficulty}/10`]); if (g.guide.playthroughs != null) facts.push(['Playthroughs', g.guide.playthroughs]); if (g.guide.hoursMin != null) facts.push(['Platinum time', `${g.guide.hoursMin}–${g.guide.hoursMax ?? g.guide.hoursMin}h`]); if (g.guide.missables != null) facts.push(['Missables', g.guide.missables]); }
+    if (facts.length) html += `<div class="guide-facts">${facts.map(([k, v]) => `<div class="guide-fact"><div class="k">${esc(k)}</div><div class="v">${esc(v)}</div></div>`).join('')}</div>`;
+    const notes = g.trophyMeta && g.trophyMeta[trophyName] && g.trophyMeta[trophyName].notes;
+    if (notes && notes.length) html += `<div class="guide-section"><div class="guide-section-title">Notes</div>${notes.map((n) => `<div class="guide-tip">${esc(n)}</div>`).join('')}</div>`;
+    if (guide) {
+      for (const section of guide.sections || []) html += `<div class="guide-section"><div class="guide-section-title">${esc(section.title)}</div><div class="guide-steps">${section.steps.map((s, i) => `<div class="guide-step"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div></div>`;
+      if (guide.tips && guide.tips.length) html += `<div class="guide-section"><div class="guide-section-title">Tips & warnings</div>${guide.tips.map((tip) => tip.type === 'warning' ? `<div class="guide-warning">${tip.text}</div>` : `<div class="guide-tip">${tip.text}</div>`).join('')}</div>`;
+    } else {
+      html += `<div class="guide-section"><div class="guide-section-title">Where to look</div><div class="guide-steps">
+        <div class="guide-step"><div class="step-num">1</div><div class="step-text">${g.guide && g.guide.url ? `<a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx roadmap for ${esc(g.title)}</a>` : `<a href="https://www.powerpyx.com/?s=${encodeURIComponent(g.title)}" target="_blank" rel="noopener">Search PowerPyx</a>`}</div></div>
+        <div class="guide-step"><div class="step-num">2</div><div class="step-text"><a href="https://psnprofiles.com/search/guides?q=${encodeURIComponent(g.title)}" target="_blank" rel="noopener">PSNProfiles guides</a> (community, per-trophy tags)</div></div>
+        <div class="guide-step"><div class="step-num">3</div><div class="step-text"><a href="https://www.google.com/search?q=${encodeURIComponent(g.title + ' ' + t.name + ' trophy')}" target="_blank" rel="noopener">Search this trophy on the web</a></div></div></div></div>`;
+    }
+    $('guide-body').innerHTML = html;
+    $('guide-source').innerHTML = guide && guide.source ? `Source: <a href="${esc(guide.source.url)}" target="_blank" rel="noopener">${esc(guide.source.label)}</a>` : (g.guide ? `Facts: <a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx</a>` : '');
+    $('guideOverlay').classList.add('open');
+  }
+  function closeGuide() { $('guideOverlay').classList.remove('open'); }
+
+  // ---------- toast ----------
+  function toast(text, onUndo) {
+    const el = $('complete-toast'); $('ct-body').textContent = text;
+    $('ct-undo').onclick = () => { el.classList.remove('show'); onUndo && onUndo(); };
+    $('ct-close').onclick = () => el.classList.remove('show');
+    el.classList.add('show'); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('show'), 8000);
+  }
+
+  // ---------- export / import ----------
+  function exportState() {
+    const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), checked, starred }, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `trophy-tracker-state-${new Date().toISOString().slice(0, 10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  }
+  function importState(file) {
+    const r = new FileReader();
+    r.onload = () => { try { const o = JSON.parse(r.result); if (o.checked) checked = Object.assign(checked, o.checked); if (o.starred) starred = Object.assign(starred, o.starred); save(LS.checked, checked); save(LS.starred, starred); invalidate(); renderAll(); toast(`Imported ${Object.keys(o.checked || {}).length} checks and ${Object.keys(o.starred || {}).length} stars.`); } catch (e) { toast('Import failed: not a tracker export.'); } };
+    r.readAsText(file);
+  }
+
+  // ---------- events (delegated) ----------
+  document.addEventListener('click', (e) => {
+    const stop = e.target.closest('[data-stop]'); if (stop) { e.stopPropagation(); return; }
+    const el = e.target.closest('[data-action]'); if (!el) return;
+    const key = el.dataset.key ? unattr(el.dataset.key) : null;
+    const act = el.dataset.action;
+    if (act !== 'toggle') e.stopPropagation();
+    switch (act) {
+      case 'check': e.preventDefault(); toggleCheck(key, unattr(el.dataset.trophy)); break;
+      case 'star': toggleStar(key); if ($('modal').classList.contains('open')) $('rec-star').textContent = isStarred(key) ? '★ Starred' : '☆ Star it'; break;
+      case 'toggle': toggleDrawer(key); break;
+      case 'focus': closeModal(); focusGame(key); break;
+      case 'reset': resetChecks(key); break;
+      case 'reopen': resetChecks(key); break;
+      case 'guide': openGuide(key, unattr(el.dataset.trophy)); break;
+      case 'genre': ui.genre = el.dataset.genre; persistUi(); document.querySelectorAll('#genreFilters .pill').forEach((b) => b.classList.toggle('active', b === el)); renderGrid(); break;
+      case 'range': ui.range = el.dataset.range; persistUi(); document.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('active', b === el)); renderGrid(); break;
+      case 'tab': switchTab(el.dataset.tab); break;
+      case 'suggest': suggest(false); break;
+      case 'suggest-next': suggest(true); break;
+      case 'close-modal': closeModal(); break;
+      case 'close-guide': closeGuide(); break;
+      case 'toggle-lane': ui.collapsed[el.dataset.lane] = !ui.collapsed[el.dataset.lane]; persistUi(); renderLanes(); break;
+      case 'export': exportState(); break;
+      case 'import': $('import-file').click(); break;
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[role="button"][data-action]')) { e.preventDefault(); e.target.click(); return; }
+    if (e.key === 'Escape') { closeModal(); closeGuide(); }
+    if (e.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); $('search').focus(); }
+  });
+  $('modal').addEventListener('click', (e) => { if (e.target === $('modal')) closeModal(); });
+  $('guideOverlay').addEventListener('click', (e) => { if (e.target === $('guideOverlay')) closeGuide(); });
+  let searchTimer;
+  $('search').addEventListener('input', (e) => { clearTimeout(searchTimer); searchTimer = setTimeout(() => { ui.q = e.target.value; persistUi(); renderGrid(); }, 120); });
+  $('sort').addEventListener('change', (e) => { ui.sort = e.target.value; persistUi(); renderGrid(); });
+  $('platform').addEventListener('change', (e) => { ui.platform = e.target.value; persistUi(); renderGrid(); });
+  $('search-comp').addEventListener('input', renderCompleted); $('sort-comp').addEventListener('change', renderCompleted);
+  $('search-backlog').addEventListener('input', renderBacklog);
+  $('import-file').addEventListener('change', (e) => { if (e.target.files[0]) importState(e.target.files[0]); e.target.value = ''; });
+
+  // ---------- init ----------
+  async function init() {
+    const [progress, enriched, overrides, guidesFile, library, meta] = await Promise.all([
+      fetchJson('./data/progress.json', null), fetchJson('./data/enriched.json', {}), fetchJson('./data/overrides.json', {}),
+      fetchJson('./data/guides.json', {}), fetchJson('./data/library.json', null), fetchJson('./data/sync-meta.json', null),
+    ]);
+    if (!progress) { $('grid').innerHTML = '<div class="empty">Failed to load ./data/progress.json</div>'; return; }
+    LIBRARY = library; META = meta;
+    GUIDES = Object.assign({}, window.TROPHY_GUIDES || {}, guidesFile || {});
+    for (const [key, raw] of Object.entries(progress)) {
+      if (key.startsWith('_')) continue;
+      GAMES[key] = buildModel(key, raw, enriched[key], overrides[key]);
+    }
+    // "as of" = newest known activity in the data, so recency math is stable between syncs
+    const dates = Object.values(GAMES).map((g) => S.lastPlayedOf({ lastPlayed: g.lastPlayed, earned: g.earnedBase })).filter(Boolean);
+    dataAsOf = (META && S.parseDate(META.syncedAt)) || (dates.length ? new Date(Math.max(...dates.map((d) => d.getTime()))) : new Date());
+    const asof = $('data-asof');
+    const staleDays = Math.round((new Date() - dataAsOf) / 86400000);
+    asof.textContent = `Data as of ${fmtDate(dataAsOf.toISOString())}${staleDays > 14 ? ` (${staleDays}d old)` : ''}`;
+    asof.classList.toggle('stale', staleDays > 14);
+    asof.title = META ? `Synced ${META.syncedAt}: ${META.games} games, ${META.trophiesRemaining} trophies remaining` : 'From the newest trophy date in progress.json. Run npm run sync to refresh.';
+    buildFilters();
+    recompute(); renderLanes(); renderGrid();
+    switchTab(ui.tab || 'incomplete');
+  }
+  init().catch((e) => { console.error(e); $('grid').innerHTML = `<div class="empty">Something went wrong: ${esc(e.message)}</div>`; });
+})();

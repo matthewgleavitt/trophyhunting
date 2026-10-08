@@ -1,0 +1,21 @@
+# secrets / sessions — never commit
+.env
+tools/.env
+tools/.psn-tokens.json
+tools/.psn-cache/
+auth.json
+.pw-profile/
+
+# tooling
+node_modules/
+.claude/launch.json
+
+# os / editor
+.DS_Store
+*.rtf
+
+# generated / local
+tools/.guide-cache/
+tools/.guide-enrich.log
+tools/last-sync-report.json
+*.bak

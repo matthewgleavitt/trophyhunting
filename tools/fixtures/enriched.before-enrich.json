@@ -1,0 +1,36 @@
+{
+  "horizon forbidden west": {
+    "platDead": false,
+    "deadReason": "",
+    "estimatedHours": {
+      "min": 25,
+      "max": 40
+    },
+    "gameTags": [
+      {
+        "cls": "gt-skill",
+        "label": "\ud83d\udc80 SKILL WALL"
+      },
+      {
+        "cls": "gt-grind",
+        "label": "\u23f1 GRIND"
+      }
+    ],
+    "trophies": {
+      "Completed Ultra Hard": {
+        "tags": [
+          "SKILL_WALL"
+        ],
+        "notes": [
+          "Ultra Hard locks difficulty; consider combining with NG+ run."
+        ],
+        "sources": [
+          {
+            "label": "PSNProfiles",
+            "url": "https://psnprofiles.com/"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "trophyhunting",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "LabyrinthWorm trophy tracker + PSN sync tooling",
+  "scripts": {
+    "sync": "node tools/psn-sync.mjs",
+    "enrich": "node tools/guide-enrich.mjs",
+    "serve": "python3 -m http.server 8766"
+  },
+  "dependencies": {
+    "psn-api": "^2.18.1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "_readme": "Hand-maintained facts that win over everything else. Keys = game key from progress.json. platDead/deadReason mark a game unattainable; trophies.<name>.tags accepts MISSABLE, ONLINE, SKILL_WALL, GRIND, RNG, BUGGY, PLAYTHROUGH, UNOBTAINABLE, DLC.",
+  "disc jam": {
+    "platDead": true,
+    "deadReason": "Servers shut down Sep 30; 'Unstoppable' (50 online wins) is unobtainable"
+  }
+}
