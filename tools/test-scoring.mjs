@@ -5,10 +5,16 @@ const require = createRequire(import.meta.url);
 const S = require('../js/scoring.js');
 const progress = JSON.parse(fs.readFileSync(new URL('../data/progress.json', import.meta.url)));
 const enriched = JSON.parse(fs.readFileSync(new URL('../data/enriched.json', import.meta.url)));
+const overrides = JSON.parse(fs.readFileSync(new URL('../data/overrides.json', import.meta.url)));
 const dataAsOf = Object.values(progress).flatMap((g) => (g.earned || []).map((t) => S.parseDate(t.date))).filter(Boolean).sort((a, b) => b - a)[0];
 const entries = Object.entries(progress).filter(([, g]) => (g.unearned || []).length).map(([k, g]) => {
-  const e = enriched[k] || {};
-  return [k, { ...g, guide: e.guide, platDead: e.platDead, deadReason: e.deadReason, trophyMeta: e.trophies, hasPlatinum: true }];
+  const e = enriched[k] || {}, o = overrides[k] || {};
+  const hasPlatInfo = [...(g.earned || []), ...(g.unearned || [])].some((t) => t.type);
+  return [k, { ...g, guide: e.guide && e.guide.source ? e.guide : null,
+    platDead: typeof o.platDead === 'boolean' ? o.platDead : e.platDead,
+    deadReason: o.deadReason || e.deadReason,
+    trophyMeta: { ...(e.trophies || {}), ...(o.trophies || {}) },
+    hasPlatinum: hasPlatInfo ? [...(g.earned || []), ...(g.unearned || [])].some((t) => t.type === 'platinum') : null }];
 });
 console.log(`data as of ${dataAsOf.toISOString().slice(0, 10)}; ${entries.length} unfinished games\n`);
 const { lanes } = S.buildLanes(entries, { dataAsOf });

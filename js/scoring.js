@@ -70,9 +70,9 @@
   const RX = {
     PLAYTHROUGH: /\b(new game\s*\+|ng\+|new game plus|complete (the )?(game|story|campaign)|beat (the )?(game|story|campaign)|finish (the )?(game|story|campaign)|clear (the )?(game|story|all stages)|(on|in) (ultra hard|very hard|hard|hardest|nightmare|legendary|grounded|give me god of war|hardcore|expert|master|veteran|inferno|lunatic|insane) (difficulty|mode)?|(ultra hard|very hard|nightmare|legendary|grounded|hardcore|permadeath|ironman|iron ?man|one life|no deaths?|without dying|deathless|without (taking )?damage|no damage|under \d+ ?hours?|in (one|a single) (sitting|run|session)|all (chapters|stages|levels|missions) on)\b)/i,
     DIFFICULTY: /\b(ultra hard|very hard|hardest|nightmare|legendary|grounded|give me god of war|hardcore|permadeath|ironman|iron ?man|no damage|without (taking )?damage|no deaths?|without dying|deathless|flawless|s[- ]?rank|ss[- ]?rank|perfect (run|score|game)|speed ?run|under \d+ ?(hours?|minutes?|seconds?))\b/i,
-    ONLINE: /\b(online|multiplayer|co-?op(erative)?|ranked|versus|pvp|matchmaking|lobby|public match(es)?|other players?|another player|leaderboard|server|clan|guild|raid)\b/i,
+    ONLINE: /\b(online|multiplayer|ranked match|pvp|matchmaking|public (match|game|lobby)|other players?|another player online|online (co-?op|match|game|multiplayer)|servers?)\b/i,
     MISSABLE: /\b(missable|point of no return|before (you|the) (leave|finish|complete|enter)|only (chance|opportunity)|single playthrough|cannot (return|be replayed)|one[- ]time|first (visit|time) only)\b/i,
-    GRIND: /\b(collect all|find all|obtain all|acquire all|unlock all|complete all|gather all|discover all|every (collectible|artifact|relic|card|coin|flag|feather|audio ?log|document|trophy|item|weapon|skill|upgrade|recipe|blueprint|achievement)|100 ?%|all (collectibles|trophies|achievements|side ?quests|skills|upgrades|weapons|outfits|costumes)|reach (level|rank) (\d{2,3})|level (50|60|70|80|90|99|100)|\b(1,?000|5,?000|10,?000|100,?000)\b|\d+ (kills|enemies|matches|wins)|\d{2,} hours)\b/i,
+    GRIND: /\b(collect all|find all|obtain all|acquire all|unlock all|complete all|gather all|discover all|every (collectible|artifact|relic|card|coin|flag|feather|audio ?log|document|trophy|item|weapon|skill|upgrade|recipe|blueprint|achievement)|100 ?%|all (collectibles|trophies|achievements|side ?quests|skills|upgrades|weapons|outfits|costumes)|reach (level|rank) (\d{2,3})|level (50|60|70|80|90|99|100)|\b(1,?000|5,?000|10,?000|100,?000)\b|\d{3,}(,\d{3})* (kills|enemies|matches|wins)|\d{2,} hours)\b/i,
     RNG: /\b(random|rng|luck(y)?|chance|lottery|drop(s)? from|rare drop|gacha|roll)\b/i,
     DLC: /\b(dlc|expansion|season pass|add-?on)\b/i,
   };
@@ -163,13 +163,24 @@
       const p = all.find((t) => t && t.type === 'platinum');
       return p && num(p.rarity) != null ? num(p.rarity) : null;
     })();
-    let rarerThanPlat = 0;
+    // Split what is left into the platinum path and DLC/optional extras.
+    // A trophy required for the platinum can never be rarer than the platinum itself
+    // (everyone holding the plat holds it), so rarer-than-plat means it is not required.
+    const platPath = [], dlcList = [];
     for (const t of unearned) {
       if (t && t.type === 'platinum') continue;          // the platinum itself pops for free
       const r = num(t.rarity);
-      if (r != null) { anyRarity = true; if (rarest == null || r < rarest) { rarest = r; rarestName = t.name; } }
-      if (platRarity != null && r != null && r < platRarity * 0.9) rarerThanPlat++;
+      const isDlc = trophyFlags(g, t).flags.has('DLC') || (platRarity != null && r != null && r < platRarity * 0.95);
+      (isDlc ? dlcList : platPath).push(t);
+    }
+    // If literally everything left is "DLC", there is no platinum path to protect — score
+    // what is actually left, otherwise the game would read as 0 effort and 0 difficulty.
+    const scored = platPath.length ? platPath : dlcList;
+    const dlcCount = platPath.length ? dlcList.length : 0;
+    for (const t of scored) {
+      const r = num(t.rarity);
       const { flags } = trophyFlags(g, t);
+      if (r != null) { anyRarity = true; if (rarest == null || r < rarest) { rarest = r; rarestName = t.name; } }
       for (const f of flags) if (flagCount[f] != null) flagCount[f]++;
       let h = rarityHours(r);
       if (flags.has('PLAYTHROUGH')) h = 0.25;            // the run itself is costed once below
@@ -189,19 +200,29 @@
     let pt = null;
     if (needsPlaythrough) {
       pt = playthroughHours(g);
+      // a run locked to a hard difficulty is not a rushed run
+      const hardRun = scored.some((t) => { const f = trophyFlags(g, t).flags; return f.has('PLAYTHROUGH') && f.has('SKILL_WALL'); });
+      if (hardRun) { pt = { hours: pt.hours * 1.6, basis: pt.basis + ', on a locked hard difficulty' }; }
       hours += pt.hours;
       reasons.push(`Needs a new playthrough: ~${Math.round(pt.hours)}h (${pt.basis})`);
     }
+    if (dlcCount) hours += dlcCount * 1.2;               // DLC still costs time, just not platinum time
     hours = Math.max(0.25, hours);
 
     // --- difficulty: blend guide rating (whole platinum) with what is left ---
     const guide = g.guide || {};
     const guideDiff = num(guide.difficulty);
     let difficulty;
-    if (guideDiff != null && anyRarity) difficulty = 0.45 * guideDiff + 0.55 * worstDiff;
-    else if (guideDiff != null) difficulty = 0.7 * guideDiff + 0.3 * worstDiff;
-    else difficulty = worstDiff + (flagCount.SKILL_WALL ? 0.5 : 0);
-    if (rarerThanPlat) difficulty = Math.min(10, difficulty + 0.5);
+    if (anyRarity) {
+      // What is LEFT decides. The guide rates the whole platinum including trophies already
+      // earned, so it only nudges — it can never make common leftovers look hard.
+      difficulty = guideDiff != null ? 0.85 * worstDiff + 0.15 * guideDiff : worstDiff;
+      if (flagCount.SKILL_WALL) difficulty = Math.max(difficulty, 6.5);
+    } else if (guideDiff != null) {
+      difficulty = 0.7 * guideDiff + 0.3 * worstDiff;
+    } else {
+      difficulty = worstDiff + (flagCount.SKILL_WALL ? 0.5 : 0);
+    }
     difficulty = clamp(difficulty, 0, 10);
 
     // --- attainability ---
@@ -215,9 +236,11 @@
     if (onlineRisk) reasons.push(`${flagCount.ONLINE} online trophy(ies) on an older platform: check servers before investing time`);
 
     // --- value of finishing ---
-    const hasPlat = !!g.hasPlatinum && !g.platinumEarned;
+    const platKnown = g.hasPlatinum === true || g.hasPlatinum === false;
+    const hasPlat = g.hasPlatinum === true && !g.platinumEarned;
     let value = 1;
     if (hasPlat) { value += 1; reasons.push('Finishing earns the platinum'); }
+    else if (!platKnown) value += 0.5;                    // unknown: assume a normal game, do not over-reward
     if (hasPlat && platRarity != null && platRarity < 5) { value += 0.6; reasons.push(`Ultra-rare platinum (${platRarity}% of players)`); }
     const total = (g.earned && g.earned.length) || num(g.earned) || 0;
     const pct = total + left > 0 ? total / (total + left) : 1;
@@ -233,9 +256,11 @@
 
     // --- ease & lanes ---
     const easeTier = easeTierOf(rarest);
-    const allCommonish = anyRarity && unearned.filter((t) => t.type !== 'platinum').every((t) => num(t.rarity) == null || num(t.rarity) >= 20);
+    const allCommonish = anyRarity && scored.every((t) => num(t.rarity) == null || num(t.rarity) >= 20);
     const noWalls = !flagCount.SKILL_WALL && !flagCount.PLAYTHROUGH && !flagCount.ONLINE;
-    const easyGain = !dead && (anyRarity ? allCommonish : noWalls) && hours <= 6 && difficulty <= 4.5;
+    // Your rule: high attainment % == easy. When every remaining trophy is common, this is an
+    // easy gain no matter how brutal the game's overall reputation is.
+    const easyGain = !dead && (anyRarity ? (allCommonish && !flagCount.PLAYTHROUGH) : noWalls) && hours <= 6;
     const quickPlat = !dead && hasPlat && hours <= 3 && difficulty <= 6;
 
     // --- score: value per unit of effort, penalised by difficulty, boosted by momentum/stars ---
@@ -251,7 +276,7 @@
     if (flagCount.SKILL_WALL) reasons.push(`${flagCount.SKILL_WALL} skill-wall trophy(ies)`);
     if (flagCount.GRIND) reasons.push(`${flagCount.GRIND} grind/collectible trophy(ies)`);
     if (flagCount.MISSABLE) reasons.push(`${flagCount.MISSABLE} potentially missable`);
-    if (rarerThanPlat) reasons.push(`${rarerThanPlat} remaining trophy(ies) rarer than the platinum itself`);
+    if (dlcCount) reasons.push(`${dlcCount} DLC trophy(ies) left — rarer than the platinum, so not required for it`);
     if (daysSince != null) reasons.push(daysSince < 1 ? 'Played today' : daysSince < 45 ? `Played ${Math.round(daysSince)} days ago` : `Last played ${lp.toLocaleDateString(undefined, { month: 'short', year: 'numeric' })}`);
     if (dead) reasons.unshift(`Unattainable: ${deadReason}`);
 
@@ -259,7 +284,7 @@
       dead, deadReason, onlineRisk,
       hours: round1(hours), hoursLow: round1(hours * 0.7), hoursHigh: round1(hours * 1.5),
       difficulty: round1(difficulty), guideDifficulty: guideDiff,
-      flags: flagCount, rarestRemaining: rarest, rarestName, platRarity, rarerThanPlat,
+      flags: flagCount, rarestRemaining: rarest, rarestName, platRarity, dlcCount, platPathLeft: scored.length,
       easeTier, allCommonish, easyGain, quickPlat, needsPlaythrough, playthroughHours: pt ? round1(pt.hours) : null,
       hasPlat, value: round1(value), momentum, daysSince: daysSince == null ? null : Math.round(daysSince),
       lastPlayed: lp ? lp.toISOString() : null, pct: Math.round(pct * 100), left,
@@ -268,20 +293,34 @@
   }
   function round1(x) { return Math.round(x * 10) / 10; }
 
-  /** Rank + bucket a whole collection. games: [[name, game], ...] */
+  /** Rank + bucket a whole collection. entries: [[name, game], ...].
+   *  opts.assessFn lets the caller supply a memoised assess (app.js keeps one per game). */
   function buildLanes(entries, opts) {
     opts = opts || {};
-    const assessed = entries.map(([name, g]) => ({ name, g, a: assess(g, opts) }));
+    const run = opts.assessFn || ((name, g) => assess(g, opts));
+    const assessed = entries.map(([name, g]) => ({ name, g, a: run(name, g) }));
     const live = assessed.filter((x) => !x.a.dead && x.a.left > 0);
     const byScore = (a, b) => b.a.score - a.a.score;
     const used = new Set();
-    const take = (arr, n) => { const out = []; for (const x of arr) { if (used.has(x.name)) continue; out.push(x); used.add(x.name); if (n && out.length >= n) break; } return out; };
+    // `take` keeps the themed lanes from repeating each other. The headline lane opts out:
+    // it must always show the genuinely best picks, even if they also appear further down.
+    const take = (arr, n, dedupe) => {
+      const out = [];
+      for (const x of arr) {
+        if (dedupe !== false && used.has(x.name)) continue;
+        out.push(x);
+        if (dedupe !== false) used.add(x.name);
+        if (n && out.length >= n) break;
+      }
+      return out;
+    };
     const lanes = [];
     lanes.push({ id: 'starred', title: '⭐ Starred', sub: 'your work-on queue', items: take(live.filter((x) => x.g.starred).sort(byScore)) });
+    // Headline lane first: this is the answer to "what do I play tonight".
+    lanes.push({ id: 'next', title: '🎯 Play This Next', sub: 'best payoff for the time it takes', items: take(live.slice().sort(byScore), 8, false) });
     lanes.push({ id: 'recent', title: '⏮ Jump Back In', sub: 'played in the last 90 days', items: take(live.filter((x) => x.a.daysSince != null && x.a.daysSince <= 90).sort((a, b) => a.a.daysSince - b.a.daysSince), 8) });
-    lanes.push({ id: 'easy', title: '🟢 Easy Gains', sub: 'common trophies, no walls, a few hours', items: take(live.filter((x) => x.a.easyGain).sort((a, b) => a.a.hours - b.a.hours), 12) });
+    lanes.push({ id: 'easy', title: '🟢 Easy Gains', sub: 'everything left is common — low effort', items: take(live.filter((x) => x.a.easyGain).sort((a, b) => a.a.hours - b.a.hours), 12) });
     lanes.push({ id: 'quickplat', title: '🏆 Quick Platinum', sub: 'platinum within ~3 hours', items: take(live.filter((x) => x.a.quickPlat).sort((a, b) => a.a.hours - b.a.hours), 12) });
-    lanes.push({ id: 'next', title: '🎯 Best Value Next', sub: 'highest payoff per hour of effort', items: take(live.slice().sort(byScore), 10) });
     lanes.push({ id: 'playthrough', title: '🔁 Needs a Playthrough', sub: 'NG+ / difficulty runs — plan a weekend', items: take(live.filter((x) => x.a.needsPlaythrough).sort(byScore), 10) });
     lanes.push({ id: 'walls', title: '💀 Skill Walls', sub: 'ultra-rare trophies left', items: take(live.filter((x) => x.a.difficulty >= 8).sort(byScore), 10), collapsed: true });
     const dead = assessed.filter((x) => x.a.dead && x.a.left > 0).sort((a, b) => b.a.pct - a.a.pct);

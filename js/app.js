@@ -55,7 +55,8 @@
       timeHastily: (enr && enr.timeHastily) ?? raw.timeHastily ?? null,
       timePlat: (enr && enr.timePlat) ?? raw.timePlat ?? null,
       earnedBase: earnedArr, unearnedBase: unearnedArr,
-      hasPlatinum: typeof raw.hasPlatinum === 'boolean' ? raw.hasPlatinum : (hasPlatInfo ? earnedArr.concat(unearnedArr).some((t) => t.type === 'platinum') : true),
+      // null = unknown (legacy data has no trophy types); scoring treats unknown ≠ "has a platinum"
+      hasPlatinum: typeof raw.hasPlatinum === 'boolean' ? raw.hasPlatinum : (hasPlatInfo ? earnedArr.concat(unearnedArr).some((t) => t.type === 'platinum') : null),
       platinumEarned: typeof raw.platinumEarned === 'boolean' ? raw.platinumEarned : (hasPlatInfo ? earnedArr.some((t) => t.type === 'platinum') : null),
       lastPlayed: raw.lastPlayed || (S.lastPlayedOf({ earned: earnedArr }) || {}).toISOString?.() || null,
       progress: raw.progress ?? null,
@@ -69,8 +70,13 @@
 
   /** The game as the scorer/UI should see it: checked-off trophies count as earned. */
   function view(g) {
-    const unearned = g.unearnedBase.filter((t) => !isChecked(g.key, t.name));
-    const checkedOnes = g.unearnedBase.filter((t) => isChecked(g.key, t.name));
+    // Ticking every other remaining trophy implies the platinum pops, so don't make the
+    // owner tick it by hand (and don't leave the game stuck at 1 left forever).
+    const nonPlatLeft = g.unearnedBase.filter((t) => t.type !== 'platinum' && !isChecked(g.key, t.name));
+    const platAuto = nonPlatLeft.length === 0;
+    const isDone = (t) => isChecked(g.key, t.name) || (platAuto && t.type === 'platinum');
+    const unearned = g.unearnedBase.filter((t) => !isDone(t));
+    const checkedOnes = g.unearnedBase.filter(isDone);
     const earned = g.earnedBase.concat(checkedOnes);
     const platinumEarned = g.platinumEarned === null ? (unearned.length === 0) : (g.platinumEarned || checkedOnes.some((t) => t.type === 'platinum'));
     return Object.assign({}, g, { earned, unearned, left: unearned.length, total: earned.length + unearned.length, platinumEarned, starred: isStarred(g.key), completed: unearned.length === 0 });
@@ -164,9 +170,8 @@
   let lanesCache = null;
   function renderLanes() {
     const host = $('lanes');
-    const entries = incomplete.map(([k, v]) => [k, Object.assign({}, v, { _a: assessOf(k) })]);
-    // reuse cached assessments inside buildLanes by handing it a scorer that reads our cache
-    const { lanes } = S.buildLanes(entries.map(([k, v]) => [k, v]), { dataAsOf, now: dataAsOf });
+    const entries = incomplete;
+    const { lanes } = S.buildLanes(entries, { dataAsOf, now: dataAsOf, assessFn: (name) => assessOf(name) });
     lanesCache = lanes;
     let html = '';
     for (const lane of lanes) {
@@ -204,8 +209,8 @@
       if (ui.range === 'quick' && v.left > 5) return false;
       if (ui.range === 'easy' && !assessOf(key).easyGain) return false;
       if (ui.range === 'starred' && !v.starred) return false;
-      if (ui.range === 'dead' && !assessOf(key).dead) return false;
-      if (ui.range !== 'dead' && assessOf(key).dead && !q) return false;   // hide dead unless searched or asked
+        if (ui.range === 'dead' && !assessOf(key).dead) return false;
+      if (ui.range !== 'dead' && assessOf(key).dead && !q && key !== focusKey) return false;   // hide dead unless searched, asked for, or focused
       return true;
     });
     const s = ui.sort;
@@ -354,9 +359,14 @@
     }
     recompute(); renderLanes();
   }
-  function resetChecks(key) {
-    for (const t of GAMES[key].unearnedBase) delete checked[checkId(key, t.name)];
+  function resetChecks(key, label) {
+    const undo = {};
+    for (const t of GAMES[key].unearnedBase) { const id = checkId(key, t.name); if (checked[id]) undo[id] = true; delete checked[id]; }
     save(LS.checked, checked); invalidate(key); renderAll();
+    const n = Object.keys(undo).length;
+    if (n) toast(`${label || 'Cleared'} ${GAMES[key].title}: ${n} tick${n === 1 ? '' : 's'} removed.`, () => {
+      Object.assign(checked, undo); save(LS.checked, checked); invalidate(key); renderAll();
+    });
   }
   function toggleStar(key) {
     const k = key.toLowerCase();
@@ -365,6 +375,7 @@
     document.querySelectorAll(`[data-action="star"][data-key="${CSS.escape(attr(key))}"]`).forEach((b) => { const on = isStarred(key); b.classList.toggle('on', on); b.textContent = on ? '★' : '☆'; b.setAttribute('aria-pressed', String(on)); });
     recompute();          // refresh the cached views so the Starred lane sees the new state
     renderLanes();
+    if (ui.range === 'starred' || ui.sort === 'score') renderGrid();
   }
   function toggleDrawer(key) {
     const card = $(safeId(key)); if (!card) return;
@@ -373,8 +384,10 @@
     if (open) { openDrawers.add(key); if (!dr.innerHTML.trim()) dr.innerHTML = drawerHtml(key, view(GAMES[key])); dr.classList.add('open'); card.classList.add('open'); }
     else { openDrawers.delete(key); dr.classList.remove('open'); card.classList.remove('open'); }
   }
+  let focusKey = null;
   function focusGame(key) {
     ui.q = ''; ui.range = 'all'; ui.genre = 'all'; ui.platform = 'all'; persistUi(); buildFilters();
+    focusKey = key;                       // survives the filters so unattainable games open too
     switchTab('incomplete'); renderGrid();
     const card = $(safeId(key)); if (!card) return;
     if (!openDrawers.has(key)) toggleDrawer(key);
@@ -393,7 +406,7 @@
   let suggestPool = [];
   function suggest(next) {
     const pool = filtered().filter(([k]) => !assessOf(k).dead);
-    if (!pool.length) return;
+    if (!pool.length) { toast('No games match the current filters — clear them and try again.'); return; }
     if (!next || !suggestPool.length) suggestPool = pool.slice().sort(([a], [b]) => assessOf(b).score - assessOf(a).score).slice(0, 12);
     // pick from the top 5 with light randomness, then rotate
     const idx = Math.floor(Math.random() * Math.min(5, suggestPool.length));
@@ -475,8 +488,8 @@
       case 'star': toggleStar(key); if ($('modal').classList.contains('open')) $('rec-star').textContent = isStarred(key) ? '★ Starred' : '☆ Star it'; break;
       case 'toggle': toggleDrawer(key); break;
       case 'focus': closeModal(); focusGame(key); break;
-      case 'reset': resetChecks(key); break;
-      case 'reopen': resetChecks(key); break;
+      case 'reset': resetChecks(key, 'Reset'); break;
+      case 'reopen': resetChecks(key, 'Reopened'); break;
       case 'guide': openGuide(key, unattr(el.dataset.trophy)); break;
       case 'genre': ui.genre = el.dataset.genre; persistUi(); document.querySelectorAll('#genreFilters .pill').forEach((b) => b.classList.toggle('active', b === el)); renderGrid(); break;
       case 'range': ui.range = el.dataset.range; persistUi(); document.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('active', b === el)); renderGrid(); break;
@@ -525,7 +538,9 @@
     const staleDays = Math.round((new Date() - dataAsOf) / 86400000);
     asof.textContent = `Data as of ${fmtDate(dataAsOf.toISOString())}${staleDays > 14 ? ` (${staleDays}d old)` : ''}`;
     asof.classList.toggle('stale', staleDays > 14);
-    asof.title = META ? `Synced ${META.syncedAt}: ${META.games} games, ${META.trophiesRemaining} trophies remaining` : 'From the newest trophy date in progress.json. Run npm run sync to refresh.';
+    asof.title = (META && META.syncedAt)
+      ? `Synced ${fmtDate(META.syncedAt)} from ${META.source || 'PSN'}: ${META.games} games, ${META.trophiesRemaining} trophies remaining`
+      : 'Dated from the newest trophy in progress.json. Run npm run sync (or the PSNProfiles scrape) to refresh.';
     buildFilters();
     recompute(); renderLanes(); renderGrid();
     switchTab(ui.tab || 'incomplete');
