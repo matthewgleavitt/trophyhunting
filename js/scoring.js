@@ -90,16 +90,51 @@
   }
   const MANUAL_TAG_MAP = { MISSABLE: 'MISSABLE', ONLINE: 'ONLINE', SKILL_WALL: 'SKILL_WALL', GRIND: 'GRIND', BUGGY: 'BUGGY', RNG: 'RNG', PLAYTHROUGH: 'PLAYTHROUGH', NG_PLUS: 'PLAYTHROUGH', DIFFICULTY: 'SKILL_WALL', UNOBTAINABLE: 'UNOBTAINABLE', DLC: 'DLC' };
 
+  /** Guides list glitched trophies as prose: "3 – Weapons Expert (delete save and redo),
+   *  Breaker of Gates (...)". Rather than parse that, check whether THIS trophy's name
+   *  appears in it — the game's own trophy names are the reliable key. */
+  function glitchNote(g, t) {
+    const raw = (g.guide && g.guide.glitchedRaw) || '';
+    if (!raw || !t.name || /^\s*(0|none|nothing yet)\b/i.test(raw)) return null;
+    const name = String(t.name).trim();
+    if (name.length < 4 || !raw.toLowerCase().includes(name.toLowerCase())) return null;
+    // Pull the clause about THIS trophy, stopping where the next named trophy begins.
+    // The game's own trophy names are the delimiters, so one bug note never swallows another.
+    const i = raw.toLowerCase().indexOf(name.toLowerCase());
+    let clause = raw.slice(i);
+    const others = [].concat(g.earned || [], g.unearned || [])
+      .map((x) => x && x.name).filter((n) => n && n !== name && n.length > 3);
+    let cut = clause.length;
+    for (const o of others) {
+      const at = clause.toLowerCase().indexOf(o.toLowerCase(), name.length);
+      if (at > 0 && at < cut) cut = at;
+    }
+    // Earned trophies are not in the slim data, so their names cannot act as delimiters.
+    // These lists are written "Name (why it breaks), Next Name (…)", so the first "), "
+    // after our trophy is a reliable structural boundary.
+    // Match whitespace tolerantly: the scraped text contains non-breaking spaces, so a
+    // literal "), " never matches.
+    const m = clause.slice(name.length).match(/\)[\s\u00a0]*,[\s\u00a0]+(?=[A-Z\u201c"'])/);
+    if (m && m.index != null) {
+      const paren = name.length + m.index + 1;
+      if (paren < cut) cut = paren;
+    }
+    clause = clause.slice(0, cut).trim().replace(/[\s,;–-]+$/, '').replace(/^[\s–-]+/, '');
+    return clause.length > 260 ? clause.slice(0, 260).replace(/\s\S*$/, '') + '…' : clause;
+  }
+
   function trophyFlags(g, t) {
     const meta = g.trophyMeta && g.trophyMeta[t.name];
     const manual = meta && Array.isArray(meta.tags) ? meta.tags : null;
     if (manual && manual.length) {
       const f = new Set();
       for (const tag of manual) { const k = MANUAL_TAG_MAP[String(tag).toUpperCase()]; if (k) f.add(k); }
+      if (glitchNote(g, t)) f.add('BUGGY');
       return { flags: f, source: 'manual' };
     }
     const f = heuristicFlags(t.name, t.desc);
     if (t.unobtainable) f.add('UNOBTAINABLE');
+    if (glitchNote(g, t)) f.add('BUGGY');
     return { flags: f, source: 'heuristic' };
   }
 
@@ -359,5 +394,5 @@
     return { lanes, assessed };
   }
 
-  return { assess, buildLanes, parseHours, parseDate, lastPlayedOf, heuristicFlags, trophyFlags, rarityHours, rarityDifficulty, easeTierOf, playthroughHours };
+  return { assess, buildLanes, parseHours, parseDate, lastPlayedOf, heuristicFlags, trophyFlags, glitchNote, rarityHours, rarityDifficulty, easeTierOf, playthroughHours };
 });

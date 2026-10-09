@@ -35,12 +35,15 @@ const readJson = (p, f) => { try { return JSON.parse(fs.readFileSync(p, 'utf8'))
 const writeJson = (p, v) => { fs.mkdirSync(path.dirname(p), { recursive: true }); fs.writeFileSync(p, JSON.stringify(v, null, 2) + '\n'); };
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36';
 
-async function get(url) {
+async function getRes(url) {
   const r = await fetch(url, { headers: { 'User-Agent': UA, 'Accept': 'text/html,*/*;q=0.8', 'Accept-Language': 'en-US,en;q=0.9' }, redirect: 'follow' });
   if (!r.ok) throw new Error(`HTTP ${r.status} ${url}`);
-  return r.text();
+  return { url: r.url || url, html: await r.text() };
 }
+async function get(url) { return (await getRes(url)).html; }
 const decode = (s) => s.replace(/&#8211;|&ndash;/g, '–').replace(/&#8217;|&rsquo;/g, '’').replace(/&#8220;|&#8221;|&ldquo;|&rdquo;/g, '"').replace(/&amp;/g, '&').replace(/&nbsp;/g, ' ').replace(/&#(\d+);/g, (_, n) => String.fromCharCode(n));
+// normalise non-breaking spaces: they look like spaces but break literal matching downstream
+const nbsp = (s) => String(s).replace(/\u00a0/g, ' ');
 const stripTags = (html) => decode(html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/gi, '').replace(/<br\s*\/?>/gi, '\n').replace(/<\/(p|li|div|h\d|tr)>/gi, '\n').replace(/<[^>]+>/g, ' ')).replace(/[ \t]+/g, ' ').replace(/\n\s*\n+/g, '\n');
 const alnum = (s) => String(s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
@@ -49,7 +52,10 @@ const slugify = (t) => String(t || '').toLowerCase().replace(/&/g, ' and ').repl
 const POST_RE = /https:\/\/www\.powerpyx\.com\/([a-z0-9-]+-)trophy-guide(?:-roadmap)?\/?(?=["'\s])/gi;
 function looksLikeGuide(html) { return /Estimated trophy difficulty/i.test(html) || /Approximate amount of time to (platinum|100%)/i.test(html); }
 async function tryUrl(url) {
-  try { const html = await get(url); return looksLikeGuide(html) ? { url, html } : null; } catch { return null; }
+  // record the URL we LANDED on: PowerPyx redirects some slugs
+  // (resident-evil-village -> resident-evil-8-village) and storing the pre-redirect
+  // address leaves a link that only works because browsers follow redirects.
+  try { const r = await getRes(url); return looksLikeGuide(r.html) ? { url: r.url, html: r.html } : null; } catch { return null; }
 }
 async function powerpyxFind(title) {
   const slug = slugify(title);
@@ -89,7 +95,7 @@ function parsePowerpyx(html, url) {
   const endRel = rest.search(/\n\s*(Introduction|Step 1|Stage 1|Trophy Guide\s*\n)/i);
   const text = endRel > 0 ? rest.slice(0, endRel) : rest.slice(0, 4000);
   if (process.env.DEBUG_ENRICH) console.log('--- scoped header (start=' + start + ', endRel=' + endRel + ') ---\n' + text.slice(0, 900) + '\n--- end ---');
-  const line = (re) => { const m = text.match(re); return m ? m[1].trim() : null; };
+  const line = (re) => { const m = text.match(re); return m ? nbsp(m[1]).trim() : null; };
   const difficulty = line(/Estimated trophy difficulty\s*:\s*([^\n]+)/i);
   const time = line(/Approximate amount of time to platinum\s*:\s*([^\n]+)/i) || line(/Approximate amount of time to 100%\s*:\s*([^\n]+)/i);
   const offline = line(/Offline Trophies\s*:\s*([^\n]+)/i);

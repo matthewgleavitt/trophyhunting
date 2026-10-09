@@ -155,20 +155,36 @@
     const { flags, source } = S.trophyFlags(g, t);
     const map = { MISSABLE: ['note-warn', '⚠ Missable'], ONLINE: ['note-online', '🌐 Online'], SKILL_WALL: ['note-skill', '💀 Skill wall'], GRIND: ['note-grind', '⏱ Grind'], RNG: ['note-grind', '🎲 RNG'], BUGGY: ['note-warn', '🧨 Buggy'], PLAYTHROUGH: ['note-play', '🔁 New playthrough'], UNOBTAINABLE: ['note-dead', '🚫 Unobtainable'], DLC: ['note-grind', 'DLC'] };
     const out = [];
-    for (const f of flags) if (map[f]) out.push(`<span class="t-note ${map[f][0]}" title="${source === 'manual' ? 'from your notes' : 'detected from the description'}">${map[f][1]}</span>`);
-    return out.length ? `<div class="t-badges">${out.join('')}</div>` : '';
+    const bug = S.glitchNote(g, t);
+    const note = (g.trophyMeta && g.trophyMeta[t.name] && g.trophyMeta[t.name].notes) || null;
+    for (const f of flags) {
+      if (!map[f]) continue;
+      // a BUGGY flag is only useful with the reason and the workaround attached
+      const why = f === 'BUGGY' && bug ? bug : (source === 'manual' ? 'from your notes' : 'detected from the description');
+      out.push(`<span class="t-note ${map[f][0]}" title="${esc(why)}">${map[f][1]}</span>`);
+    }
+    let extra = '';
+    if (bug) extra += `<div class="t-bugnote"><b>Known issue:</b> ${esc(bug)}</div>`;
+    if (note) extra += note.map((n) => `<div class="t-bugnote mine"><b>Your note:</b> ${esc(n)}</div>`).join('');
+    return (out.length || extra) ? `<div class="t-badges">${out.join('')}</div>${extra}` : '';
   }
   function starBtn(key) { const on = isStarred(key); return `<button class="star-btn ${on ? 'on' : ''}" data-action="star" data-key="${attr(key)}" title="${on ? 'Unstar' : 'Star: add to your work-on queue'}" aria-pressed="${on}">${on ? '★' : '☆'}</button>`; }
+  /** Only link to guides we have actually seen exist. A search URL is not a guide:
+   *  for a game nobody has written about yet (Duskfade), PowerPyx's search is an empty
+   *  page, and offering it under "Guides" is a dead end dressed up as help. */
   function guideLinks(g) {
     const t = g.title;
-    const links = [];
-    if (g.guide && g.guide.url) links.push(['PowerPyx guide', g.guide.url]);
-    else links.push(['PowerPyx', 'https://www.powerpyx.com/?s=' + encodeURIComponent(t)]);
-    if (g.psnpGuide) links.push(['PSNProfiles guide', 'https://psnprofiles.com' + g.psnpGuide]);
-    links.push([g.psnpHref ? 'My PSNProfiles page' : 'PSNProfiles', g.psnpHref ? 'https://psnprofiles.com' + g.psnpHref : 'https://psnprofiles.com/search/guides?q=' + encodeURIComponent(t)]);
-    if (g.url) links.push(['PocketPSN', g.url]);
-    links.push(['Web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
-    return `<div class="guide-links" data-stop="1"><span class="guide-links-label">Guides</span>${links.map(([l, u]) => `<a class="guide-link-btn" href="${esc(u)}" target="_blank" rel="noopener">${esc(l)}</a>`).join('')}</div>`;
+    const real = [], search = [];
+    if (g.guide && g.guide.url && g.guide.source === 'powerpyx') real.push(['PowerPyx guide', g.guide.url]);
+    if (g.psnpGuide) real.push(['PSNProfiles guide', 'https://psnprofiles.com' + g.psnpGuide]);
+    if (g.psnpHref) search.push(['My trophy list', 'https://psnprofiles.com' + g.psnpHref]);
+    search.push(['Search the web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
+    const btn = (pair, cls) => `<a class="guide-link-btn ${cls}" href="${esc(pair[1])}" target="_blank" rel="noopener">${esc(pair[0])}</a>`;
+    const tail = search.map((x) => btn(x, 'is-search')).join('');
+    if (real.length) {
+      return `<div class="guide-links" data-stop="1"><span class="guide-links-label">Guide</span>${real.map((x) => btn(x, 'is-real')).join('')}${tail}</div>`;
+    }
+    return `<div class="guide-links" data-stop="1"><span class="guide-links-label no-guide" title="No trophy guide has been written for this game yet — usually because it is new or niche.">No guide written yet</span>${tail}</div>`;
   }
 
   // ---------- collections ----------
