@@ -91,38 +91,33 @@ tag marks a game dead automatically. If you confirm one, add it to `data/overrid
 { "mad max": { "platDead": true, "deadReason": "online trophy unobtainable since the server shutdown" } }
 ```
 
-## The guide pass (running now — finish it when convenient)
+## The guide pass (not done yet — the highest-value thing left)
 
-A browser tab on psnprofiles.com is working through 196 guide pages, ordered so the games
-you are closest to finishing come first (Horizon Forbidden West, Journey to the Savage
-Planet, Fruit Ninja…). PSNProfiles serves guide pages slowly — roughly a minute each — so
-the full run takes hours. **Nothing is lost if you close it**: every result is written to
-`localStorage['psnpGuides.v1']` as it arrives, and partial results are perfectly usable.
+Each PSNProfiles guide page supplies difficulty/10, playthroughs, hours, and per-trophy
+Missable / Online Required / Difficulty Specific tags (Helldivers 2: 6/10, 75h, 35 online
+trophies; Resident Evil 4: 7 playthroughs, 27 missables). That is what turns the dashed
+"?" estimates into real ones.
 
-To bank whatever it has so far, in that tab's console:
+**Run it in your own Chrome, not an embedded browser pane.** After the main scrape, paste
+`tools/psnp-guides-snippet.js` into the console on psnprofiles.com, then:
 
 ```js
 psnpgState()      // progress
-psnpgDownload()   // saves psnp-guides.json
+psnpgDownload()   // saves psnp-guides.json — DO THIS PERIODICALLY, not just at the end
 ```
-
-Then:
 
 ```bash
 mv ~/Downloads/psnp-guides.json data/
 node tools/merge-psnp.mjs && node tools/build-slim.mjs
 ```
 
-Each guide supplies difficulty/10, playthroughs, hours, and per-trophy Missable / Online
-Required / Difficulty Specific tags (Helldivers 2: 6/10, 75h, 35 online trophies; Resident
-Evil 4: 7 playthroughs, 27 missables). That is what turns the dashed "?" estimates into
-real ones.
-
-If the tab is gone, recover what it banked:
-
-```js
-copy(localStorage.getItem('psnpGuides.v1'))   // paste into data/psnp-guides.json
-```
+WARNING — download as you go. The snippet also writes each result to
+`localStorage['psnpGuides.v1']`, and I originally documented that as a safe fallback.
+It is not, in an embedded pane: the Claude browser pane reset its storage on navigation
+and lost a run, including a key that had been written 244 times. In a normal Chrome tab
+localStorage is durable, but `psnpgDownload()` is the only thing that actually guarantees
+you keep the work. PSNProfiles serves guide pages slowly (about a minute each), so a full
+196-page run takes hours. Partial results are fine and merge cleanly.
 
 ## Known gaps / next steps
 

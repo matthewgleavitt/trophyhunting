@@ -6,6 +6,10 @@
  *   4. move psnp-guides.json into data/ and re-run  node tools/merge-psnp.mjs
  *
  * Only guides for games you have not finished are fetched, at the same polite pace.
+ *
+ * Run this in your OWN Chrome, not an automated or embedded browser: it takes hours, and
+ * embedded panes can reset their storage on navigation. Call psnpgDownload() periodically —
+ * the localStorage copy is a convenience, the download is what actually keeps the work.
  */
 (async () => {
   const P = window.__psnp;
