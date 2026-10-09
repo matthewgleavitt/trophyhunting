@@ -110,7 +110,10 @@
     opts = opts || {};
     const chips = [];
     if (a.dead) chips.push(`<span class="chip dead" title="${esc(a.deadReason)}">🚫 unattainable</span>`);
-    chips.push(`<span class="chip hours" title="Estimated remaining effort (range ${a.hoursLow}–${a.hoursHigh}h)">≈ <b>${fmtH(a.hours)}</b></span>`);
+    const conf = a.timeConfidence === 'low'
+      ? `rough guess from trophy rarity — no time estimate exists for this game (could be ${a.hoursLow}–${a.hoursHigh}h)`
+      : `estimated remaining effort, ${a.hoursLow}–${a.hoursHigh}h`;
+    chips.push(`<span class="chip hours${a.timeConfidence === 'low' ? ' guess' : ''}" title="${esc(conf)}">≈ <b>${fmtH(a.hours)}</b>${a.timeConfidence === 'low' ? '?' : ''}</span>`);
     chips.push(`<span class="chip ${diffClass(a.difficulty)}" title="Difficulty 0–10 from rarity of what is left${a.guideDifficulty != null ? ' blended with guide rating ' + a.guideDifficulty + '/10' : ''}">diff <b>${a.difficulty}</b></span>`);
     if (a.rarestRemaining != null) chips.push(`<span class="chip rar" title="Rarest remaining trophy: ${esc(a.rarestName)}">rarest <b>${a.rarestRemaining}%</b></span>`);
     if (a.needsPlaythrough) chips.push(`<span class="chip play" title="At least one trophy needs a fresh playthrough (~${a.playthroughHours}h)">🔁 playthrough</span>`);

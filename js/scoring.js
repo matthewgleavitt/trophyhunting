@@ -157,6 +157,7 @@
 
     // --- per-trophy pass ---
     let hours = 0, worstDiff = 0, rarest = null, rarestName = null, anyRarity = false;
+    const trophyHours = [];
     const flagCount = { PLAYTHROUGH: 0, SKILL_WALL: 0, ONLINE: 0, MISSABLE: 0, GRIND: 0, RNG: 0, BUGGY: 0, UNOBTAINABLE: 0, DLC: 0 };
     const platRarity = (() => {
       const all = [].concat(g.earned || [], unearned);
@@ -189,11 +190,30 @@
       if (flags.has('SKILL_WALL')) h *= 1.4;
       if (flags.has('ONLINE')) h *= 1.25;
       if (flags.has('RNG')) h *= 1.3;
-      hours += h;
+      trophyHours.push(h);
       let d = rarityDifficulty(r);
       if (d == null) d = flags.has('SKILL_WALL') ? 7 : flags.has('GRIND') ? 4 : 3;
       else if (flags.has('SKILL_WALL')) d = Math.max(d, 6.5);
       worstDiff = Math.max(worstDiff, d);
+    }
+
+    // Trophies are not independent errands: a run that nets the hardest one usually sweeps up
+    // most of the others. So the hardest dominates and the rest are discounted on a decaying
+    // curve, instead of a straight sum that compounds a 50-trophy game into hundreds of hours.
+    trophyHours.sort((a, b) => b - a);
+    hours = trophyHours.reduce((sum, h, i) => sum + h / (1 + 0.25 * i), 0);
+    // Rarity measures DIFFICULTY, not duration: "complete level 4" can sit at 33% (common,
+    // so cheap by rarity) and still mean replaying a campaign. Doing N separate things has a
+    // floor no matter how common each one is.
+    hours = Math.max(hours, 0.3 * Math.pow(trophyHours.length, 0.85));
+    // Anchor to a real time estimate when one exists: what is left should scale with the share
+    // of the game still to do, which catches lots-of-ordinary-trophies that rarity under-costs.
+    const totalTrophies = scored.length + ((g.earned && g.earned.length) || num(g.earnedCount) || 0);
+    const anchorSrc = parseHours(g.timePlat) || (num((g.guide || {}).hoursMax) != null
+      ? { avg: (num(g.guide.hoursMin) + num(g.guide.hoursMax)) / 2 } : null) || parseHours(g.timeNormal);
+    if (anchorSrc && totalTrophies > 0) {
+      const fracLeft = clamp(scored.length / totalTrophies, 0, 1);
+      hours = Math.max(hours, anchorSrc.avg * Math.pow(fracLeft, 0.85));
     }
 
     // --- playthrough cost (once) ---
@@ -208,6 +228,12 @@
       reasons.push(`Needs a new playthrough: ~${Math.round(pt.hours)}h (${pt.basis})`);
     }
     if (dlcCount) hours += dlcCount * 1.2;               // DLC still costs time, just not platinum time
+    // Hard upper bound: finishing what is LEFT cannot cost more than the guide's estimate for
+    // the entire platinum from scratch (plus slack for DLC, which the guide may exclude).
+    const timeConfidence = num((g.guide || {}).hoursMax) != null ? 'high'
+      : (parseHours(g.timePlat) || parseHours(g.timeNormal)) ? 'medium' : 'low';
+    const guideCap = num((g.guide || {}).hoursMax);
+    if (guideCap != null && guideCap > 0) hours = Math.min(hours, guideCap * 1.1 + dlcCount * 1.2);
     hours = Math.max(0.25, hours);
 
     // --- difficulty: blend guide rating (whole platinum) with what is left ---
@@ -273,6 +299,7 @@
     // --- explanations ---
     if (anyRarity && rarest != null) reasons.unshift(`Rarest remaining: "${rarestName}" at ${rarest}% (${easeTier})`);
     if (!anyRarity) reasons.push('No rarity data yet (run the PSN sync) — using text heuristics');
+    if (timeConfidence === 'low') reasons.push('No time estimate for this game — the hour figure is a rough guess from trophy rarity');
     if (guideDiff != null) reasons.push(`Guide difficulty ${guideDiff}/10${guide.playthroughs ? `, ${guide.playthroughs} playthrough(s)` : ''}${guide.hoursMin ? `, ${guide.hoursMin}–${guide.hoursMax ?? guide.hoursMin}h to platinum` : ''}`);
     if (flagCount.SKILL_WALL) reasons.push(`${flagCount.SKILL_WALL} skill-wall trophy(ies)`);
     if (flagCount.GRIND) reasons.push(`${flagCount.GRIND} grind/collectible trophy(ies)`);
@@ -283,7 +310,8 @@
 
     return {
       dead, deadReason, onlineRisk,
-      hours: round1(hours), hoursLow: round1(hours * 0.7), hoursHigh: round1(hours * 1.5),
+      hours: round1(hours), hoursLow: round1(hours * (timeConfidence === 'low' ? 0.5 : 0.7)),
+      hoursHigh: round1(hours * (timeConfidence === 'low' ? 2.2 : 1.5)), timeConfidence,
       difficulty: round1(difficulty), guideDifficulty: guideDiff,
       flags: flagCount, rarestRemaining: rarest, rarestName, platRarity, dlcCount, platPathLeft: scored.length,
       easeTier, allCommonish, easyGain, quickPlat, needsPlaythrough, playthroughHours: pt ? round1(pt.hours) : null,

@@ -184,6 +184,8 @@ input::placeholder { color: var(--text3); }
 }
 .chip b { font-family: var(--num); color: var(--text); font-weight: 700; }
 .chip.hours b { color: var(--ps-blue-light); }
+.chip.hours.guess { border-style: dashed; }
+.chip.hours.guess b { color: var(--text2); }
 .chip.diff-lo b { color: var(--green); }
 .chip.diff-mid b { color: var(--amber); }
 .chip.diff-hi b { color: var(--red); }
