@@ -3135,7 +3135,7 @@
     "unearned": []
   },
   "duskfade": {
-    "title": "Duskfade - Trophy Set",
+    "title": "Duskfade",
     "npCommunicationId": "NPWR56989_00",
     "npServiceName": "trophy2",
     "platforms": [
@@ -70561,7 +70561,7 @@
     ]
   },
   "cast of the seven godsends redux": {
-    "title": "COTSG_TROPHIES",
+    "title": "Cast Of The Seven Godsends Redux",
     "npCommunicationId": "NPWR11137_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -114045,11 +114045,14 @@
     },
     "progress": 25,
     "lastPlayed": "2020-04-07T23:05:28Z",
-    "url": null,
+    "url": "https://pocketpsn.com/game/9464-%E3%81%84%E3%81%91%E3%81%AB%E3%81%88%E3%81%A8%E9%9B%AA%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A/LabyrinthWorm",
     "timeNormal": null,
     "timeHastily": null,
     "timePlat": null,
-    "genres": [],
+    "genres": [
+      "Role-playing (RPG)",
+      "Adventure"
+    ],
     "psnpHref": null,
     "psnpGuide": null,
     "serverNote": null,
@@ -124420,7 +124423,7 @@
     ]
   },
   "bugsboxvr": {
-    "title": "BugsBox VR Trophy",
+    "title": "BugsBox VR",
     "npCommunicationId": "NPWR14437_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -125784,7 +125787,7 @@
     "unearned": []
   },
   "mortal blitz": {
-    "title": "Mortal Blitz Trophy Set",
+    "title": "Mortal Blitz",
     "npCommunicationId": "NPWR12907_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -160499,7 +160502,7 @@
     "unearned": []
   },
   "star wars battlefront": {
-    "title": "STAR WARS Battlefront Trophies",
+    "title": "STAR WARS Battlefront",
     "npCommunicationId": "NPWR07317_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -166640,7 +166643,7 @@
     "unearned": []
   },
   "windlands": {
-    "title": "Windlands Trophies",
+    "title": "Windlands",
     "npCommunicationId": "NPWR11668_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -167950,7 +167953,7 @@
     ]
   },
   "the brookhaven experiment": {
-    "title": "The Brookhaven Experiment Trophy Set",
+    "title": "The Brookhaven Experiment",
     "npCommunicationId": "NPWR11930_00",
     "npServiceName": "trophy",
     "platforms": [
@@ -238027,241 +238030,6 @@
       }
     ],
     "unearned": []
-  },
-  "%E3%81%84%E3%81%91%E3%81%AB%E3%81%88%E3%81%A8%E9%9B%AA%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A": {
-    "url": "https://pocketpsn.com/game/9464-%E3%81%84%E3%81%91%E3%81%AB%E3%81%88%E3%81%A8%E9%9B%AA%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A/LabyrinthWorm",
-    "earned": [
-      {
-        "name": "新たなる導き",
-        "desc": "キトと会った",
-        "date": "Jul. 20th, 201611:20:18 PM EDT"
-      },
-      {
-        "name": "招かれざる客",
-        "desc": "ライシンと会った",
-        "date": "Jul. 20th, 201611:39:13 PM EDT"
-      },
-      {
-        "name": "守護の大剣",
-        "desc": "タギシと会った",
-        "date": "Jul. 21st, 20169:31:40 PM EDT"
-      },
-      {
-        "name": "翼を与える匠",
-        "desc": "アマツと会った",
-        "date": "Aug. 3rd, 201610:42:41 PM EDT"
-      },
-      {
-        "name": "厳格なる指導者",
-        "desc": "ヒドロと会った",
-        "date": "Aug. 7th, 20164:29:12 PM EDT"
-      },
-      {
-        "name": "依頼の真相",
-        "desc": "ロッカスと会った",
-        "date": "Aug. 7th, 20169:09:27 PM EDT"
-      },
-      {
-        "name": "忘れられた存在",
-        "desc": "サヤギと会った",
-        "date": "Apr. 7th, 20207:05:25 PM EDT"
-      },
-      {
-        "name": "希望が封じられた地",
-        "desc": "古代遺跡　アピを見た",
-        "date": "Aug. 7th, 20169:14:20 PM EDT"
-      },
-      {
-        "name": "悟りの叡知",
-        "desc": "１体の魔物から４つ同時にドロップさせた",
-        "date": "Jul. 21st, 20169:52:37 PM EDT"
-      },
-      {
-        "name": "見切りの神眼",
-        "desc": "ジャストキルで10回倒した",
-        "date": "Jul. 21st, 20168:48:20 PM EDT"
-      },
-      {
-        "name": "破壊の鉄鎚",
-        "desc": "オーバーキルで10回倒した",
-        "date": "Aug. 7th, 20164:08:27 PM EDT"
-      },
-      {
-        "name": "会心の一撃",
-        "desc": "1回の攻撃で500ダメージ以上与えた",
-        "date": "Aug. 7th, 20167:55:03 PM EDT"
-      },
-      {
-        "name": "眠る力を引き出す者",
-        "desc": "1回のバトルで刹那システムを10回発動した",
-        "date": "Jul. 21st, 20169:01:52 PM EDT"
-      },
-      {
-        "name": "共鳴する心を持つ者",
-        "desc": "連携で刹那システムを30回発動した",
-        "date": "Aug. 7th, 20168:10:58 PM EDT"
-      },
-      {
-        "name": "刹那を極めし者",
-        "desc": "刹那システムの発動に100回成功した",
-        "date": "Jul. 21st, 201610:30:08 PM EDT"
-      },
-      {
-        "name": "力の求道者",
-        "desc": "コマンド昇華が10回発生した",
-        "date": "Aug. 7th, 20164:02:04 PM EDT"
-      }
-    ],
-    "unearned": [
-      {
-        "name": "雪の世界の物語",
-        "desc": "すべてのトロフィーを獲得した"
-      },
-      {
-        "name": "伝承の英雄",
-        "desc": "テンバと会った"
-      },
-      {
-        "name": "星霜の記憶",
-        "desc": "ユーテスと会った"
-      },
-      {
-        "name": "忘却の彼方より",
-        "desc": "青年と会った"
-      },
-      {
-        "name": "勇気が封じられた地",
-        "desc": "古代遺跡　ティキナキを見た"
-      },
-      {
-        "name": "愛が封じられた地",
-        "desc": "古代遺跡　ルマを見た"
-      },
-      {
-        "name": "大海を制する者",
-        "desc": "探査船に乗った"
-      },
-      {
-        "name": "禁断の地にある異郷",
-        "desc": "？？？を見た"
-      },
-      {
-        "name": "変革する波動",
-        "desc": "ジェネシスの法石を入手した"
-      },
-      {
-        "name": "聖なる祈り",
-        "desc": "ホーリーの法石を入手した"
-      },
-      {
-        "name": "天壌無窮の光",
-        "desc": "ギアラスタの法石を入手した"
-      },
-      {
-        "name": "挺身の慈愛",
-        "desc": "リベリオンの法石を入手した"
-      },
-      {
-        "name": "崩壊を呼ぶ力",
-        "desc": "ドゥームの法石を入手した"
-      },
-      {
-        "name": "王家の誇り",
-        "desc": "エクリプスの法石を入手した"
-      },
-      {
-        "name": "存在の証明",
-        "desc": "ドラグナロクの法石を入手した"
-      },
-      {
-        "name": "塩味の食通",
-        "desc": "ギヤッカ風揚げイモを食べた"
-      },
-      {
-        "name": "酸味の食通",
-        "desc": "駒シイタケのグラタンを食べた"
-      },
-      {
-        "name": "苦味の食通",
-        "desc": "大地の恵みのせいろ蒸しを食べた"
-      },
-      {
-        "name": "甘味の食通",
-        "desc": "星ベリーケーキを食べた"
-      },
-      {
-        "name": "うま味の食通",
-        "desc": "モル風野菜たっぷりシチューを食べた"
-      },
-      {
-        "name": "魔を断つ者",
-        "desc": "ペンギィたちを全て倒した"
-      },
-      {
-        "name": "天運を持つ者",
-        "desc": "ホウホウたちを全て倒した"
-      },
-      {
-        "name": "世界を識る者",
-        "desc": "法石に蝕まれた魔物たちを全て倒した"
-      },
-      {
-        "name": "全てを破壊する者",
-        "desc": "完全体の輪廻の闇を倒した"
-      },
-      {
-        "name": "忌まわしき記憶の果てに",
-        "desc": "セリフを全て聞き、青年を倒した"
-      },
-      {
-        "name": "語り継がれる伝説",
-        "desc": "時をすべしものを倒した"
-      },
-      {
-        "name": "刹那の神業",
-        "desc": "１体の魔物から８つ同時にドロップさせた"
-      },
-      {
-        "name": "無限の戦術",
-        "desc": "全ての方法でトドメをさした"
-      },
-      {
-        "name": "限界を超える覚悟",
-        "desc": "1回の攻撃で1000ダメージ以上与えた"
-      },
-      {
-        "name": "知識の求道者",
-        "desc": "サポート昇華が10回発生した"
-      },
-      {
-        "name": "真理の探究者",
-        "desc": "昇華が1回のバトルで4回発生した"
-      },
-      {
-        "name": "天地を統べる者",
-        "desc": "昇華が200回発生した"
-      },
-      {
-        "name": "法石を極めし者",
-        "desc": "限界まで法石を昇華させた"
-      },
-      {
-        "name": "霊薬の錬金術師",
-        "desc": "ラストエリクサーを1回使用した"
-      }
-    ],
-    "timeNormal": null,
-    "timeHastily": null,
-    "timePlat": null,
-    "platforms": [
-      "PS4"
-    ],
-    "genres": [
-      "Role-playing (RPG)",
-      "Adventure"
-    ],
-    "title": "%E3%81%84%E3%81%91%E3%81%AB%E3%81%88%E3%81%A8%E9%9B%AA%E3%81%AE%E3%82%BB%E3%83%84%E3%83%8A",
-    "legacyOnly": true
   },
   "i am setsuna": {
     "title": "I Am Setsuna",

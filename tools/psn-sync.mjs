@@ -135,8 +135,17 @@ function platformsOf(t) {
     .map((s) => PLATFORM_MAP[s] || s);
 }
 function cleanTitle(s) {
-  // PSN returns "Mortal Kombat 1 Trophies" where every other source says "Mortal Kombat 1"
-  return String(s || '').replace(/[™®©]/g, '').replace(/\s+Trophies$/i, '').replace(/\s+/g, ' ').trim();
+  // PSN decorates titles: "Mortal Kombat 1 Trophies", "Duskfade - Trophy Set",
+  // "BugsBox VR Trophy". Every other source just uses the game's name.
+  let t = String(s || '');
+  if (/%[0-9A-Fa-f]{2}/.test(t)) { try { t = decodeURIComponent(t); } catch (e) { /* leave as-is */ } }
+  // trim FIRST: these strips are $-anchored, so a trailing space defeats every one
+  return t.replace(/[™®©]/g, '').replace(/\s+/g, ' ').trim()
+    .replace(/\s*[-–]\s*Trophy Set$/i, '')
+    .replace(/\s+Trophy Set$/i, '')
+    .replace(/\s+Trophies$/i, '')
+    .replace(/\s+Trophy$/i, '')
+    .replace(/\s+/g, ' ').trim();
 }
 const deaccent = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const EDITION_RE = /\b(remastered|remaster|remake|hd remaster|hd|definitive edition|ultimate edition|complete edition|game of the year edition|goty|anniversary edition|directors cut|director's cut|butchers cut|butcher's cut|final mix|the game|console edition|enhanced edition|deluxe|ps4|ps5|ps vita|vita|vr|edition)\b/g;
@@ -335,20 +344,26 @@ async function syncLibrary(auth) {
     if (!r) continue;
     const { t, trophies } = r;
     const title = cleanTitle(t.trophyTitleName);
+    const usableKey = (k) => k && !/%[0-9A-Fa-f]{2}/.test(k);   // percent-encoded junk from old data
     let key = legacyKey(title);
     let legacyRec = legacyByKey.get(key);
-    if (!legacyRec) {
+    if (!legacyRec && alnum(title)) {          // a non-Latin title alnums to "", which matches nothing meaningful
       const alt = legacyByAlnum.get(alnum(title));
-      if (alt) { key = alt; legacyRec = legacyByKey.get(alt); }
+      if (alt) { legacyRec = legacyByKey.get(alt); if (usableKey(alt)) key = alt; }
     }
     if (!legacyRec) {
       const alt = legacyByLoose.get(looseKey(title));
-      if (alt) { key = alt; legacyRec = legacyByKey.get(alt); report.fuzzyMatched.push({ title, legacyKey: alt }); }
+      if (alt) { legacyRec = legacyByKey.get(alt); if (usableKey(alt)) key = alt; report.fuzzyMatched.push({ title, legacyKey: alt }); }
     }
     if (!legacyRec) {
       // Last resort: same trophy list = same game, whatever the title says.
       const alt = legacyByPrint.get(trophyPrint(trophies, []));
-      if (alt) { key = alt; legacyRec = legacyByKey.get(alt); report.fuzzyMatched.push({ title, legacyKey: alt, by: 'trophy-list' }); }
+      if (alt) {
+        legacyRec = legacyByKey.get(alt);
+        // adopt the old key for continuity, unless it is percent-encoded junk
+        if (usableKey(alt)) key = alt;
+        report.fuzzyMatched.push({ title, legacyKey: alt, by: 'trophy-list' });
+      }
     }
     if (!legacyRec) report.unmatchedLegacy.push(title);
     let titleSuffix = '';
@@ -365,8 +380,14 @@ async function syncLibrary(auth) {
     const earnedArr = trophies.filter((x) => x.earned).map(({ earned, ...rest }) => rest);
     const unearnedArr = trophies.filter((x) => !x.earned).map(({ earned, date, ...rest }) => rest);
     const platEarned = trophies.some((x) => x.type === 'platinum' && x.earned);
+    // PSN occasionally returns a developer's internal id as the title ("COTSG_TROPHIES").
+    // If it looks like a code and we know a real name, use the real name.
+    const looksLikeCode = /_/.test(title) && title === title.toUpperCase();
+    const displayTitle = (looksLikeCode && legacyRec && legacyRec.title && !/_/.test(legacyRec.title))
+      ? legacyRec.title
+      : (looksLikeCode ? key.replace(/\b\w/g, (c) => c.toUpperCase()) : title);
     out[key] = {
-      title: title + titleSuffix,
+      title: displayTitle + titleSuffix,
       npCommunicationId: t.npCommunicationId,
       npServiceName: t.npServiceName,
       platforms: platformsOf(t),
@@ -427,6 +448,7 @@ async function syncLibrary(auth) {
   }
   let keptLegacy = 0;
   for (const [k, v] of legacyByKey) {
+    if (/%[0-9A-Fa-f]{2}/.test(k)) { report.droppedEncoded = (report.droppedEncoded || []).concat(k); continue; }
     if (out[k] || Object.values(out).some((g) => alnum(g.title) === alnum(k))) continue;
     const twin = duplicateOf(v);
     if (twin) {
