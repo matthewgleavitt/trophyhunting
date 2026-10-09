@@ -52,12 +52,21 @@ const PLAT = { PS5: 'PS5', PS4: 'PS4', PS3: 'PS3', VITA: 'Vita', PSVITA: 'Vita',
 const legacy = readJson(PROGRESS, {});
 const out = { ...legacy };
 let upgraded = 0, added = 0, collisions = 0, deadFlags = [];
+const collisionTitles = {};
 for (const [href, g] of Object.entries(scrape)) {
   if (href.startsWith('__') || !g || !Array.isArray(g.trophies)) continue;   // metadata keys
   const id = (href.match(/\/trophies\/(\d+)-/) || [])[1] || null;
   let key = map[href] || legacyKey(g.t);
   if (!legacy[key] && !out[key]) { added++; }
-  else if (out[key] && out[key].psnpHref && out[key].psnpHref !== href) { collisions++; key = `${key} (${id})`; }
+  else if (out[key] && out[key].psnpHref && out[key].psnpHref !== href) {
+    // Same name, different trophy list — Skyrim has separate PS5/PS4/PS3 sets. Keep both,
+    // and disambiguate so the UI does not show two identical titles.
+    collisions++;
+    const plats = String((listByHref[href] || {}).p || '').split(',').map((x) => PLAT[x.trim().toUpperCase()] || x.trim()).filter(Boolean);
+    const suffix = plats.length ? plats.join('/') : id;
+    key = `${key} (${suffix.toLowerCase()})`;
+    collisionTitles[key] = suffix;
+  }
   const base = legacy[map[href]] || legacy[key] || {};
   // rarity = PSN's official earned-rate (what the PSN API also reports); rarityPsnp = PSNProfiles' tracked-user rate
   const trophies = g.trophies.map((t) => { const rPsn = t[6] != null ? t[6] : t[5]; return { name: t[0], desc: t[1], type: t[2], rarity: rPsn, rarityPsnp: t[5], tier: tierOf(null, rPsn), earned: !!t[3], date: t[3] ? toIso(t[4]) : null, unobtainable: !!t[8] }; });
@@ -80,7 +89,7 @@ for (const [href, g] of Object.entries(scrape)) {
   } : null;
   out[key] = {
     ...base,
-    title: cleanTitle(g.t) || base.title || key,
+    title: (cleanTitle(g.t) || base.title || key) + (collisionTitles[key] ? ` (${collisionTitles[key]})` : ''),
     psnpId: id, psnpHref: href, psnpGuide: g.guide || null,
     platinumRarity: platOwners != null ? Number(platOwners) : (base.platinumRarity ?? null),
     serverNote: shutdown,
