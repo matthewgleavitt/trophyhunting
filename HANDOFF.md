@@ -91,10 +91,45 @@ tag marks a game dead automatically. If you confirm one, add it to `data/overrid
 { "mad max": { "platDead": true, "deadReason": "online trophy unobtainable since the server shutdown" } }
 ```
 
+## The guide pass (running now — finish it when convenient)
+
+A browser tab on psnprofiles.com is working through 196 guide pages, ordered so the games
+you are closest to finishing come first (Horizon Forbidden West, Journey to the Savage
+Planet, Fruit Ninja…). PSNProfiles serves guide pages slowly — roughly a minute each — so
+the full run takes hours. **Nothing is lost if you close it**: every result is written to
+`localStorage['psnpGuides.v1']` as it arrives, and partial results are perfectly usable.
+
+To bank whatever it has so far, in that tab's console:
+
+```js
+psnpgState()      // progress
+psnpgDownload()   // saves psnp-guides.json
+```
+
+Then:
+
+```bash
+mv ~/Downloads/psnp-guides.json data/
+node tools/merge-psnp.mjs && node tools/build-slim.mjs
+```
+
+Each guide supplies difficulty/10, playthroughs, hours, and per-trophy Missable / Online
+Required / Difficulty Specific tags (Helldivers 2: 6/10, 75h, 35 online trophies; Resident
+Evil 4: 7 playthroughs, 27 missables). That is what turns the dashed "?" estimates into
+real ones.
+
+If the tab is gone, recover what it banked:
+
+```js
+copy(localStorage.getItem('psnpGuides.v1'))   // paste into data/psnp-guides.json
+```
+
 ## Known gaps / next steps
 
-- **182 of 357 hour estimates are still rough guesses** (dashed chip with a `?`). The
-  guide pass (B, step 2) is what fixes this — it is the single highest-value thing left.
+- **182 of 357 hour estimates are still rough guesses** (dashed chip with a `?`) until the
+  guide pass above is merged. That is the single highest-value thing left.
+- The NPSSO path (A) would make all of this a one-command refresh and can run on a timer;
+  the scrape exists so you are not blocked on a token.
 - `data/library.json` is your full purchase history, committed to a **public** repo.
   Decided 2026-10-08: publish it, so the Never-started tab works on your phone with no
   setup. To reverse that later, add it to `.gitignore` and the tab degrades gracefully.
