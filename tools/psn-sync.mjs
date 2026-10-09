@@ -219,8 +219,17 @@ async function fetchTitleTrophies(auth, t) {
 // ---------- owned library (purchased + PS Plus) ----------
 const NONGAME_RE = /\b(demo|beta|soundtrack|ost|trailer|theme|unity save data|public test server|the art of)\b|^(youtube|netflix|hulu|spotify|twitch|plex|disney\+|hbo go|funimation|amazon prime video|media player|live events viewer|playstation vue|vudu hd movies|littlstar cinema|p\.t\.)$/i;
 async function syncLibrary(auth) {
-  const res = await withRetry('getPurchasedGames', () => getPurchasedGames(auth));
-  const games = (res && res.data && res.data.purchasedTitlesRetrieve && res.data.purchasedTitlesRetrieve.games) || [];
+  // getPurchasedGames is paginated (size/start). Without them it returns one short page,
+  // which would silently replace the whole library with ~24 titles.
+  const games = [];
+  const PAGE = 200;
+  for (let start = 0; start < 5000; start += PAGE) {
+    const res = await withRetry(`getPurchasedGames@${start}`, () => getPurchasedGames(auth, { size: PAGE, start }));
+    const page = (res && res.data && res.data.purchasedTitlesRetrieve && res.data.purchasedTitlesRetrieve.games) || [];
+    games.push(...page);
+    if (page.length < PAGE) break;
+    await sleep(DELAY_MS);
+  }
   const seen = new Set();
   const titles = [];
   for (const g of games) {
@@ -237,6 +246,15 @@ async function syncLibrary(auth) {
       image: g.image && g.image.url || null,
       nonGame: NONGAME_RE.test(name),
     });
+  }
+  // Never shrink the library dramatically without saying so: a partial API response would
+  // otherwise quietly wipe hundreds of owned games.
+  const existing = readJson(LIBRARY_PATH, null);
+  const had = existing && Array.isArray(existing.titles) ? existing.titles.length : 0;
+  if (had && titles.length < had * 0.8) {
+    log(`Library: REFUSED to overwrite — got ${titles.length} entitlements but ${had} were already stored.`);
+    log('  That usually means a partial API response. Re-run, or pass --force-library to accept it.');
+    if (!flag('--force-library')) return had;
   }
   writeJson(LIBRARY_PATH, { capturedAt: new Date().toISOString(), source: 'PSN getPurchasedGames', count: titles.length, titles });
   log(`Library: ${titles.length} entitlements (${titles.filter((t) => !t.nonGame).length} games) → data/library.json`);
