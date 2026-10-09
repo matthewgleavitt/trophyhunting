@@ -21,7 +21,7 @@
 
   // ---------- data ----------
   let GAMES = {};            // key -> model
-  let LIBRARY = null, META = null, GUIDES = {};
+  let LIBRARY = null, META = null, GUIDES = {}, FULL_GUIDES = {};
   let dataAsOf = null;
   const assessCache = new Map();
 
@@ -54,12 +54,16 @@
     // PSNProfiles per-trophy tags (Missable / Online / Difficulty Specific) are the weakest
     // source; your own overrides always win.
     const psnpTags = {};
-    for (const [name, labels] of Object.entries(raw.psnpTrophyTags || {})) {
+    for (const [name, entry] of Object.entries(raw.psnpTrophyTags || {})) {
+      // the guide scrape stores {tags:[...], anchor:'#id'}; older data stored a bare array
+      const labels = Array.isArray(entry) ? entry : ((entry && entry.tags) || []);
       const tags = [];
       for (const l of labels) {
         if (/^missable$/i.test(l)) tags.push('MISSABLE');
         else if (/online/i.test(l)) tags.push('ONLINE');
         else if (/difficulty specific/i.test(l)) tags.push('SKILL_WALL');
+        else if (/multiple playthroughs/i.test(l)) tags.push('PLAYTHROUGH');
+        else if (/time consuming/i.test(l)) tags.push('GRIND');
         else if (/buggy|glitch/i.test(l)) tags.push('BUGGY');
       }
       if (tags.length) psnpTags[name] = { tags };
@@ -83,7 +87,7 @@
       progress: raw.progress ?? null,
       guide: (enr && enr.guide && enr.guide.source) ? enr.guide : (raw.psnpGuideFacts || null),
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
-      serverNote: raw.serverNote || null, communityFlags: raw.communityFlags || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null,
+      serverNote: raw.serverNote || null, communityFlags: raw.communityFlags || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null, psnpGuideAnchors: raw.psnpGuideAnchors || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
       legacyOnly: !!raw.legacyOnly,
     };
@@ -528,6 +532,15 @@
       for (const section of guide.sections || []) html += `<div class="guide-section"><div class="guide-section-title">${esc(section.title)}</div><div class="guide-steps">${section.steps.map((s, i) => `<div class="guide-step"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div></div>`;
       if (guide.tips && guide.tips.length) html += `<div class="guide-section"><div class="guide-section-title">Tips & warnings</div>${guide.tips.map((tip) => tip.type === 'warning' ? `<div class="guide-warning">${tip.text}</div>` : `<div class="guide-tip">${tip.text}</div>`).join('')}</div>`;
     } else {
+      // The guide author's own write-up for this exact trophy, when we have it locally.
+      const fg = FULL_GUIDES[key];
+      const written = fg && fg.trophies && fg.trophies[t.name];
+      if (written) {
+        html += `<div class="guide-section"><div class="guide-section-title">How to get it</div>
+          <div class="guide-written">${esc(written.text)}</div>
+          <div class="guide-credit">Written by the PSNProfiles guide author &middot; <a href="${esc(fg.url + (written.anchor || ''))}" target="_blank" rel="noopener">read it in context</a></div></div>`;
+      }
+
       // No hand-written walkthrough for this trophy. Show what we actually KNOW rather than a
       // list of searches: the guide's own per-trophy verdict, a link straight to that trophy's
       // section, and what the rarity implies. Never a speculative search dressed as a guide.
@@ -536,7 +549,7 @@
       const tmeta = g.trophyMeta && g.trophyMeta[t.name];
       const verdict = tmeta && Array.isArray(tmeta.tags) && tmeta.tags.length
         ? tmeta.tags.map((x) => String(x).toLowerCase().replace(/_/g, ' ')).join(', ') : null;
-      if (deepLink || verdict) {
+      if (!written && (deepLink || verdict)) {
         html += `<div class="guide-section"><div class="guide-section-title">What the guide says</div>`;
         if (verdict) html += `<div class="guide-tip"><strong>Flagged as:</strong> ${esc(verdict)}</div>`;
         if (deepLink) html += `<div class="guide-steps"><div class="guide-step"><div class="step-num">&rarr;</div><div class="step-text"><a href="${esc(deepLink)}" target="_blank" rel="noopener">Open this trophy&rsquo;s section in the guide</a></div></div></div>`;
@@ -550,7 +563,7 @@
           : 'one of the rarest here \u2014 likely what stands between you and the platinum';
         html += `<div class="guide-section"><div class="guide-section-title">What the rarity says</div><div class="guide-tip"><strong>${t.rarity}% of players have this (${esc(S.easeTierOf(t.rarity))}).</strong> ${esc(readMe)}</div></div>`;
       }
-      if (!deepLink && !verdict) {
+      if (!written && !deepLink && !verdict) {
         const anyGuide = (g.guide && g.guide.url) || (g.psnpGuide ? 'https://psnprofiles.com' + g.psnpGuide : null);
         html += `<div class="guide-section"><div class="guide-section-title">No written guide</div><div class="guide-tip">${anyGuide
           ? `No guide covers this trophy individually, but the game&rsquo;s guide may help: <a href="${esc(anyGuide)}" target="_blank" rel="noopener">open it</a>.`
@@ -650,15 +663,18 @@
 
   // ---------- init ----------
   async function init() {
-    const [slim, enriched, overrides, guidesFile, library, meta] = await Promise.all([
+    const [slim, enriched, overrides, guidesFile, library, meta, fullGuides] = await Promise.all([
       fetchJson('./data/progress.slim.json', null), fetchJson('./data/enriched.json', {}), fetchJson('./data/overrides.json', {}),
       fetchJson('./data/guides.json', {}), fetchJson('./data/library.json', null), fetchJson('./data/sync-meta.json', null),
+      // Guide authors' written solutions. Absent from the public build on purpose — it is
+      // their work, for personal reference only. Present locally and on the private deploy.
+      fetchJson('./data/guides-full.json', null),
     ]);
     // progress.slim.json is the build artifact (earned trophies collapsed to counts);
     // fall back to the full file so the app still works before the first build.
     const progress = slim || await fetchJson('./data/progress.json', null);
     if (!progress) { $('grid').innerHTML = '<div class="empty">Failed to load trophy data. Run <code>node tools/build-slim.mjs</code>.</div>'; return; }
-    LIBRARY = library; META = meta;
+    LIBRARY = library; META = meta; FULL_GUIDES = fullGuides || {};
     GUIDES = Object.assign({}, window.TROPHY_GUIDES || {}, guidesFile || {});
     for (const [key, raw] of Object.entries(progress)) {
       if (key.startsWith('_')) continue;

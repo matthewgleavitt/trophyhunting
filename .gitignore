@@ -20,3 +20,7 @@ tools/.guide-enrich.log
 tools/last-sync-report.json
 *.bak
 tools/.refresh.log
+
+# scraped guide text — personal reference only, never published
+data/guides-full.json
+data/psnp-guides-raw.json

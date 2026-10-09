@@ -7,9 +7,13 @@
   "scripts": {
     "sync": "node tools/psn-sync.mjs",
     "enrich": "node tools/guide-enrich.mjs",
-    "serve": "python3 -m http.server 8766"
+    "serve": "python3 -m http.server 8766",
+    "guide": "node tools/fetch-guide.mjs"
   },
   "dependencies": {
     "psn-api": "^2.18.1"
+  },
+  "devDependencies": {
+    "wrangler": "^4.149.0"
   }
 }
