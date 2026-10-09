@@ -167,7 +167,7 @@ input::placeholder { color: var(--text3); }
 }
 .mini-card:hover { border-color: var(--ps-blue-light); box-shadow: 0 4px 16px var(--ps-blue-glow); transform: translateY(-1px); }
 .mini-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 6px; margin-bottom: 7px; }
-.mini-title { font-family: var(--ui); font-size: 13.5px; font-weight: 600; line-height: 1.25; color: var(--text); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.mini-title { font-family: var(--ui); font-size: 13.5px; font-weight: 600; line-height: 1.25; color: var(--text); overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; background: none; border: 0; padding: 0; text-align: left; cursor: pointer; }
 .mini-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 7px; flex-wrap: wrap; }
 .mini-left { font-family: var(--num); font-size: 11px; color: var(--text2); }
 .mini-left b { color: var(--red); }
@@ -238,7 +238,8 @@ input::placeholder { color: var(--text3); }
 .time-pill { display: flex; flex-direction: column; gap: 1px; }
 .time-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text3); font-family: var(--ui); font-weight: 600; }
 .time-val { font-family: var(--num); font-size: 14px; color: var(--ps-blue-light); font-weight: 700; }
-.expand-hint { font-family: var(--ui); font-size: 12px; font-weight: 600; color: var(--text2); margin-top: 8px; letter-spacing: 0.4px; display: flex; align-items: center; gap: 4px; }
+.expand-hint { font-family: var(--ui); font-size: 12px; font-weight: 600; color: var(--text2); margin-top: 8px; letter-spacing: 0.4px; display: flex; align-items: center; gap: 4px; background: none; border: 0; padding: 4px 0; cursor: pointer; width: 100%; min-height: 28px; }
+.expand-hint:hover { color: var(--text); }
 .expand-arrow { transition: transform .2s; display: inline-block; }
 .game-card.open .expand-arrow { transform: rotate(180deg); }
 

@@ -217,8 +217,8 @@
   }
   function miniCard(key, v, a) {
     const p = pctOf(v), th = pctTheme(p);
-    return `<div class="mini-card" role="button" tabindex="0" data-action="focus" data-key="${attr(key)}" title="${esc(a.reasons.slice(0, 3).join(' · '))}">
-      <div class="mini-top"><span class="mini-title">${esc(v.title)}</span>${starBtn(key)}</div>
+    return `<div class="mini-card" data-action="focus" data-key="${attr(key)}" title="${esc(a.reasons.slice(0, 3).join(' · '))}">
+      <div class="mini-top"><button class="mini-title" data-action="focus" data-key="${attr(key)}">${esc(v.title)}</button>${starBtn(key)}</div>
       <div class="mini-meta"><span class="pct-badge ${th.pct}">${p}%</span><span class="mini-left"><b>${v.left}</b> left</span>${v.lastPlayed ? `<span class="last-played">${esc(ago(v.lastPlayed))}</span>` : ''}</div>
       ${assessChips(a, { compact: true })}
       <div class="prog-bg" style="margin:8px 0 0"><div class="prog-fill ${th.prog}" style="width:${p}%"></div></div>
@@ -265,14 +265,14 @@
     const open = openDrawers.has(key);
     return `<article class="game-card ${a.dead ? 'is-dead' : ''} ${open ? 'open' : ''}" id="${safeId(key)}" data-key="${attr(key)}">
       <div class="card-bar ${th.bar}"></div>
-      <div class="card-inner" role="button" tabindex="0" aria-expanded="${open}" data-action="toggle" data-key="${attr(key)}">
+      <div class="card-inner" data-action="toggle" data-key="${attr(key)}">
         <div class="card-top"><h3 class="game-title">${esc(v.title)}</h3><div class="card-right"><span class="pct-badge ${th.pct}">${p}%</span>${starBtn(key)}</div></div>
         <div class="prog-bg"><div class="prog-fill ${th.prog}" style="width:${p}%"></div></div>
         <div class="card-meta">${plats}${a.dead ? `<span class="dead-badge" title="${esc(a.deadReason)}">🚫 UNATTAINABLE</span>` : ''}${v.lastPlayed ? `<span class="last-played">last trophy ${esc(ago(v.lastPlayed))}</span>` : ''}<span class="trophy-remaining"><span>${v.left}</span> left</span></div>
         <div class="assess-row">${assessChips(a)}</div>
         ${gameFlagBadges(v, a)}
         ${timeRow}
-        <div class="expand-hint"><span class="expand-arrow">▾</span> ${v.left} trophies · tap to expand</div>
+        <button class="expand-hint" data-action="toggle" data-key="${attr(key)}" aria-expanded="${open}" aria-controls="dr-${safeId(key)}"><span class="expand-arrow" aria-hidden="true">▾</span> ${open ? 'Hide' : 'Show'} ${v.left} remaining ${v.left === 1 ? 'trophy' : 'trophies'}</button>
         ${guideLinks(v)}
       </div>
       <div class="trophy-drawer ${open ? 'open' : ''}" id="dr-${safeId(key)}">${open ? drawerHtml(key, v) : ''}</div>
@@ -420,6 +420,12 @@
     const open = !openDrawers.has(key);
     if (open) { openDrawers.add(key); if (!dr.innerHTML.trim()) dr.innerHTML = drawerHtml(key, view(GAMES[key])); dr.classList.add('open'); card.classList.add('open'); }
     else { openDrawers.delete(key); dr.classList.remove('open'); card.classList.remove('open'); }
+    const hint = card.querySelector('.expand-hint');
+    if (hint) {
+      hint.setAttribute('aria-expanded', String(open));
+      const n = view(GAMES[key]).left;
+      hint.innerHTML = `<span class="expand-arrow" aria-hidden="true">▾</span> ${open ? 'Hide' : 'Show'} ${n} remaining ${n === 1 ? 'trophy' : 'trophies'}`;
+    }
   }
   let focusKey = null;
   function focusGame(key) {
@@ -456,9 +462,30 @@
     $('rec-reasons').innerHTML = a.reasons.map((r) => `<li>${esc(r)}</li>`).join('');
     $('rec-star').dataset.key = attr(key); $('rec-star').textContent = isStarred(key) ? '★ Starred' : '☆ Star it';
     $('rec-open').dataset.key = attr(key);
-    $('modal').classList.add('open');
+    openDialog($('modal'), $('rec-open'));
   }
-  function closeModal() { $('modal').classList.remove('open'); }
+  // Dialogs: move focus in, keep Tab inside, and put it back where it came from.
+  let lastFocus = null;
+  function openDialog(el, focusEl) {
+    lastFocus = document.activeElement;
+    el.classList.add('open');
+    (focusEl || el.querySelector('button, [href], input, select, [tabindex]'))?.focus();
+  }
+  function closeDialog(el) {
+    el.classList.remove('open');
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
+  }
+  function trapTab(e) {
+    const dlg = document.querySelector('.modal-bg.open, .guide-overlay.open');
+    if (!dlg || e.key !== 'Tab') return;
+    const f = [...dlg.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')].filter((x) => x.offsetParent !== null);
+    if (!f.length) return;
+    const first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  }
+  function closeModal() { const m = $('modal'); if (m.classList.contains('open')) closeDialog(m); }
 
   // ---------- guide panel ----------
   function openGuide(key, trophyName) {
@@ -490,9 +517,9 @@
     }
     $('guide-body').innerHTML = html;
     $('guide-source').innerHTML = guide && guide.source ? `Source: <a href="${esc(guide.source.url)}" target="_blank" rel="noopener">${esc(guide.source.label)}</a>` : (g.guide ? `Facts: <a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx</a>` : '');
-    $('guideOverlay').classList.add('open');
+    openDialog($('guideOverlay'), $('guideOverlay').querySelector('.guide-close'));
   }
-  function closeGuide() { $('guideOverlay').classList.remove('open'); }
+  function closeGuide() { const g = $('guideOverlay'); if (g.classList.contains('open')) closeDialog(g); }
 
   // ---------- toast ----------
   function toast(text, onUndo) {
@@ -563,7 +590,7 @@
     }
   });
   document.addEventListener('keydown', (e) => {
-    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('[role="button"][data-action]')) { e.preventDefault(); e.target.click(); return; }
+    trapTab(e);
     if (e.key === 'Escape') { closeModal(); closeGuide(); }
     if (e.key === '/' && !/input|textarea|select/i.test(document.activeElement.tagName)) { e.preventDefault(); $('search').focus(); }
   });
