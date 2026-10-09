@@ -44,7 +44,20 @@
     const earnedArr = Array.isArray(raw.earned) ? raw.earned.map(normalizeTrophy) : [];
     const unearnedArr = Array.isArray(raw.unearned) ? raw.unearned.map(normalizeTrophy) : [];
     const hasPlatInfo = earnedArr.concat(unearnedArr).some((t) => t.type);
-    const trophyMeta = Object.assign({}, (enr && enr.trophies) || {}, (ovr && ovr.trophies) || {});
+    // PSNProfiles per-trophy tags (Missable / Online / Difficulty Specific) are the weakest
+    // source; your own overrides always win.
+    const psnpTags = {};
+    for (const [name, labels] of Object.entries(raw.psnpTrophyTags || {})) {
+      const tags = [];
+      for (const l of labels) {
+        if (/^missable$/i.test(l)) tags.push('MISSABLE');
+        else if (/online/i.test(l)) tags.push('ONLINE');
+        else if (/difficulty specific/i.test(l)) tags.push('SKILL_WALL');
+        else if (/buggy|glitch/i.test(l)) tags.push('BUGGY');
+      }
+      if (tags.length) psnpTags[name] = { tags };
+    }
+    const trophyMeta = Object.assign({}, psnpTags, (enr && enr.trophies) || {}, (ovr && ovr.trophies) || {});
     const platDead = ovr && typeof ovr.platDead === 'boolean' ? ovr.platDead : (enr && typeof enr.platDead === 'boolean' ? enr.platDead : false);
     return {
       key, title: raw.title || titleCase(key),
@@ -61,7 +74,7 @@
       platinumEarned: typeof raw.platinumEarned === 'boolean' ? raw.platinumEarned : (hasPlatInfo ? earnedArr.some((t) => t.type === 'platinum') : null),
       lastPlayed: raw.lastPlayed || (S.lastPlayedOf({ earned: earnedArr }) || {}).toISOString?.() || null,
       progress: raw.progress ?? null,
-      guide: (enr && enr.guide && enr.guide.source) ? enr.guide : null,
+      guide: (enr && enr.guide && enr.guide.source) ? enr.guide : (raw.psnpGuideFacts || null),
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
       serverNote: raw.serverNote || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,

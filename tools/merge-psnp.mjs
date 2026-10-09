@@ -46,6 +46,7 @@ const scrape = readJson(SCRAPE, null);
 if (!scrape) { console.error('data/psnp-trophies.json missing'); process.exit(2); }
 const map = readJson(MAP, { mapping: {} }).mapping;
 const gamesList = readJson(path.join(ROOT, 'tools', 'fixtures', 'psnp-games-2026-10-08.json'), []);
+const guideOverviews = readJson(path.join(DATA, 'psnp-guides.json'), {});   // optional second pass
 const listByHref = Object.fromEntries(gamesList.map((g) => [g.h, g]));
 const PLAT = { PS5: 'PS5', PS4: 'PS4', PS3: 'PS3', VITA: 'Vita', PSVITA: 'Vita', VR: 'VR', PSVR: 'VR', PSVR2: 'VR', PC: 'PS PC' };
 const legacy = readJson(PROGRESS, {});
@@ -67,6 +68,12 @@ for (const [href, g] of Object.entries(scrape)) {
   const shutdown = g.notes.find((n) => /^server shutdown\b/i.test(n) || /^delisted\b/i.test(n)) || null;
   if (shutdown) deadFlags.push([key, shutdown]);
   const platOwners = (g.stats.match(/\(([\d.]+)%\)\s*Platinum Achievers/) || [])[1];
+  // PSNProfiles guide overview (difficulty / playthroughs / hours) when the second pass ran
+  const ov = g.guide ? guideOverviews[g.guide] : null;
+  const psnpGuideFacts = ov && (ov.difficulty != null || ov.hoursMin != null) ? {
+    source: 'psnprofiles', url: 'https://psnprofiles.com' + g.guide, fetchedAt: scrape.__scrapedAt || new Date().toISOString(),
+    difficulty: ov.difficulty, hoursMin: ov.hoursMin, hoursMax: ov.hoursMax, playthroughs: ov.playthroughs,
+  } : null;
   out[key] = {
     ...base,
     title: cleanTitle(g.t) || base.title || key,
@@ -79,6 +86,8 @@ for (const [href, g] of Object.entries(scrape)) {
     platinumEarned: trophies.some((t) => t.type === 'platinum' && t.earned),
     lastPlayed: dates.length ? dates[dates.length - 1] : (base.lastPlayed || null),
     earned, unearned,
+    psnpGuideFacts,
+    psnpTrophyTags: ov && ov.tags && Object.keys(ov.tags).length ? ov.tags : undefined,
     source: 'psnprofiles', scrapedAt: scrape.__scrapedAt || new Date().toISOString(),
   };
   if (legacy[map[href]] || legacy[key]) upgraded++;
