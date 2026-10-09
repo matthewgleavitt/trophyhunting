@@ -102,6 +102,8 @@ for (const [href, g] of Object.entries(scrape)) {
     earned, unearned,
     psnpGuideFacts,
     psnpTrophyTags: ov && ov.tags && Object.keys(ov.tags).length ? ov.tags : undefined,
+    psnpGuideAnchors: ov && ov.tags ? Object.fromEntries(Object.entries(ov.tags)
+      .filter(([, v]) => v && v.anchor).map(([n, v]) => [n, v.anchor])) : undefined,
     source: 'psnprofiles', scrapedAt: scrape.__scrapedAt || new Date().toISOString(),
   };
   if (legacy[map[href]] || legacy[key]) upgraded++;

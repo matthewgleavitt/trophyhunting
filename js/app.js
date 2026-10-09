@@ -528,10 +528,34 @@
       for (const section of guide.sections || []) html += `<div class="guide-section"><div class="guide-section-title">${esc(section.title)}</div><div class="guide-steps">${section.steps.map((s, i) => `<div class="guide-step"><div class="step-num">${i + 1}</div><div class="step-text">${s}</div></div>`).join('')}</div></div>`;
       if (guide.tips && guide.tips.length) html += `<div class="guide-section"><div class="guide-section-title">Tips & warnings</div>${guide.tips.map((tip) => tip.type === 'warning' ? `<div class="guide-warning">${tip.text}</div>` : `<div class="guide-tip">${tip.text}</div>`).join('')}</div>`;
     } else {
-      html += `<div class="guide-section"><div class="guide-section-title">Where to look</div><div class="guide-steps">
-        <div class="guide-step"><div class="step-num">1</div><div class="step-text">${g.guide && g.guide.url ? `<a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx roadmap for ${esc(g.title)}</a>` : `<a href="https://www.powerpyx.com/?s=${encodeURIComponent(g.title)}" target="_blank" rel="noopener">Search PowerPyx</a>`}</div></div>
-        <div class="guide-step"><div class="step-num">2</div><div class="step-text"><a href="https://psnprofiles.com/search/guides?q=${encodeURIComponent(g.title)}" target="_blank" rel="noopener">PSNProfiles guides</a> (community, per-trophy tags)</div></div>
-        <div class="guide-step"><div class="step-num">3</div><div class="step-text"><a href="https://www.google.com/search?q=${encodeURIComponent(g.title + ' ' + t.name + ' trophy')}" target="_blank" rel="noopener">Search this trophy on the web</a></div></div></div></div>`;
+      // No hand-written walkthrough for this trophy. Show what we actually KNOW rather than a
+      // list of searches: the guide's own per-trophy verdict, a link straight to that trophy's
+      // section, and what the rarity implies. Never a speculative search dressed as a guide.
+      const anchors = g.psnpGuideAnchors || {};
+      const deepLink = g.psnpGuide && anchors[t.name] ? 'https://psnprofiles.com' + g.psnpGuide + anchors[t.name] : null;
+      const tmeta = g.trophyMeta && g.trophyMeta[t.name];
+      const verdict = tmeta && Array.isArray(tmeta.tags) && tmeta.tags.length
+        ? tmeta.tags.map((x) => String(x).toLowerCase().replace(/_/g, ' ')).join(', ') : null;
+      if (deepLink || verdict) {
+        html += `<div class="guide-section"><div class="guide-section-title">What the guide says</div>`;
+        if (verdict) html += `<div class="guide-tip"><strong>Flagged as:</strong> ${esc(verdict)}</div>`;
+        if (deepLink) html += `<div class="guide-steps"><div class="guide-step"><div class="step-num">&rarr;</div><div class="step-text"><a href="${esc(deepLink)}" target="_blank" rel="noopener">Open this trophy&rsquo;s section in the guide</a></div></div></div>`;
+        html += `</div>`;
+      }
+      if (t.rarity != null) {
+        const readMe = t.rarity >= 50 ? 'most owners have it, so this is unlikely to be the hard part'
+          : t.rarity >= 20 ? 'a majority never get it, but it is not among the rarest'
+          : t.rarity >= 10 ? 'uncommon \u2014 expect it to need deliberate effort'
+          : t.rarity >= 5 ? 'few players have this; treat it as a real obstacle'
+          : 'one of the rarest here \u2014 likely what stands between you and the platinum';
+        html += `<div class="guide-section"><div class="guide-section-title">What the rarity says</div><div class="guide-tip"><strong>${t.rarity}% of players have this (${esc(S.easeTierOf(t.rarity))}).</strong> ${esc(readMe)}</div></div>`;
+      }
+      if (!deepLink && !verdict) {
+        const anyGuide = (g.guide && g.guide.url) || (g.psnpGuide ? 'https://psnprofiles.com' + g.psnpGuide : null);
+        html += `<div class="guide-section"><div class="guide-section-title">No written guide</div><div class="guide-tip">${anyGuide
+          ? `No guide covers this trophy individually, but the game&rsquo;s guide may help: <a href="${esc(anyGuide)}" target="_blank" rel="noopener">open it</a>.`
+          : `Nobody has written a trophy guide for ${esc(g.title)} \u2014 usually because it is new or niche. The description and rarity above are genuinely all the information that exists.`}</div></div>`;
+      }
     }
     $('guide-body').innerHTML = html;
     $('guide-source').innerHTML = guide && guide.source ? `Source: <a href="${esc(guide.source.url)}" target="_blank" rel="noopener">${esc(guide.source.label)}</a>` : (g.guide ? `Facts: <a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx</a>` : '');
