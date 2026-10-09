@@ -518,5 +518,29 @@
   "achievements": 51,
   "walkthrough": "https://www.trueachievements.com/game/BioShock/walkthrough",
   "url": "https://www.trueachievements.com/game/BioShock/achievements"
+ },
+ "trivial pursuit live": {
+  "slug": "Trivial-Pursuit-Live-Xbox-One",
+  "hoursMin": 8,
+  "hoursMax": 10,
+  "achievements": 15,
+  "walkthrough": "https://www.trueachievements.com/game/Trivial-Pursuit-Live-Xbox-One/walkthrough",
+  "url": "https://www.trueachievements.com/game/Trivial-Pursuit-Live-Xbox-One/achievements"
+ },
+ "beyond words": {
+  "slug": "Beyond-Words",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 51,
+  "walkthrough": "https://www.trueachievements.com/game/Beyond-Words/walkthrough",
+  "url": "https://www.trueachievements.com/game/Beyond-Words/achievements"
+ },
+ "geometry wars dimensions": {
+  "slug": "Geometry-Wars-3-Dimensions",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 30,
+  "walkthrough": "https://www.trueachievements.com/game/Geometry-Wars-3-Dimensions/walkthrough",
+  "url": "https://www.trueachievements.com/game/Geometry-Wars-3-Dimensions/achievements"
  }
 }

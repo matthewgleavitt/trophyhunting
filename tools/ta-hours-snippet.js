@@ -9,6 +9,12 @@
  *   4. move ta-hours.json into data/ and run: node tools/merge-ta.mjs
  *
  * It only reads public game pages, one every ~1.5s. Call taDownload() periodically.
+ *
+ * DO NOT use TrueAchievements' search endpoint to resolve names. It rate-limits to 403
+ * almost immediately, and its results page is padded with unrelated recommendations — a
+ * search pass here matched "Fruit Ninja VR" to Marvel Rivals and "Trine 2" to CyberBot
+ * Zero. Direct /game/<slug>/achievements URLs return a clean 404 when a game is absent,
+ * which is the honest answer. Many PlayStation titles simply are not on Xbox.
  */
 (async () => {
   const LIST = window.__taList;        // [[progressKey, slug], ...]
