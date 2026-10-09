@@ -14,6 +14,6 @@
     "psn-api": "^2.18.1"
   },
   "devDependencies": {
-    "wrangler": "^4.149.0"
+    "wrangler": "^3.114.17"
   }
 }
