@@ -449,6 +449,7 @@ async function syncLibrary(auth) {
   const stats = {
     syncedAt: new Date().toISOString(),
     schema: 2,
+    source: 'PSN API',
     games: Object.keys(out).length,
     platinums: Object.values(out).filter((g) => g.platinumEarned).length,
     completed: Object.values(out).filter((g) => (g.unearned || []).length === 0).length,

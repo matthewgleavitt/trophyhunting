@@ -76,19 +76,40 @@ overviews (difficulty / playthroughs / hours + per-trophy Missable/Online tags),
 `data/psnp-guides.json`, and re-run the merge. **This is the thing that turns most
 "rough guess" hour estimates into real ones.**
 
-## Current data (merged 2026-10-09 from the PSNProfiles scrape)
+## Current data (PSN API sync, 2026-10-09)
 
-530 games · 217 platinums · 313 in progress · 8,213 trophies left. Every unfinished game
-now carries real rarity, trophy type and earned dates. Sanity check — Mega Man 11 reads
-3 left, all 3.6–3.9% (ultra rare), difficulty 7.1, needs a full run, ~15h. Disc Jam is in
-Unattainable on PSNProfiles' official "Server shutdown Sep.30" tag.
+**530 games · 178 platinums · 298 in progress · 7,780 trophies left.** Live from the PSN
+API — `npm run sync` is now the refresh path and `tools/.psn-tokens.json` holds a refresh
+token, so you will not need the NPSSO again for about 60 days.
 
-24 games carry a **⚠ check first** chip. Those come from PSNProfiles forum thread titles
-("Platinum unobtainable?", "Delisted?") — leads, not facts. Only the official server-shutdown
-tag marks a game dead automatically. If you confirm one, add it to `data/overrides.json`:
+Sanity check: Mega Man 11 reads 3 left, all at 0.3% (PSN official rate), difficulty 8.2,
+needs a full run. Disc Jam sits in Unattainable on PSNProfiles' official server-shutdown tag.
+
+### Two things to know about rarity
+
+PSN's official earned-rate counts **everyone who ever booted the game**; sites like
+PSNProfiles report rates among **enthusiasts**, which run roughly 10x higher. Mega Man 11's
+platinum is 0.3% on PSN and 3.59% on PSNProfiles — both correct, different populations.
+The difficulty curve is calibrated to the PSN scale (median remaining trophy ~5%). If you
+ever switch the primary rarity source, **recalibrate `rarityDifficulty()`** or every game
+will read as a skill wall.
+
+A game's difficulty is weighted 65/35 between its rarest and its typical remaining trophy,
+so one brutal outlier among twenty ordinary trophies does not condemn the whole game.
+
+24 games carry a **⚠ check first** chip from PSNProfiles forum thread titles ("Platinum
+unobtainable?"). Those are leads, not facts — only the official shutdown tag marks a game
+dead. Confirm one and record it in `data/overrides.json`:
 
 ```json
-{ "mad max": { "platDead": true, "deadReason": "online trophy unobtainable since the server shutdown" } }
+{ "mad max": { "platDead": true, "deadReason": "online trophy dead since the server shutdown" } }
+```
+
+Per-trophy notes work the same way and show in gold above anything scraped:
+
+```json
+{ "before your eyes": { "trophies": { "Eyes of Steel": {
+    "tags": ["BUGGY"], "notes": ["Tried repeatedly without it unlocking."] } } } }
 ```
 
 ## The guide pass (not done yet — the highest-value thing left)
@@ -121,10 +142,13 @@ you keep the work. PSNProfiles serves guide pages slowly (about a minute each), 
 
 ## Known gaps / next steps
 
-- **182 of 357 hour estimates are still rough guesses** (dashed chip with a `?`) until the
-  guide pass above is merged. That is the single highest-value thing left.
-- The NPSSO path (A) would make all of this a one-command refresh and can run on a timer;
-  the scrape exists so you are not blocked on a token.
+- **Most hour estimates are still rough guesses** (dashed chip with a `?`) until the guide
+  pass above is merged. That is the single highest-value thing left, and the sync now
+  preserves scraped metadata, so running it once means it survives every future refresh.
+- 57 games have no guide written anywhere (usually new or niche); they say so plainly
+  rather than offering a search dressed up as a guide.
+- `npm run sync` is the routine refresh. `tools/refresh.sh` chains sync -> enrich ->
+  build-slim -> stamp-assets -> commit -> push; see the launchd plist in tools/README.md.
 - `data/library.json` is your full purchase history, committed to a **public** repo.
   Decided 2026-10-08: publish it, so the Never-started tab works on your phone with no
   setup. To reverse that later, add it to `.gitignore` and the tab degrades gracefully.
