@@ -89,9 +89,22 @@
   </section>
 
   <section class="panel" id="tab-backlog">
-    <p class="bl-note">Games in your PlayStation library with no trophies earned yet. Hidden gems live here.</p>
+    <p class="bl-note">Games in your library you have never earned a trophy in. Bought outright means it is yours for good; PS Plus titles can leave the catalogue.</p>
     <div class="controls-bar">
       <div class="search-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input type="search" id="search-backlog" placeholder="Search your library…" aria-label="Search library"></div>
+      <select class="ps-select" id="sort-backlog" aria-label="Sort library">
+        <option value="owned">Bought outright first</option>
+        <option value="alpha">A → Z</option>
+        <option value="platform">By platform</option>
+      </select>
+    </div>
+    <div class="filter-row" role="group" aria-label="Library filters">
+      <span class="filter-label">Show</span>
+      <button class="pill active" data-action="bl-filter" data-bl="all">All</button>
+      <button class="pill" data-action="bl-filter" data-bl="owned">Bought outright</button>
+      <button class="pill" data-action="bl-filter" data-bl="plus">PS Plus</button>
+      <button class="pill" data-action="bl-filter" data-bl="PS5">PS5</button>
+      <button class="pill" data-action="bl-filter" data-bl="PS4">PS4</button>
     </div>
     <div class="results-bar" style="margin-bottom:14px"><div class="results-info" id="backlog-info">—</div></div>
     <div class="backlog-grid" id="backlog-grid"></div>

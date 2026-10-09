@@ -14,7 +14,7 @@
   const save = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* private mode */ } };
   let checked = load(LS.checked, {});
   let starred = load(LS.starred, {});
-  let ui = Object.assign({ sort: 'score', platform: 'all', range: 'all', genre: 'all', q: '', tab: 'incomplete', collapsed: { walls: true, dead: true } }, load(LS.ui, {}));
+  let ui = Object.assign({ sort: 'score', platform: 'all', range: 'all', genre: 'all', q: '', bl: 'all', tab: 'incomplete', collapsed: { walls: true, dead: true } }, load(LS.ui, {}));
   const checkId = (key, trophy) => (key + '||' + trophy).toLowerCase();
   const isChecked = (key, trophy) => !!checked[checkId(key, trophy)];
   const isStarred = (key) => !!starred[key.toLowerCase()];
@@ -31,9 +31,16 @@
   const titleCase = (name) => name.replace(/\b\w/g, (c) => c.toUpperCase());
   const safeId = (key) => 'g-' + key.replace(/[^a-z0-9]+/gi, '-');
 
+  const loadProblems = [];
   async function fetchJson(path, fallback) {
-    try { const r = await fetch(path, { cache: 'no-cache' }); if (!r.ok) throw new Error(r.status); return await r.json(); }
-    catch (e) { return fallback; }
+    let r;
+    try { r = await fetch(path, { cache: 'no-cache' }); }
+    catch (e) { loadProblems.push(`${path}: network error`); return fallback; }
+    if (!r.ok) { if (r.status !== 404) loadProblems.push(`${path}: HTTP ${r.status}`); return fallback; }
+    try { return await r.json(); }
+    // A typo in overrides.json would otherwise silently drop your hand-written rules
+    // (and quietly resurrect games you marked unattainable), so say so out loud.
+    catch (e) { loadProblems.push(`${path}: invalid JSON — ${e.message}`); return fallback; }
   }
 
   function normalizeTrophy(t) {
@@ -332,11 +339,18 @@
     const q = ($('search-backlog').value || '').toLowerCase();
     const looseKeys = new Set(Object.values(GAMES).map((g) => loose(g.title)).concat(Object.keys(GAMES).map(loose)));
     const seen = new Set();
-    const items = LIBRARY.titles.filter((t) => !t.nonGame && !t.preorder).filter((t) => { const k = loose(t.name); if (looseKeys.has(k) || seen.has(k)) return false; seen.add(k); return true; })
-      .filter((t) => !q || t.name.toLowerCase().includes(q)).sort((a, b) => a.name.localeCompare(b.name));
-    $('backlog-info').innerHTML = `<strong>${items.length}</strong> owned games you have never started`;
+    let items = LIBRARY.titles.filter((t) => !t.nonGame && !t.preorder).filter((t) => { const k = loose(t.name); if (looseKeys.has(k) || seen.has(k)) return false; seen.add(k); return true; })
+      .filter((t) => !q || t.name.toLowerCase().includes(q))
+      .filter((t) => ui.bl === 'all' || (ui.bl === 'owned' ? !t.plus : ui.bl === 'plus' ? t.plus : t.platform === ui.bl));
+    const sort = ($('sort-backlog') || {}).value || 'owned';
+    if (sort === 'alpha') items.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sort === 'platform') items.sort((a, b) => (a.platform || '').localeCompare(b.platform || '') || a.name.localeCompare(b.name));
+    else items.sort((a, b) => (a.plus === b.plus ? a.name.localeCompare(b.name) : (a.plus ? 1 : -1)));
+    const owned = items.filter((t) => !t.plus).length;
+    $('backlog-info').innerHTML = `<strong>${items.length}</strong> never started · <strong>${owned}</strong> bought outright, ${items.length - owned} on PS Plus`;
     host.innerHTML = items.length ? items.map((t) => `<div class="bl-card"><div class="bl-title">${esc(t.name)}</div><div class="bl-meta"><span class="plat-tag">${esc(t.platform)}</span>${t.plus ? '<span class="bl-plus">PS PLUS</span>' : ''}<a class="guide-link-btn" style="margin-left:auto" href="https://www.google.com/search?q=${encodeURIComponent(t.name + ' trophy guide')}" target="_blank" rel="noopener">Guide</a></div></div>`).join('') : '<div class="empty">Nothing here</div>';
   }
+  // backlog filter state lives in ui so it survives a reload
   const EDITION = /\b(remastered|remaster|remake|hd|definitive edition|ultimate edition|complete edition|game of the year edition|goty|anniversary edition|directors cut|final mix|the game|console edition|enhanced edition|deluxe|ps4|ps5|vita|vr|edition|demo)\b/g;
   const loose = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[™®©]/g, '').replace(/['’]/g, '').replace(EDITION, ' ').replace(/[^a-z0-9]+/g, ' ').trim();
 
@@ -493,9 +507,30 @@
     const blob = new Blob([JSON.stringify({ exportedAt: new Date().toISOString(), checked, starred }, null, 2)], { type: 'application/json' });
     const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `trophy-tracker-state-${new Date().toISOString().slice(0, 10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000);
   }
+  /** Copy only plain own string->true entries; never let __proto__ or nested objects through. */
+  function sanitiseFlags(src) {
+    const out = Object.create(null);
+    if (!src || typeof src !== 'object' || Array.isArray(src)) return null;
+    for (const k of Object.getOwnPropertyNames(src)) {
+      if (k === '__proto__' || k === 'constructor' || k === 'prototype') continue;
+      if (src[k] === true) out[k] = true;
+    }
+    return out;
+  }
   function importState(file) {
     const r = new FileReader();
-    r.onload = () => { try { const o = JSON.parse(r.result); if (o.checked) checked = Object.assign(checked, o.checked); if (o.starred) starred = Object.assign(starred, o.starred); save(LS.checked, checked); save(LS.starred, starred); invalidate(); renderAll(); toast(`Imported ${Object.keys(o.checked || {}).length} checks and ${Object.keys(o.starred || {}).length} stars.`); } catch (e) { toast('Import failed: not a tracker export.'); } };
+    r.onload = () => {
+      let o;
+      try { o = JSON.parse(r.result); } catch (e) { toast('Import failed: that file is not valid JSON.'); return; }
+      const c = sanitiseFlags(o && o.checked), st = sanitiseFlags(o && o.starred);
+      if (!c && !st) { toast('Import failed: no "checked" or "starred" data in that file.'); return; }
+      const before = { checked: { ...checked }, starred: { ...starred } };
+      Object.assign(checked, c || {}); Object.assign(starred, st || {});
+      save(LS.checked, checked); save(LS.starred, starred); invalidate(); renderAll();
+      toast(`Merged ${Object.keys(c || {}).length} ticks and ${Object.keys(st || {}).length} stars into what you already had.`,
+        () => { checked = before.checked; starred = before.starred; save(LS.checked, checked); save(LS.starred, starred); invalidate(); renderAll(); });
+    };
+    r.onerror = () => toast('Import failed: could not read that file.');
     r.readAsText(file);
   }
 
@@ -524,6 +559,7 @@
       case 'toggle-lane': ui.collapsed[el.dataset.lane] = !ui.collapsed[el.dataset.lane]; persistUi(); renderLanes(); break;
       case 'export': exportState(); break;
       case 'import': $('import-file').click(); break;
+      case 'bl-filter': ui.bl = el.dataset.bl; persistUi(); document.querySelectorAll('[data-action="bl-filter"]').forEach((b) => b.classList.toggle('active', b === el)); renderBacklog(); break;
     }
   });
   document.addEventListener('keydown', (e) => {
@@ -538,7 +574,9 @@
   $('sort').addEventListener('change', (e) => { ui.sort = e.target.value; persistUi(); renderGrid(); });
   $('platform').addEventListener('change', (e) => { ui.platform = e.target.value; persistUi(); renderGrid(); });
   $('search-comp').addEventListener('input', renderCompleted); $('sort-comp').addEventListener('change', renderCompleted);
-  $('search-backlog').addEventListener('input', renderBacklog);
+  let blTimer;
+  $('search-backlog').addEventListener('input', () => { clearTimeout(blTimer); blTimer = setTimeout(renderBacklog, 120); });
+  $('sort-backlog').addEventListener('change', renderBacklog);
   $('import-file').addEventListener('change', (e) => { if (e.target.files[0]) importState(e.target.files[0]); e.target.value = ''; });
 
   // ---------- init ----------
@@ -570,6 +608,10 @@
     buildFilters();
     recompute(); renderLanes(); renderGrid();
     switchTab(ui.tab || 'incomplete');
+    if (loadProblems.length) {
+      console.warn('Trophy tracker data problems:', loadProblems);
+      toast(`Some data could not be loaded, so parts of this page may be wrong: ${loadProblems.join('; ')}`);
+    }
   }
   init().catch((e) => { console.error(e); $('grid').innerHTML = `<div class="empty">Something went wrong: ${esc(e.message)}</div>`; });
 })();
