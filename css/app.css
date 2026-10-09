@@ -192,6 +192,7 @@ input::placeholder { color: var(--text3); }
 .chip.rar { color: var(--text2); }
 .chip.dead { color: var(--red); border-color: rgba(239,87,104,0.45); background: rgba(239,87,104,0.12); }
 .chip.play { color: var(--amber); border-color: rgba(245,171,46,0.4); }
+.chip.warn { color: var(--amber); border-color: rgba(245,171,46,0.5); background: rgba(245,171,46,0.1); cursor: help; }
 .chip.plat { color: var(--plat); border-color: rgba(195,210,240,0.4); }
 
 /* ===== GRID & CARDS ===== */

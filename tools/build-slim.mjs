@@ -64,7 +64,7 @@ for (const [key, g] of Object.entries(full)) {
       return o;
     }),
   };
-  for (const k of ['url', 'timeNormal', 'timeHastily', 'timePlat', 'psnpHref', 'psnpGuide', 'psnpGuideFacts', 'psnpTrophyTags', 'serverNote', 'iconUrl', 'legacyOnly']) {
+  for (const k of ['url', 'timeNormal', 'timeHastily', 'timePlat', 'psnpHref', 'psnpGuide', 'psnpGuideFacts', 'psnpTrophyTags', 'serverNote', 'communityFlags', 'iconUrl', 'legacyOnly']) {
     if (g[k] != null) out[k] = g[k];
   }
   slim[key] = out;

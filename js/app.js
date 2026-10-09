@@ -83,7 +83,7 @@
       progress: raw.progress ?? null,
       guide: (enr && enr.guide && enr.guide.source) ? enr.guide : (raw.psnpGuideFacts || null),
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
-      serverNote: raw.serverNote || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null,
+      serverNote: raw.serverNote || null, communityFlags: raw.communityFlags || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
       legacyOnly: !!raw.legacyOnly,
     };
@@ -137,6 +137,7 @@
     chips.push(`<span class="chip ${diffClass(a.difficulty)}" title="Difficulty 0–10 from rarity of what is left${a.guideDifficulty != null ? ' blended with guide rating ' + a.guideDifficulty + '/10' : ''}">diff <b>${a.difficulty}</b></span>`);
     if (a.rarestRemaining != null) chips.push(`<span class="chip rar" title="Rarest remaining trophy: ${esc(a.rarestName)}">rarest <b>${a.rarestRemaining}%</b></span>`);
     if (a.needsPlaythrough) chips.push(`<span class="chip play" title="At least one trophy needs a fresh playthrough (~${a.playthroughHours}h)">🔁 playthrough</span>`);
+    if (!a.dead && opts.game && opts.game.communityFlags) chips.push(`<span class="chip warn" title="${esc('Players are discussing this on PSNProfiles — worth checking before you invest time:\n• ' + opts.game.communityFlags.join('\n• '))}">⚠ check first</span>`);
     if (!opts.compact && a.hasPlat) chips.push(`<span class="chip plat">◆ platinum</span>`);
     return `<div class="chips">${chips.join('')}</div>`;
   }
@@ -269,7 +270,7 @@
         <div class="card-top"><h3 class="game-title">${esc(v.title)}</h3><div class="card-right"><span class="pct-badge ${th.pct}">${p}%</span>${starBtn(key)}</div></div>
         <div class="prog-bg"><div class="prog-fill ${th.prog}" style="width:${p}%"></div></div>
         <div class="card-meta">${plats}${a.dead ? `<span class="dead-badge" title="${esc(a.deadReason)}">🚫 UNATTAINABLE</span>` : ''}${v.lastPlayed ? `<span class="last-played">last trophy ${esc(ago(v.lastPlayed))}</span>` : ''}<span class="trophy-remaining"><span>${v.left}</span> left</span></div>
-        <div class="assess-row">${assessChips(a)}</div>
+        <div class="assess-row">${assessChips(a, { game: v })}</div>
         ${gameFlagBadges(v, a)}
         ${timeRow}
         <button class="expand-hint" data-action="toggle" data-key="${attr(key)}" aria-expanded="${open}" aria-controls="dr-${safeId(key)}"><span class="expand-arrow" aria-hidden="true">▾</span> ${open ? 'Hide' : 'Show'} ${v.left} remaining ${v.left === 1 ? 'trophy' : 'trophies'}</button>

@@ -64,8 +64,12 @@ for (const [href, g] of Object.entries(scrape)) {
   const earned = trophies.filter((t) => t.earned).map(({ earned, unobtainable, ...r }) => r);
   const unearned = trophies.filter((t) => !t.earned).map(({ earned, date, ...r }) => r);
   const dates = earned.map((t) => t.date).filter(Boolean).sort();
-  // only PSNProfiles' official game tag ("Server shutdown Sep.30"), never forum thread titles
-  const shutdown = g.notes.find((n) => /^server shutdown\b/i.test(n) || /^delisted\b/i.test(n)) || null;
+  // PSNProfiles' official game tag reads "Server shutdown Sep.30" — terse, with a date.
+  // Everything else in notes is a FORUM THREAD TITLE ("Delisted?", "Platinum unobtainable?"),
+  // which is a lead to check, not a fact. Only the official tag marks a game dead.
+  const OFFICIAL = /^server shutdown\s+[A-Z][a-z]{2}\.?\s*\d/i;
+  const shutdown = g.notes.find((n) => OFFICIAL.test(n)) || null;
+  const communityFlags = [...new Set(g.notes.filter((n) => !OFFICIAL.test(n)))].slice(0, 4);
   if (shutdown) deadFlags.push([key, shutdown]);
   const platOwners = (g.stats.match(/\(([\d.]+)%\)\s*Platinum Achievers/) || [])[1];
   // PSNProfiles guide overview (difficulty / playthroughs / hours) when the second pass ran
@@ -80,6 +84,7 @@ for (const [href, g] of Object.entries(scrape)) {
     psnpId: id, psnpHref: href, psnpGuide: g.guide || null,
     platinumRarity: platOwners != null ? Number(platOwners) : (base.platinumRarity ?? null),
     serverNote: shutdown,
+    communityFlags: communityFlags.length ? communityFlags : undefined,
     platforms: Array.isArray(base.platforms) && base.platforms.length ? base.platforms : String((listByHref[href] || {}).p || '').split(',').map((x) => PLAT[x.trim().toUpperCase()] || x.trim()).filter(Boolean),
     genres: Array.isArray(base.genres) ? base.genres : [],
     hasPlatinum: trophies.some((t) => t.type === 'platinum'),

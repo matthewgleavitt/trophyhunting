@@ -1,4 +1,11 @@
 {
-  "schema": 1,
-  "note": "No PSN sync has run yet. npm run sync replaces this file."
+ "syncedAt": "2026-10-09T12:39:26.617Z",
+ "schema": 2,
+ "source": "psnprofiles-browser-scrape",
+ "games": 530,
+ "upgraded": 277,
+ "added": 17,
+ "collisions": 7,
+ "platinums": 21,
+ "trophiesRemaining": 8213
 }

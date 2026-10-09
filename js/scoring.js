@@ -346,10 +346,12 @@
     const lanes = [];
     lanes.push({ id: 'starred', title: '⭐ Starred', sub: 'your work-on queue', items: take(live.filter((x) => x.g.starred).sort(byScore)) });
     // Headline lane first: this is the answer to "what do I play tonight".
+    // The two highest-intent lanes opt out of the dedupe: a "platinum tonight" pick must not
+    // be swallowed by a generic lane that happened to list it first.
     lanes.push({ id: 'next', title: '🎯 Play This Next', sub: 'best payoff for the time it takes', items: take(live.slice().sort(byScore), 8, false) });
+    lanes.push({ id: 'quickplat', title: '🏆 Quick Platinum', sub: 'a whole platinum in about 3 hours', items: take(live.filter((x) => x.a.quickPlat).sort((a, b) => a.a.hours - b.a.hours), 12, false) });
     lanes.push({ id: 'recent', title: '⏮ Jump Back In', sub: 'played in the last 90 days', items: take(live.filter((x) => x.a.daysSince != null && x.a.daysSince <= 90).sort((a, b) => a.a.daysSince - b.a.daysSince), 8) });
     lanes.push({ id: 'easy', title: '🟢 Easy Gains', sub: 'everything left is common — low effort', items: take(live.filter((x) => x.a.easyGain).sort((a, b) => a.a.hours - b.a.hours), 12) });
-    lanes.push({ id: 'quickplat', title: '🏆 Quick Platinum', sub: 'platinum within ~3 hours', items: take(live.filter((x) => x.a.quickPlat).sort((a, b) => a.a.hours - b.a.hours), 12) });
     lanes.push({ id: 'playthrough', title: '🔁 Needs a Playthrough', sub: 'NG+ / difficulty runs — plan a weekend', items: take(live.filter((x) => x.a.needsPlaythrough).sort(byScore), 10) });
     lanes.push({ id: 'walls', title: '💀 Skill Walls', sub: 'ultra-rare trophies left', items: take(live.filter((x) => x.a.difficulty >= 8).sort(byScore), 10), collapsed: true });
     const dead = assessed.filter((x) => x.a.dead && x.a.left > 0).sort((a, b) => b.a.pct - a.a.pct);

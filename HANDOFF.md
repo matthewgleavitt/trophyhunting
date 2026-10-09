@@ -76,9 +76,25 @@ overviews (difficulty / playthroughs / hours + per-trophy Missable/Online tags),
 `data/psnp-guides.json`, and re-run the merge. **This is the thing that turns most
 "rough guess" hour estimates into real ones.**
 
+## Current data (merged 2026-10-09 from the PSNProfiles scrape)
+
+530 games · 217 platinums · 313 in progress · 8,213 trophies left. Every unfinished game
+now carries real rarity, trophy type and earned dates. Sanity check — Mega Man 11 reads
+3 left, all 3.6–3.9% (ultra rare), difficulty 7.1, needs a full run, ~15h. Disc Jam is in
+Unattainable on PSNProfiles' official "Server shutdown Sep.30" tag.
+
+24 games carry a **⚠ check first** chip. Those come from PSNProfiles forum thread titles
+("Platinum unobtainable?", "Delisted?") — leads, not facts. Only the official server-shutdown
+tag marks a game dead automatically. If you confirm one, add it to `data/overrides.json`:
+
+```json
+{ "mad max": { "platDead": true, "deadReason": "online trophy unobtainable since the server shutdown" } }
+```
+
 ## Known gaps / next steps
 
-- Most games still show low-confidence hours until the guide pass (B, step 2) runs.
+- **182 of 357 hour estimates are still rough guesses** (dashed chip with a `?`). The
+  guide pass (B, step 2) is what fixes this — it is the single highest-value thing left.
 - `data/library.json` is your full purchase history, committed to a **public** repo.
   Decided 2026-10-08: publish it, so the Never-started tab works on your phone with no
   setup. To reverse that later, add it to `.gitignore` and the tab degrades gracefully.
