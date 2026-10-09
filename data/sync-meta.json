@@ -1,11 +1,14 @@
 {
- "syncedAt": "2026-10-09T12:43:53.924Z",
- "schema": 2,
- "source": "psnprofiles-browser-scrape",
- "games": 530,
- "upgraded": 277,
- "added": 17,
- "collisions": 7,
- "platinums": 21,
- "trophiesRemaining": 8213
+  "syncedAt": "2026-10-09T15:52:51.114Z",
+  "schema": 2,
+  "games": 530,
+  "platinums": 199,
+  "completed": 232,
+  "trophiesEarned": 12691,
+  "trophiesRemaining": 7780,
+  "legacyOnly": 2,
+  "guideLinks": 239,
+  "fetched": 0,
+  "cached": 528,
+  "failed": 0
 }

@@ -150,10 +150,16 @@
     if (r >= 2) return 5;
     return 8;
   }
-  /** 0–10 difficulty implied by a trophy's rarity (50% → 1.5, 12% → 4.6, 3% → 7.6, ≤1% → 10). */
+  /** 0–10 difficulty implied by a trophy's rarity.
+   *  Calibrated against PSN's OFFICIAL earned-rate, which counts everyone who ever booted
+   *  the game — so it runs about 10x lower than the enthusiast rates sites like PSNProfiles
+   *  show. Across this collection the median unearned trophy sits near 5%, so that is the
+   *  middle of the scale rather than the top of it.
+   *    30% → 1.2   |  15% → 2.3  |  5% → 3.9  |  1.7% → 5.6  |  0.5% → 7.4  |  0.1% → 9.9
+   */
   function rarityDifficulty(r) {
     if (r == null) return null;
-    return clamp(1.5 * log2(100 / Math.max(r, 0.1)), 0, 10);
+    return clamp(1.05 * log2(100 / Math.max(r, 0.1)) - 0.6, 0, 10);
   }
   function easeTierOf(r) {
     if (r == null) return 'unknown';
@@ -192,7 +198,7 @@
 
     // --- per-trophy pass ---
     let hours = 0, worstDiff = 0, rarest = null, rarestName = null, anyRarity = false;
-    const trophyHours = [];
+    const trophyHours = [], trophyDiffs = [];
     const flagCount = { PLAYTHROUGH: 0, SKILL_WALL: 0, ONLINE: 0, MISSABLE: 0, GRIND: 0, RNG: 0, BUGGY: 0, UNOBTAINABLE: 0, DLC: 0 };
     const platRarity = (() => {
       const all = [].concat(g.earned || [], unearned);
@@ -230,6 +236,7 @@
       if (d == null) d = flags.has('SKILL_WALL') ? 7 : flags.has('GRIND') ? 4 : 3;
       else if (flags.has('SKILL_WALL')) d = Math.max(d, 6.5);
       worstDiff = Math.max(worstDiff, d);
+      trophyDiffs.push(d);
     }
 
     // Trophies are not independent errands: a run that nets the hardest one usually sweeps up
@@ -276,9 +283,15 @@
     const guideDiff = num(guide.difficulty);
     let difficulty;
     if (anyRarity) {
-      // What is LEFT decides. The guide rates the whole platinum including trophies already
-      // earned, so it only nudges — it can never make common leftovers look hard.
-      difficulty = guideDiff != null ? 0.85 * worstDiff + 0.15 * guideDiff : worstDiff;
+      // A game is not its single rarest trophy: one brutal outlier among twenty ordinary
+      // ones is a different proposition from twenty brutal ones. Weight the worst heavily,
+      // but let the typical remaining trophy pull it back.
+      const sorted = trophyDiffs.slice().sort((a, b) => a - b);
+      const median = sorted.length ? sorted[Math.floor(sorted.length / 2)] : worstDiff;
+      const shape = 0.65 * worstDiff + 0.35 * median;
+      // The guide rates the whole platinum including trophies already earned, so it only
+      // nudges — it can never make common leftovers look hard.
+      difficulty = guideDiff != null ? 0.85 * shape + 0.15 * guideDiff : shape;
       if (flagCount.SKILL_WALL) difficulty = Math.max(difficulty, 6.5);
     } else if (guideDiff != null) {
       difficulty = 0.7 * guideDiff + 0.3 * worstDiff;
@@ -318,12 +331,16 @@
 
     // --- ease & lanes ---
     const easeTier = easeTierOf(rarest);
-    const allCommonish = anyRarity && scored.every((t) => num(t.rarity) == null || num(t.rarity) >= 20);
+    // On PSN's official scale only 2% of this collection's remaining trophies are "Common"
+    // (>50%), so that bar would empty the lane. "Nothing left is rarer than Rare" (>=10%)
+    // is the honest reading of your rule: no rare trophy stands between you and the finish.
+    const allCommonish = anyRarity && scored.every((t) => num(t.rarity) == null || num(t.rarity) >= 10);
     const noWalls = !flagCount.SKILL_WALL && !flagCount.PLAYTHROUGH && !flagCount.ONLINE;
     // Your rule: high attainment % == easy. When every remaining trophy is common, this is an
     // easy gain no matter how brutal the game's overall reputation is.
     const easyGain = !dead && (anyRarity ? (allCommonish && !flagCount.PLAYTHROUGH) : noWalls) && hours <= 6;
-    const quickPlat = !dead && hasPlat && hours <= 3 && difficulty <= 6;
+    // 'about 3 hours' matched nothing once effort was modelled properly; one evening does.
+    const quickPlat = !dead && hasPlat && hours <= 6 && difficulty <= 7;
 
     // --- score: value per unit of effort, penalised by difficulty, boosted by momentum/stars ---
     const effort = Math.pow(hours, 0.7) * (1 + difficulty / 10);
@@ -384,9 +401,9 @@
     // The two highest-intent lanes opt out of the dedupe: a "platinum tonight" pick must not
     // be swallowed by a generic lane that happened to list it first.
     lanes.push({ id: 'next', title: '🎯 Play This Next', sub: 'best payoff for the time it takes', items: take(live.slice().sort(byScore), 8, false) });
-    lanes.push({ id: 'quickplat', title: '🏆 Quick Platinum', sub: 'a whole platinum in about 3 hours', items: take(live.filter((x) => x.a.quickPlat).sort((a, b) => a.a.hours - b.a.hours), 12, false) });
+    lanes.push({ id: 'quickplat', title: '🏆 Platinum In An Evening', sub: 'a whole platinum in roughly one sitting', items: take(live.filter((x) => x.a.quickPlat).sort((a, b) => a.a.hours - b.a.hours), 12, false) });
     lanes.push({ id: 'recent', title: '⏮ Jump Back In', sub: 'played in the last 90 days', items: take(live.filter((x) => x.a.daysSince != null && x.a.daysSince <= 90).sort((a, b) => a.a.daysSince - b.a.daysSince), 8) });
-    lanes.push({ id: 'easy', title: '🟢 Easy Gains', sub: 'everything left is common — low effort', items: take(live.filter((x) => x.a.easyGain).sort((a, b) => a.a.hours - b.a.hours), 12) });
+    lanes.push({ id: 'easy', title: '🟢 Easy Gains', sub: 'nothing left is rarer than 10% — low effort', items: take(live.filter((x) => x.a.easyGain).sort((a, b) => a.a.hours - b.a.hours), 12) });
     lanes.push({ id: 'playthrough', title: '🔁 Needs a Playthrough', sub: 'NG+ / difficulty runs — plan a weekend', items: take(live.filter((x) => x.a.needsPlaythrough).sort(byScore), 10) });
     lanes.push({ id: 'walls', title: '💀 Skill Walls', sub: 'ultra-rare trophies left', items: take(live.filter((x) => x.a.difficulty >= 8).sort(byScore), 10), collapsed: true });
     const dead = assessed.filter((x) => x.a.dead && x.a.left > 0).sort((a, b) => b.a.pct - a.a.pct);

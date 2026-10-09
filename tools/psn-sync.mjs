@@ -135,7 +135,8 @@ function platformsOf(t) {
     .map((s) => PLATFORM_MAP[s] || s);
 }
 function cleanTitle(s) {
-  return String(s || '').replace(/[™®©]/g, '').replace(/\s+/g, ' ').trim();
+  // PSN returns "Mortal Kombat 1 Trophies" where every other source says "Mortal Kombat 1"
+  return String(s || '').replace(/[™®©]/g, '').replace(/\s+Trophies$/i, '').replace(/\s+/g, ' ').trim();
 }
 const deaccent = (s) => String(s || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 const EDITION_RE = /\b(remastered|remaster|remake|hd remaster|hd|definitive edition|ultimate edition|complete edition|game of the year edition|goty|anniversary edition|directors cut|director's cut|butchers cut|butcher's cut|final mix|the game|console edition|enhanced edition|deluxe|ps4|ps5|ps vita|vita|vr|edition)\b/g;
@@ -153,6 +154,15 @@ function legacyKey(title) {
     .trim();
 }
 const alnum = (s) => deaccent(String(s || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
+
+/** Fingerprint a game by its trophy NAMES. Titles differ between sources
+ *  ("Sly 2" vs "Sly 2: Band of Thieves"), but the trophy list does not. */
+function trophyPrint(earned, unearned) {
+  const names = [].concat(earned || [], unearned || [])
+    .map((t) => alnum(t && t.name)).filter(Boolean).sort();
+  if (names.length < 3) return null;
+  return names.length + ':' + names.slice(0, 6).join('|');
+}
 
 const TIER = { 0: 'ultra rare', 1: 'very rare', 2: 'rare', 3: 'common' };
 function tierFromRate(rate, trophyRare) {
@@ -275,6 +285,11 @@ async function syncLibrary(auth) {
   const legacyByKey = new Map(Object.entries(legacy));
   const legacyByAlnum = new Map(Object.keys(legacy).map((k) => [alnum(k), k]));
   const legacyByLoose = new Map(Object.keys(legacy).map((k) => [looseKey(k), k]));
+  const legacyByPrint = new Map();
+  for (const [k, v] of legacyByKey) {
+    const fp = trophyPrint(v.earned, v.unearned);
+    if (fp && !legacyByPrint.has(fp)) legacyByPrint.set(fp, k);
+  }
 
   let titles = (await listAllTitles(auth)).filter((t) => !t.hiddenFlag);
   log(`Titles on account: ${titles.length}`);
@@ -330,19 +345,28 @@ async function syncLibrary(auth) {
       const alt = legacyByLoose.get(looseKey(title));
       if (alt) { key = alt; legacyRec = legacyByKey.get(alt); report.fuzzyMatched.push({ title, legacyKey: alt }); }
     }
+    if (!legacyRec) {
+      // Last resort: same trophy list = same game, whatever the title says.
+      const alt = legacyByPrint.get(trophyPrint(trophies, []));
+      if (alt) { key = alt; legacyRec = legacyByKey.get(alt); report.fuzzyMatched.push({ title, legacyKey: alt, by: 'trophy-list' }); }
+    }
     if (!legacyRec) report.unmatchedLegacy.push(title);
+    let titleSuffix = '';
     if (out[key]) {
-      // same name on another platform stack: keep both, suffix the later one
-      const p = platformsOf(t)[0] || 'alt';
-      const alt = `${key} (${p.toLowerCase()})`;
+      // Same name, different trophy list (Skyrim has separate PS5/PS4/PS3 sets). Keep both,
+      // and disambiguate the TITLE too, or the UI shows two identical rows.
+      const plats = platformsOf(t);
+      const tag = plats.length ? plats.join('/') : (t.npCommunicationId || 'alt');
+      const alt = `${key} (${tag.toLowerCase()})`;
       report.keyCollisions.push({ key, alt, title });
       key = alt;
+      titleSuffix = ` (${tag})`;
     }
     const earnedArr = trophies.filter((x) => x.earned).map(({ earned, ...rest }) => rest);
     const unearnedArr = trophies.filter((x) => !x.earned).map(({ earned, date, ...rest }) => rest);
     const platEarned = trophies.some((x) => x.type === 'platinum' && x.earned);
     out[key] = {
-      title,
+      title: title + titleSuffix,
       npCommunicationId: t.npCommunicationId,
       npServiceName: t.npServiceName,
       platforms: platformsOf(t),
@@ -353,22 +377,73 @@ async function syncLibrary(auth) {
       earnedCounts: t.earnedTrophies || null,
       progress: t.progress,
       lastPlayed: t.lastUpdatedDateTime || null,
-      // legacy carry-over (PocketPSN/HLTB/IGDB fields the PSN API does not have)
+      // Carry over everything the PSN API cannot supply. Without this, a sync silently
+      // destroys the PSNProfiles guide links, the server-shutdown tag and the community
+      // flags, and every game falls back to "No guide written yet".
       url: legacyRec && legacyRec.url || null,
       timeNormal: legacyRec && legacyRec.timeNormal || null,
       timeHastily: legacyRec && legacyRec.timeHastily || null,
       timePlat: legacyRec && legacyRec.timePlat || null,
       genres: legacyRec && Array.isArray(legacyRec.genres) ? legacyRec.genres : [],
+      psnpHref: legacyRec && legacyRec.psnpHref || null,
+      psnpGuide: legacyRec && legacyRec.psnpGuide || null,
+      psnpGuideFacts: legacyRec && legacyRec.psnpGuideFacts || undefined,
+      psnpTrophyTags: legacyRec && legacyRec.psnpTrophyTags || undefined,
+      serverNote: legacyRec && legacyRec.serverNote || null,
+      communityFlags: legacyRec && legacyRec.communityFlags || undefined,
+      platinumRarity: legacyRec && legacyRec.platinumRarity != null ? legacyRec.platinumRarity : null,
       earned: earnedArr,
       unearned: unearnedArr,
     };
     if (!legacyRec) report.newGames.push(title);
   }
 
-  // keep legacy games that PSN did not return (should be rare) so nothing silently vanishes
+  // Keep legacy games PSN did not return, so nothing silently vanishes — but only when they
+  // are genuinely a different game. The legacy data carries two names for some titles
+  // ("claire" and "claire extended cut"), and the sync claims one, which would leave the
+  // other as a phantom duplicate with an identical trophy list.
+  const syncedSigs = Object.entries(out).map(([k, g]) => ({
+    key: k,
+    n: (g.earned || []).length + (g.unearned || []).length,
+    names: new Set([].concat(g.earned || [], g.unearned || []).map((t) => alnum(t && t.name))),
+  }));
+  /** Returns the synced key this legacy record duplicates, or null. */
+  function duplicateOf(v) {
+    const names = [].concat(v.earned || [], v.unearned || []).map((t) => alnum(t && t.name)).filter(Boolean);
+    if (names.length < 3) return null;
+    const hit = syncedSigs.find((sig) => {
+      if (sig.n !== names.length) return false;
+      const overlap = names.filter((n) => sig.names.has(n)).length;
+      return overlap >= Math.max(3, names.length * 0.8);
+    });
+    return hit ? hit.key : null;
+  }
+  /** A dropped duplicate still holds scraped metadata PSN cannot supply — keep it. */
+  const CARRY = ['psnpHref', 'psnpGuide', 'psnpGuideFacts', 'psnpTrophyTags', 'serverNote',
+                 'communityFlags', 'platinumRarity', 'url', 'timeNormal', 'timeHastily', 'timePlat'];
+  function absorb(target, donor) {
+    for (const f of CARRY) if (target[f] == null && donor[f] != null) target[f] = donor[f];
+    if ((!target.genres || !target.genres.length) && Array.isArray(donor.genres) && donor.genres.length) target.genres = donor.genres;
+  }
   let keptLegacy = 0;
   for (const [k, v] of legacyByKey) {
-    if (!out[k] && !Object.values(out).some((g) => alnum(g.title) === alnum(k))) { out[k] = { ...v, title: v.title || k, legacyOnly: true }; keptLegacy++; }
+    if (out[k] || Object.values(out).some((g) => alnum(g.title) === alnum(k))) continue;
+    const twin = duplicateOf(v);
+    if (twin) {
+      absorb(out[twin], v);            // inherit guide links etc. before discarding the shell
+      report.droppedDuplicates = (report.droppedDuplicates || []).concat({ dropped: k, mergedInto: twin });
+      continue;
+    }
+    out[k] = { ...v, title: v.title || k, legacyOnly: true };
+    keptLegacy++;
+  }
+
+  // Guard: if a sync would strip metadata that only the scrape provides, say so loudly.
+  const beforeGuides = Object.values(legacy).filter((g) => g && g.psnpGuide).length;
+  const afterGuides = Object.values(out).filter((g) => g && g.psnpGuide).length;
+  if (beforeGuides && afterGuides < beforeGuides) {
+    log(`WARNING: PSNProfiles guide links dropped from ${beforeGuides} to ${afterGuides}.`);
+    report.lostGuideLinks = beforeGuides - afterGuides;
   }
 
   const stats = {
@@ -380,6 +455,7 @@ async function syncLibrary(auth) {
     trophiesEarned: Object.values(out).reduce((s, g) => s + (g.earned || []).length, 0),
     trophiesRemaining: Object.values(out).reduce((s, g) => s + (g.unearned || []).length, 0),
     legacyOnly: keptLegacy,
+    guideLinks: Object.values(out).filter((g) => g && g.psnpGuide).length,
     fetched: report.fetched, cached: report.cached, failed: report.failed.length,
   };
   report.stats = stats;
