@@ -145,8 +145,14 @@ you keep the work. PSNProfiles serves guide pages slowly (about a minute each), 
 - **Most hour estimates are still rough guesses** (dashed chip with a `?`) until the guide
   pass above is merged. That is the single highest-value thing left, and the sync now
   preserves scraped metadata, so running it once means it survives every future refresh.
-- 57 games have no guide written anywhere (usually new or niche); they say so plainly
-  rather than offering a search dressed up as a guide.
+- 39 games have no guide anywhere (down from 57 after the Xbox cross-reference); they say
+  so plainly rather than offering a search dressed up as a guide.
+- **The Xbox cross-reference is the cheapest win left.** Multiplatform games share an
+  achievement list with their Xbox version, and TrueAchievements carries time estimates and
+  walkthroughs for games with no PlayStation guide at all. One pass over 102 games found 65,
+  added 57, and cut guess-marked estimates from 142 to 105. Re-run it for anything still
+  showing a dashed "?" — see `tools/ta-hours-snippet.js` and `tools/merge-ta.mjs`. PlayStation
+  exclusives (LittleBigPlanet, inFamous, Twisted Metal…) will never match, which is expected.
 - `npm run sync` is the routine refresh. `tools/refresh.sh` chains sync -> enrich ->
   build-slim -> stamp-assets -> commit -> push; see the launchd plist in tools/README.md.
 - `data/library.json` is your full purchase history, committed to a **public** repo.

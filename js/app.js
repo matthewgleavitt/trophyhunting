@@ -175,11 +175,12 @@
   function guideLinks(g) {
     const t = g.title;
     const real = [], search = [];
-    if (g.guide && g.guide.url && g.guide.source === 'powerpyx') real.push(['PowerPyx guide', g.guide.url]);
+    const SOURCE_LABEL = { powerpyx: 'PowerPyx guide', psnprofiles: 'PSNProfiles guide', trueachievements: 'Xbox walkthrough' };
+    if (g.guide && g.guide.url && SOURCE_LABEL[g.guide.source]) real.push([SOURCE_LABEL[g.guide.source], g.guide.url, g.guide.crossReferenced || '']);
     if (g.psnpGuide) real.push(['PSNProfiles guide', 'https://psnprofiles.com' + g.psnpGuide]);
     if (g.psnpHref) search.push(['My trophy list', 'https://psnprofiles.com' + g.psnpHref]);
     search.push(['Search the web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
-    const btn = (pair, cls) => `<a class="guide-link-btn ${cls}" href="${esc(pair[1])}" target="_blank" rel="noopener">${esc(pair[0])}</a>`;
+    const btn = (pair, cls) => `<a class="guide-link-btn ${cls}" href="${esc(pair[1])}" target="_blank" rel="noopener"${pair[2] ? ` title="${esc(pair[2])}"` : ''}>${esc(pair[0])}</a>`;
     const tail = search.map((x) => btn(x, 'is-search')).join('');
     if (real.length) {
       return `<div class="guide-links" data-stop="1"><span class="guide-links-label">Guide</span>${real.map((x) => btn(x, 'is-real')).join('')}${tail}</div>`;

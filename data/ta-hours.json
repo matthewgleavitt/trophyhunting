@@ -1,0 +1,522 @@
+{
+ "control resonant": {
+  "slug": "CONTROL-Resonant",
+  "hoursMin": 35,
+  "hoursMax": 40,
+  "achievements": 49,
+  "walkthrough": "https://www.trueachievements.com/game/CONTROL-Resonant/walkthrough",
+  "url": "https://www.trueachievements.com/game/CONTROL-Resonant/achievements"
+ },
+ "duskfade": {
+  "slug": "Duskfade",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 25,
+  "walkthrough": "https://www.trueachievements.com/game/Duskfade/walkthrough",
+  "url": "https://www.trueachievements.com/game/Duskfade/achievements"
+ },
+ "mewgenics": {
+  "slug": "Mewgenics",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 53,
+  "walkthrough": "https://www.trueachievements.com/game/Mewgenics/walkthrough",
+  "url": "https://www.trueachievements.com/game/Mewgenics/achievements"
+ },
+ "rayman legends": {
+  "slug": "Rayman-Legends",
+  "hoursMin": 60,
+  "hoursMax": 80,
+  "achievements": 50,
+  "walkthrough": "https://www.trueachievements.com/game/Rayman-Legends/walkthrough",
+  "url": "https://www.trueachievements.com/game/Rayman-Legends/achievements"
+ },
+ "five nights at freddys help wanted 2": {
+  "slug": "Five-Nights-at-Freddys-Help-Wanted-2",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 37,
+  "walkthrough": "https://www.trueachievements.com/game/Five-Nights-at-Freddys-Help-Wanted-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Five-Nights-at-Freddys-Help-Wanted-2/achievements"
+ },
+ "gauntlet": {
+  "slug": "Gauntlet",
+  "hoursMin": 6,
+  "hoursMax": 8,
+  "achievements": 12,
+  "walkthrough": "https://www.trueachievements.com/game/Gauntlet/walkthrough",
+  "url": "https://www.trueachievements.com/game/Gauntlet/achievements"
+ },
+ "mega man 11": {
+  "slug": "Mega-Man-11",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 50,
+  "walkthrough": "https://www.trueachievements.com/game/Mega-Man-11/walkthrough",
+  "url": "https://www.trueachievements.com/game/Mega-Man-11/achievements"
+ },
+ "streets of rage 4": {
+  "slug": "Streets-of-Rage-4",
+  "hoursMin": 40,
+  "hoursMax": 50,
+  "achievements": 45,
+  "walkthrough": "https://www.trueachievements.com/game/Streets-of-Rage-4/walkthrough",
+  "url": "https://www.trueachievements.com/game/Streets-of-Rage-4/achievements"
+ },
+ "morsels": {
+  "slug": "Morsels",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 32,
+  "walkthrough": "https://www.trueachievements.com/game/Morsels/walkthrough",
+  "url": "https://www.trueachievements.com/game/Morsels/achievements"
+ },
+ "vampire survivors": {
+  "slug": "Vampire-Survivors",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 283,
+  "walkthrough": "https://www.trueachievements.com/game/Vampire-Survivors/walkthrough",
+  "url": "https://www.trueachievements.com/game/Vampire-Survivors/achievements"
+ },
+ "the jackbox party pack 2": {
+  "slug": "The-Jackbox-Party-Pack-2",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-2/achievements"
+ },
+ "braid anniversary edition": {
+  "slug": "Braid-Anniversary-Edition",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 13,
+  "walkthrough": "https://www.trueachievements.com/game/Braid-Anniversary-Edition/walkthrough",
+  "url": "https://www.trueachievements.com/game/Braid-Anniversary-Edition/achievements"
+ },
+ "flinthook": {
+  "slug": "Flinthook",
+  "hoursMin": 50,
+  "hoursMax": 60,
+  "achievements": 37,
+  "walkthrough": "https://www.trueachievements.com/game/Flinthook/walkthrough",
+  "url": "https://www.trueachievements.com/game/Flinthook/achievements"
+ },
+ "helldivers 2": {
+  "slug": "Helldivers-2",
+  "hoursMin": 40,
+  "hoursMax": 50,
+  "achievements": 38,
+  "walkthrough": "https://www.trueachievements.com/game/Helldivers-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Helldivers-2/achievements"
+ },
+ "crypt of the necrodancer": {
+  "slug": "Crypt-of-the-NecroDancer",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 44,
+  "walkthrough": "https://www.trueachievements.com/game/Crypt-of-the-NecroDancer/walkthrough",
+  "url": "https://www.trueachievements.com/game/Crypt-of-the-NecroDancer/achievements"
+ },
+ "brick breaker": {
+  "slug": "Brick-Breaker",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/Brick-Breaker/walkthrough",
+  "url": "https://www.trueachievements.com/game/Brick-Breaker/achievements"
+ },
+ "super meat boy": {
+  "slug": "Super-Meat-Boy",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 12,
+  "walkthrough": "https://www.trueachievements.com/game/Super-Meat-Boy/walkthrough",
+  "url": "https://www.trueachievements.com/game/Super-Meat-Boy/achievements"
+ },
+ "olliolli world": {
+  "slug": "OlliOlli-World",
+  "hoursMin": 30,
+  "hoursMax": 35,
+  "achievements": 54,
+  "walkthrough": "https://www.trueachievements.com/game/OlliOlli-World/walkthrough",
+  "url": "https://www.trueachievements.com/game/OlliOlli-World/achievements"
+ },
+ "lovers in a dangerous spacetime": {
+  "slug": "Lovers-in-a-Dangerous-Spacetime",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 28,
+  "walkthrough": "https://www.trueachievements.com/game/Lovers-in-a-Dangerous-Spacetime/walkthrough",
+  "url": "https://www.trueachievements.com/game/Lovers-in-a-Dangerous-Spacetime/achievements"
+ },
+ "axiom verge 2": {
+  "slug": "Axiom-Verge-2",
+  "hoursMin": 10,
+  "hoursMax": 12,
+  "achievements": 27,
+  "walkthrough": "https://www.trueachievements.com/game/Axiom-Verge-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Axiom-Verge-2/achievements"
+ },
+ "multiversus": {
+  "slug": "MultiVersus",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 28,
+  "walkthrough": "https://www.trueachievements.com/game/MultiVersus/walkthrough",
+  "url": "https://www.trueachievements.com/game/MultiVersus/achievements"
+ },
+ "cursed to golf": {
+  "slug": "Cursed-to-Golf",
+  "hoursMin": 8,
+  "hoursMax": 10,
+  "achievements": 13,
+  "walkthrough": "https://www.trueachievements.com/game/Cursed-to-Golf/walkthrough",
+  "url": "https://www.trueachievements.com/game/Cursed-to-Golf/achievements"
+ },
+ "the binding of isaac repentance": {
+  "slug": "The-Binding-of-Isaac-Repentance",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 79,
+  "walkthrough": "https://www.trueachievements.com/game/The-Binding-of-Isaac-Repentance/walkthrough",
+  "url": "https://www.trueachievements.com/game/The-Binding-of-Isaac-Repentance/achievements"
+ },
+ "spelunky 2": {
+  "slug": "Spelunky-2",
+  "hoursMin": 60,
+  "hoursMax": 80,
+  "achievements": 32,
+  "walkthrough": "https://www.trueachievements.com/game/Spelunky-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Spelunky-2/achievements"
+ },
+ "skyrim": {
+  "slug": "Skyrim",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 75,
+  "walkthrough": "https://www.trueachievements.com/game/Skyrim/walkthrough",
+  "url": "https://www.trueachievements.com/game/Skyrim/achievements"
+ },
+ "the jackbox party pack 8": {
+  "slug": "The-Jackbox-Party-Pack-8",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-8/walkthrough",
+  "url": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-8/achievements"
+ },
+ "hand of fate": {
+  "slug": "Hand-Of-Fate",
+  "hoursMin": 40,
+  "hoursMax": 50,
+  "achievements": 53,
+  "walkthrough": "https://www.trueachievements.com/game/Hand-Of-Fate/walkthrough",
+  "url": "https://www.trueachievements.com/game/Hand-Of-Fate/achievements"
+ },
+ "a boy and his blob": {
+  "slug": "A-Boy-and-His-Blob",
+  "hoursMin": 12,
+  "hoursMax": 15,
+  "achievements": 21,
+  "walkthrough": "https://www.trueachievements.com/game/A-Boy-and-His-Blob/walkthrough",
+  "url": "https://www.trueachievements.com/game/A-Boy-and-His-Blob/achievements"
+ },
+ "jeopardy": {
+  "slug": "Jeopardy",
+  "hoursMin": 12,
+  "hoursMax": 15,
+  "achievements": 13,
+  "walkthrough": "https://www.trueachievements.com/game/Jeopardy/walkthrough",
+  "url": "https://www.trueachievements.com/game/Jeopardy/achievements"
+ },
+ "wizard of legend": {
+  "slug": "Wizard-of-Legend",
+  "hoursMin": 20,
+  "hoursMax": 25,
+  "achievements": 19,
+  "walkthrough": "https://www.trueachievements.com/game/Wizard-of-Legend/walkthrough",
+  "url": "https://www.trueachievements.com/game/Wizard-of-Legend/achievements"
+ },
+ "enter the gungeon": {
+  "slug": "Enter-The-Gungeon",
+  "hoursMin": 80,
+  "hoursMax": 100,
+  "achievements": 54,
+  "walkthrough": "https://www.trueachievements.com/game/Enter-The-Gungeon/walkthrough",
+  "url": "https://www.trueachievements.com/game/Enter-The-Gungeon/achievements"
+ },
+ "dauntless": {
+  "slug": "Dauntless",
+  "hoursMin": 150,
+  "hoursMax": 200,
+  "achievements": 46,
+  "walkthrough": "https://www.trueachievements.com/game/Dauntless/walkthrough",
+  "url": "https://www.trueachievements.com/game/Dauntless/achievements"
+ },
+ "apex legends": {
+  "slug": "Apex-Legends",
+  "hoursMin": 60,
+  "hoursMax": 80,
+  "achievements": 12,
+  "walkthrough": "https://www.trueachievements.com/game/Apex-Legends/walkthrough",
+  "url": "https://www.trueachievements.com/game/Apex-Legends/achievements"
+ },
+ "sparkle unleashed": {
+  "slug": "Sparkle-Unleashed",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 12,
+  "walkthrough": "https://www.trueachievements.com/game/Sparkle-Unleashed/walkthrough",
+  "url": "https://www.trueachievements.com/game/Sparkle-Unleashed/achievements"
+ },
+ "chasm": {
+  "slug": "Chasm",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/Chasm/walkthrough",
+  "url": "https://www.trueachievements.com/game/Chasm/achievements"
+ },
+ "keep talking and nobody explodes": {
+  "slug": "Keep-Talking-and-Nobody-Explodes",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 10,
+  "walkthrough": "https://www.trueachievements.com/game/Keep-Talking-and-Nobody-Explodes/walkthrough",
+  "url": "https://www.trueachievements.com/game/Keep-Talking-and-Nobody-Explodes/achievements"
+ },
+ "arizona sunshine": {
+  "slug": "Arizona-Sunshine",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": null,
+  "walkthrough": "https://www.trueachievements.com/game/Arizona-Sunshine/walkthrough",
+  "url": "https://www.trueachievements.com/game/Arizona-Sunshine/achievements"
+ },
+ "fruit ninja": {
+  "slug": "Fruit-Ninja",
+  "hoursMin": 2,
+  "hoursMax": 3,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/Fruit-Ninja/walkthrough",
+  "url": "https://www.trueachievements.com/game/Fruit-Ninja/achievements"
+ },
+ "sparkle 2": {
+  "slug": "Sparkle-2",
+  "hoursMin": 40,
+  "hoursMax": 50,
+  "achievements": 14,
+  "walkthrough": "https://www.trueachievements.com/game/Sparkle-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Sparkle-2/achievements"
+ },
+ "20xx": {
+  "slug": "20XX",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 28,
+  "walkthrough": "https://www.trueachievements.com/game/20XX/walkthrough",
+  "url": "https://www.trueachievements.com/game/20XX/achievements"
+ },
+ "darkest dungeon": {
+  "slug": "Darkest-Dungeon",
+  "hoursMin": 120,
+  "hoursMax": 150,
+  "achievements": 68,
+  "walkthrough": "https://www.trueachievements.com/game/Darkest-Dungeon/walkthrough",
+  "url": "https://www.trueachievements.com/game/Darkest-Dungeon/achievements"
+ },
+ "the banner saga": {
+  "slug": "The-Banner-Saga",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 39,
+  "walkthrough": "https://www.trueachievements.com/game/The-Banner-Saga/walkthrough",
+  "url": "https://www.trueachievements.com/game/The-Banner-Saga/achievements"
+ },
+ "momodora reverie under the moonlight": {
+  "slug": "Momodora-Reverie-Under-the-Moonlight",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 10,
+  "walkthrough": "https://www.trueachievements.com/game/Momodora-Reverie-Under-the-Moonlight/walkthrough",
+  "url": "https://www.trueachievements.com/game/Momodora-Reverie-Under-the-Moonlight/achievements"
+ },
+ "downwell": {
+  "slug": "Downwell",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 22,
+  "walkthrough": "https://www.trueachievements.com/game/Downwell/walkthrough",
+  "url": "https://www.trueachievements.com/game/Downwell/achievements"
+ },
+ "the escapists": {
+  "slug": "The-Escapists",
+  "hoursMin": 20,
+  "hoursMax": 25,
+  "achievements": 34,
+  "walkthrough": "https://www.trueachievements.com/game/The-Escapists/walkthrough",
+  "url": "https://www.trueachievements.com/game/The-Escapists/achievements"
+ },
+ "overwatch": {
+  "slug": "Overwatch",
+  "hoursMin": 80,
+  "hoursMax": 100,
+  "achievements": 164,
+  "walkthrough": "https://www.trueachievements.com/game/Overwatch/walkthrough",
+  "url": "https://www.trueachievements.com/game/Overwatch/achievements"
+ },
+ "battleborn": {
+  "slug": "Battleborn",
+  "hoursMin": 150,
+  "hoursMax": 200,
+  "achievements": 60,
+  "walkthrough": "https://www.trueachievements.com/game/Battleborn/walkthrough",
+  "url": "https://www.trueachievements.com/game/Battleborn/achievements"
+ },
+ "wonder boy the dragons trap": {
+  "slug": "Wonder-Boy-The-Dragons-Trap",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 13,
+  "walkthrough": "https://www.trueachievements.com/game/Wonder-Boy-The-Dragons-Trap/walkthrough",
+  "url": "https://www.trueachievements.com/game/Wonder-Boy-The-Dragons-Trap/achievements"
+ },
+ "mighty no. 9": {
+  "slug": "Mighty-No-9",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 70,
+  "walkthrough": "https://www.trueachievements.com/game/Mighty-No-9/walkthrough",
+  "url": "https://www.trueachievements.com/game/Mighty-No-9/achievements"
+ },
+ "lumo": {
+  "slug": "Lumo",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 44,
+  "walkthrough": "https://www.trueachievements.com/game/Lumo/walkthrough",
+  "url": "https://www.trueachievements.com/game/Lumo/achievements"
+ },
+ "super dungeon bros.": {
+  "slug": "Super-Dungeon-Bros",
+  "hoursMin": 30,
+  "hoursMax": 35,
+  "achievements": 27,
+  "walkthrough": "https://www.trueachievements.com/game/Super-Dungeon-Bros/walkthrough",
+  "url": "https://www.trueachievements.com/game/Super-Dungeon-Bros/achievements"
+ },
+ "exiles end": {
+  "slug": "Exiles-End",
+  "hoursMin": 6,
+  "hoursMax": 8,
+  "achievements": 11,
+  "walkthrough": "https://www.trueachievements.com/game/Exiles-End/walkthrough",
+  "url": "https://www.trueachievements.com/game/Exiles-End/achievements"
+ },
+ "table top racing world tour": {
+  "slug": "Table-Top-Racing-World-Tour",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 38,
+  "walkthrough": "https://www.trueachievements.com/game/Table-Top-Racing-World-Tour/walkthrough",
+  "url": "https://www.trueachievements.com/game/Table-Top-Racing-World-Tour/achievements"
+ },
+ "bayonetta": {
+  "slug": "BAYONETTA",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 50,
+  "walkthrough": "https://www.trueachievements.com/game/BAYONETTA/walkthrough",
+  "url": "https://www.trueachievements.com/game/BAYONETTA/achievements"
+ },
+ "bastion": {
+  "slug": "Bastion",
+  "hoursMin": 8,
+  "hoursMax": 10,
+  "achievements": 12,
+  "walkthrough": "https://www.trueachievements.com/game/Bastion/walkthrough",
+  "url": "https://www.trueachievements.com/game/Bastion/achievements"
+ },
+ "alien isolation": {
+  "slug": "Alien-Isolation",
+  "hoursMin": 40,
+  "hoursMax": 50,
+  "achievements": 50,
+  "walkthrough": "https://www.trueachievements.com/game/Alien-Isolation/walkthrough",
+  "url": "https://www.trueachievements.com/game/Alien-Isolation/achievements"
+ },
+ "towerfall ascension": {
+  "slug": "Towerfall-Ascension",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 23,
+  "walkthrough": "https://www.trueachievements.com/game/Towerfall-Ascension/walkthrough",
+  "url": "https://www.trueachievements.com/game/Towerfall-Ascension/achievements"
+ },
+ "metrico": {
+  "slug": "Metrico",
+  "hoursMin": 12,
+  "hoursMax": 15,
+  "achievements": 17,
+  "walkthrough": "https://www.trueachievements.com/game/Metrico/walkthrough",
+  "url": "https://www.trueachievements.com/game/Metrico/achievements"
+ },
+ "jetpack joyride": {
+  "slug": "Jetpack-Joyride",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 20,
+  "walkthrough": "https://www.trueachievements.com/game/Jetpack-Joyride/walkthrough",
+  "url": "https://www.trueachievements.com/game/Jetpack-Joyride/achievements"
+ },
+ "rayman origins": {
+  "slug": "Rayman-Origins",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 36,
+  "walkthrough": "https://www.trueachievements.com/game/Rayman-Origins/walkthrough",
+  "url": "https://www.trueachievements.com/game/Rayman-Origins/achievements"
+ },
+ "splatterhouse": {
+  "slug": "SPLATTERHOUSE",
+  "hoursMin": 20,
+  "hoursMax": 25,
+  "achievements": 50,
+  "walkthrough": "https://www.trueachievements.com/game/SPLATTERHOUSE/walkthrough",
+  "url": "https://www.trueachievements.com/game/SPLATTERHOUSE/achievements"
+ },
+ "resonance of fate": {
+  "slug": "Resonance-of-Fate",
+  "hoursMin": 80,
+  "hoursMax": 100,
+  "achievements": 48,
+  "walkthrough": "https://www.trueachievements.com/game/Resonance-of-Fate/walkthrough",
+  "url": "https://www.trueachievements.com/game/Resonance-of-Fate/achievements"
+ },
+ "marvel ultimate alliance 2": {
+  "slug": "Marvel-Ultimate-Alliance-2",
+  "hoursMin": null,
+  "hoursMax": null,
+  "achievements": 58,
+  "walkthrough": "https://www.trueachievements.com/game/Marvel-Ultimate-Alliance-2/walkthrough",
+  "url": "https://www.trueachievements.com/game/Marvel-Ultimate-Alliance-2/achievements"
+ },
+ "bionic commando": {
+  "slug": "Bionic-Commando",
+  "hoursMin": 25,
+  "hoursMax": 30,
+  "achievements": 49,
+  "walkthrough": "https://www.trueachievements.com/game/Bionic-Commando/walkthrough",
+  "url": "https://www.trueachievements.com/game/Bionic-Commando/achievements"
+ },
+ "bioshock": {
+  "slug": "BioShock",
+  "hoursMin": 15,
+  "hoursMax": 20,
+  "achievements": 51,
+  "walkthrough": "https://www.trueachievements.com/game/BioShock/walkthrough",
+  "url": "https://www.trueachievements.com/game/BioShock/achievements"
+ }
+}
