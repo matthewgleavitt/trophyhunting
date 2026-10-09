@@ -375,6 +375,7 @@ async function syncLibrary(auth) {
     writeJson(META_PATH, stats);
   }
   log('\nDone.', JSON.stringify(stats, null, 2));
+  if (!DRY) log('next: node tools/build-slim.mjs   (rebuilds the file the web app loads)');
   if (report.failed.length) log(`${report.failed.length} titles failed — see tools/last-sync-report.json`);
   if (report.unmatchedLegacy.length) log(`${report.unmatchedLegacy.length} titles had no legacy match (new games or renamed) — see report.`);
   if (report.keyCollisions.length) log(`${report.keyCollisions.length} platform-stack name collisions suffixed — see report.`);

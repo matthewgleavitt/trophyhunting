@@ -55,6 +55,7 @@
       timeHastily: (enr && enr.timeHastily) ?? raw.timeHastily ?? null,
       timePlat: (enr && enr.timePlat) ?? raw.timePlat ?? null,
       earnedBase: earnedArr, unearnedBase: unearnedArr,
+      earnedBaseCount: typeof raw.earnedCount === 'number' ? raw.earnedCount : (typeof raw.earned === 'number' ? raw.earned : earnedArr.length),
       // null = unknown (legacy data has no trophy types); scoring treats unknown ≠ "has a platinum"
       hasPlatinum: typeof raw.hasPlatinum === 'boolean' ? raw.hasPlatinum : (hasPlatInfo ? earnedArr.concat(unearnedArr).some((t) => t.type === 'platinum') : null),
       platinumEarned: typeof raw.platinumEarned === 'boolean' ? raw.platinumEarned : (hasPlatInfo ? earnedArr.some((t) => t.type === 'platinum') : null),
@@ -79,9 +80,10 @@
     const checkedOnes = g.unearnedBase.filter(isDone);
     const earned = g.earnedBase.concat(checkedOnes);
     const platinumEarned = g.platinumEarned === null ? (unearned.length === 0) : (g.platinumEarned || checkedOnes.some((t) => t.type === 'platinum'));
-    return Object.assign({}, g, { earned, unearned, left: unearned.length, total: earned.length + unearned.length, platinumEarned, starred: isStarred(g.key), completed: unearned.length === 0 });
+    const earnedCount = g.earnedBaseCount + checkedOnes.length;
+    return Object.assign({}, g, { earned, earnedCount, unearned, left: unearned.length, total: earnedCount + unearned.length, platinumEarned, starred: isStarred(g.key), completed: unearned.length === 0 });
   }
-  function pctOf(v) { return v.total === 0 ? 100 : Math.round((v.earned.length / v.total) * 100); }
+  function pctOf(v) { return v.total === 0 ? 100 : Math.round((v.earnedCount / v.total) * 100); }
   function assessOf(key) {
     if (assessCache.has(key)) return assessCache.get(key);
     const v = view(GAMES[key]);
@@ -152,13 +154,18 @@
     let left = 0, plats = 0, checkedCount = 0;
     for (const key of Object.keys(GAMES)) {
       const v = view(GAMES[key]);
-      if (v.completed) { completed.push([key, v]); if (v.hasPlatinum && v.platinumEarned) plats++; }
+      // Legacy data has no trophy types, so "has a platinum" is unknown; a finished game is
+      // then the best available proxy. Real platinum counts arrive with the PSN/PSNProfiles sync.
+      if (v.completed) { completed.push([key, v]); if (v.platinumEarned === true || (v.hasPlatinum === null && v.platinumEarned !== false)) plats++; }
       else { incomplete.push([key, v]); left += v.left; }
-      checkedCount += v.earned.length - GAMES[key].earnedBase.length;
+      checkedCount += v.earnedCount - GAMES[key].earnedBaseCount;
       if (v.completed && v.platinumEarned === true && !v.hasPlatinum) { /* 100% without platinum */ }
     }
     $('st-total').textContent = Object.keys(GAMES).length;
     $('st-plat').textContent = plats;
+    const platKnown = Object.values(GAMES).some((g) => g.hasPlatinum === true);
+    const platLabel = $('st-plat').previousElementSibling;
+    if (platLabel) { platLabel.textContent = platKnown ? 'Platinums' : 'Completed'; platLabel.title = platKnown ? '' : 'Trophy types are unknown in this data; showing finished games. Run a sync for real platinum counts.'; }
     $('st-incomplete').textContent = incomplete.length;
     $('st-unearned').textContent = left.toLocaleString();
     $('st-checked').textContent = checkedCount;
@@ -290,14 +297,14 @@
     let list = completed.filter(([k, v]) => !q || v.title.toLowerCase().includes(q) || k.includes(q));
     if (sort === 'alpha') list.sort(([, a], [, b]) => a.title.localeCompare(b.title));
     else if (sort === 'recent') list.sort(([, a], [, b]) => (S.parseDate(b.lastPlayed) || 0) - (S.parseDate(a.lastPlayed) || 0));
-    else if (sort === 'trophies-desc') list.sort(([, a], [, b]) => b.earned.length - a.earned.length);
+    else if (sort === 'trophies-desc') list.sort(([, a], [, b]) => b.earnedCount - a.earnedCount);
     else if (sort === 'time-desc') list.sort(([, a], [, b]) => ((S.parseHours(b.timePlat) || {}).avg || 0) - ((S.parseHours(a.timePlat) || {}).avg || 0));
     $('comp-info').innerHTML = `<strong>${list.length}</strong> completed games`;
     $('completed-grid').innerHTML = list.length ? list.map(([key, v]) => `
       <div class="comp-card ${v.hasPlatinum ? '' : 'no-plat'}">
         <div class="comp-title">${esc(v.title)}</div>
         <div class="comp-meta">
-          <div class="plat-icon-wrap"><div class="plat-diamond" title="${v.hasPlatinum ? 'Platinum' : '100% (no platinum)'}"></div><span class="comp-trophies">${v.earned.length}</span></div>
+          <div class="plat-icon-wrap"><div class="plat-diamond" title="${v.hasPlatinum ? 'Platinum' : '100% (no platinum)'}"></div><span class="comp-trophies">${v.earnedCount}</span></div>
           ${v.lastPlayed ? `<span class="comp-time">· ${esc(fmtDate(v.lastPlayed))}</span>` : (S.parseHours(v.timePlat) ? `<span class="comp-time">· ${esc(v.timePlat)}</span>` : '')}
           ${v.platforms.map((p) => `<span class="plat-tag">${esc(p)}</span>`).join('')}
           ${GAMES[key].unearnedBase.length ? `<button class="reopen-btn" data-action="reopen" data-key="${attr(key)}">Reopen</button>` : ''}
@@ -520,11 +527,14 @@
 
   // ---------- init ----------
   async function init() {
-    const [progress, enriched, overrides, guidesFile, library, meta] = await Promise.all([
-      fetchJson('./data/progress.json', null), fetchJson('./data/enriched.json', {}), fetchJson('./data/overrides.json', {}),
+    const [slim, enriched, overrides, guidesFile, library, meta] = await Promise.all([
+      fetchJson('./data/progress.slim.json', null), fetchJson('./data/enriched.json', {}), fetchJson('./data/overrides.json', {}),
       fetchJson('./data/guides.json', {}), fetchJson('./data/library.json', null), fetchJson('./data/sync-meta.json', null),
     ]);
-    if (!progress) { $('grid').innerHTML = '<div class="empty">Failed to load ./data/progress.json</div>'; return; }
+    // progress.slim.json is the build artifact (earned trophies collapsed to counts);
+    // fall back to the full file so the app still works before the first build.
+    const progress = slim || await fetchJson('./data/progress.json', null);
+    if (!progress) { $('grid').innerHTML = '<div class="empty">Failed to load trophy data. Run <code>node tools/build-slim.mjs</code>.</div>'; return; }
     LIBRARY = library; META = meta;
     GUIDES = Object.assign({}, window.TROPHY_GUIDES || {}, guidesFile || {});
     for (const [key, raw] of Object.entries(progress)) {

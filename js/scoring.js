@@ -161,7 +161,8 @@
     const platRarity = (() => {
       const all = [].concat(g.earned || [], unearned);
       const p = all.find((t) => t && t.type === 'platinum');
-      return p && num(p.rarity) != null ? num(p.rarity) : null;
+      if (p && num(p.rarity) != null) return num(p.rarity);
+      return num(g.platinumRarity);     // slim data keeps this even when earned[] is gone
     })();
     // Split what is left into the platinum path and DLC/optional extras.
     // A trophy required for the platinum can never be rarer than the platinum itself
@@ -242,7 +243,7 @@
     if (hasPlat) { value += 1; reasons.push('Finishing earns the platinum'); }
     else if (!platKnown) value += 0.5;                    // unknown: assume a normal game, do not over-reward
     if (hasPlat && platRarity != null && platRarity < 5) { value += 0.6; reasons.push(`Ultra-rare platinum (${platRarity}% of players)`); }
-    const total = (g.earned && g.earned.length) || num(g.earned) || 0;
+    const total = num(g.earnedCount) != null ? num(g.earnedCount) : ((g.earned && g.earned.length) || num(g.earned) || 0);
     const pct = total + left > 0 ? total / (total + left) : 1;
     value += 0.5 * pct;                                   // sunk progress makes the finish feel better
 

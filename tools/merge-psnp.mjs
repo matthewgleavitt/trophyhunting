@@ -94,3 +94,4 @@ fs.copyFileSync(PROGRESS, path.join(ROOT, 'tools', '.psn-cache', `progress.backu
 writeJson(PROGRESS, out);
 writeJson(META, stats);
 console.log('wrote data/progress.json + data/sync-meta.json');
+console.log('next: node tools/build-slim.mjs   (rebuilds the file the web app loads)');
