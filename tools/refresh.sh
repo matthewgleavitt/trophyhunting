@@ -10,8 +10,9 @@ LOG="tools/.refresh.log"
   node tools/psn-sync.mjs
   node tools/guide-enrich.mjs --limit 40 || true      # new games only (cached ones are skipped)
   node tools/build-slim.mjs                          # the artifact the web app loads
-  if ! git diff --quiet -- data; then
-    git add data
+  node tools/stamp-assets.mjs                        # content-hash css/js so no stale cache ships
+  if ! git diff --quiet -- data index.html; then
+    git add data index.html
     git commit -q -m "data: sync $(date +%Y-%m-%d)"
     git push -q origin main && echo "pushed"
   else
