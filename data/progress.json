@@ -12266,7 +12266,148 @@
     "rarity": 0.3,
     "tier": "ultra rare"
    }
-  ]
+  ],
+  "psnpGuideFacts": {
+   "source": "psnprofiles",
+   "url": "https://psnprofiles.com/guide/9023-mega-man-11-trophy-guide",
+   "difficulty": 8,
+   "hoursMin": 15,
+   "hoursMax": 15,
+   "playthroughs": 3
+  },
+  "psnpTrophyTags": {
+   "No Getting Away This Time!": {
+    "tags": [
+     "Unmissable"
+    ],
+    "anchor": "#8-no-getting-away-this-time"
+   },
+   "Now We're Getting Somewhere": {
+    "tags": [
+     "Unmissable"
+    ],
+    "anchor": "#6-now-were-getting-somewhere"
+   },
+   "One Down, Seven to Go...": {
+    "tags": [
+     "Unmissable"
+    ],
+    "anchor": "#5-one-down-seven-to-go"
+   },
+   "Where's Wily?": {
+    "tags": [
+     "Unmissable"
+    ],
+    "anchor": "#7-wheres-wily"
+   },
+   "Mega Unstoppable": {
+    "tags": [
+     "Difficulty Specific",
+     "Missable"
+    ],
+    "anchor": "#14-mega-unstoppable"
+   },
+   "Protector of Peace": {
+    "tags": [
+     "Difficulty Specific",
+     "Stackable"
+    ],
+    "anchor": "#9-protector-of-peace"
+   },
+   "The Blue Flash": {
+    "tags": [
+     "Difficulty Specific",
+     "Missable"
+    ],
+    "anchor": "#15-the-blue-flash"
+   },
+   "The World's Best Hope": {
+    "tags": [
+     "Difficulty Specific"
+    ],
+    "anchor": "#10-the-worlds-best-hope"
+   },
+   "All Power, All The Time": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#45-all-power-all-the-time"
+   },
+   "Area Secure": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#40-area-secure"
+   },
+   "Boss Buster": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#13-boss-buster"
+   },
+   "Brute Force": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#30-brute-force"
+   },
+   "Bullet Blaster": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#31-bullet-blaster"
+   },
+   "Can't Improve on Perfection": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#16-cant-improve-on-perfection"
+   },
+   "Guard Breaker": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#38-guard-breaker"
+   },
+   "Mid-Boss Buster": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#12-mid-boss-buster"
+   },
+   "Quick Draw": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#44-quick-draw"
+   },
+   "The Regulars": {
+    "tags": [
+     "Missable"
+    ],
+    "anchor": "#28-the-regulars"
+   }
+  },
+  "psnpGuideAnchors": {
+   "No Getting Away This Time!": "#8-no-getting-away-this-time",
+   "Now We're Getting Somewhere": "#6-now-were-getting-somewhere",
+   "One Down, Seven to Go...": "#5-one-down-seven-to-go",
+   "Where's Wily?": "#7-wheres-wily",
+   "Mega Unstoppable": "#14-mega-unstoppable",
+   "Protector of Peace": "#9-protector-of-peace",
+   "The Blue Flash": "#15-the-blue-flash",
+   "The World's Best Hope": "#10-the-worlds-best-hope",
+   "All Power, All The Time": "#45-all-power-all-the-time",
+   "Area Secure": "#40-area-secure",
+   "Boss Buster": "#13-boss-buster",
+   "Brute Force": "#30-brute-force",
+   "Bullet Blaster": "#31-bullet-blaster",
+   "Can't Improve on Perfection": "#16-cant-improve-on-perfection",
+   "Guard Breaker": "#38-guard-breaker",
+   "Mid-Boss Buster": "#12-mid-boss-buster",
+   "Quick Draw": "#44-quick-draw",
+   "The Regulars": "#28-the-regulars"
+  }
  },
  "streets of rage 4": {
   "title": "Streets of Rage 4",

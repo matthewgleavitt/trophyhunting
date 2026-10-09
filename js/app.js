@@ -47,6 +47,24 @@
     return { id: t.id ?? null, name: t.name ?? '', desc: t.desc ?? '', type: t.type ?? null, rarity: t.rarity == null ? null : Number(t.rarity), tier: t.tier ?? null, hidden: !!t.hidden, date: t.date ?? null, unobtainable: !!t.unobtainable };
   }
 
+  /** Rank guide sources and fill gaps between them.
+   *  A PlayStation-specific guide describes THIS trophy list; the Xbox cross-reference is an
+   *  approximation of a different platform's achievement list, so it must never outrank one —
+   *  but its hours are still better than no hours. */
+  const GUIDE_RANK = { powerpyx: 3, psnprofiles: 2, trueachievements: 1 };
+  function pickGuide(a, b) {
+    const cand = [a, b].filter((g) => g && g.source);
+    if (!cand.length) return null;
+    cand.sort((x, y) => (GUIDE_RANK[y.source] || 0) - (GUIDE_RANK[x.source] || 0));
+    const best = Object.assign({}, cand[0]);
+    for (const other of cand.slice(1)) {
+      for (const f of ['difficulty', 'hoursMin', 'hoursMax', 'playthroughs', 'missables', 'online', 'glitchedRaw']) {
+        if (best[f] == null && other[f] != null) { best[f] = other[f]; best.filledFrom = other.source; }
+      }
+    }
+    return best;
+  }
+
   function buildModel(key, raw, enr, ovr) {
     const earnedArr = Array.isArray(raw.earned) ? raw.earned.map(normalizeTrophy) : [];
     const unearnedArr = Array.isArray(raw.unearned) ? raw.unearned.map(normalizeTrophy) : [];
@@ -85,7 +103,7 @@
       platinumEarned: typeof raw.platinumEarned === 'boolean' ? raw.platinumEarned : (hasPlatInfo ? earnedArr.some((t) => t.type === 'platinum') : null),
       lastPlayed: raw.lastPlayed || (S.lastPlayedOf({ earned: earnedArr }) || {}).toISOString?.() || null,
       progress: raw.progress ?? null,
-      guide: (enr && enr.guide && enr.guide.source) ? enr.guide : (raw.psnpGuideFacts || null),
+      guide: pickGuide(enr && enr.guide, raw.psnpGuideFacts),
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
       serverNote: raw.serverNote || null, communityFlags: raw.communityFlags || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null, psnpGuideAnchors: raw.psnpGuideAnchors || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
@@ -181,7 +199,9 @@
     const real = [], search = [];
     const SOURCE_LABEL = { powerpyx: 'PowerPyx guide', psnprofiles: 'PSNProfiles guide', trueachievements: 'Xbox walkthrough' };
     if (g.guide && g.guide.url && SOURCE_LABEL[g.guide.source]) real.push([SOURCE_LABEL[g.guide.source], g.guide.url, g.guide.crossReferenced || '']);
-    if (g.psnpGuide) real.push(['PSNProfiles guide', 'https://psnprofiles.com' + g.psnpGuide]);
+    // the chosen guide may already BE the PSNProfiles one — do not list it twice
+    const psnpUrl = g.psnpGuide ? 'https://psnprofiles.com' + g.psnpGuide : null;
+    if (psnpUrl && !real.some(([, u]) => u === psnpUrl)) real.push(['PSNProfiles guide', psnpUrl]);
     if (g.psnpHref) search.push(['My trophy list', 'https://psnprofiles.com' + g.psnpHref]);
     search.push(['Search the web', 'https://www.google.com/search?q=' + encodeURIComponent(t + ' trophy guide')]);
     const btn = (pair, cls) => `<a class="guide-link-btn ${cls}" href="${esc(pair[1])}" target="_blank" rel="noopener"${pair[2] ? ` title="${esc(pair[2])}"` : ''}>${esc(pair[0])}</a>`;
