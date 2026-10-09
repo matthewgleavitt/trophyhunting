@@ -79,9 +79,9 @@ overviews (difficulty / playthroughs / hours + per-trophy Missable/Online tags),
 ## Known gaps / next steps
 
 - Most games still show low-confidence hours until the guide pass (B, step 2) runs.
-- `data/library.json` is your full purchase history and it is committed to a **public**
-  repo. If that bothers you, add it to `.gitignore` and the Never-started tab degrades
-  gracefully.
+- `data/library.json` is your full purchase history, committed to a **public** repo.
+  Decided 2026-10-08: publish it, so the Never-started tab works on your phone with no
+  setup. To reverse that later, add it to `.gitignore` and the tab degrades gracefully.
 - Genres only exist for games that were in the original PocketPSN export.
 - Platform-stack duplicates (same game on PS4 + PS5) are merged by name; a handful of
   collisions get suffixed. `tools/last-sync-report.json` lists them after every sync.
