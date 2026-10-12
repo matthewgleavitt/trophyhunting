@@ -39,7 +39,27 @@ if (argv.includes('--list')) {
 }
 
 let targets = [];
-if (argv.includes('--starred')) {
+if (argv.includes('--auto')) {
+  // Unattended top-up: grab the few games you are most likely to play next that have a
+  // guide we have not stored yet. Paced so the daily job never looks like bulk scraping.
+  const n = Number(argv[argv.indexOf('--auto') + 1]) || 5;
+  const S = (await import(new URL('../js/scoring.js', import.meta.url))).default
+         || (await import(new URL('../js/scoring.js', import.meta.url)));
+  const scorer = S.assess ? S : (globalThis.TrophyScoring || {});
+  const asOf = new Date();
+  targets = Object.entries(progress)
+    .filter(([, g]) => g && (g.unearned || []).length && g.psnpGuide && !raw[g.psnpGuide])
+    .map((e) => {
+      let score = 0;
+      try { score = scorer.assess({ ...e[1], earnedCount: (e[1].earned || []).length }, { dataAsOf: asOf }).score; } catch (err) { score = 0; }
+      return { e, score };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, n)
+    .map((x) => x.e);
+  if (!targets.length) { console.log('every unfinished game with a guide already has one stored'); process.exit(0); }
+  console.log(`auto: topping up ${targets.length} guide(s)`);
+} else if (argv.includes('--starred')) {
   console.error('--starred needs your starred list; export it from the app (Export button) and pass titles instead.');
   process.exit(2);
 } else {
@@ -101,7 +121,11 @@ for (const [key, g] of targets) {
   if (!g.psnpGuide) { console.log(`${g.title || key}: no PSNProfiles guide exists`); continue; }
   try {
     const r = await page.evaluate(EXTRACT, g.psnpGuide);
-    if (!r || r.__status) { console.log(`${g.title || key}: HTTP ${r && r.__status} — PSNProfiles limits guide pages per session; wait a few minutes and retry`); continue; }
+    if (!r || r.__status) {
+      console.log(`${g.title || key}: HTTP ${r && r.__status} — rate limited`);
+      if (argv.includes('--auto')) { await sleep(45000); }   // unattended: wait it out, try the next one
+      continue;
+    }
     raw[g.psnpGuide] = r; ok++;
     console.log(`${g.title || key}: ${r.textCount} sections, ${Object.keys(r.tags).length} tagged trophies, ${r.difficulty ?? '?'}/10, ${r.hoursMin ?? '?'}h`);
   } catch (e) { console.log(`${g.title || key}: ${String(e.message).slice(0, 70)}`); }

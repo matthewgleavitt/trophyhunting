@@ -197,7 +197,9 @@
   function guideLinks(g) {
     const t = g.title;
     const real = [], search = [];
-    const SOURCE_LABEL = { powerpyx: 'PowerPyx guide', psnprofiles: 'PSNProfiles guide', trueachievements: 'Xbox walkthrough' };
+    // No trueachievements entry on purpose: those urls were built from the game title and never
+    // fetched, so they led to empty or wrong-game pages. TA is a facts source, never a link.
+    const SOURCE_LABEL = { powerpyx: 'PowerPyx guide', psnprofiles: 'PSNProfiles guide' };
     if (g.guide && g.guide.url && SOURCE_LABEL[g.guide.source]) real.push([SOURCE_LABEL[g.guide.source], g.guide.url, g.guide.crossReferenced || '']);
     // the chosen guide may already BE the PSNProfiles one — do not list it twice
     const psnpUrl = g.psnpGuide ? 'https://psnprofiles.com' + g.psnpGuide : null;
@@ -556,16 +558,21 @@
       const fg = FULL_GUIDES[key];
       const written = fg && fg.trophies && fg.trophies[t.name];
       if (written) {
+        const srcName = written.source === 'powerpyx' ? 'PowerPyx' : 'PSNProfiles';
+        const base = written.url || (fg.sources && fg.sources[written.source]) || fg.url || '';
         html += `<div class="guide-section"><div class="guide-section-title">How to get it</div>
           <div class="guide-written">${esc(written.text)}</div>
-          <div class="guide-credit">Written by the PSNProfiles guide author &middot; <a href="${esc(fg.url + (written.anchor || ''))}" target="_blank" rel="noopener">read it in context</a></div></div>`;
+          <div class="guide-credit">Written by the ${esc(srcName)} guide author${base ? ` &middot; <a href="${esc(base + (written.anchor || ''))}" target="_blank" rel="noopener">read it in context</a>` : ''}</div></div>`;
       }
 
       // No hand-written walkthrough for this trophy. Show what we actually KNOW rather than a
       // list of searches: the guide's own per-trophy verdict, a link straight to that trophy's
       // section, and what the rarity implies. Never a speculative search dressed as a guide.
       const anchors = g.psnpGuideAnchors || {};
-      const deepLink = g.psnpGuide && anchors[t.name] ? 'https://psnprofiles.com' + g.psnpGuide + anchors[t.name] : null;
+      const ppAnchors = g.ppGuideAnchors || {};
+      const ppUrl = g.guide && g.guide.source === 'powerpyx' && g.guide.url ? g.guide.url : null;
+      const deepLink = (g.psnpGuide && anchors[t.name] ? 'https://psnprofiles.com' + g.psnpGuide + anchors[t.name] : null)
+        || (ppUrl && ppAnchors[t.name] ? ppUrl + ppAnchors[t.name] : null);
       const tmeta = g.trophyMeta && g.trophyMeta[t.name];
       const verdict = tmeta && Array.isArray(tmeta.tags) && tmeta.tags.length
         ? tmeta.tags.map((x) => String(x).toLowerCase().replace(/_/g, ' ')).join(', ') : null;
@@ -585,13 +592,24 @@
       }
       if (!written && !deepLink && !verdict) {
         const anyGuide = (g.guide && g.guide.url) || (g.psnpGuide ? 'https://psnprofiles.com' + g.psnpGuide : null);
-        html += `<div class="guide-section"><div class="guide-section-title">No written guide</div><div class="guide-tip">${anyGuide
+        // A guide that covers most of the list but not this trophy almost always means the
+        // trophy arrived with DLC or an update. Say that, rather than implying nobody wrote
+        // anything -- and never dress a link up as help when it does not cover the trophy.
+        const cov = g.ppGuideCoverage;
+        const partial = anyGuide && cov != null && cov < 0.95;
+        html += `<div class="guide-section"><div class="guide-section-title">${partial ? 'Not in the guide' : 'No written guide'}</div><div class="guide-tip">${partial
+          ? `The guide for ${esc(g.title)} covers about ${Math.round(cov * 100)}% of this trophy list and does not include <strong>${esc(t.name)}</strong> \u2014 normally because it came with DLC or a later update. <a href="${esc(anyGuide)}" target="_blank" rel="noopener">Open the guide</a> if you want the base-game route.`
+          : anyGuide
           ? `No guide covers this trophy individually, but the game&rsquo;s guide may help: <a href="${esc(anyGuide)}" target="_blank" rel="noopener">open it</a>.`
           : `Nobody has written a trophy guide for ${esc(g.title)} \u2014 usually because it is new or niche. The description and rarity above are genuinely all the information that exists.`}</div></div>`;
       }
     }
     $('guide-body').innerHTML = html;
-    $('guide-source').innerHTML = guide && guide.source ? `Source: <a href="${esc(guide.source.url)}" target="_blank" rel="noopener">${esc(guide.source.label)}</a>` : (g.guide ? `Facts: <a href="${esc(g.guide.url)}" target="_blank" rel="noopener">PowerPyx</a>` : '');
+    const SRC_NAME = { powerpyx: 'PowerPyx', psnprofiles: 'PSNProfiles', trueachievements: 'TrueAchievements (Xbox cross-reference)' };
+    $('guide-source').innerHTML = guide && guide.source
+      ? `Source: <a href="${esc(guide.source.url)}" target="_blank" rel="noopener">${esc(guide.source.label)}</a>`
+      : (g.guide && g.guide.url ? `Facts: <a href="${esc(g.guide.url)}" target="_blank" rel="noopener">${esc(SRC_NAME[g.guide.source] || g.guide.source)}</a>`
+      : (g.guide ? `Facts: ${esc(SRC_NAME[g.guide.source] || g.guide.source)}` : ''));
     openDialog($('guideOverlay'), $('guideOverlay').querySelector('.guide-close'));
   }
   function closeGuide() { const g = $('guideOverlay'); if (g.classList.contains('open')) closeDialog(g); }

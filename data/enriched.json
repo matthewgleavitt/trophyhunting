@@ -58,7 +58,6 @@
   "mega man 11": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Mega-Man-11/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -66,14 +65,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Mega-Man-11/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "disc jam": {},
   "streets of rage 4": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Streets-of-Rage-4/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 40,
       "hoursMax": 50,
@@ -81,7 +81,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Streets-of-Rage-4/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "doom eternal": {
@@ -135,7 +137,6 @@
   "spelunky 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Spelunky-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 60,
       "hoursMax": 80,
@@ -143,7 +144,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Spelunky-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "moving out 2": {
@@ -173,7 +176,6 @@
   "rayman legends": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Rayman-Legends/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 60,
       "hoursMax": 80,
@@ -181,7 +183,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Rayman-Legends/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "diablo iv": {},
@@ -192,7 +196,6 @@
   "morsels": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Morsels/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -200,7 +203,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Morsels/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "resogun": {},
@@ -209,7 +214,6 @@
   "lumo": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Lumo/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -217,7 +221,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Lumo/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "outlast": {
@@ -323,7 +329,6 @@
   "the jackbox party pack 8": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-8/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -331,7 +336,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-8/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "the witness": {},
@@ -421,7 +428,6 @@
   "rayman origins": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Rayman-Origins/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -429,7 +435,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Rayman-Origins/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "the last of us": {
@@ -492,7 +500,6 @@
   "skyrim": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Skyrim/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -500,7 +507,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Skyrim/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "shadow of the colossus": {
@@ -533,7 +542,6 @@
   "splatterhouse": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/SPLATTERHOUSE/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 20,
       "hoursMax": 25,
@@ -541,14 +549,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/SPLATTERHOUSE/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "lego harry potter years 1 4": {},
   "resonance of fate": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Resonance-of-Fate/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 80,
       "hoursMax": 100,
@@ -556,13 +565,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Resonance-of-Fate/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "marvel ultimate alliance 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Marvel-Ultimate-Alliance-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -570,14 +580,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Marvel-Ultimate-Alliance-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "resident evil 5": {},
   "bionic commando": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Bionic-Commando/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -585,7 +596,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Bionic-Commando/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "modnation racers": {},
@@ -593,7 +606,6 @@
   "bioshock": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/BioShock/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -601,7 +613,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/BioShock/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "assassins creed ii": {},
@@ -640,7 +654,6 @@
   "cursed to golf": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Cursed-to-Golf/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 8,
       "hoursMax": 10,
@@ -648,14 +661,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Cursed-to-Golf/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "10 second ninja x": {},
   "the jackbox party pack 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -663,13 +677,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/The-Jackbox-Party-Pack-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "braid anniversary edition": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Braid-Anniversary-Edition/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -677,31 +692,33 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Braid-Anniversary-Edition/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "silent hill 2": {
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/silent-hill-2-remake-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:48:46.345Z",
+      "fetchedAt": "2026-10-12T14:17:57.538Z",
       "difficulty": 3,
       "difficultyRaw": "3/10",
       "hoursMin": 20,
       "hoursMax": 30,
       "timeRaw": "20-30 hours",
-      "offline": 44,
-      "online": 0,
+      "playthroughs": 2,
+      "playthroughsRaw": "2 with partial replays for endings",
       "missables": 20,
       "missablesRaw": "20 (practically all non-automatic story trophies are missable, once you leave an area you can’t backtrack, there is no Chapter Select or Free Roam after story)",
       "glitched": 3,
-      "glitchedRaw": "3 – Merciless, Faster Than Fog and   Party Like It’s 2001",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No, can play the game on ‘Light’ (Easy) Combat/Puzzle difficulties",
-      "playthroughs": 2,
-      "playthroughsRaw": "2 with partial replays for endings",
+      "glitchedRaw": "3 – Merciless, Faster Than Fog and Party Like It’s 2001",
+      "online": 0,
+      "offline": 44,
+      "hardest": "Party Like It’s 2001",
       "freeRoam": "No Free-Roam or Level Select",
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No, can play the game on ‘Light’ (Easy) Combat/Puzzle difficulties",
+      "coverage": 1
     }
   },
   "final fantasy vii rebirth": {},
@@ -734,7 +751,6 @@
   "multiversus": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/MultiVersus/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -742,14 +758,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/MultiVersus/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "super monkey ball banana blitz hd": {},
   "flinthook": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Flinthook/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 50,
       "hoursMax": 60,
@@ -757,7 +774,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Flinthook/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "escape academy": {
@@ -837,7 +856,6 @@
   "helldivers 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Helldivers-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 40,
       "hoursMax": 50,
@@ -845,14 +863,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Helldivers-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "resident evil 4": {},
   "crypt of the necrodancer": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Crypt-of-the-NecroDancer/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -860,7 +879,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Crypt-of-the-NecroDancer/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "gems of war": {},
@@ -895,7 +916,6 @@
   "brick breaker": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Brick-Breaker/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -903,13 +923,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Brick-Breaker/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "towerfall ascension": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Towerfall-Ascension/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -917,7 +938,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Towerfall-Ascension/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "sifu": {
@@ -972,7 +995,6 @@
   "enter the gungeon": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Enter-The-Gungeon/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 80,
       "hoursMax": 100,
@@ -980,13 +1002,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Enter-The-Gungeon/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "jeopardy": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Jeopardy/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 12,
       "hoursMax": 15,
@@ -994,7 +1017,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Jeopardy/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "mortal kombat 11": {
@@ -1052,7 +1077,6 @@
   "olliolli world": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/OlliOlli-World/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 30,
       "hoursMax": 35,
@@ -1060,7 +1084,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/OlliOlli-World/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "rez infinite": {},
@@ -1151,30 +1177,29 @@
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/the-persistence-psvr-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:50:58.424Z",
+      "fetchedAt": "2026-10-12T14:16:51.944Z",
       "difficulty": 5,
       "difficultyRaw": "5/10",
       "hoursMin": 15,
       "hoursMax": 20,
       "timeRaw": "15-20 hours",
-      "offline": 44,
-      "online": 0,
+      "playthroughs": 1,
+      "playthroughsRaw": "1",
       "missables": 0,
       "missablesRaw": "0",
       "glitched": 0,
       "glitchedRaw": "0",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No difficulty settings available",
-      "playthroughs": 1,
-      "playthroughsRaw": "1",
+      "online": 0,
+      "offline": 44,
+      "hardest": null,
       "freeRoam": null,
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No difficulty settings available",
+      "coverage": 1
     }
   },
   "lovers in a dangerous spacetime": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Lovers-in-a-Dangerous-Spacetime/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1182,37 +1207,38 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Lovers-in-a-Dangerous-Spacetime/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "lego star wars the skywalker saga": {
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/lego-star-wars-the-skywalker-saga-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:51:02.833Z",
+      "fetchedAt": "2026-10-12T14:17:59.141Z",
       "difficulty": 2,
       "difficultyRaw": "2/10",
       "hoursMin": 70,
       "hoursMax": 90,
       "timeRaw": "70-90 hours",
-      "offline": 46,
-      "online": 0,
+      "playthroughs": 1,
+      "playthroughsRaw": "1 Story Mode & many replays of levels in Free Play for Collectibles.",
       "missables": null,
       "missablesRaw": "None",
       "glitched": null,
       "glitchedRaw": "None",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No difficulty settings available.",
-      "playthroughs": 1,
-      "playthroughsRaw": "1 Story Mode & many replays of levels in Free Play for Collectibles.",
+      "online": 0,
+      "offline": 46,
+      "hardest": null,
       "freeRoam": "Yes, you can revisit any level or planet after the story.",
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No difficulty settings available.",
+      "coverage": 1
     }
   },
   "axiom verge 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Axiom-Verge-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 10,
       "hoursMax": 12,
@@ -1220,7 +1246,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Axiom-Verge-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "fall guys": {
@@ -1250,7 +1278,6 @@
   "the binding of isaac repentance": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/The-Binding-of-Isaac-Repentance/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1258,31 +1285,33 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/The-Binding-of-Isaac-Repentance/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "ghost of tsushima": {
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/ghost-of-tsushima-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:51:12.889Z",
+      "fetchedAt": "2026-10-12T14:14:33.284Z",
       "difficulty": 3,
       "difficultyRaw": "3/10",
       "hoursMin": 40,
       "hoursMax": 60,
       "timeRaw": "40-60 hours (50 hours average for most players)",
-      "offline": 52,
-      "online": 0,
+      "playthroughs": 1,
+      "playthroughsRaw": "1",
       "missables": 0,
       "missablesRaw": "0 – Nothing Missable! Can do everything after the story in free-roam.",
       "glitched": 0,
       "glitchedRaw": "0 – but there are many game-breaking progression bugs so make Manual Saves regularly to reload if something goes wrong.",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No, can do everything on easy.",
-      "playthroughs": 1,
-      "playthroughsRaw": "1",
+      "online": 0,
+      "offline": 52,
+      "hardest": null,
       "freeRoam": "Yes, there is still free roam after the story. You can still do everything after the story.",
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No, can do everything on easy.",
+      "coverage": 0.68
     }
   },
   "until dawn": {
@@ -1315,7 +1344,6 @@
   "wizard of legend": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Wizard-of-Legend/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 20,
       "hoursMax": 25,
@@ -1323,7 +1351,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Wizard-of-Legend/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "the jackbox party pack": {},
@@ -1356,24 +1386,24 @@
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/borderlands-3-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:59:37.308Z",
+      "fetchedAt": "2026-10-12T14:15:10.047Z",
       "difficulty": 4,
       "difficultyRaw": "4/10",
       "hoursMin": 50,
       "hoursMax": 70,
       "timeRaw": "50-70 hours",
-      "offline": 42,
-      "online": 3,
+      "playthroughs": 1,
+      "playthroughsRaw": "1",
       "missables": 0,
       "missablesRaw": "0",
       "glitched": 3,
       "glitchedRaw": "3+",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No, can play on easy difficulty",
-      "playthroughs": 1,
-      "playthroughsRaw": "1",
+      "online": 3,
+      "offline": 42,
+      "hardest": null,
       "freeRoam": null,
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No, can play on easy difficulty",
+      "coverage": 0.57
     }
   },
   "oddworld soulstorm": {
@@ -1454,7 +1484,6 @@
   "hand of fate": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Hand-Of-Fate/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 40,
       "hoursMax": 50,
@@ -1462,13 +1491,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Hand-Of-Fate/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "geometry wars dimensions": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Geometry-Wars-3-Dimensions/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1476,13 +1506,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Geometry-Wars-3-Dimensions/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "a boy and his blob": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/A-Boy-and-His-Blob/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 12,
       "hoursMax": 15,
@@ -1490,31 +1521,33 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/A-Boy-and-His-Blob/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "assassins creed odyssey": {
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/assassins-creed-odyssey-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:52:00.400Z",
+      "fetchedAt": "2026-10-12T14:15:11.682Z",
       "difficulty": 3.5,
       "difficultyRaw": "3.5/10",
       "hoursMin": 60,
       "hoursMax": 70,
       "timeRaw": "60-70 Hours",
-      "offline": 51,
-      "online": 0,
-      "missables": 1,
-      "missablesRaw": "1 – Aphrodite’s Embrace (for sleeping with a character, but it’s hard to miss, there are many opportunities for it)",
-      "glitched": 7,
-      "glitchedRaw": "7 – See List of Known Bugs and Issues",
-      "difficultyAffects": false,
-      "difficultyAffectsRaw": "No, can do everything on easy.",
       "playthroughs": 1,
       "playthroughsRaw": "1",
+      "missables": 1,
+      "missablesRaw": "1 – Aphrodite’s Embrace (for sleeping with a character, but it’s hard to miss, there are many opportunities for it)",
+      "glitched": 7,
+      "glitchedRaw": "7 – See List of Known Bugs and Issues",
+      "online": 0,
+      "offline": 51,
+      "hardest": null,
       "freeRoam": null,
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "No, can do everything on easy.",
+      "coverage": 0.56
     }
   },
   "friday the 13th the game": {},
@@ -1554,7 +1587,6 @@
   "downwell": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Downwell/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -1562,7 +1594,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Downwell/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "fat princess piece of cake": {},
@@ -1571,24 +1605,24 @@
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/death-stranding-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:52:41.052Z",
+      "fetchedAt": "2026-10-12T14:16:17.149Z",
       "difficulty": 3,
       "difficultyRaw": "3/10",
       "hoursMin": 70,
       "hoursMax": 130,
       "timeRaw": "70-130 hours (excluding idle time)",
-      "offline": 57,
-      "online": 6,
+      "playthroughs": 1,
+      "playthroughsRaw": "1",
       "missables": 0,
       "missablesRaw": "0 (No Missables)",
       "glitched": 0,
       "glitchedRaw": "0",
-      "difficultyAffects": true,
-      "difficultyAffectsRaw": "Yes, must play Premium Deliveries on hard difficulty for trophy \"Growth of a Legend\" (you can play everything else including story on Very Easy).",
-      "playthroughs": 1,
-      "playthroughsRaw": "1",
-      "freeRoam": "Yes, Free-Roam after Story. All areas, deliveries, collectibles, trophies remain accessible after story.",
-      "serverShutdownMentioned": false
+      "online": 6,
+      "offline": 57,
+      "hardest": null,
+      "freeRoam": "Yes, Free-Roam after Story. All areas, deliveries, collectibles, trophies remain accessible after story.",
+      "difficultyAffectsRaw": "Yes, must play Premium Deliveries on hard difficulty for trophy “Growth of a Legend” (you can play everything else including story on Very Easy).",
+      "coverage": 0.97
     }
   },
   "wipeout omega collection": {},
@@ -1596,7 +1630,6 @@
   "dauntless": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Dauntless/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 150,
       "hoursMax": 200,
@@ -1604,7 +1637,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Dauntless/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "surgeon simulator experience reality": {},
@@ -1616,7 +1651,6 @@
   "20xx": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/20XX/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -1624,13 +1658,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/20XX/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "apex legends": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Apex-Legends/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 60,
       "hoursMax": 80,
@@ -1638,7 +1673,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Apex-Legends/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "resident evil 2": {
@@ -1668,7 +1705,6 @@
   "sparkle unleashed": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Sparkle-Unleashed/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1676,13 +1712,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Sparkle-Unleashed/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "chasm": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Chasm/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -1690,7 +1727,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Chasm/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "borderlands 2 vr": {},
@@ -1698,7 +1737,6 @@
   "keep talking and nobody explodes": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Keep-Talking-and-Nobody-Explodes/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1706,7 +1744,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Keep-Talking-and-Nobody-Explodes/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "adventure pop": {},
@@ -1761,7 +1801,6 @@
   "arizona sunshine": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Arizona-Sunshine/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1769,14 +1808,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Arizona-Sunshine/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "fruit ninja": {},
   "sparkle 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Sparkle-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 40,
       "hoursMax": 50,
@@ -1784,7 +1824,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Sparkle-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "gravity rush": {},
@@ -1792,7 +1834,6 @@
   "darkest dungeon": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Darkest-Dungeon/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 120,
       "hoursMax": 150,
@@ -1800,7 +1841,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Darkest-Dungeon/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "moss": {},
@@ -1808,7 +1851,6 @@
   "the banner saga": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/The-Banner-Saga/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -1816,31 +1858,33 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/The-Banner-Saga/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "final fantasy xv": {
     "guide": {
       "source": "powerpyx",
       "url": "https://www.powerpyx.com/final-fantasy-xv-trophy-guide-roadmap/",
-      "fetchedAt": "2026-10-08T22:54:04.018Z",
+      "fetchedAt": "2026-10-12T14:16:23.459Z",
       "difficulty": 4,
       "difficultyRaw": "4/10 (when playing on easy difficulty)",
       "hoursMin": 40,
       "hoursMax": 60,
       "timeRaw": "40-60 hours (when playing on easy difficulty)",
-      "offline": 51,
-      "online": null,
-      "missables": 0,
-      "missablesRaw": "0 (can go back everywhere after the story to mop up side quests etc.)",
-      "glitched": 0,
-      "glitchedRaw": "0",
-      "difficultyAffects": true,
-      "difficultyAffectsRaw": "Yes, you have to defeat Ifrit on Normal difficulty (final mission). You can play on easy up to this point and change the difficulty to normal in game options for just this one fight. Then change it back to easy afterwards. It’s perfectly fine to start on easy difficulty, it won’t void any trophies.",
       "playthroughs": 1,
       "playthroughsRaw": "1",
+      "missables": 0,
+      "missablesRaw": "0 (can go back everywhere after the story to mop up side quests etc.)",
+      "glitched": 0,
+      "glitchedRaw": "0",
+      "online": null,
+      "offline": 51,
+      "hardest": null,
       "freeRoam": null,
-      "serverShutdownMentioned": false
+      "difficultyAffectsRaw": "Yes, you have to defeat Ifrit on Normal difficulty (final mission). You can play on easy up to this point and change the difficulty to normal in game options for just this one fight. Then change it back to easy afterwards. It’s perfectly fine to start on easy difficulty, it won’t void any trophies.",
+      "coverage": 0.52
     }
   },
   "iconoclasts": {},
@@ -1849,7 +1893,6 @@
   "trivial pursuit live": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Trivial-Pursuit-Live-Xbox-One/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 8,
       "hoursMax": 10,
@@ -1857,13 +1900,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Trivial-Pursuit-Live-Xbox-One/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "momodora reverie under the moonlight": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Momodora-Reverie-Under-the-Moonlight/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -1871,13 +1915,38 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Momodora-Reverie-Under-the-Moonlight/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "mervils a vr adventure": {},
   "warframe": {},
   "claire extended cut": {},
-  "wolfenstein ii the new colossus": {},
+  "wolfenstein ii the new colossus": {
+    "guide": {
+      "source": "powerpyx",
+      "url": "https://www.powerpyx.com/wolfenstein-2-the-new-colossus-trophy-guide-roadmap/",
+      "fetchedAt": "2026-10-12T14:14:12.439Z",
+      "difficulty": 9,
+      "difficultyRaw": "9,5/10 (because of “Mein Leben” permadeath mode, you have to beat the game in one sitting without dying on highest difficulty, checkpoints/manual saves are disabled)",
+      "hoursMin": 30,
+      "hoursMax": 30,
+      "timeRaw": "30 hours+ (entirely depends on how many attempts you need for “Mein Leben” permadeath mode)",
+      "playthroughs": 2,
+      "playthroughsRaw": "2 (3+ recommended)",
+      "missables": 5,
+      "missablesRaw": "5 (Crippled but Able, I’m Machine Enough, Kick It, Taste of Your own Medicine, Ghost)",
+      "glitched": null,
+      "glitchedRaw": "Ghost",
+      "online": 0,
+      "offline": 51,
+      "hardest": null,
+      "freeRoam": null,
+      "difficultyAffectsRaw": "Yes, must beat the game on “Mein Leben” difficulty (permadeath mode, if you die you have to restart from the beginning, has to be done in one sitting because checkpoints/manual saves are disabled).",
+      "coverage": 0.63
+    }
+  },
   "playstation vr worlds": {},
   "thats you": {},
   "skyrim vr": {},
@@ -1887,7 +1956,6 @@
   "the escapists": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/The-Escapists/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 20,
       "hoursMax": 25,
@@ -1895,7 +1963,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/The-Escapists/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "destiny 2": {
@@ -2006,7 +2076,6 @@
   "battleborn": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Battleborn/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 150,
       "hoursMax": 200,
@@ -2014,7 +2083,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Battleborn/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "alienation": {},
@@ -2023,7 +2094,6 @@
   "wonder boy the dragons trap": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Wonder-Boy-The-Dragons-Trap/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2031,7 +2101,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Wonder-Boy-The-Dragons-Trap/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "rocket league": {},
@@ -2067,7 +2139,6 @@
   "super dungeon bros.": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Super-Dungeon-Bros/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 30,
       "hoursMax": 35,
@@ -2075,14 +2146,15 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Super-Dungeon-Bros/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "windlands": {},
   "exiles end": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Exiles-End/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 6,
       "hoursMax": 8,
@@ -2090,7 +2162,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Exiles-End/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "eve valkyrie warzone": {},
@@ -2134,7 +2208,6 @@
   "table top racing world tour": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Table-Top-Racing-World-Tour/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2142,13 +2215,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Table-Top-Racing-World-Tour/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "bayonetta": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/BAYONETTA/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 25,
       "hoursMax": 30,
@@ -2156,7 +2230,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/BAYONETTA/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "fallout 3": {},
@@ -2179,7 +2255,6 @@
   "alien isolation": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Alien-Isolation/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 40,
       "hoursMax": 50,
@@ -2187,7 +2262,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Alien-Isolation/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "middle earth shadow of mordor": {},
@@ -2219,22 +2296,31 @@
   "velocity 2x": {},
   "control resonant": {
     "guide": {
-      "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/CONTROL-Resonant/walkthrough",
-      "fetchedAt": "2026-10-09T17:36:06.285Z",
-      "hoursMin": 35,
-      "hoursMax": 40,
-      "difficulty": null,
-      "playthroughs": null,
-      "missables": null,
-      "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "source": "powerpyx",
+      "url": "https://www.powerpyx.com/control-resonant-trophy-guide-roadmap/",
+      "fetchedAt": "2026-10-12T14:02:41.945Z",
+      "difficulty": 4,
+      "difficultyRaw": "4/10 (without Assist Mode), 3/10 (with Assist Mode = Godmode)",
+      "hoursMin": 40,
+      "hoursMax": 50,
+      "timeRaw": "40-50 hours (without Assist Mode), 30-40 hours (with Assist Mode)",
+      "playthroughs": 1,
+      "playthroughsRaw": "1",
+      "missables": 1,
+      "missablesRaw": "1 semi-missable Be What You Want to Be (game keeps permanent save after each main quest so you can still get it via save reload)",
+      "glitched": 0,
+      "glitchedRaw": "0",
+      "online": 0,
+      "offline": 50,
+      "hardest": "Graffiti Artist (defeating all Resonants and finishing story)",
+      "freeRoam": "Yes on both, there is free-roam after the story, can clean up everything after. The game also keeps a permanent save after each main quest which acts as a sort of “mission select”.",
+      "difficultyAffectsRaw": "No, can do everything with Assist Mode enabled (godmode, 1-hit kills, infinite health etc)",
+      "coverage": 1
     }
   },
   "duskfade": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Duskfade/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": 15,
       "hoursMax": 20,
@@ -2242,13 +2328,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Duskfade/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "mewgenics": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Mewgenics/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2256,13 +2343,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Mewgenics/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "five nights at freddys help wanted 2": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Five-Nights-at-Freddys-Help-Wanted-2/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2270,13 +2358,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Five-Nights-at-Freddys-Help-Wanted-2/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "vampire survivors": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Vampire-Survivors/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2284,13 +2373,14 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Vampire-Survivors/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   },
   "beyond words": {
     "guide": {
       "source": "trueachievements",
-      "url": "https://www.trueachievements.com/game/Beyond-Words/walkthrough",
       "fetchedAt": "2026-10-09T17:36:06.286Z",
       "hoursMin": null,
       "hoursMax": null,
@@ -2298,7 +2388,9 @@
       "playthroughs": null,
       "missables": null,
       "online": null,
-      "crossReferenced": "Xbox achievement list for the same game"
+      "crossReferenced": "Xbox achievement list for the same game",
+      "urlUnverified": "https://www.trueachievements.com/game/Beyond-Words/walkthrough",
+      "note": "Xbox cross-reference only. The walkthrough url was never verified, so it is not linked."
     }
   }
 }
