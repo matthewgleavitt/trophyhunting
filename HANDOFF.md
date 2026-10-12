@@ -189,3 +189,43 @@ is why this is one game at a time rather than a bulk scrape.
 - Genres only exist for games that were in the original PocketPSN export.
 - Platform-stack duplicates (same game on PS4 + PS5) are merged by name; a handful of
   collisions get suffixed. `tools/last-sync-report.json` lists them after every sync.
+
+## Guide sources — the rule
+
+**Never store a guide url that has not been verified to cover the game.** Title-based url
+construction has produced real shipped bugs: a TrueAchievements url for "Fruit Ninja VR"
+pointed at Marvel Rivals, and "CONTROL Resonant" would have been handed the original
+Control guide, which shares 4 of its 50 trophy names.
+
+`tools/fetch-powerpyx.mjs` accepts a page only when the game's own trophy NAMES appear in
+it (>=50% and >=3 names, or >=90% for lists of 4 or fewer). A 70-game sweep rejected 31
+wrong-game matches. Coverage is stored, so the app can tell "nobody wrote a guide" apart
+from "the guide covers the base game but not this DLC trophy".
+
+| Source | Reachable by plain HTTP | Role |
+|---|---|---|
+| PowerPyx | yes | guide facts **and** per-trophy text. Discovery via their sitemap. |
+| PSNProfiles | browser only; ~2 guide pages per session | per-trophy text, on demand |
+| TrueAchievements | **no — 403** | facts only, **never linked** |
+
+PowerPyx's own site search is useless: it returns `search-no-results` even for games they
+cover, and the only links on that page come from the "recent guides" sidebar, so scoring
+them gave every game the same wrong answer. Use `sitemap_index.xml`; it is cached for 7
+days in `tools/.powerpyx-slugs.json`. Not in the sitemap means no guide exists.
+
+## You should not be running commands to play a game
+
+`tools/refresh.sh` is the whole pipeline and launchd runs it daily: sync, fetch a few new
+guides, merge, rebuild, push the public site, deploy the private one. `tools/play.sh`
+("npm run play -- <game>") is the impatient path for a single game.
+
+Install the schedule once:
+
+    cp tools/com.labyrinthworm.trophyrefresh.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.labyrinthworm.trophyrefresh.plist
+
+`deploy-private.sh` verifies Cloudflare Access is live by checking the deployed site for
+the redirect to `cloudflareaccess.com`, and refuses to upload guide text without it. It
+used to ask `[y/N]`, which both blocked the scheduled job and trusted an answer over the
+truth. Gitignored and never published: `data/guides-full.json`, `data/powerpyx-raw.json`,
+`data/psnp-guides-raw.json`.
