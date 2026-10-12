@@ -140,6 +140,34 @@ localStorage is durable, but `psnpgDownload()` is the only thing that actually g
 you keep the work. PSNProfiles serves guide pages slowly (about a minute each), so a full
 196-page run takes hours. Partial results are fine and merge cleanly.
 
+## Two sites
+
+| | public | private |
+|---|---|---|
+| URL | https://matthewgleavitt.github.io/trophyhunting/ | https://trophy-tracker-66s.pages.dev |
+| Gate | none | Cloudflare Access, email PIN to matthew.g.leavitt@gmail.com |
+| Guide text | **no** | yes |
+| Deploy | `git push origin main` | `./tools/deploy-private.sh` |
+
+The public site carries facts only: difficulty, hours, playthroughs, per-trophy
+Missable/Online flags, rarity and deep links. Those are facts and links, not someone's
+writing. The private site adds `data/guides-full.json` — the guide authors' written
+solutions, kept for personal reference.
+
+### Adding a guide
+
+```bash
+npm run guide -- "shinobi art of vengeance"   # one game; PSNProfiles blocks bulk
+node tools/merge-guides.mjs                   # facts -> public, text -> private
+node tools/build-slim.mjs && node tools/stamp-assets.mjs
+./tools/deploy-private.sh                     # push it to the phone
+git push origin main                          # public site gets the facts
+```
+
+`npm run guide -- --list` shows what you have. If a fetch returns 403, PSNProfiles is
+rate-limiting — wait a few minutes. It allows roughly two guide pages per session, which
+is why this is one game at a time rather than a bulk scrape.
+
 ## Known gaps / next steps
 
 - **Most hour estimates are still rough guesses** (dashed chip with a `?`) until the guide
