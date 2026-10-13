@@ -17,6 +17,7 @@ node_modules/
 # generated / local
 tools/.guide-cache/
 tools/.powerpyx-slugs.json
+tools/.powerpyx-misses.json
 tools/.guide-enrich.log
 tools/last-sync-report.json
 *.bak

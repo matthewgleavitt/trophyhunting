@@ -106,6 +106,7 @@
       guide: pickGuide(enr && enr.guide, raw.psnpGuideFacts),
       platDead, deadReason: (ovr && ovr.deadReason) || (enr && enr.deadReason) || '',
       serverNote: raw.serverNote || null, communityFlags: raw.communityFlags || null, platinumRarity: raw.platinumRarity ?? null, psnpHref: raw.psnpHref || null, psnpGuide: raw.psnpGuide || null, psnpGuideAnchors: raw.psnpGuideAnchors || null,
+      ppGuideAnchors: raw.ppGuideAnchors || null, ppGuideCoverage: raw.ppGuideCoverage ?? null, ppTrophyType: raw.ppTrophyType || null,
       trophyMeta, gameTags: (enr && Array.isArray(enr.gameTags)) ? enr.gameTags : null,
       legacyOnly: !!raw.legacyOnly,
     };
@@ -598,7 +599,7 @@
         const cov = g.ppGuideCoverage;
         const partial = anyGuide && cov != null && cov < 0.95;
         html += `<div class="guide-section"><div class="guide-section-title">${partial ? 'Not in the guide' : 'No written guide'}</div><div class="guide-tip">${partial
-          ? `The guide for ${esc(g.title)} covers about ${Math.round(cov * 100)}% of this trophy list and does not include <strong>${esc(t.name)}</strong> \u2014 normally because it came with DLC or a later update. <a href="${esc(anyGuide)}" target="_blank" rel="noopener">Open the guide</a> if you want the base-game route.`
+          ? `The guide for ${esc(g.title)} covers about ${Math.round(cov * 100)}% of this trophy list and does not include <strong>${esc(t.name)}</strong>, normally because it came with DLC or a later update. <a href="${esc(anyGuide)}" target="_blank" rel="noopener">Open the guide</a> if you want the base-game route.`
           : anyGuide
           ? `No guide covers this trophy individually, but the game&rsquo;s guide may help: <a href="${esc(anyGuide)}" target="_blank" rel="noopener">open it</a>.`
           : `Nobody has written a trophy guide for ${esc(g.title)} \u2014 usually because it is new or niche. The description and rarity above are genuinely all the information that exists.`}</div></div>`;

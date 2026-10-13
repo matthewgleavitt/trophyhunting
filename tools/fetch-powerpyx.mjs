@@ -107,8 +107,13 @@ async function slugIndex() {
     if (x.html) for (const u of [...x.html.matchAll(/<loc>([^<]+)<\/loc>/g)].map((a) => a[1])) urls.add(u);
     await sleep(400);
   }
-  // trophy guides only: `-achievement-guide` posts are Xbox-only games with no PS trophy list
-  const guides = [...urls].filter((u) => /-trophy-guide(?:-roadmap)?\/?$/.test(u));
+  /* PowerPyx uses TWO url schemes and the older one is easy to miss:
+   *   modern  https://www.powerpyx.com/<slug>-trophy-guide-roadmap/
+   *   legacy  https://www.powerpyx.com/guides/<slug>-trophy-guide.html   (e.g. Fallout 4)
+   * Matching only the modern one dropped every pre-2017 guide.
+   * `-achievement-guide` posts are Xbox-only games with no PS trophy list, so they stay out. */
+  const guides = [...urls].filter((u) => /^https:\/\/www\.powerpyx\.com\/[a-z0-9-]+-trophy-guide(?:-roadmap)?\/?$/i.test(u)
+    || /^https:\/\/www\.powerpyx\.com\/guides?\/[a-z0-9-]+-trophy-guide\.html$/i.test(u));
   writeJson(SLUG_CACHE, { fetchedAt: new Date().toISOString(), guides });
   console.log(`${guides.length} guides`);
   return guides;
@@ -116,15 +121,18 @@ async function slugIndex() {
 
 /** Rank indexed guide URLs against a title by word overlap. Cheap, local, no extra requests. */
 const STOP = new Set(['the', 'of', 'and', 'a', 'an', 'to', 'in', 'on', 'at', 'for', 'vs', 'with', 'my', 'is', 'it', 'edition', 'remastered', 'remaster', 'hd', 'ps4', 'ps5', 'vr', 'deluxe', 'ultimate', 'complete', 'definitive', 'goty', 'collection', 'bundle', 'anniversary', 'enhanced']);
+const NUMERIC = /^(?:\d+|i{1,3}|iv|v|vi{1,3}|ix|x{1,3}|xi{1,3}|xiv|xv|xvi{1,3}|xix|xx)$/i;
+const tokens = (t) => slugify(t).split('-').filter((w) => w && !STOP.has(w) && (w.length > 1 || /\d/.test(w)));
 function rankIndexed(title, guides) {
-  const want = slugify(title).split('-').filter((w) => w.length > 1 && !STOP.has(w));
+  const want = tokens(title);
   if (!want.length) return [];
   const wantSet = new Set(want);
+  const wantNums = new Set(want.filter((w) => NUMERIC.test(w)));
   const scored = [];
   for (const u of guides) {
-    const slug = (u.match(/powerpyx\.com\/(.+?)-trophy-guide/) || [])[1];
+    const slug = (u.match(/powerpyx\.com\/(?:guides?\/)?(.+?)-trophy-guide/) || [])[1];
     if (!slug) continue;
-    const words = slug.split('-').filter((w) => w.length > 1 && !STOP.has(w));
+    const words = tokens(slug);
     if (!words.length) continue;
     let shared = 0;
     for (const w of new Set(words)) if (wantSet.has(w)) shared++;
@@ -132,7 +140,19 @@ function rankIndexed(title, guides) {
     // reward covering the title, penalise slugs that pile on extra words
     const cover = shared / wantSet.size;
     const precision = shared / new Set(words).size;
-    scored.push({ u, score: cover * 0.7 + precision * 0.3 });
+    let score = cover * 0.7 + precision * 0.3;
+    /* A sequel number is the most load-bearing token in a game title: "Resident Evil 4" and
+     * "Resident Evil 3" differ by one character and are completely different trophy lists.
+     * So a conflicting number is close to disqualifying, and a matching one is a real signal. */
+    const slugNums = new Set(words.filter((w) => NUMERIC.test(w)));
+    if (wantNums.size || slugNums.size) {
+      const agree = [...wantNums].some((n) => slugNums.has(n));
+      const conflict = wantNums.size && slugNums.size && !agree;
+      if (conflict) score *= 0.25;
+      else if (agree) score = Math.min(1, score + 0.15);
+      else score *= 0.8;   // one side numbered, the other not: weaker, not fatal
+    }
+    scored.push({ u, score });
   }
   scored.sort((a, b) => b.score - a.score);
   return scored.filter((x) => x.score >= 0.34).slice(0, 4).map((x) => x.u);
@@ -216,6 +236,19 @@ const progress = readJson(path.join(DATA, 'progress.json'), {});
 const enriched = readJson(path.join(DATA, 'enriched.json'), {});
 const raw = readJson(RAW_PATH, {});
 
+/* Misses are remembered. Without this, every scheduled run re-probes the same games that
+ * PowerPyx does not cover, burning requests on a guaranteed negative. Re-checked after 45
+ * days, because they do publish guides for older games occasionally. */
+const MISS_PATH = path.join(ROOT, 'tools', '.powerpyx-misses.json');
+const misses = readJson(MISS_PATH, {});
+const MISS_TTL_MS = 45 * 24 * 60 * 60 * 1000;
+const skipUntil = (k) => {
+  const m = misses[k];
+  if (!m || flag('--game') || flag('--retry-misses')) return false;
+  return (Date.now() - Date.parse(m.at)) < MISS_TTL_MS;
+};
+const noteMiss = (k, why) => { misses[k] = { at: new Date().toISOString(), why }; writeJson(MISS_PATH, misses); };
+
 const trophyNames = (g) => [...(g.unearned || []).map((t) => t && t.name), ...(g.earned || []).map((t) => (t && t.name) || (typeof t === 'string' ? t : null))].filter(Boolean);
 
 let keys = [];
@@ -229,11 +262,25 @@ if (opt('--game', null)) {
     return e && e.source === 'trueachievements' && !raw[k] && trophyNames(progress[k]).length;
   });
 } else if (flag('--auto')) {
+  /* Priority is "what will you actually play next", not "what has the most trophies left".
+   * Sorting by trophy count fed the first scheduled run Elder Scrolls Online, Gems of War
+   * and Overwatch: live-service games with no guide and no chance of being finished.
+   * The app's own scoring model already ranks playability, so reuse it. */
   const n = Number(opt('--auto', 20)) || 20;
+  let scorer = null;
+  try { scorer = (await import(new URL('../js/scoring.js', import.meta.url))).default || null; } catch { scorer = null; }
+  if (scorer && !scorer.assess) scorer = null;
+  const asOf = new Date();
+  const score = (g) => {
+    if (!scorer) return (g.unearned || []).length;
+    try { return scorer.assess({ ...g, earnedCount: (g.earned || []).length }, { dataAsOf: asOf }).score || 0; } catch { return 0; }
+  };
   keys = Object.keys(progress)
-    .filter((k) => (progress[k].unearned || []).length && !raw[k] && trophyNames(progress[k]).length)
-    .sort((a, b) => (progress[b].unearned || []).length - (progress[a].unearned || []).length)
-    .slice(0, n);
+    .filter((k) => (progress[k].unearned || []).length && !raw[k] && trophyNames(progress[k]).length && !skipUntil(k))
+    .map((k) => ({ k, s: score(progress[k]) }))
+    .sort((a, b) => b.s - a.s)
+    .slice(0, n)
+    .map((x) => x.k);
 } else {
   console.error('usage: --game "<title>" | --auto <n> | --retry-ta');
   process.exit(2);
@@ -268,8 +315,8 @@ for (const key of keys) {
     }
   }
   if (!accepted) {
-    if (best) { console.log(`✗ ${title} — found a guide but it covers only ${Math.round(best.v.ratio * 100)}% of the trophy names (${best.url}) — not stored`); rejected++; }
-    else { console.log(`· ${title} — no PowerPyx guide`); missing++; }
+    if (best) { console.log(`✗ ${title} — found a guide but it covers only ${Math.round(best.v.ratio * 100)}% of the trophy names (${best.url}) — not stored`); rejected++; noteMiss(key, `best match covered ${Math.round(best.v.ratio * 100)}%`); }
+    else { console.log(`· ${title} — no PowerPyx guide`); missing++; noteMiss(key, 'not in the sitemap index'); }
     continue;
   }
   const trophies = extractTrophies(accepted.html);
@@ -279,6 +326,7 @@ for (const key of keys) {
     coverage: accepted.v, header: parseHeader(accepted.html), trophies,
   };
   writeJson(RAW_PATH, raw);
+  if (misses[key]) { delete misses[key]; writeJson(MISS_PATH, misses); }
   ok++;
   console.log(`✓ ${title} — ${Object.keys(trophies).length} trophies, ${withText} with written advice (${Math.round(accepted.v.ratio * 100)}% name match)`);
 }
