@@ -710,7 +710,7 @@
       "playthroughs": 2,
       "playthroughsRaw": "2 with partial replays for endings",
       "missables": 20,
-      "missablesRaw": "20 (practically all non-automatic story trophies are missable, once you leave an area you can’t backtrack, there is no…",
+      "missablesRaw": "20 (practically all non-automatic story trophies are missable, once you leave an area you can’t backtrack, there is no Chapter Select or Free Roam after story)",
       "glitched": 3,
       "glitchedRaw": "3 – Merciless, Faster Than Fog and Party Like It’s 2001",
       "online": 0,
@@ -1621,7 +1621,7 @@
       "offline": 57,
       "hardest": null,
       "freeRoam": "Yes, Free-Roam after Story. All areas, deliveries, collectibles, trophies remain accessible after story.",
-      "difficultyAffectsRaw": "Yes, must play Premium Deliveries on hard difficulty for trophy “Growth of a Legend”",
+      "difficultyAffectsRaw": "Yes, must play Premium Deliveries on hard difficulty for trophy “Growth of a Legend” (you can play everything else including story on Very Easy).",
       "coverage": 0.97
     }
   },
@@ -1883,7 +1883,7 @@
       "offline": 51,
       "hardest": null,
       "freeRoam": null,
-      "difficultyAffectsRaw": "Yes, you have to defeat Ifrit on Normal difficulty (final mission)",
+      "difficultyAffectsRaw": "Yes, you have to defeat Ifrit on Normal difficulty (final mission). You can play on easy up to this point and change the difficulty to normal in game options for just this one fight. Then change it back to easy afterwards. It’s perfectly fine to start on easy difficulty, it won’t void any trophies.",
       "coverage": 0.52
     }
   },
@@ -1929,7 +1929,7 @@
       "url": "https://www.powerpyx.com/wolfenstein-2-the-new-colossus-trophy-guide-roadmap/",
       "fetchedAt": "2026-10-12T14:14:12.439Z",
       "difficulty": 9,
-      "difficultyRaw": "9,5/10 (because of “Mein Leben” permadeath mode, you have to beat the game in one sitting without dying on highest…",
+      "difficultyRaw": "9,5/10 (because of “Mein Leben” permadeath mode, you have to beat the game in one sitting without dying on highest difficulty, checkpoints/manual saves are disabled)",
       "hoursMin": 30,
       "hoursMax": 30,
       "timeRaw": "30 hours+ (entirely depends on how many attempts you need for “Mein Leben” permadeath mode)",
@@ -1943,7 +1943,7 @@
       "offline": 51,
       "hardest": null,
       "freeRoam": null,
-      "difficultyAffectsRaw": "Yes, must beat the game on “Mein Leben” difficulty",
+      "difficultyAffectsRaw": "Yes, must beat the game on “Mein Leben” difficulty (permadeath mode, if you die you have to restart from the beginning, has to be done in one sitting because checkpoints/manual saves are disabled).",
       "coverage": 0.63
     }
   },
@@ -2307,13 +2307,13 @@
       "playthroughs": 1,
       "playthroughsRaw": "1",
       "missables": 1,
-      "missablesRaw": "1 semi-missable Be What You Want to Be",
+      "missablesRaw": "1 semi-missable Be What You Want to Be (game keeps permanent save after each main quest so you can still get it via save reload)",
       "glitched": 0,
       "glitchedRaw": "0",
       "online": 0,
       "offline": 50,
       "hardest": "Graffiti Artist (defeating all Resonants and finishing story)",
-      "freeRoam": "Yes on both, there is free-roam after the story, can clean up everything after",
+      "freeRoam": "Yes on both, there is free-roam after the story, can clean up everything after. The game also keeps a permanent save after each main quest which acts as a sort of “mission select”.",
       "difficultyAffectsRaw": "No, can do everything with Assist Mode enabled (godmode, 1-hit kills, infinite health etc)",
       "coverage": 1
     }
