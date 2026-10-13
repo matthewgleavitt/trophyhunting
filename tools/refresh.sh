@@ -34,7 +34,11 @@ GUIDES_PER_RUN="${GUIDES_PER_RUN:-6}"
   if ! git diff --quiet -- data index.html; then
     git add data index.html
     git commit -q -m "data: sync $(date +%Y-%m-%d)"
-    git push -q origin main && echo "pushed public"
+    if [ "${SKIP_PUSH:-0}" = "1" ]; then
+      echo "committed; push skipped (SKIP_PUSH=1)"
+    else
+      git push -q origin main && echo "pushed public"
+    fi
   else
     echo "no public data changes"
   fi
