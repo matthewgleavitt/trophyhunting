@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-09T17:01:43.541Z",
+  "capturedAt": "2026-10-13T18:55:29.092Z",
   "source": "PSN getPurchasedGames",
   "count": 942,
   "titles": [
@@ -40,7 +40,7 @@
       "titleId": "PPSA37039_00",
       "preorder": false,
       "active": true,
-      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA37039_00/app/info/3/fi_f0cba858df64f0ceecebd62d5fc07624f053eb7080d640263f9480e640904710/icon0.png",
+      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA37039_00/app/info/5/fi_bd036ebfd6da467a86dbfab8f1e6dcf7fee54fa387797696b5187d2234290cbc/icon0.png",
       "nonGame": true
     },
     {
@@ -90,7 +90,7 @@
       "titleId": "PPSA30703_00",
       "preorder": false,
       "active": true,
-      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA30703_00/app/info/8/fi_3c78c5bdfcfe07ee54d4d1d8701ed1f4f9334f0af1bf239ef24afd686e5d20ca/icon0.png",
+      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA30703_00/app/info/10/fi_ccff36d7d25dfbbac70aa4f8c6addf69b6a164f271855ee8463757c29a7e2671/icon0.png",
       "nonGame": false
     },
     {
@@ -110,7 +110,7 @@
       "titleId": "PPSA38420_00",
       "preorder": false,
       "active": true,
-      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA38420_00/app/info/5/fi_ab9a56ca9ce5df5d075f43a0fc8c2a6de1aac33139cd1c02d2cb9587f6d89b05/icon0.png",
+      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA38420_00/app/info/8/fi_d63d8b943040acead6137bc12f51defbe95ef092f8643ea509d3c90b80bbbddf/icon0.png",
       "nonGame": false
     },
     {
@@ -220,7 +220,7 @@
       "titleId": "PPSA09253_00",
       "preorder": false,
       "active": true,
-      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA09253_00/app/info/54/fi_57061c44a4706158fcb4ade8b1bff7f7c77cc5763fd5339ef18810336760e845/icon0.png",
+      "image": "https://image.api.playstation.com/sgst/prod/00/PPSA09253_00/app/info/58/fi_1604dca25c5fccbea046cb1ee98aa7cf3bccc255cb944c1bb7198e045fe2e718/icon0.png",
       "nonGame": false
     },
     {

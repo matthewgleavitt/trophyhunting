@@ -16,13 +16,13 @@
       "platinum": 1
     },
     "earnedCounts": {
-      "bronze": 24,
-      "silver": 1,
+      "bronze": 32,
+      "silver": 9,
       "gold": 0,
       "platinum": 0
     },
-    "progress": 37,
-    "lastPlayed": "2026-10-09T00:02:02Z",
+    "progress": 71,
+    "lastPlayed": "2026-10-13T02:44:38Z",
     "url": null,
     "timeNormal": null,
     "timeHastily": null,
@@ -34,6 +34,39 @@
     "platinumRarity": 23.93,
     "earned": [
       {
+        "id": 3,
+        "name": "Stop it at the Source",
+        "desc": "Sever all the Hedron Links.",
+        "type": "bronze",
+        "hidden": true,
+        "group": "default",
+        "date": "2026-10-11T20:32:29Z",
+        "rarity": 29.2,
+        "tier": "rare"
+      },
+      {
+        "id": 4,
+        "name": "The First Link",
+        "desc": "Sever the first Pattern Link.",
+        "type": "bronze",
+        "hidden": true,
+        "group": "default",
+        "date": "2026-10-11T13:53:19Z",
+        "rarity": 39,
+        "tier": "rare"
+      },
+      {
+        "id": 5,
+        "name": "Sibling Reunion",
+        "desc": "Complete all Fault Rituals.",
+        "type": "bronze",
+        "hidden": true,
+        "group": "default",
+        "date": "2026-10-11T13:33:47Z",
+        "rarity": 40.1,
+        "tier": "rare"
+      },
+      {
         "id": 6,
         "name": "Enemy of My Enemy",
         "desc": "Help with the CFD.",
@@ -41,8 +74,8 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-08T04:39:55Z",
-        "rarity": 45.6,
-        "tier": "rare"
+        "rarity": 50.3,
+        "tier": "common"
       },
       {
         "id": 7,
@@ -52,8 +85,19 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T20:21:28Z",
-        "rarity": 64.1,
+        "rarity": 66.9,
         "tier": "common"
+      },
+      {
+        "id": 8,
+        "name": "Honorable Discharge",
+        "desc": "Kill the Resonant in the Unknown.",
+        "type": "bronze",
+        "hidden": true,
+        "group": "default",
+        "date": "2026-10-11T20:14:47Z",
+        "rarity": 27.2,
+        "tier": "rare"
       },
       {
         "id": 9,
@@ -63,7 +107,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-09T00:02:03Z",
-        "rarity": 34.9,
+        "rarity": 39.8,
         "tier": "rare"
       },
       {
@@ -74,7 +118,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-08T22:39:23Z",
-        "rarity": 43.3,
+        "rarity": 47.5,
         "tier": "rare"
       },
       {
@@ -85,7 +129,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T16:55:10Z",
-        "rarity": 64.9,
+        "rarity": 67.4,
         "tier": "common"
       },
       {
@@ -96,7 +140,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-08T03:27:09Z",
-        "rarity": 61.4,
+        "rarity": 64.4,
         "tier": "common"
       },
       {
@@ -107,8 +151,30 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T02:25:32Z",
-        "rarity": 91.4,
+        "rarity": 91.6,
         "tier": "common"
+      },
+      {
+        "id": 14,
+        "name": "Astral Potency",
+        "desc": "Reach Aberrant Strength 100.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T16:38:14Z",
+        "rarity": 28.3,
+        "tier": "rare"
+      },
+      {
+        "id": 15,
+        "name": "Versatile Expert",
+        "desc": "Unlock 30 Talents.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-11T20:14:11Z",
+        "rarity": 37.7,
+        "tier": "rare"
       },
       {
         "id": 16,
@@ -118,8 +184,52 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-08T14:03:52Z",
-        "rarity": 52.5,
+        "rarity": 55.7,
         "tier": "common"
+      },
+      {
+        "id": 17,
+        "name": "Zone Warden",
+        "desc": "Unlock 40 Zone Upgrades.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-11T19:43:46Z",
+        "rarity": 38.7,
+        "tier": "rare"
+      },
+      {
+        "id": 18,
+        "name": "Astral",
+        "desc": "Obtain 4 Power Upgrades.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T16:11:55Z",
+        "rarity": 34.2,
+        "tier": "rare"
+      },
+      {
+        "id": 21,
+        "name": "Diligent Consultant",
+        "desc": "Complete 20 FBC Tasks.",
+        "type": "bronze",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T20:36:45Z",
+        "rarity": 9.9,
+        "tier": "very rare"
+      },
+      {
+        "id": 22,
+        "name": "Form Over Function",
+        "desc": "Obtain 12 outfit items.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T16:11:55Z",
+        "rarity": 26.8,
+        "tier": "rare"
       },
       {
         "id": 24,
@@ -129,7 +239,62 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T23:51:44Z",
-        "rarity": 18.5,
+        "rarity": 19.8,
+        "tier": "rare"
+      },
+      {
+        "id": 26,
+        "name": "Budding Analyst",
+        "desc": "Help Pope finish her research.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T16:36:48Z",
+        "rarity": 25.4,
+        "tier": "rare"
+      },
+      {
+        "id": 28,
+        "name": "Dog's Best Friend",
+        "desc": "Gain a furry friend.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T21:30:40Z",
+        "rarity": 14.9,
+        "tier": "very rare"
+      },
+      {
+        "id": 30,
+        "name": "Budding Mycologist",
+        "desc": "Deal with the major Mold Incidents in Manhattan.",
+        "type": "silver",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-13T01:24:04Z",
+        "rarity": 24,
+        "tier": "rare"
+      },
+      {
+        "id": 31,
+        "name": "Astral Adept",
+        "desc": "Max-out any Aberrant Form.",
+        "type": "bronze",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-11T21:24:14Z",
+        "rarity": 30.3,
+        "tier": "rare"
+      },
+      {
+        "id": 32,
+        "name": "Field Control",
+        "desc": "Reach level 5 in every Zone.",
+        "type": "bronze",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-11T19:43:46Z",
+        "rarity": 28.7,
         "tier": "rare"
       },
       {
@@ -140,8 +305,19 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-09T00:01:12Z",
-        "rarity": 51.8,
+        "rarity": 54.8,
         "tier": "common"
+      },
+      {
+        "id": 34,
+        "name": "Psychic Domination",
+        "desc": "Command a Breaker enemy.",
+        "type": "bronze",
+        "hidden": false,
+        "group": "default",
+        "date": "2026-10-12T17:23:25Z",
+        "rarity": 12,
+        "tier": "very rare"
       },
       {
         "id": 35,
@@ -151,7 +327,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T23:59:56Z",
-        "rarity": 7.7,
+        "rarity": 9.1,
         "tier": "very rare"
       },
       {
@@ -162,7 +338,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-08T00:01:02Z",
-        "rarity": 73.1,
+        "rarity": 74.9,
         "tier": "common"
       },
       {
@@ -173,7 +349,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-08T04:54:44Z",
-        "rarity": 32.9,
+        "rarity": 35.3,
         "tier": "rare"
       },
       {
@@ -184,7 +360,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-08T04:47:43Z",
-        "rarity": 53.7,
+        "rarity": 56,
         "tier": "common"
       },
       {
@@ -195,7 +371,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T02:40:42Z",
-        "rarity": 57.2,
+        "rarity": 58.3,
         "tier": "common"
       },
       {
@@ -206,7 +382,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T03:32:56Z",
-        "rarity": 82,
+        "rarity": 82.8,
         "tier": "common"
       },
       {
@@ -217,7 +393,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T23:23:37Z",
-        "rarity": 16.2,
+        "rarity": 18.3,
         "tier": "rare"
       },
       {
@@ -228,7 +404,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T17:11:14Z",
-        "rarity": 78.6,
+        "rarity": 79.7,
         "tier": "common"
       },
       {
@@ -239,7 +415,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T03:33:48Z",
-        "rarity": 84.5,
+        "rarity": 85.1,
         "tier": "common"
       },
       {
@@ -250,7 +426,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T02:56:28Z",
-        "rarity": 81.6,
+        "rarity": 82.5,
         "tier": "common"
       },
       {
@@ -261,7 +437,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-09T00:00:34Z",
-        "rarity": 66,
+        "rarity": 68.2,
         "tier": "common"
       },
       {
@@ -272,7 +448,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T02:46:57Z",
-        "rarity": 86.6,
+        "rarity": 87,
         "tier": "common"
       },
       {
@@ -283,7 +459,7 @@
         "hidden": false,
         "group": "default",
         "date": "2026-10-07T02:46:22Z",
-        "rarity": 89.1,
+        "rarity": 89.4,
         "tier": "common"
       },
       {
@@ -294,7 +470,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T02:21:28Z",
-        "rarity": 91.7,
+        "rarity": 91.8,
         "tier": "common"
       },
       {
@@ -305,7 +481,7 @@
         "hidden": true,
         "group": "default",
         "date": "2026-10-07T01:48:09Z",
-        "rarity": 96.8,
+        "rarity": 96.7,
         "tier": "common"
       }
     ],
@@ -317,8 +493,8 @@
         "type": "platinum",
         "hidden": false,
         "group": "default",
-        "rarity": 4.4,
-        "tier": "ultra rare"
+        "rarity": 5.6,
+        "tier": "very rare"
       },
       {
         "id": 1,
@@ -327,7 +503,7 @@
         "type": "gold",
         "hidden": true,
         "group": "default",
-        "rarity": 18.9,
+        "rarity": 23.5,
         "tier": "rare"
       },
       {
@@ -337,87 +513,7 @@
         "type": "silver",
         "hidden": true,
         "group": "default",
-        "rarity": 21.6,
-        "tier": "rare"
-      },
-      {
-        "id": 3,
-        "name": "Stop it at the Source",
-        "desc": "Sever all the Hedron Links.",
-        "type": "bronze",
-        "hidden": true,
-        "group": "default",
-        "rarity": 24.1,
-        "tier": "rare"
-      },
-      {
-        "id": 4,
-        "name": "The First Link",
-        "desc": "Sever the first Pattern Link.",
-        "type": "bronze",
-        "hidden": true,
-        "group": "default",
-        "rarity": 33.7,
-        "tier": "rare"
-      },
-      {
-        "id": 5,
-        "name": "Sibling Reunion",
-        "desc": "Complete all Fault Rituals.",
-        "type": "bronze",
-        "hidden": true,
-        "group": "default",
-        "rarity": 34.8,
-        "tier": "rare"
-      },
-      {
-        "id": 8,
-        "name": "Honorable Discharge",
-        "desc": "Kill the Resonant in the Unknown.",
-        "type": "bronze",
-        "hidden": true,
-        "group": "default",
-        "rarity": 22.5,
-        "tier": "rare"
-      },
-      {
-        "id": 14,
-        "name": "Astral Potency",
-        "desc": "Reach Aberrant Strength 100.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 24.2,
-        "tier": "rare"
-      },
-      {
-        "id": 15,
-        "name": "Versatile Expert",
-        "desc": "Unlock 30 Talents.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 32.7,
-        "tier": "rare"
-      },
-      {
-        "id": 17,
-        "name": "Zone Warden",
-        "desc": "Unlock 40 Zone Upgrades.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 33.5,
-        "tier": "rare"
-      },
-      {
-        "id": 18,
-        "name": "Astral",
-        "desc": "Obtain 4 Power Upgrades.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 29.8,
+        "rarity": 26.7,
         "tier": "rare"
       },
       {
@@ -427,7 +523,7 @@
         "type": "silver",
         "hidden": true,
         "group": "default",
-        "rarity": 15.8,
+        "rarity": 19.2,
         "tier": "rare"
       },
       {
@@ -437,28 +533,8 @@
         "type": "silver",
         "hidden": false,
         "group": "default",
-        "rarity": 5,
-        "tier": "ultra rare"
-      },
-      {
-        "id": 21,
-        "name": "Diligent Consultant",
-        "desc": "Complete 20 FBC Tasks.",
-        "type": "bronze",
-        "hidden": false,
-        "group": "default",
-        "rarity": 8.1,
+        "rarity": 6.5,
         "tier": "very rare"
-      },
-      {
-        "id": 22,
-        "name": "Form Over Function",
-        "desc": "Obtain 12 outfit items.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 23,
-        "tier": "rare"
       },
       {
         "id": 23,
@@ -467,7 +543,7 @@
         "type": "silver",
         "hidden": false,
         "group": "default",
-        "rarity": 7.9,
+        "rarity": 9.9,
         "tier": "very rare"
       },
       {
@@ -477,18 +553,8 @@
         "type": "silver",
         "hidden": false,
         "group": "default",
-        "rarity": 11.7,
+        "rarity": 14.4,
         "tier": "very rare"
-      },
-      {
-        "id": 26,
-        "name": "Budding Analyst",
-        "desc": "Help Pope finish her research.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 20.9,
-        "tier": "rare"
       },
       {
         "id": 27,
@@ -497,17 +563,7 @@
         "type": "silver",
         "hidden": false,
         "group": "default",
-        "rarity": 6.7,
-        "tier": "very rare"
-      },
-      {
-        "id": 28,
-        "name": "Dog's Best Friend",
-        "desc": "Gain a furry friend.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 12.1,
+        "rarity": 8.4,
         "tier": "very rare"
       },
       {
@@ -517,118 +573,10 @@
         "type": "silver",
         "hidden": false,
         "group": "default",
-        "rarity": 11.6,
-        "tier": "very rare"
-      },
-      {
-        "id": 30,
-        "name": "Budding Mycologist",
-        "desc": "Deal with the major Mold Incidents in Manhattan.",
-        "type": "silver",
-        "hidden": false,
-        "group": "default",
-        "rarity": 20,
-        "tier": "rare"
-      },
-      {
-        "id": 31,
-        "name": "Astral Adept",
-        "desc": "Max-out any Aberrant Form.",
-        "type": "bronze",
-        "hidden": false,
-        "group": "default",
-        "rarity": 25.3,
-        "tier": "rare"
-      },
-      {
-        "id": 32,
-        "name": "Field Control",
-        "desc": "Reach level 5 in every Zone.",
-        "type": "bronze",
-        "hidden": false,
-        "group": "default",
-        "rarity": 23.8,
-        "tier": "rare"
-      },
-      {
-        "id": 34,
-        "name": "Psychic Domination",
-        "desc": "Command a Breaker enemy.",
-        "type": "bronze",
-        "hidden": false,
-        "group": "default",
-        "rarity": 9.7,
+        "rarity": 14.4,
         "tier": "very rare"
       }
-    ],
-    "ppGuideAnchors": {
-      "Graffiti Artist": "#graffiti-artist",
-      "Repeating, Refracting": "#repeating-refracting",
-      "Honorable Discharge": "#honorable-discharge",
-      "Astral Potency": "#astral-potency",
-      "Versatile Expert": "#versatile-expert",
-      "Personal Development": "#personal-development",
-      "Zone Warden": "#zone-warden",
-      "Astral": "#astral",
-      "Paranatural Artisan": "#paranatural-artisan",
-      "Diligent Consultant": "#diligent-consultant",
-      "Be What You Want to Be": "#be-what-you-want-to-be",
-      "Psychic Domination": "#psychic-domination",
-      "Intense Precision": "#intense-precision"
-    },
-    "ppTrophyType": {
-      "Interdimensional Protector": "platinum",
-      "Graffiti Artist": "gold",
-      "Repeating, Refracting": "silver",
-      "Stop it at the Source": "bronze",
-      "The First Link": "bronze",
-      "Sibling Reunion": "bronze",
-      "Enemy of My Enemy": "bronze",
-      "Rescue Mission": "bronze",
-      "Honorable Discharge": "bronze",
-      "Astral Reconfiguration": "bronze",
-      "Insidious Growth": "bronze",
-      "Thermal Termination": "bronze",
-      "Curtain Fall": "bronze",
-      "Artistic Liberation": "bronze",
-      "Astral Potency": "silver",
-      "Versatile Expert": "silver",
-      "Personal Development": "silver",
-      "Zone Warden": "silver",
-      "Astral": "silver",
-      "Combat Rediness": "silver",
-      "Paranatural Artisan": "silver",
-      "Diligent Consultant": "bronze",
-      "Form Over Function": "silver",
-      "Panopticon Intern": "silver",
-      "Be What You Want to Be": "bronze",
-      "Threshold Researcher": "silver",
-      "Budding Analyst": "silver",
-      "Work-Life Balance": "silver",
-      "Dog’s Best Friend": "silver",
-      "Backroom Espionage": "silver",
-      "Budding Mycologist": "silver",
-      "Astral Adept": "bronze",
-      "Field Control": "bronze",
-      "Paranatural Craftsman": "bronze",
-      "Psychic Domination": "bronze",
-      "Intense Precision": "bronze",
-      "Paranatural Agility": "bronze",
-      "Love to Deep Dive": "bronze",
-      "SHÜM!": "bronze",
-      "Out of Uniform": "bronze",
-      "Up to the Task": "bronze",
-      "FBC Recruit": "bronze",
-      "Core Competency": "bronze",
-      "Field Work": "bronze",
-      "Finalization Protocol": "bronze",
-      "Paranatural Apprentice": "bronze",
-      "Promising Recruit": "bronze",
-      "Astral Construction": "bronze",
-      "Parautilitarian": "bronze",
-      "Assigned to Accept": "bronze"
-    },
-    "ppGuideCoverage": 1
+    ]
   },
   "brotato": {
     "title": "Brotato",
@@ -5190,6 +5138,70 @@
     ],
     "psnpHref": "/trophies/22398-diablo-iv/LabyrinthWorm",
     "psnpGuide": "/guide/17009-diablo-iv-trophy-guide",
+    "psnpGuideFacts": {
+      "source": "psnprofiles",
+      "url": "https://psnprofiles.com/guide/17009-diablo-iv-trophy-guide",
+      "difficulty": 3,
+      "hoursMin": 80,
+      "hoursMax": 15,
+      "playthroughs": 2
+    },
+    "psnpTrophyTags": {
+      "Dedicated Protector": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#6-dedicated-protector"
+      },
+      "Exterminator": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#9-exterminator"
+      },
+      "Legion Killer": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#7-legion-killer"
+      },
+      "Tortured Souls": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#11-tortured-souls"
+      },
+      "Turned": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#10-turned"
+      },
+      "Undead Undone": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#8-undead-undone"
+      },
+      "End of the First Mother": {
+        "tags": [
+          "Difficulty Specific"
+        ],
+        "anchor": "#29-end-of-the-first-mother"
+      },
+      "Living Nightmares": {
+        "tags": [
+          "Difficulty Specific"
+        ],
+        "anchor": "#19-living-nightmares"
+      },
+      "True Perseverance": {
+        "tags": [
+          "Difficulty Specific"
+        ],
+        "anchor": "#27-true-perseverance"
+      }
+    },
     "serverNote": null,
     "platinumRarity": 12.43,
     "earned": [
@@ -5686,82 +5698,7 @@
         "rarity": 1.2,
         "tier": "ultra rare"
       }
-    ],
-    "psnpGuideFacts": {
-      "source": "psnprofiles",
-      "url": "https://psnprofiles.com/guide/17009-diablo-iv-trophy-guide",
-      "difficulty": 3,
-      "hoursMin": 80,
-      "hoursMax": 15,
-      "playthroughs": 2
-    },
-    "psnpTrophyTags": {
-      "Dedicated Protector": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#6-dedicated-protector"
-      },
-      "Exterminator": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#9-exterminator"
-      },
-      "Legion Killer": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#7-legion-killer"
-      },
-      "Tortured Souls": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#11-tortured-souls"
-      },
-      "Turned": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#10-turned"
-      },
-      "Undead Undone": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#8-undead-undone"
-      },
-      "End of the First Mother": {
-        "tags": [
-          "Difficulty Specific"
-        ],
-        "anchor": "#29-end-of-the-first-mother"
-      },
-      "Living Nightmares": {
-        "tags": [
-          "Difficulty Specific"
-        ],
-        "anchor": "#19-living-nightmares"
-      },
-      "True Perseverance": {
-        "tags": [
-          "Difficulty Specific"
-        ],
-        "anchor": "#27-true-perseverance"
-      }
-    },
-    "psnpGuideAnchors": {
-      "Dedicated Protector": "#6-dedicated-protector",
-      "Exterminator": "#9-exterminator",
-      "Legion Killer": "#7-legion-killer",
-      "Tortured Souls": "#11-tortured-souls",
-      "Turned": "#10-turned",
-      "Undead Undone": "#8-undead-undone",
-      "End of the First Mother": "#29-end-of-the-first-mother",
-      "Living Nightmares": "#19-living-nightmares",
-      "True Perseverance": "#27-true-perseverance"
-    }
+    ]
   },
   "saros": {
     "title": "SAROS",
@@ -8653,7 +8590,7 @@
     ],
     "unearned": []
   },
-  "the 7th guest vr": {
+  "the 7th guest vr (ps5)": {
     "title": "The 7th Guest Remake",
     "npCommunicationId": "NPWR60300_00",
     "npServiceName": "trophy2",
@@ -11771,6 +11708,127 @@
     ],
     "psnpHref": "/trophies/8262-mega-man-11/LabyrinthWorm",
     "psnpGuide": "/guide/9023-mega-man-11-trophy-guide",
+    "psnpGuideFacts": {
+      "source": "psnprofiles",
+      "url": "https://psnprofiles.com/guide/9023-mega-man-11-trophy-guide",
+      "difficulty": 8,
+      "hoursMin": 15,
+      "hoursMax": 15,
+      "playthroughs": 3
+    },
+    "psnpTrophyTags": {
+      "No Getting Away This Time!": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#8-no-getting-away-this-time"
+      },
+      "Now We're Getting Somewhere": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#6-now-were-getting-somewhere"
+      },
+      "One Down, Seven to Go...": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#5-one-down-seven-to-go"
+      },
+      "Where's Wily?": {
+        "tags": [
+          "Unmissable"
+        ],
+        "anchor": "#7-wheres-wily"
+      },
+      "Mega Unstoppable": {
+        "tags": [
+          "Difficulty Specific",
+          "Missable"
+        ],
+        "anchor": "#14-mega-unstoppable"
+      },
+      "Protector of Peace": {
+        "tags": [
+          "Difficulty Specific",
+          "Stackable"
+        ],
+        "anchor": "#9-protector-of-peace"
+      },
+      "The Blue Flash": {
+        "tags": [
+          "Difficulty Specific",
+          "Missable"
+        ],
+        "anchor": "#15-the-blue-flash"
+      },
+      "The World's Best Hope": {
+        "tags": [
+          "Difficulty Specific"
+        ],
+        "anchor": "#10-the-worlds-best-hope"
+      },
+      "All Power, All The Time": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#45-all-power-all-the-time"
+      },
+      "Area Secure": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#40-area-secure"
+      },
+      "Boss Buster": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#13-boss-buster"
+      },
+      "Brute Force": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#30-brute-force"
+      },
+      "Bullet Blaster": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#31-bullet-blaster"
+      },
+      "Can't Improve on Perfection": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#16-cant-improve-on-perfection"
+      },
+      "Guard Breaker": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#38-guard-breaker"
+      },
+      "Mid-Boss Buster": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#12-mid-boss-buster"
+      },
+      "Quick Draw": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#44-quick-draw"
+      },
+      "The Regulars": {
+        "tags": [
+          "Missable"
+        ],
+        "anchor": "#28-the-regulars"
+      }
+    },
     "serverNote": null,
     "platinumRarity": 3.59,
     "earned": [
@@ -12334,148 +12392,7 @@
         "rarity": 0.3,
         "tier": "ultra rare"
       }
-    ],
-    "psnpGuideFacts": {
-      "source": "psnprofiles",
-      "url": "https://psnprofiles.com/guide/9023-mega-man-11-trophy-guide",
-      "difficulty": 8,
-      "hoursMin": 15,
-      "hoursMax": 15,
-      "playthroughs": 3
-    },
-    "psnpTrophyTags": {
-      "No Getting Away This Time!": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#8-no-getting-away-this-time"
-      },
-      "Now We're Getting Somewhere": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#6-now-were-getting-somewhere"
-      },
-      "One Down, Seven to Go...": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#5-one-down-seven-to-go"
-      },
-      "Where's Wily?": {
-        "tags": [
-          "Unmissable"
-        ],
-        "anchor": "#7-wheres-wily"
-      },
-      "Mega Unstoppable": {
-        "tags": [
-          "Difficulty Specific",
-          "Missable"
-        ],
-        "anchor": "#14-mega-unstoppable"
-      },
-      "Protector of Peace": {
-        "tags": [
-          "Difficulty Specific",
-          "Stackable"
-        ],
-        "anchor": "#9-protector-of-peace"
-      },
-      "The Blue Flash": {
-        "tags": [
-          "Difficulty Specific",
-          "Missable"
-        ],
-        "anchor": "#15-the-blue-flash"
-      },
-      "The World's Best Hope": {
-        "tags": [
-          "Difficulty Specific"
-        ],
-        "anchor": "#10-the-worlds-best-hope"
-      },
-      "All Power, All The Time": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#45-all-power-all-the-time"
-      },
-      "Area Secure": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#40-area-secure"
-      },
-      "Boss Buster": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#13-boss-buster"
-      },
-      "Brute Force": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#30-brute-force"
-      },
-      "Bullet Blaster": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#31-bullet-blaster"
-      },
-      "Can't Improve on Perfection": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#16-cant-improve-on-perfection"
-      },
-      "Guard Breaker": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#38-guard-breaker"
-      },
-      "Mid-Boss Buster": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#12-mid-boss-buster"
-      },
-      "Quick Draw": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#44-quick-draw"
-      },
-      "The Regulars": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#28-the-regulars"
-      }
-    },
-    "psnpGuideAnchors": {
-      "No Getting Away This Time!": "#8-no-getting-away-this-time",
-      "Now We're Getting Somewhere": "#6-now-were-getting-somewhere",
-      "One Down, Seven to Go...": "#5-one-down-seven-to-go",
-      "Where's Wily?": "#7-wheres-wily",
-      "Mega Unstoppable": "#14-mega-unstoppable",
-      "Protector of Peace": "#9-protector-of-peace",
-      "The Blue Flash": "#15-the-blue-flash",
-      "The World's Best Hope": "#10-the-worlds-best-hope",
-      "All Power, All The Time": "#45-all-power-all-the-time",
-      "Area Secure": "#40-area-secure",
-      "Boss Buster": "#13-boss-buster",
-      "Brute Force": "#30-brute-force",
-      "Bullet Blaster": "#31-bullet-blaster",
-      "Can't Improve on Perfection": "#16-cant-improve-on-perfection",
-      "Guard Breaker": "#38-guard-breaker",
-      "Mid-Boss Buster": "#12-mid-boss-buster",
-      "Quick Draw": "#44-quick-draw",
-      "The Regulars": "#28-the-regulars"
-    }
+    ]
   },
   "streets of rage 4": {
     "title": "Streets of Rage 4",
@@ -40224,8 +40141,7 @@
         "rarity": 2.7,
         "tier": "ultra rare"
       }
-    ],
-    "ppGuideCoverage": 1
+    ]
   },
   "nine sols": {
     "title": "Nine Sols",
@@ -50294,8 +50210,8 @@
     ],
     "unearned": []
   },
-  "the 7th guest vr (ps5)": {
-    "title": "The 7th Guest VR (PS5)",
+  "the 7th guest vr": {
+    "title": "The 7th Guest VR",
     "npCommunicationId": "NPWR39140_00",
     "npServiceName": "trophy2",
     "platforms": [
@@ -82198,8 +82114,7 @@
         "rarity": 2.7,
         "tier": "ultra rare"
       }
-    ],
-    "ppGuideCoverage": 1
+    ]
   },
   "tunic": {
     "title": "Tunic",
@@ -85729,62 +85644,7 @@
         "rarity": 2.1,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "Living Legend": "platinum",
-      "Gathering Storm": "bronze",
-      "Point of No Return": "bronze",
-      "Company of Wolves": "bronze",
-      "Stoking the Flame": "bronze",
-      "Family Reunion": "bronze",
-      "Leader of the People": "bronze",
-      "Birthright": "bronze",
-      "Dying Embers": "bronze",
-      "The Ghost": "bronze",
-      "The Exiled Alliance": "bronze",
-      "Sovereign End": "bronze",
-      "Mono No Aware": "gold",
-      "The Warrior Monk": "silver",
-      "The Vengeful Warrior": "silver",
-      "The Unbending Archer": "silver",
-      "The Headstrong Thief": "silver",
-      "Teller of Tales": "silver",
-      "Helping Sword Hand": "gold",
-      "Flash of Steel": "bronze",
-      "Witness Protection": "bronze",
-      "All in the Wrist": "bronze",
-      "Open for Business": "bronze",
-      "There Can Be Only One": "bronze",
-      "Have a Nice Fall": "silver",
-      "Haunting Precision": "bronze",
-      "The Ghost of Legend": "bronze",
-      "Quick Study": "bronze",
-      "Every Trick in the Book": "bronze",
-      "The Perfect Storm": "bronze",
-      "A Charming Man": "bronze",
-      "Gifted": "bronze",
-      "Slay": "bronze",
-      "Light the Way": "bronze",
-      "Den of Thieves": "bronze",
-      "Favor of the Kami": "bronze",
-      "Honor the Unseen": "bronze",
-      "Lost and Found": "bronze",
-      "Monochrome Masters": "bronze",
-      "Cooper Clan Cosplayer": "silver",
-      "Dirge of the Fallen Forge": "bronze",
-      "A Moment in Time": "bronze",
-      "Avid Reader": "bronze",
-      "Know Your Enemy": "bronze",
-      "Body, Mind, and Spirit": "silver",
-      "Hero of the People": "bronze",
-      "A Fight For The Isle….": "bronze",
-      "Good Riddance": "bronze",
-      "Securing Sanctuary….": "bronze",
-      "Mass Eviction": "bronze",
-      "A New Safe Haven": "bronze",
-      "Master Liberator": "silver"
-    },
-    "ppGuideCoverage": 0.68
+    ]
   },
   "until dawn": {
     "title": "Until Dawn",
@@ -96775,55 +96635,7 @@
         "rarity": 0.3,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "Ultimate Vault Hunter": "platinum",
-      "You Got Skills": "bronze",
-      "Star Bound": "bronze",
-      "Vaulting Your Way To The Top": "silver",
-      "Biggest Badass In The Borderlands": "gold",
-      "Bolt-Ons": "bronze",
-      "Mechani-Cool": "bronze",
-      "Tips Appreciated": "bronze",
-      "I Hope You Didn’t Tea-bag": "bronze",
-      "Stay Away From The Light": "bronze",
-      "Gun Pals!": "bronze",
-      "Dropping Loads": "bronze",
-      "Good Against Remotes Is One Thing": "bronze",
-      "My Name Is Earl": "bronze",
-      "Tales From The Eridian Slab": "silver",
-      "Slaughterhouse 3": "bronze",
-      "A Hundred Names For Sand": "bronze",
-      "Swamped": "bronze",
-      "City Slicker": "bronze",
-      "Exoarchaeolo—You Get the Gist": "bronze",
-      "Master Of All You Survey": "silver",
-      "À La Carte": "bronze",
-      "Getting A Little On The Side": "gold",
-      "100 Proof": "silver",
-      "Got Big Game": "bronze",
-      "Zer0ed In": "bronze",
-      "Barreled Right Over Them": "bronze",
-      "Feelin’ A Little Stabby": "bronze",
-      "Stick It To ‘Em": "bronze",
-      "On Fleek": "silver",
-      "Rewards Card": "bronze",
-      "Welcome to the Crimson Raiders": "bronze",
-      "So Long, Pandora!": "bronze",
-      "NOG It Off": "bronze",
-      "I Mustache You A Question": "bronze",
-      "Gone From My Sight": "bronze",
-      "That Was Cold": "bronze",
-      "Heir To An Empty Castle": "bronze",
-      "Cross The Streamers": "bronze",
-      "Apocalypso!": "bronze",
-      "I Am A Goddess, A Glorious Female Warrior": "bronze",
-      "Bye, Felicia!": "gold",
-      "Florida Man": "bronze",
-      "Stay Golden": "bronze",
-      "Damn, Gina": "silver"
-    },
-    "ppGuideCoverage": 0.57
+    ]
   },
   "oddworld soulstorm": {
     "title": "Oddworld: Soulstorm",
@@ -108665,61 +108477,7 @@
         "rarity": 5.1,
         "tier": "very rare"
       }
-    ],
-    "ppTrophyType": {
-      "Epic Cycle": "platinum",
-      "This is Sparta!": "bronze",
-      "An Odyssey in the Making": "bronze",
-      "Past Mistakes": "bronze",
-      "Evil Unearthed": "bronze",
-      "The Bright Minds": "bronze",
-      "From the Ashes": "bronze",
-      "Democracy Falls": "bronze",
-      "Legend in the Making": "bronze",
-      "Taking Back Athens": "silver",
-      "Odyssey’s End": "gold",
-      "Child of Poseidon": "silver",
-      "Make It Your Own": "bronze",
-      "You Work for Me Now": "bronze",
-      "Shiny!": "bronze",
-      "I am Legend": "silver",
-      "Are You Not Entertained?": "silver",
-      "Demigod": "bronze",
-      "Godly Power": "bronze",
-      "Legacy Restored": "silver",
-      "Top of the Food Chain": "bronze",
-      "The Cult Unmasked": "silver",
-      "Stink Eye": "bronze",
-      "Hermes’s Homie": "bronze",
-      "In Perseus’s Image": "bronze",
-      "A-maze-ing Victory!": "bronze",
-      "Eye on the Prize": "bronze",
-      "Riddle Me This": "bronze",
-      "Lord of the Seas": "silver",
-      "The Argonauts": "silver",
-      "Master of the Hunt": "bronze",
-      "Everybody Benefits": "bronze",
-      "Trust Me, I’m a Doctor": "bronze",
-      "A Pirate’s Life for Me": "bronze",
-      "Going For Gold": "silver",
-      "Scourge of the Aegean": "bronze",
-      "Blood Sport": "bronze",
-      "Harder, Better, Faster, Stronger": "bronze",
-      "Fashion’s Creed": "bronze",
-      "Aphrodite’s Embrace": "bronze",
-      "One Head Down…": "silver",
-      "Birthright": "bronze",
-      "Ramming Speed": "bronze",
-      "I Have the Power": "bronze",
-      "War Master": "bronze",
-      "Misthios in Training": "bronze",
-      "Island Hopper": "gold",
-      "Infamous": "bronze",
-      "Hero for Hire": "bronze",
-      "Wrath of the Amazons": "bronze",
-      "The Midas Touch": "bronze"
-    },
-    "ppGuideCoverage": 0.56
+    ]
   },
   "the little acre": {
     "title": "The Little Acre",
@@ -120917,73 +120675,7 @@
         "rarity": 2.3,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "Greatest of Great Deliverers": "platinum",
-      "Delivering Is What I Do": "bronze",
-      "Rebuilding America": "bronze",
-      "We Need You": "bronze",
-      "I Won’t Break": "bronze",
-      "BB…": "bronze",
-      "We’re Whole Again": "bronze",
-      "BBs: A Bridge Between This World and the One Beyond": "bronze",
-      "“BB”": "bronze",
-      "Sixty Deaths and Sixty Births in a Day": "bronze",
-      "The Particle of God": "bronze",
-      "I’m Your Die-Hardman": "bronze",
-      "Bring Back My Baby": "bronze",
-      "She’s waiting for you on the Beach.": "bronze",
-      "Thank You, Sam": "bronze",
-      "Thanks for Everything": "silver",
-      "Everyday Delivery": "bronze",
-      "Deliveries Done": "bronze",
-      "Birth of a Legend": "bronze",
-      "Growth of a Legend": "gold",
-      "A Helping Hand": "bronze",
-      "The Automation Revolution": "bronze",
-      "Apprentice Builder": "bronze",
-      "Master Builder": "bronze",
-      "A New Day for the UCA": "bronze",
-      "In Sam We Trust": "bronze",
-      "Well Connected": "bronze",
-      "Best Beloved": "silver",
-      "Like and Be Liked": "bronze",
-      "The People’s Porter": "bronze",
-      "The World’s Most Popular Porter": "bronze",
-      "Good Samaritan": "bronze",
-      "Giver of Gifts": "bronze",
-      "Chiral Crafter": "bronze",
-      "A Thirst for Knowledge": "bronze",
-      "Fount of Knowledge": "bronze",
-      "The Custom Kid": "bronze",
-      "Soak and Sigh": "bronze",
-      "The Post Guides the Present": "bronze",
-      "The Past Guides the Present": "bronze",
-      "Pathfinder": "bronze",
-      "Childminder": "bronze",
-      "A Baby Blessing": "bronze",
-      "Prominent Porter": "bronze",
-      "Great Deliverer": "bronze",
-      "Catcher Crusher": "bronze",
-      "Snooze ‘n’ Soothe": "bronze",
-      "Boots Are a Porter’s Best Friend": "bronze",
-      "Hooked on Delivering!?": "bronze",
-      "Pumped Porter": "bronze",
-      "Well-Traveled": "bronze",
-      "God Particle Go-Getter": "bronze",
-      "Rest In Pieces": "bronze",
-      "Any Porter in a Storm": "bronze",
-      "Sleep Tight, Little BB": "bronze",
-      "A Shout in the Dark": "bronze",
-      "Public Service Porter": "bronze",
-      "Trail-Blazer": "bronze",
-      "I Couldn’t Hold it In!": "bronze",
-      "All Roads Lead to the UCA": "bronze",
-      "Soothing Sounds": "bronze",
-      "Building Bridges": "bronze",
-      "Homo Faber": "bronze"
-    },
-    "ppGuideCoverage": 0.97
+    ]
   },
   "legend of the skyfish": {
     "title": "Legend of the Skyfish",
@@ -134476,54 +134168,7 @@
         "rarity": 0.6,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "Persistence Pays Dividends": "platinum",
-      "Let’s Do This": "bronze",
-      "Plot the Jump Vectors": "bronze",
-      "Mutant Madness": "bronze",
-      "Repair the Sensors": "bronze",
-      "A Fallen Hero": "bronze",
-      "Going Home!": "bronze",
-      "Super Happy Ending": "gold",
-      "Treasure Hunter": "bronze",
-      "First of Many": "bronze",
-      "Epic!": "bronze",
-      "Everything is Awesome!": "gold",
-      "Payback Time": "bronze",
-      "Full Arsenal": "silver",
-      "Lock and Load": "bronze",
-      "As Good as it Gets": "silver",
-      "Feeling Good": "bronze",
-      "Feeling Great": "bronze",
-      "Feeling Unstoppable": "gold",
-      "Samurai": "silver",
-      "Six Shooter": "bronze",
-      "Sharp Shooter": "bronze",
-      "A Bundle of Limbs": "bronze",
-      "Thanks, Guys!": "bronze",
-      "That’s Gotta Hurt": "bronze",
-      "Abrakebabra!": "bronze",
-      "Stealth is for Wimps": "bronze",
-      "Who’s a Good Boy!": "bronze",
-      "Shields Up!": "bronze",
-      "Shields at Maximum": "silver",
-      "Fully Fortified": "gold",
-      "A Lost Friend": "bronze",
-      "A Lost Family": "silver",
-      "Not Feeling Myself…": "bronze",
-      "All the Crew": "silver",
-      "Full House": "bronze",
-      "The Ship is Your Friend": "bronze",
-      "Big Bad Buddy": "bronze",
-      "Thank You!": "bronze",
-      "Wrong Place, Wrong Time": "bronze",
-      "Keep Your Distance, Buddy": "bronze",
-      "Boom!": "bronze",
-      "Teleport Technician": "bronze",
-      "Nah, I’m Good.": "silver"
-    },
-    "ppGuideCoverage": 1
+    ]
   },
   "36 fragments of midnight": {
     "title": "36 Fragments of Midnight",
@@ -143057,61 +142702,7 @@
         "rarity": 0.1,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "The World Wanderer": "platinum",
-      "Insomnia’s Waking Nightmare": "bronze",
-      "Departure": "bronze",
-      "No Turning Back": "bronze",
-      "The Open World": "bronze",
-      "Living Legend": "bronze",
-      "Dark Clouds": "bronze",
-      "A Way Forward": "bronze",
-      "Party of Three": "bronze",
-      "Seaworthy": "bronze",
-      "Callings": "bronze",
-      "The Heart of a King": "bronze",
-      "In the Dark": "bronze",
-      "End of Days": "bronze",
-      "Redemption": "bronze",
-      "Homecoming": "silver",
-      "Chosen King": "gold",
-      "Learner’s Permit": "bronze",
-      "Chocobo Jockey": "bronze",
-      "Regalia Pilot": "silver",
-      "Quadruple Threat": "bronze",
-      "Faithful Heir": "silver",
-      "New Power": "bronze",
-      "Self-Improved": "silver",
-      "Self-Mastered": "gold",
-      "Angling Rookie": "bronze",
-      "Survival Rookie": "bronze",
-      "Photo Rookie": "bronze",
-      "Cooking Rookie": "bronze",
-      "Angling Expert": "bronze",
-      "Survival Expert": "bronze",
-      "Photo Expert": "bronze",
-      "Cooking Expert": "bronze",
-      "Just Hangin’ Around": "bronze",
-      "Brother-in-Arms": "bronze",
-      "Blind Spot": "bronze",
-      "Noct You Like a Hurricane": "bronze",
-      "The Power of Kings": "bronze",
-      "Magical Worker": "bronze",
-      "Black Mage": "bronze",
-      "Divine Intervention": "bronze",
-      "High Five for Justice!": "bronze",
-      "Immortal Photobomb": "bronze",
-      "Spinning a Yarn I": "bronze",
-      "Spinning a Yarn II": "bronze",
-      "Spinning a Yarn III": "bronze",
-      "Spinning a Yarn IV": "bronze",
-      "Spinning a Yarn V": "bronze",
-      "Weaving a Tapestry": "silver",
-      "My First Hunt": "bronze",
-      "Tortoise Toppler": "gold"
-    },
-    "ppGuideCoverage": 0.52
+    ]
   },
   "guacamelee super turbo championship edition": {
     "title": "Guacamelee! Super Turbo Championship Edition",
@@ -148476,61 +148067,7 @@
         "rarity": 0.1,
         "tier": "ultra rare"
       }
-    ],
-    "ppTrophyType": {
-      "The New Colossus": "platinum",
-      "Déjà Vu": "bronze",
-      "Carrying the Torch": "bronze",
-      "Enemy Within": "bronze",
-      "Amazing Grace": "bronze",
-      "It’s Fricking Space Aliens!": "bronze",
-      "R.I.P.": "bronze",
-      "All the Gains!": "bronze",
-      "Sermons and Moonshine": "bronze",
-      "Venus": "bronze",
-      "The Ausmerzer": "bronze",
-      "Starting a Collection": "bronze",
-      "Toy Collector": "bronze",
-      "Audiophile": "bronze",
-      "Golden Boy": "bronze",
-      "Terror-Billy": "bronze",
-      "Meet the Cast": "bronze",
-      "Art Aficionado": "bronze",
-      "Tinkerer": "bronze",
-      "Specialist": "silver",
-      "Gun Nut": "silver",
-      "Revolution": "silver",
-      "Bring ’em on!": "bronze",
-      "Do or die!": "bronze",
-      "Call me Terror-Billy!": "bronze",
-      "I am death incarnate!": "bronze",
-      "Mein leben": "bronze",
-      "Max a Perk": "silver",
-      "Max all perks": "gold",
-      "Bull Rush": "bronze",
-      "Snakebite": "bronze",
-      "The Sky is the Limit": "bronze",
-      "Kick It": "bronze",
-      "They did Nazi that Coming": "bronze",
-      "Hard Headed": "silver",
-      "I’m Machine Enough": "bronze",
-      "Coming Back for More": "bronze",
-      "Across the Board": "gold",
-      "Complete Package": "silver",
-      "Plus Package": "bronze",
-      "Make a Point": "silver",
-      "First Loser": "silver",
-      "Crippled but Able": "bronze",
-      "Hail Mary": "bronze",
-      "Sightseeing": "bronze",
-      "Puzzler": "bronze",
-      "Retro": "bronze",
-      "Taste of Your own Medicine": "bronze",
-      "Ghost": "silver",
-      "Keep Playing": "bronze",
-      "Sidetracked": "silver"
-    },
-    "ppGuideCoverage": 0.63
+    ]
   },
   "cat quest": {
     "title": "Cat Quest",
@@ -167680,10 +167217,10 @@
     "genres": [
       "Adventure"
     ],
-    "psnpHref": null,
-    "psnpGuide": null,
+    "psnpHref": "/trophies/14616-the-elder-scrolls-v-skyrim/LabyrinthWorm",
+    "psnpGuide": "/guide/5439-the-elder-scrolls-v-skyrim-trophy-guide",
     "serverNote": null,
-    "platinumRarity": null,
+    "platinumRarity": 12.86,
     "earned": [
       {
         "id": 1,
@@ -224988,10 +224525,10 @@
     "genres": [
       "Adventure"
     ],
-    "psnpHref": null,
-    "psnpGuide": null,
+    "psnpHref": "/trophies/14616-the-elder-scrolls-v-skyrim/LabyrinthWorm",
+    "psnpGuide": "/guide/5439-the-elder-scrolls-v-skyrim-trophy-guide",
     "serverNote": null,
-    "platinumRarity": null,
+    "platinumRarity": 12.86,
     "earned": [
       {
         "id": 0,
@@ -236175,131 +235712,7 @@
         "rarity": 35,
         "tier": "rare"
       }
-    ],
-    "psnpGuideFacts": {
-      "source": "psnprofiles",
-      "url": "https://psnprofiles.com/guide/11225-demons-souls-trophy-guide",
-      "difficulty": 7,
-      "hoursMin": 40,
-      "hoursMax": 40,
-      "playthroughs": 2
-    },
-    "psnpTrophyTags": {
-      "Return to Form": {
-        "tags": [
-          "Online Required"
-        ],
-        "anchor": "#21-return-to-form"
-      },
-      "Unwelcome Guest": {
-        "tags": [
-          "Online Required"
-        ],
-        "anchor": "#22-unwelcome-guest"
-      },
-      "Brother-in-Arms": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#24-brother-in-arms"
-      },
-      "Fists of Legend": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#25-fists-of-legend"
-      },
-      "King of Rings": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#40-king-of-rings"
-      },
-      "Legacy of the Kings": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#37-legacy-of-the-kings"
-      },
-      "May you be unharmed": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#29-may-you-be-unharmed"
-      },
-      "Not Fooled": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#27-not-fooled"
-      },
-      "One Shall Fall": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#23-one-shall-fall"
-      },
-      "One Shall Stand": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#28-one-shall-stand"
-      },
-      "Road to Possibilities": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#34-road-to-possibilities"
-      },
-      "Sage's Trophy": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#38-sages-trophy"
-      },
-      "Saint's Trophy": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#39-saints-trophy"
-      },
-      "Seekest soul power": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#30-seekest-soul-power"
-      },
-      "Time for Rolling": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#26-time-for-rolling"
-      },
-      "Worthy of the Sword": {
-        "tags": [
-          "Missable"
-        ],
-        "anchor": "#33-worthy-of-the-sword"
-      }
-    },
-    "psnpGuideAnchors": {
-      "Return to Form": "#21-return-to-form",
-      "Unwelcome Guest": "#22-unwelcome-guest",
-      "Brother-in-Arms": "#24-brother-in-arms",
-      "Fists of Legend": "#25-fists-of-legend",
-      "King of Rings": "#40-king-of-rings",
-      "Legacy of the Kings": "#37-legacy-of-the-kings",
-      "May you be unharmed": "#29-may-you-be-unharmed",
-      "Not Fooled": "#27-not-fooled",
-      "One Shall Fall": "#23-one-shall-fall",
-      "One Shall Stand": "#28-one-shall-stand",
-      "Road to Possibilities": "#34-road-to-possibilities",
-      "Sage's Trophy": "#38-sages-trophy",
-      "Saint's Trophy": "#39-saints-trophy",
-      "Seekest soul power": "#30-seekest-soul-power",
-      "Time for Rolling": "#26-time-for-rolling",
-      "Worthy of the Sword": "#33-worthy-of-the-sword"
-    }
+    ]
   },
   "infamous": {
     "title": "inFamous",
